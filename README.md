@@ -41,4 +41,27 @@ GuruDev integra linguística, inteligência artificial, epistemologia e engenhar
 1. Clone o repositório:  
    ```bash
    git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+   Explore os exemplos em examples/.
+
+Consulte a gramática formal em grammar/gurudev.ebnf.
+
+Para contribuir, leia as diretrizes em .github/CONTRIBUTING.md (em desenvolvimento).
+
+🔐 Segurança e Governança
+Este projeto é mantido sob a infraestrutura GitHub Enterprise da Hubstry-DeepTech, utilizando:
+
+GitHub Advanced Security (Code Scanning, Secret Scanning)
+
+Dependabot para gerenciamento de dependências
+
+GitHub Actions para integração contínua e deploy automatizado
+
+🤝 Contribua
+Sua colaboração é bem-vinda! Abra issues para sugestões, bugs ou dúvidas. Pull requests são avaliados cuidadosamente para garantir a integridade do projeto.
+
+📜 Licença
+Este projeto está licenciado sob a Apache 2.0 License.
+
+Reprograme o mundo com semântica, inteligência e resiliência.
+© Hubstry-DeepTech · All rights reserved.
 
