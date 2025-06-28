@@ -39,6 +39,8 @@ Este roadmap detalha a evolução da Linguagem de Programação Ontológica e Mu
         * Criar um protótipo funcional para interoperar com **uma ou duas linguagens dominantes** (ex: Python e/ou JavaScript), focando em casos onde a GuruDev® traz um diferencial claro.
     * **Aprimorar Protótipos Existentes:**
         * Transformar o `Alpha 0.1 – Hello World` e `Alpha 0.2 – ProtoLab` (Google Colab) em *proofs-of-concept* mais abrangentes, com exemplos mais ricos das funcionalidades multissemióticas.
+        * * **Lançamento de MVP Técnico - GuruDev® Interactive Lexer (IA Manus):**
+          * Lançamento de um ambiente online interativo ([https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)) para testar e visualizar a tokenização de código GuruDev® nativamente. Este MVP demonstra o funcionamento do lexer aprimorado (máquina de estados `ply.lex`) e a capacidade da GuruDev® em analisar sua sintaxe única, incluindo blocos com interoperabilidade e elementos semânticos, servindo como uma prova concreta de progresso técnico.
     * **Formalização e Especificação (Docs):**
         * Revisar e expandir a `Gramática EBNF` para refletir as decisões de design atuais.
         * Adicionar exemplos de sintaxe GuruDev® para os casos de uso prototipados.
