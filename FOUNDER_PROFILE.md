@@ -1,6 +1,6 @@
 👤 PITCH — FOUNDER SOLO FULL STACK
 🧠 Perfil de Execução
-Guilherme Machado atua como founder solo e executa as funções de:
+Guilherme Gonçalves Machado atua como founder solo e executa as funções de:
 
 
 🎯 CEO: Estratégia, aceleração, programas de fomento (Microsoft, Artemísia, GitHub Education) 
@@ -20,7 +20,7 @@ Guilherme Machado atua como founder solo e executa as funções de:
 📚 Educador / Community Builder: Substack técnico-poético, pitchs, whitepaper, evangelização simbólica
 
 📌 Execução Orgânica Validada:
-Indexado como top 1 no Google para "Gurudev"
+Indexado como top 1 no Google para "Gurudev linguagem de programação"
 
 Todas redes e plataformas estão ativas (LinkedIn, GitHub, Product Hunt, Colab, Notion)
 
