@@ -1,8 +1,3 @@
-Certo, Guilherme. Suas perguntas são **extremamente pertinentes** e tocam no cerne da diferença entre um investimento de capital de risco (venture capital/investidores capitalistas) e uma subvenção governamental ou fomento. É fundamental ajustar a narrativa para ser convincente para a Artemísia, que, embora tenha um viés de impacto, busca projetos com **viabilidade e escalabilidade de mercado**.
-
-Vamos refinar a narrativa, focando em como a ausência de lucro em 24 meses é normal no contexto de *deep tech* e como o valor é criado para o investidor.
-
----
 
 ## Modelagem Financeira Estratégica para GuruDev® & Hubstry (Apresentação Final Artemísia Potência UP)
 
