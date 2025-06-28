@@ -1,7 +1,7 @@
 
 # Gramática EBNF da GuruDev® (Versão 1.0.0-alpha)
 
-[cite\_start]Esta EBNF descreve a sintaxe da Linguagem de Programação Multi-Paradigma GuruDev®, baseada em casos gramaticais do proto-indo-europeu e sua estrutura de blocos tríplices. [cite: 2, 8]
+Esta EBNF descreve a sintaxe da Linguagem de Programação Multi-Paradigma GuruDev®, baseada em casos gramaticais do proto-indo-europeu e sua estrutura de blocos tríplices. 
 
 -----
 
@@ -19,7 +19,7 @@
 
 ### 1\. Estrutura Geral do Programa
 
-[cite\_start]Um programa GuruDev® é composto por um ou mais blocos tríplices. [cite: 9, 73]
+Um programa GuruDev® é composto por um ou mais blocos tríplices. 
 
 ```ebnf
 program = { triple_block } ;
@@ -27,7 +27,7 @@ program = { triple_block } ;
 
 ### 2\. Sintaxe com Casos Gramaticais
 
-[cite\_start]Os 8 casos gramaticais servem como palavras-chave sintáticas principais. [cite: 21, 41]
+Os 8 casos gramaticais servem como palavras-chave sintáticas principais. 
 
 ```ebnf
 case_keyword = ( "VOC" (* Vocativo - Chamada/Invocação *)
@@ -45,7 +45,7 @@ case_usage = case_keyword "." IDENTIFIER ; (* Ex: VOC.minhaFuncao(), NOM funcao,
 
 ### 3\. Estrutura de Blocos Tríplices
 
-[cite\_start]Cada bloco GuruDev® possui três camadas: `[bloco]`, `[sobrescrita]` (para metadados) e `[subescritas]` (para interoperabilidade). [cite: 9, 73, 74, 284]
+Cada bloco GuruDev® possui três camadas: `[bloco]`, `[sobrescrita]` (para metadados) e `[subescritas]` (para interoperabilidade). 
 
 ```ebnf
 triple_block = "[bloco]" WHITESPACE
@@ -74,7 +74,7 @@ subscript_block = "[subescritas]" WHITESPACE
 
 ### 4\. Claves Contextuais, Raízes Semânticas e Níveis de Interpretação
 
-[cite\_start]Estas anotações de metadados são parte da `overscript_block`. [cite: 11, 12, 13, 161, 176, 192]
+Estas anotações de metadados são parte da `overscript_block`. 
 
 ```ebnf
 annotation_tag = "[" SEMANTIC_KEYWORD_SHORT "]"  (* ex: [ciencia], [filosofia] *)
@@ -92,7 +92,7 @@ INTERPRETATION_LEVEL_STRING = "literal" | "metaforico" | "historico" | "processa
 
 ### 5\. Tipos de Dados Nativos
 
-[cite\_start]GuruDev® suporta uma variedade de tipos de dados explícitos. [cite: 10, 144, 145, 287]
+GuruDev® suporta uma variedade de tipos de dados explícitos. 
 
 ```ebnf
 TYPE = ( "Int" | "Float" | "Bool" | "Char" | "String"
@@ -107,7 +107,7 @@ TYPE = ( "Int" | "Float" | "Bool" | "Char" | "String"
 
 ### 6\. Interoperabilidade (Subescritas Multilíngues)
 
-[cite\_start]Blocos de código em outras linguagens são aninhados nas `[subescritas]`. [cite: 14, 212, 285]
+Blocos de código em outras linguagens são aninhados nas `[subescritas]`. 
 
 ```ebnf
 foreign_language_block = "?" LANGUAGE_ID "?" WHITESPACE
@@ -120,7 +120,7 @@ FOREIGN_CODE_LINE = { CHARACTER } EOL ; (* Linhas de código na linguagem estran
 
 ### 7\. Execução Série/Paralelo
 
-[cite\_start]Controle de fluxo explícito para execução sequencial ou simultânea. [cite: 15, 240, 243, 250]
+Controle de fluxo explícito para execução sequencial ou simultânea. 
 
 ```ebnf
 execution_control_block = ( "serie" "{" { statement } "}"
@@ -138,13 +138,13 @@ statement = ( declaration
             | control_flow_statement
             | execution_control_block
             | return_statement
-            ) ";" ; [cite_start](* Ponto-e-vírgula obrigatório no final de cada linha [cite: 282] *)
+            ) ";" ; (* Ponto-e-vírgula obrigatório no final de cada linha  *)
 
 declaration = case_usage TYPE IDENTIFIER [ "=" expression ] ; (* Adapta NOM caso *)
 assignment = case_usage "=" expression ; (* Adapta ACU caso *)
 
 function_call = case_usage "(" [ argument_list ] ")" ; (* Adapta VOC caso *)
-method_call = case_usage "." IDENTIFIER "(" [ argument_list ] ")" ; (* Adapta VOC ou GEN caso *)
+method_call = case_usage "." IDENTIFIER"(" [ argument_list ] ")" ; (* Adapta VOC ou GEN caso *)
 
 argument_list = expression { "," expression } ;
 
@@ -158,10 +158,10 @@ expression = ( value
 
 value = ( NUMBER | STRING_VALUE | BOOLEAN | IDENTIFIER ) ;
 
-STRING_VALUE = '"' { CHARACTER_EXCEPT_DOUBLE_QUOTE } '"' ; [cite_start](* Strings entre aspas duplas [cite: 281] *)
+STRING_VALUE = '"' { CHARACTER_EXCEPT_DOUBLE_QUOTE } '"' ; [cite_start](* Strings entre aspas duplas  *)
 NUMBER = DIGIT+ [ "." DIGIT+ ] [ "f" ] ; [cite_start](* Float pode ter 'f' no final [cite: 147] *)
 BOOLEAN = ( "true" | "false" ) ;
-IDENTIFIER = LETTER { LETTER | DIGIT | "_" } ; [cite_start](* camelCase para variáveis, PascalCase para classes [cite: 288] - convenção, não regra EBNF *)
+IDENTIFIER = LETTER { LETTER | DIGIT | "_" } ; [cite_start](* camelCase para variáveis, PascalCase para classes  - convenção, não regra EBNF *)
 
 control_flow_statement = ( if_statement | for_loop | foreach_loop ) ;
 
@@ -184,7 +184,7 @@ FILEPATH = { CHARACTER_EXCEPT_DOUBLE_QUOTE } ; (* Caminho para o arquivo *)
 [cite_start](* Temporal é STRING_VALUE com formato específico [cite: 155] *)
 [cite_start](* Grafo é Object com sintaxe específica new Grafo<K,V>() [cite: 160] *)
 
-[cite_start](* Comentários [cite: 286] *)
+(* Comentários [cite: 286] *)
 comment = ( "//" { CHARACTER } EOL
           | "/*" { CHARACTER } "*/"
           ) ;
