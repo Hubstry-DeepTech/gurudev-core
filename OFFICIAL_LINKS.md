@@ -2,8 +2,11 @@
 # Links Oficiais — GuruDev® & Hubstry
 
 Este documento centraliza todos os links importantes relacionados à linguagem de programação GuruDev® e à Hubstry, a empresa por trás do projeto.
+
 ⚙️ Ferramentas de Desenvolvimento GuruDev®
+
 🔗 IA Manus – GuruDev® Interactive Lexer:
+
 Um ambiente interativo para testar e visualizar a tokenização de código GuruDev® nativamente, demonstrando o funcionamento do lexer da linguagem em tempo real.
 [https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)
 ---
