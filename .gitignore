@@ -1,0 +1,80 @@
+# Ignora arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignora diretórios de cache e logs
+*.log
+logs/
+.cache/
+
+# Ignora diretórios de dependências (se aplicável, dependendo da linguagem de implementação do processador GuruDev)
+# Ex: para Python
+__pycache__/
+*.pyc
+*.pyd
+.venv/
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ex: para JavaScript/TypeScript (se houver ferramentas ou frontend no mesmo repo ou build)
+node_modules/
+dist/
+build/
+coverage/
+
+# Ex: para Java/Kotlin
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+
+# Ex: para C/C++
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+build/
+
+# Ignora arquivos de IDEs (Editores de Código)
+.idea/             # IntelliJ IDEA
+.vscode/           # VS Code (apenas se for específico do usuário e não do projeto)
+*.iml              # IntelliJ IDEA
+*.code-workspace   # VS Code Workspace (se for apenas local)
+
+# Ignora arquivos de ambiente e configurações locais
+.env
+.env.*
+*.local
+*.secret
+*.private
+
+# Ignora arquivos gerados por Jupyter/Colab (se não forem parte intencional do versionamento)
+.ipynb_checkpoints/
+*.ipynb
+
+# Arquivos temporários de editor
+*~
+*.swp
+.DS_Store
+
+# Diretórios de lixo ou temporários que podem surgir
+tmp/
+temp/
+
+# Arquivos de dados grandes ou resultados de processamento que não devem ser versionados
+# Ex: Se GuruDev gerar arquivos de output muito grandes
+*.output
+*.results
+data/raw/ # Pode ser útil ignorar dados brutos, mas versionar dados processados
+
+# Arquivos específicos do Docker
+Dockerfile.orig
+docker-compose.override.yml # se usado para overrides locais
+.dockerignore # O .dockerignore deve ser versionado, mas pode ter regras que ignoram coisas do .gitignore
