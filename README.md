@@ -5,6 +5,18 @@
 Este repositório contém o núcleo da linguagem, incluindo sua gramática, interpretador e arquitetura conceitual.
 
 ---
+## ✨ Experimente GuruDev® Agora!
+
+Curioso para ver a GuruDev® em ação? Lançamos um **ambiente interativo online** onde você pode testar o código GuruDev® nativamente e visualizar a análise dos tokens em tempo real!
+
+Este **GuruDev® Interactive Lexer** (alimentado pelo nosso lexer aprimorado com máquina de estados `ply.lex`) é sua chance de explorar a primeira camada do nosso compilador e ver como a GuruDev® processa sua sintaxe única, incluindo:
+* Casos gramaticais e anotações semânticas.
+* Estruturas de blocos GuruDev® (`[bloco]`, `¡codigo!`).
+* Blocos de código multilíngues (`¿python?`, `¿javascript?`, `¿rust?`).
+
+Clique no link abaixo e comece a experimentar:
+
+🔗 **GuruDev® Interactive Lexer (IA Manus):** [https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)
 
 ## 🌟 Visão
 
