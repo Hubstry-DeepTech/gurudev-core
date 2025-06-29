@@ -75,6 +75,89 @@ Inicialmente, a GuruDev® será executada em ambientes como **Jupyter Notebook, 
 
 Essa estratégia garante adoção gradual, adaptação técnica mínima e compatibilidade com o ecossistema de ferramentas já amplamente difundidas.
 
+2.6. Sintaxe Baseada em Casos Gramaticais
+A GuruDev® se distingue por sua sintaxe inovadora, que incorpora oito casos gramaticais inspirados nas línguas clássicas, como o proto-indo-europeu. Esses casos servem como palavras-chave sintáticas fundamentais, infundindo um significado semântico direto nas operações do código e tornando-o mais intuitivo e análogo à linguagem humana.
+
+Essa abordagem permite que o desenvolvedor pense em termos de ação, atribuição, posse ou contexto, refletindo a intenção de forma mais explícita. Cada caso gramatical direciona o compilador/interpretador sobre o papel semântico do elemento de código associado:
+
+Caso Gramatical
+
+Sigla
+
+Função Sintática / Semântica
+
+Exemplo de Uso
+
+Vocativo
+
+VOC
+
+Chamada/Invocação de funções, métodos ou classes.
+
+VOC.minhaFuncao(); VOC.MinhaClasse();
+
+Nominativo
+
+NOM
+
+Declaração/Definição de entidades (funções, classes, variáveis).
+
+NOM funcao calculadora() { ... } NOM classe Pessoa { ... }
+
+Acusativo
+
+ACU
+
+Objeto Direto/Atribuição de valor a uma variável ou propriedade.
+
+ACU.variavel = valor; ACU.objeto.propriedade = novoValor;
+
+Dativo
+
+DAT
+
+Destinatário/Para quem a ação é direcionada.
+
+DAT.usuario enviar(mensagem); DAT.arquivo escrever(dados);
+
+Genitivo
+
+GEN
+
+Posse/Pertencimento; acesso a propriedades de um objeto.
+
+GEN.usuario.nome; GEN.sistema.configuracao;
+
+Instrumental
+
+INS
+
+Meio/Ferramenta pela qual uma ação é realizada.
+
+INS.biblioteca importar(); INS.modulo usar();
+
+Locativo
+
+LOC
+
+Local/Contexto de uma operação ou dado.
+
+LOC.memoria alocar(tamanho); LOC.arquivo processar(dados);
+
+Ablativo
+
+ABL
+
+Origem/Fonte de onde algo é obtido.
+
+ABL.database obter(query); ABL.arquivo ler();
+
+
+
+Essa estrutura única não apenas aprimora a legibilidade e a intenção do código, mas também facilita a interoperabilidade semântica, pois as relações entre os elementos são marcadas de forma explícita e universalmente compreensível através de um sistema gramatical.
+
+
+
 ---
 
 ## 3. Tipos de Dados Multimodais
