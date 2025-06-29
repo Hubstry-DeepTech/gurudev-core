@@ -1,199 +1,228 @@
 
-# Gramática EBNF da GuruDev® (Versão 1.0.0-alpha)
 
-Esta EBNF descreve a sintaxe da Linguagem de Programação Multi-Paradigma GuruDev®, baseada em casos gramaticais do proto-indo-europeu e sua estrutura de blocos tríplices. 
+Este documento é a especificação sintática completa da linguagem.
 
------
+Gramática EBNF da GuruDev® (Versão 1.0.0-alpha - Lexer-Aligned)
+Esta EBNF descreve a sintaxe completa da Linguagem de Programação Ontológica e Multissemiótica GuruDev®, alinhada com o comportamento do lexer ply.lex implementado. Ela define como o código GuruDev® é estruturado, incluindo suas anotações semânticas e a interoperabilidade nativa com outras linguagens.
 
-### Convenções EBNF
+Convenções EBNF
+rule = definition ;
 
-  * `rule = definition ;`
-  * `"terminal"`: Palavras-chave e símbolos literais, exatamente como aparecem no código.
-  * `[ item ]`: Item opcional (zero ou uma ocorrência).
-  * `{ item }`: Item repetível (zero ou mais ocorrências).
-  * `item+`: Um ou mais itens.
-  * `( item1 | item2 )`: Escolha entre itens.
-  * `(* comment *)`: Comentários dentro da gramática.
+"terminal": Palavras-chave e símbolos literais, exatamente como aparecem no código.
 
------
+[ item ]: Item opcional (zero ou uma ocorrência).
 
-### 1\. Estrutura Geral do Programa
+{ item }: Item repetível (zero ou mais ocorrências).
 
-Um programa GuruDev® é composto por um ou mais blocos tríplices. 
+item+: Um ou mais itens.
 
-```ebnf
-program = { triple_block } ;
-```
+( item1 | item2 ): Escolha entre itens.
 
-### 2\. Sintaxe com Casos Gramaticais
+(* comment *): Comentários dentro da gramática.
 
-Os 8 casos gramaticais servem como palavras-chave sintáticas principais. 
+1. Estrutura Geral do Programa
+Um programa GuruDev® é composto por um ou mais blocos principais.
 
-```ebnf
-case_keyword = ( "VOC" (* Vocativo - Chamada/Invocação *)
-               | "NOM" (* Nominativo - Declaração/Definição *)
-               | "ACU" (* Acusativo - Objeto Direto/Atribuição *)
-               | "DAT" (* Dativo - Destinatário/Para quem *)
-               | "GEN" (* Genitivo - Posse/Pertencimento *)
-               | "INS" (* Instrumental - Meio/Ferramenta *)
-               | "LOC" (* Locativo - Local/Contexto *)
-               | "ABL" (* Ablativo - Origem/Fonte *)
-               ) ;
+EBNF
 
-case_usage = case_keyword "." IDENTIFIER ; (* Ex: VOC.minhaFuncao(), NOM funcao, ACU.variavel *)
-```
+program = { block } ;
+2. Definição do Bloco Principal ([bloco])
+O bloco principal da GuruDev® engloba a estrutura tríplice de metadados, código GuruDev® e subescritas multilíngues.
 
-### 3\. Estrutura de Blocos Tríplices
+EBNF
 
-Cada bloco GuruDev® possui três camadas: `[bloco]`, `[sobrescrita]` (para metadados) e `[subescritas]` (para interoperabilidade). 
+block = BLOCO_START WHITESPACE overscript_block WHITESPACE gurudev_code_block WHITESPACE subscript_block BLOCO_END ;
+3. Bloco de Sobrescrita ([sobrescrita])
+Define os metadados contextuais, semânticos e hermenêuticos do bloco GuruDev®.
 
-```ebnf
-triple_block = "[bloco]" WHITESPACE
-               overscript_block WHITESPACE
-               code_block WHITESPACE
-               subscript_block
-               "[/bloco]" ;
+EBNF
 
-overscript_block = "[sobrescrita]" WHITESPACE
-                   { overscript_line }
-                   "[/sobrescrita]" ;
+overscript_block = SOBRESCRITA_START WHITESPACE { overscript_attribute } SOBRESCRITA_END ;
+overscript_attribute = ( STRING_LITERAL (* "Contexto: descrição do propósito" *)
+                       | STRING_LITERAL (* "Campo do conhecimento: área específica" *)
+                       | STRING_LITERAL (* "Nível de interpretação: tipo de processamento" *)
+                       | NIVEL_ATTR
+                       | RAIZ_ATTR
+                       | CLAVE_ATTR
+                       | ONT_ATTR
+                       ) ;
 
-overscript_line = '"Contexto:" STRING_VALUE EOL
-                | '"Campo do conhecimento:" SEMANTIC_KEYWORD_STRING EOL (* ex: "ciencias exatas" *)
-                | '"Nível de interpretação:" INTERPRETATION_LEVEL_STRING EOL (* ex: "matematico" *)
-                | '"Raiz semântica:" ROOT_KEYWORD EOL ;
+NIVEL_ATTR = LBRACKET "nivel=" STRING_LITERAL RBRACKET ;
+RAIZ_ATTR = LBRACKET "raiz=" STRING_LITERAL RBRACKET ;
+CLAVE_ATTR = LBRACKET "clave=" STRING_LITERAL RBRACKET ;
+ONT_ATTR = LBRACKET "ont=" STRING_LITERAL RBRACKET ; (* Alinhado com [ont="substancia"] *)
 
-code_block = "¡codigo!" WHITESPACE
-             { statement }
-             "!/codigo!" ;
+(* Note: Os valores internos STRING_LITERAL para Nivel, Raiz, Clave, Ont serão
+   mapeados para seus respectivos TokenType específicos pelo lexer.
+   Ex: STRING_LITERAL "literal" para NIVEL_LITERAL. *)
+4. Bloco de Código GuruDev® Principal (¡codigo!)
+Contém a lógica funcional escrita na sintaxe GuruDev®.
 
-subscript_block = "[subescritas]" WHITESPACE
-                  { foreign_language_block }
-                  "[/subescritas]" ;
-```
+EBNF
 
-### 4\. Claves Contextuais, Raízes Semânticas e Níveis de Interpretação
+gurudev_code_block = CODIGO_START WHITESPACE { gurudev_statement } CODIGO_END ;
 
-Estas anotações de metadados são parte da `overscript_block`. 
+gurudev_statement = ( declaration
+                    | assignment
+                    | control_flow
+                    | function_call
+                    | method_call
+                    | execution_control_block
+                    | return_statement
+                    ) SEMICOLON ;
 
-```ebnf
-annotation_tag = "[" SEMANTIC_KEYWORD_SHORT "]"  (* ex: [ciencia], [filosofia] *)
-                 [ "[" INTERPRETATION_LEVEL_SHORT "]" ] (* ex: [literal], [matematico] *)
-                 [ "[" "raiz=\"" ROOT_KEYWORD_STRING "\""]" ] ; (* ex: [raiz="CALC"] *)
+declaration = ( ( type_keyword IDENTIFIER ) | ( case_keyword DOT IDENTIFIER ) ) [ ASSIGN expression ] ; (* Ajusta NOM e tipos *)
+assignment = ( ID | ( case_keyword DOT IDENTIFIER ) ) ASSIGN expression ; (* Ajusta ACU *)
 
-SEMANTIC_KEYWORD_SHORT = ( "filosofia" | "espiritual" | "ciencia" | "arte" | "geral" ) ;
-INTERPRETATION_LEVEL_SHORT = ( "literal" | "parabolico" | "historico" | "linguistico" | "matematico" | "simbolico" | "holistico" ) ;
-ROOT_KEYWORD_STRING = IDENTIFIER_STRING ; (* ex: "CALC", "LING", "MEDIA" *)
+type_keyword = ( BOOL_TYPE | STRING_TYPE | INT_TYPE | FLOAT_TYPE | VOID_TYPE
+               | ARRAY_TYPE LBRACKET RBRACKET
+               | OBJECT_TYPE LESS_THAN ID GREATER_THAN
+               | FORMULA_TYPE | TEMPORAL_TYPE | IMAGEM_TYPE | AUDIO_TYPE | VIDEO_TYPE
+               | TABELA_TYPE LESS_THAN ID GREATER_THAN
+               | GRAFO_TYPE LESS_THAN ID COMMA ID GREATER_THAN
+               | ID ) ; (* ID para classes customizadas *)
 
-(* Estas tags também podem aparecer como atributos em 'overscript_line' *)
-SEMANTIC_KEYWORD_STRING = "arte" | "ciencias exatas" | "ciencia da computacao" | "geral" | "contemplativo" | "transcendental" ; (* Exemplo de strings, podem ser mais genéricas *)
-INTERPRETATION_LEVEL_STRING = "literal" | "metaforico" | "historico" | "processamento de linguagem" | "matematico" | "simbolico" | "sistemica" | "estrutural" ; (* Exemplo de strings *)
-```
+case_keyword = ( VOC | NOM | ACU | DAT | GEN | INS | LOC | ABL ) ;
 
-### 5\. Tipos de Dados Nativos
+function_call = ( ID | ( case_keyword DOT ID ) ) LPAREN [ argument_list ] RPAREN ;
+method_call = ID DOT ( ID | ( case_keyword DOT ID ) ) LPAREN [ argument_list ] RPAREN ;
+argument_list = expression { COMMA expression } ;
 
-GuruDev® suporta uma variedade de tipos de dados explícitos. 
-
-```ebnf
-TYPE = ( "Int" | "Float" | "Bool" | "Char" | "String"
-       | "Array<" TYPE ">"
-       | "Object<" TYPE ">"
-       | "Formula" | "Temporal" | "Imagem" | "Audio" | "Video"
-       | "Tabela<" TYPE ">"
-       | "Grafo<" TYPE "," TYPE ">"
-       | IDENTIFIER (* Para classes personalizadas *)
-       ) ;
-```
-
-### 6\. Interoperabilidade (Subescritas Multilíngues)
-
-Blocos de código em outras linguagens são aninhados nas `[subescritas]`. 
-
-```ebnf
-foreign_language_block = "?" LANGUAGE_ID "?" WHITESPACE
-                         { FOREIGN_CODE_LINE }
-                         "?/" LANGUAGE_ID "?" ;
-
-LANGUAGE_ID = ( "python" | "javascript" | "r" | "sql" | IDENTIFIER ) ; (* Permite outras línguas *)
-FOREIGN_CODE_LINE = { CHARACTER } EOL ; (* Linhas de código na linguagem estrangeira *)
-```
-
-### 7\. Execução Série/Paralelo
-
-Controle de fluxo explícito para execução sequencial ou simultânea. 
-
-```ebnf
-execution_control_block = ( "serie" "{" { statement } "}"
-                          | "paralelo" "{" { statement } "}"
-                          ) ;
-```
-
-### 8\. Regras de Sintaxe Básicas
-
-```ebnf
-statement = ( declaration
-            | assignment
-            | function_call
-            | method_call
-            | control_flow_statement
-            | execution_control_block
-            | return_statement
-            ) ";" ; (* Ponto-e-vírgula obrigatório no final de cada linha  *)
-
-declaration = case_usage TYPE IDENTIFIER [ "=" expression ] ; (* Adapta NOM caso *)
-assignment = case_usage "=" expression ; (* Adapta ACU caso *)
-
-function_call = case_usage "(" [ argument_list ] ")" ; (* Adapta VOC caso *)
-method_call = case_usage "." IDENTIFIER"(" [ argument_list ] ")" ; (* Adapta VOC ou GEN caso *)
-
-argument_list = expression { "," expression } ;
-
-expression = ( value
+expression = ( literal
+             | ID
              | function_call
              | method_call
              | binary_operation
              | unary_operation
-             | multimodal_literal
+             | LPAREN expression RPAREN
              ) ;
 
-value = ( NUMBER | STRING_VALUE | BOOLEAN | IDENTIFIER ) ;
+literal = ( STRING_LITERAL | INT_LITERAL | FLOAT_LITERAL | BOOLEAN_LITERAL ) ;
 
-STRING_VALUE = '"' { CHARACTER_EXCEPT_DOUBLE_QUOTE } '"' ; [cite_start](* Strings entre aspas duplas  *)
-NUMBER = DIGIT+ [ "." DIGIT+ ] [ "f" ] ; [cite_start](* Float pode ter 'f' no final [cite: 147] *)
-BOOLEAN = ( "true" | "false" ) ;
-IDENTIFIER = LETTER { LETTER | DIGIT | "_" } ; [cite_start](* camelCase para variáveis, PascalCase para classes  - convenção, não regra EBNF *)
+binary_operation = expression ( PLUS | MINUS | MULTIPLY | DIVIDE | MODULO
+                              | EQUALS | NOT_EQUALS | LESS_THAN | GREATER_THAN
+                              | LESS_EQUAL | GREATER_EQUAL | AND | OR ) expression ;
+unary_operation = ( PLUS | MINUS | NOT ) expression ;
 
-control_flow_statement = ( if_statement | for_loop | foreach_loop ) ;
+control_flow = ( IF_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement } RBRACE [ ELSE_KEYWORD LBRACE { gurudev_statement } RBRACE ]
+               | FOR_KEYWORD LPAREN ( declaration | assignment ) SEMICOLON expression SEMICOLON assignment RPAREN LBRACE { gurudev_statement } RBRACE (* for (int i=0; i<n; i++) *)
+               | FOR_KEYWORD LPAREN type_keyword ID COLON ID RPAREN LBRACE { gurudev_statement } RBRACE (* for (Float peso : pesos) *)
+               | WHILE_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement } RBRACE
+               ) ;
 
-if_statement = "if" "(" expression ")" "{" { statement } "}" [ "else" "{" { statement } "}" ] ;
-for_loop = "for" "(" TYPE IDENTIFIER "=" expression ";" expression ";" assignment ")" "{" { statement } "}" ; (* Exemplo de for tradicional *)
-foreach_loop = "for" "(" TYPE IDENTIFIER ":" IDENTIFIER ")" "{" { statement } "}" ; (* Exemplo de for-each *)
-return_statement = "return" [ expression ] ;
+return_statement = RETURN_KEYWORD [ expression ] ;
 
-class_declaration = "NOM" "classe" IDENTIFIER [ "extends" IDENTIFIER ] "{" { class_member } "}" ;
-class_member = ( attribute_declaration | method_declaration ) ;
+execution_control_block = ( SERIE_KEYWORD LBRACE { gurudev_statement } RBRACE
+                          | PARALELO_KEYWORD LBRACE { gurudev_statement } RBRACE
+                          | EM_KEYWORD ( ID | case_keyword DOT ID ) LBRACE { gurudev_statement } RBRACE (* em python { ... } *)
+                          ) ;
 
-attribute_declaration = case_usage [ "=" expression ] ; (* Adapta GEN caso para propriedades, assumindo type implícito ou inferido *)
-method_declaration = "NOM" "funcao" IDENTIFIER "(" [ parameter_list ] ")" [ ":" TYPE ] "{" { statement } "}" ;
-parameter_list = parameter { "," parameter } ;
-parameter = TYPE IDENTIFIER ; [cite_start](* Tipo explícito [cite: 287] *)
+5. Bloco de Subescritas Multilíngues ([subescritas])
+Contém blocos de código em linguagens estrangeiras para interoperabilidade.
 
-multimodal_literal = ( "carregar(\"" FILEPATH "\")" ) ; [cite_start](* Para Imagem, Audio, Video, Tabela [cite: 156, 157, 158, 159] *)
-FILEPATH = { CHARACTER_EXCEPT_DOUBLE_QUOTE } ; (* Caminho para o arquivo *)
-[cite_start](* Formula é STRING_VALUE, mas com contexto semântico [cite: 154] *)
-[cite_start](* Temporal é STRING_VALUE com formato específico [cite: 155] *)
-[cite_start](* Grafo é Object com sintaxe específica new Grafo<K,V>() [cite: 160] *)
+EBNF
 
-(* Comentários [cite: 286] *)
-comment = ( "//" { CHARACTER } EOL
-          | "/*" { CHARACTER } "*/"
-          ) ;
+subscript_block = SUBESCRITAS_START WHITESPACE { foreign_language_block } SUBESCRITAS_END ;
 
-WHITESPACE = ( " " | "\t" | "\n" | "\r" )+ ;
-EOL = "\n" | "\r\n" ;
-CHARACTER = ANY_UNICODE_CHARACTER ;
-CHARACTER_EXCEPT_DOUBLE_QUOTE = ANY_UNICODE_CHARACTER_EXCEPT_DOUBLE_QUOTE ;
-```
+foreign_language_block = ( PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END
+                         | RUST_START FOREIGN_CODE_CONTENT RUST_END
+                         | JAVASCRIPT_START FOREIGN_CODE_CONTENT JAVASCRIPT_END
+                         | CSHARP_START FOREIGN_CODE_CONTENT CSHARP_END
+                         | WASM_START FOREIGN_CODE_CONTENT WASM_END
+                         | CPP_START FOREIGN_CODE_CONTENT CPP_END
+                         | JAVA_START FOREIGN_CODE_CONTENT JAVA_END
+                         | SQL_START FOREIGN_CODE_CONTENT SQL_END
+                         | R_START FOREIGN_CODE_CONTENT R_END
+                         ) ;
 
------
+FOREIGN_CODE_CONTENT = ANY_CHARACTER_SEQUENCE ; (* Conteúdo bruto da linguagem estrangeira, não tokenizado pelo lexer da GuruDev® *)
+6. Terminais (Tokens Reconhecidos pelo Lexer)
+Esta seção lista os terminais (tokens) que o lexer produz, com as regras literais ou regex que os definem.
 
+EBNF
+
+(* Estruturas Principais *)
+BLOCO_START = "[bloco]" ;
+BLOCO_END = "[/bloco]" ;
+SOBRESCRITA_START = "[sobrescrita]" ;
+SOBRESCRITA_END = "[/sobrescrita]" ;
+SUBESCRITAS_START = "[subescritas]" ;
+SUBESCRITAS_END = "[/subescritas]" ;
+CODIGO_START = "¡codigo!" ;
+CODIGO_END = "!/codigo!" ;
+
+(* Subescritas de Linguagens *)
+PYTHON_START = "¿python?" ;
+PYTHON_END = "?/python?" ;
+RUST_START = "¿rust?" ;
+RUST_END = "?/rust?" ;
+JAVASCRIPT_START = "¿javascript?" ;
+JAVASCRIPT_END = "?/javascript?" ;
+CSHARP_START = "¿csharp?" ;
+CSHARP_END = "?/csharp?" ;
+WASM_START = "¿wasm?" ;
+WASM_END = "?/wasm?" ;
+CPP_START = "¿c++?" ;
+CPP_END = "?/c++?" ;
+JAVA_START = "¿java?" ;
+JAVA_END = "?/java?" ;
+SQL_START = "¿sql?" ;
+SQL_END = "?/sql?" ;
+R_START = "¿r?" ;
+R_END = "?/r?" ;
+
+(* Conteúdo Bruto (para código estrangeiro) *)
+FOREIGN_CODE_CONTENT = ANY_CHARACTER_SEQUENCE ; (* Captura qualquer sequência de caracteres, incluindo newlines *)
+
+(* Atributos (os valores internos são capturados pelo lexer) *)
+NIVEL_ATTR = "[nivel=" STRING_LITERAL "]" ;
+RAIZ_ATTR = "[raiz=" STRING_LITERAL "]" ;
+CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
+ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
+
+(* Literais *)
+STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\'\' | '\\' ANY_CHARACTER )* '"' ;
+INT_LITERAL = DIGIT+ ;
+FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
+BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
+
+(* Palavras-Chave (Tokens com valores literais exatos) *)
+VOC = "VOC" ; NOM = "NOM" ; ACU = "ACU" ; DAT = "DAT" ;
+GEN = "GEN" ; INS = "INS" ; LOC = "LOC" ; ABL = "ABL" ;
+FUNCAO = "funcao" ; CLASSE = "classe" ; EXTENDS = "extends" ; IMPLEMENTS = "implements" ;
+BOOL_TYPE = "Bool" ; STRING_TYPE = "String" ; INT_TYPE = "Int" ; FLOAT_TYPE = "Float" ;
+VOID_TYPE = "Void" ; ARRAY_TYPE = "Array" ; OBJECT_TYPE = "Object" ; FORMULA_TYPE = "Formula" ;
+TEMPORAL_TYPE = "Temporal" ; IMAGEM_TYPE = "Imagem" ; AUDIO_TYPE = "Audio" ;
+VIDEO_TYPE = "Video" ; TABELA_TYPE = "Tabela" ; GRAFO_TYPE = "Grafo" ;
+IF_KEYWORD = "if" | "se" ; ELSE_KEYWORD = "else" | "senao" ;
+FOR_KEYWORD = "for" | "para" ; WHILE_KEYWORD = "while" | "enquanto" ;
+RETURN_KEYWORD = "return" | "retorna" ; BREAK_KEYWORD = "break" | "quebra" ;
+CONTINUE_KEYWORD = "continue" | "continua" ;
+SERIE_KEYWORD = "serie" ; PARALELO_KEYWORD = "paralelo" ; EM_KEYWORD = "em" ;
+PUBLICO = "publico" ; PRIVADO = "privado" ; PROTEGIDO = "protegido" ;
+
+(* Operadores *)
+ASSIGN = "=" ; EQUALS = "==" ; NOT_EQUALS = "!=" ;
+LESS_THAN = "<" ; GREATER_THAN = ">" ; LESS_EQUAL = "<=" ; GREATER_EQUAL = ">=" ;
+PLUS = "+" ; MINUS = "-" ; MULTIPLY = "*" ; DIVIDE = "/" ; MODULO = "%" ;
+AND = "&&" ; OR = "||" ; NOT = "!" ; ARROW = "->" ;
+
+(* Delimitadores *)
+LPAREN = "(" ; RPAREN = ")" ; LBRACE = "{" ; RBRACE = "}" ;
+LBRACKET = "[" ; RBRACKET = "]" ; SEMICOLON = ";" ; COMMA = "," ;
+DOT = "." ; COLON = ":" ;
+
+(* Identificador (nomes de variáveis, funções, classes, etc. que não são palavras-chave) *)
+ID = LETTER (LETTER | DIGIT | "_")* ;
+
+(* Ignorados pelo Lexer *)
+WHITESPACE = ( ' ' | '\t' )+ ;
+NEWLINE = ( '\n' | '\r\n' )+ ; (* Reconhecido como token, se parser precisar *)
+COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/" ) ;
+
+(* Componentes básicos de caracteres (internos para regex) *)
+LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ; (* Inclui caracteres acentuados *)
+DIGIT = '0'...'9' ;
+ANY_CHARACTER = ANY_UNICODE_CHARACTER ; (* Qualquer caractere Unicode *)
+ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = ANY_UNICODE_CHARACTER_EXCEPT_'"' ;
+ANY_CHARACTER_EXCEPT_NEWLINE = ANY_UNICODE_CHARACTER_EXCEPT_'\n' ;
