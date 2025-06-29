@@ -1,42 +1,43 @@
 
+# Gramática EBNF da GuruDev® (Versão 1.0.0-alpha - Lexer-Aligned)
 
-Este documento é a especificação sintática completa da linguagem.
+Esta EBNF descreve a sintaxe completa da Linguagem de Programação Ontológica e Multissemiótica GuruDev®, alinhada com o comportamento do lexer `ply.lex` implementado. Ela define como o código GuruDev® é estruturado, incluindo suas anotações semânticas e a interoperabilidade nativa com outras linguagens.
 
-Gramática EBNF da GuruDev® (Versão 1.0.0-alpha - Lexer-Aligned)
-Esta EBNF descreve a sintaxe completa da Linguagem de Programação Ontológica e Multissemiótica GuruDev®, alinhada com o comportamento do lexer ply.lex implementado. Ela define como o código GuruDev® é estruturado, incluindo suas anotações semânticas e a interoperabilidade nativa com outras linguagens.
+-----
 
-Convenções EBNF
-rule = definition ;
+### Convenções EBNF
 
-"terminal": Palavras-chave e símbolos literais, exatamente como aparecem no código.
+  * `rule = definition ;`
+  * `"terminal"`: Palavras-chave e símbolos literais, exatamente como aparecem no código.
+  * `[ item ]`: Item opcional (zero ou uma ocorrência).
+  * `{ item }`: Item repetível (zero ou mais ocorrências).
+  * `item+`: Um ou mais itens.
+  * `( item1 | item2 )`: Escolha entre itens.
+  * `(* comment *)`: Comentários dentro da gramática.
 
-[ item ]: Item opcional (zero ou uma ocorrência).
+-----
 
-{ item }: Item repetível (zero ou mais ocorrências).
+### 1\. Estrutura Geral do Programa
 
-item+: Um ou mais itens.
-
-( item1 | item2 ): Escolha entre itens.
-
-(* comment *): Comentários dentro da gramática.
-
-1. Estrutura Geral do Programa
 Um programa GuruDev® é composto por um ou mais blocos principais.
 
-EBNF
-
+```ebnf
 program = { block } ;
-2. Definição do Bloco Principal ([bloco])
+```
+
+### 2\. Definição do Bloco Principal (`[bloco]`)
+
 O bloco principal da GuruDev® engloba a estrutura tríplice de metadados, código GuruDev® e subescritas multilíngues.
 
-EBNF
-
+```ebnf
 block = BLOCO_START WHITESPACE overscript_block WHITESPACE gurudev_code_block WHITESPACE subscript_block BLOCO_END ;
-3. Bloco de Sobrescrita ([sobrescrita])
+```
+
+### 3\. Bloco de Sobrescrita (`[sobrescrita]`)
+
 Define os metadados contextuais, semânticos e hermenêuticos do bloco GuruDev®.
 
-EBNF
-
+```ebnf
 overscript_block = SOBRESCRITA_START WHITESPACE { overscript_attribute } SOBRESCRITA_END ;
 overscript_attribute = ( STRING_LITERAL (* "Contexto: descrição do propósito" *)
                        | STRING_LITERAL (* "Campo do conhecimento: área específica" *)
@@ -55,11 +56,13 @@ ONT_ATTR = LBRACKET "ont=" STRING_LITERAL RBRACKET ; (* Alinhado com [ont="subst
 (* Note: Os valores internos STRING_LITERAL para Nivel, Raiz, Clave, Ont serão
    mapeados para seus respectivos TokenType específicos pelo lexer.
    Ex: STRING_LITERAL "literal" para NIVEL_LITERAL. *)
-4. Bloco de Código GuruDev® Principal (¡codigo!)
+```
+
+### 4\. Bloco de Código GuruDev® Principal (`¡codigo!`)
+
 Contém a lógica funcional escrita na sintaxe GuruDev®.
 
-EBNF
-
+```ebnf
 gurudev_code_block = CODIGO_START WHITESPACE { gurudev_statement } CODIGO_END ;
 
 gurudev_statement = ( declaration
@@ -116,12 +119,13 @@ execution_control_block = ( SERIE_KEYWORD LBRACE { gurudev_statement } RBRACE
                           | PARALELO_KEYWORD LBRACE { gurudev_statement } RBRACE
                           | EM_KEYWORD ( ID | case_keyword DOT ID ) LBRACE { gurudev_statement } RBRACE (* em python { ... } *)
                           ) ;
+```
 
-5. Bloco de Subescritas Multilíngues ([subescritas])
+### 5\. Bloco de Subescritas Multilíngues (`[subescritas]`)
+
 Contém blocos de código em linguagens estrangeiras para interoperabilidade.
 
-EBNF
-
+```ebnf
 subscript_block = SUBESCRITAS_START WHITESPACE { foreign_language_block } SUBESCRITAS_END ;
 
 foreign_language_block = ( PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END
@@ -136,11 +140,13 @@ foreign_language_block = ( PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END
                          ) ;
 
 FOREIGN_CODE_CONTENT = ANY_CHARACTER_SEQUENCE ; (* Conteúdo bruto da linguagem estrangeira, não tokenizado pelo lexer da GuruDev® *)
-6. Terminais (Tokens Reconhecidos pelo Lexer)
+```
+
+### 6\. Terminais (Tokens Reconhecidos pelo Lexer)
+
 Esta seção lista os terminais (tokens) que o lexer produz, com as regras literais ou regex que os definem.
 
-EBNF
-
+```ebnf
 (* Estruturas Principais *)
 BLOCO_START = "[bloco]" ;
 BLOCO_END = "[/bloco]" ;
@@ -181,7 +187,7 @@ CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
 ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
 
 (* Literais *)
-STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\'\' | '\\' ANY_CHARACTER )* '"' ;
+STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\\' ANY_CHARACTER )* '"' ; (* Corrigido para escape de aspas *)
 INT_LITERAL = DIGIT+ ;
 FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
 BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
@@ -223,6 +229,11 @@ COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/
 (* Componentes básicos de caracteres (internos para regex) *)
 LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ; (* Inclui caracteres acentuados *)
 DIGIT = '0'...'9' ;
-ANY_CHARACTER = ANY_UNICODE_CHARACTER ; (* Qualquer caractere Unicode *)
-ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = ANY_UNICODE_CHARACTER_EXCEPT_'"' ;
-ANY_CHARACTER_EXCEPT_NEWLINE = ANY_UNICODE_CHARACTER_EXCEPT_'\n' ;
+ANY_CHARACTER = (* Qualquer caractere Unicode. Em EBNF, é um marcador conceitual. *) ;
+ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
+ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
+
+```
+
+-----
+
