@@ -58,19 +58,90 @@ SUBESCRITAS_START = "[subescritas]" ;
 SUBESCRITAS_END = "[/subescritas]" ;
 CODIGO_START = "¡codigo!" ;
 CODIGO_END = "!/codigo!" ;
-...
+
+PYTHON_START = "¿python?" ;
+PYTHON_END = "?/python?" ;
+RUST_START = "¿rust?" ;
+RUST_END = "?/rust?" ;
+JAVASCRIPT_START = "¿javascript?" ;
+JAVASCRIPT_END = "?/javascript?" ;
+CSHARP_START = "¿csharp?" ;
+CSHARP_END = "?/csharp?" ;
+WASM_START = "¿wasm?" ;
+WASM_END = "?/wasm?" ;
+CPP_START = "¿c++?" ;
+CPP_END = "?/c++?" ;
+JAVA_START = "¿java?" ;
+JAVA_END = "?/java?" ;
+SQL_START = "¿sql?" ;
+SQL_END = "?/sql?" ;
+R_START = "¿r?" ;
+R_END = "?/r?" ;
+
+NIVEL_ATTR = "[nivel=" STRING_LITERAL "]" ;
+RAIZ_ATTR = "[raiz=" STRING_LITERAL "]" ;
+CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
+ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
+
+STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\' ANY_CHARACTER )* '"' ;
+INT_LITERAL = DIGIT+ ;
+FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
+BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
+
+VOC = "VOC" ; NOM = "NOM" ; ACU = "ACU" ; DAT = "DAT" ;
+GEN = "GEN" ; INS = "INS" ; LOC = "LOC" ; ABL = "ABL" ;
+FUNCAO = "funcao" ; CLASSE = "classe" ; EXTENDS = "extends" ; IMPLEMENTS = "implements" ;
+BOOL_TYPE = "Bool" ; STRING_TYPE = "String" ; INT_TYPE = "Int" ; FLOAT_TYPE = "Float" ;
+VOID_TYPE = "Void" ; ARRAY_TYPE = "Array" ; OBJECT_TYPE = "Object" ; FORMULA_TYPE = "Formula" ;
+TEMPORAL_TYPE = "Temporal" ; IMAGEM_TYPE = "Imagem" ; AUDIO_TYPE = "Audio" ;
+VIDEO_TYPE = "Video" ; TABELA_TYPE = "Tabela" ; GRAFO_TYPE = "Grafo" ;
+IF_KEYWORD = "if" | "se" ; ELSE_KEYWORD = "else" | "senao" ;
+FOR_KEYWORD = "for" | "para" ; WHILE_KEYWORD = "while" | "enquanto" ;
+RETURN_KEYWORD = "return" | "retorna" ; BREAK_KEYWORD = "break" | "quebra" ;
+CONTINUE_KEYWORD = "continue" | "continua" ;
+SERIE_KEYWORD = "serie" ; PARALELO_KEYWORD = "paralelo" ; EM_KEYWORD = "em" ;
+PUBLICO = "publico" ; PRIVADO = "privado" ; PROTEGIDO = "protegido" ;
+
+ASSIGN = "=" ; EQUALS = "==" ; NOT_EQUALS = "!=" ;
+LESS_THAN = "<" ; GREATER_THAN = ">" ; LESS_EQUAL = "<=" ; GREATER_EQUAL = ">=" ;
+PLUS = "+" ; MINUS = "-" ; MULTIPLY = "*" ; DIVIDE = "/" ; MODULO = "%" ;
+AND = "&&" ; OR = "||" ; NOT = "!" ; ARROW = "->" ;
+
+LPAREN = "(" ; RPAREN = ")" ; LBRACE = "{" ; RBRACE = "}" ;
+LBRACKET = "[" ; RBRACKET = "]" ; SEMICOLON = ";" ; COMMA = "," ;
+DOT = "." ; COLON = ":" ;
+
+ID = LETTER (LETTER | DIGIT | "_")* ;
+
+WHITESPACE = ( ' ' | '\t' )+ ;
+NEWLINE = ( '\n' | '\r\n' )+ ;
+COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/" ) ;
+
+LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ;
+DIGIT = '0'...'9' ;
+ANY_CHARACTER = (* Qualquer caractere Unicode. *) ;
+ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
+ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
 ```
+
 </details>
 
 ## 🛠️ Como Usar
 
 - O lexer reconhece todos os tokens definidos nesta EBNF.
-- Use como base para um parser em PLY, ANTLR ou equivalente.
+- Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
+- A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
+
+## 📝 Notas Técnicas
+
+- `WHITESPACE` e `NEWLINE` são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser.
+- Comentários são ignorados pelo lexer.
+- A gramática é auto-contida: todos os terminais estão definidos neste arquivo.
 
 ## 🚀 Contribuindo
 
 - Sugestões e melhorias são bem-vindas.
-- Abra uma **Issue** ou **Pull Request** neste repositório.
+- Para contribuir, abra uma **Issue** ou **Pull Request** neste repositório.
 
 ## 📄 Licença
 
