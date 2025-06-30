@@ -1,3 +1,5 @@
+# GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer
+
 (*   GuruDev® EBNF Completa
   Versão: 1.0.0-alpha (Alinhada ao Lexer)
   Autor: Guilherme Gonçalves Machado
@@ -211,3 +213,11 @@ ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de li
         ?/python?
     [/subescritas]
 [/bloco]
+
+
+
+
+
+
+
+
