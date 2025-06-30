@@ -14,7 +14,7 @@ Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinh
 
 ## 🌱 Estrutura Principal
 
-### **Bloco GuruDev®**
+### Bloco GuruDev®
 
 Cada bloco é composto por:
 
@@ -165,5 +165,5 @@ ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de li
 
 **GuruDev® — Código que transcende paradigmas, sintaxe que honra a tradição.**
 
-
+---
 
