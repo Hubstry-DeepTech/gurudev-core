@@ -1,150 +1,48 @@
-# GuruDev® EBNF — Gramática Formal da Linguagem
+# A Gramática da GuruDev®: Desvendando a Linguagem Humanizada
 
-Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinhada ao lexer implementado em Python (PLY). Ela define de forma precisa e formal a estrutura sintática da linguagem, servindo como referência para o desenvolvimento do parser, documentação, testes e futuras expansões.
+Este documento serve como uma introdução e guia para a compreensão da Gramática EBNF da GuruDev®, a linguagem de programação ontológica e multissemiótica que humaniza a tecnologia e conecta a lógica computacional à sabedoria humana.
 
-## 📚 Visão Geral
+---
 
-- **Versão:** 1.0.0-alpha  
-- **Autor:** Guilherme Gonçalves Machado  
-- **Descrição:** Esta gramática cobre todos os requisitos do whitepaper GuruDev®, incluindo blocos tríplices, casos gramaticais, tipos nativos, interoperabilidade multilíngue, anotações semânticas e controle de fluxo.
+## 1. Por Que uma Gramática Única?
 
-## 🌱 Estrutura Principal
+A GuruDev® surge da convicção de que a programação pode ser mais do que uma série de instruções lógicas. Inspirada na minha jornada de décadas pelas linguagens (da música à literatura, da filosofia à matemática), a GuruDev® propõe uma nova forma de dialogar com as máquinas, refletindo a complexidade e a beleza da linguagem natural. Nossa gramática não é apenas um conjunto de regras; é um arcabouço filosófico que visa superar a fragmentação tecnológica e as barreiras de entrada na programação, integrando diversas formas de conhecimento.
 
-### Bloco GuruDev®
+---
 
-Cada bloco é composto por:
+## 2. GuruDev® como Sistema Linguístico: Frase, Oração e Discurso do Código
 
-- `[sobrescrita]` — Metadados/contexto semântico  
-- `¡codigo!` — Código GuruDev® principal  
-- `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)
+Na GuruDev®, a analogia com as línguas naturais vai além do conceito. Ela se institucionaliza em uma **gramática geral da ciência da computação**, oferecendo uma nova lente para entender e pesquisar linguagens de programação.
 
-**Exemplo:**
+* **A Linha de Código como uma Frase:** Concebemos a menor unidade estrutural de um programa GuruDev® como uma "frase" de código – uma espécie de molécula dotada de completude e adaptada à combinação. Uma frase é o que se pode compreender e escrever "de um só fôlego", com seu final pontuado por um ponto e vírgula (`;`).
+* **O Conjunto de Frases como uma Oração:** Agrupamos frases de código em torno de uma ação ou comando central, formando uma "oração". Assim como na língua natural, a oração no código GuruDev® expressa uma ideia completa ligada a uma funcionalidade. Exemplo: `NOM funcao somar(Int a, Int b) { ... };` seria uma oração que define a ação de somar.
+* **Os Blocos de Código como Parágrafos:** Blocos de código (delimitados por chaves `{ }`) atuam como "parágrafos", agrupando orações que desenvolvem uma ideia ou funcionalidade específica (como em `serie { ... }` ou `paralelo { ... }`).
+* **O Programa Completo como um Discurso Pragmático:** O programa GuruDev® em sua totalidade é um "discurso pragmático" – uma narrativa funcional onde componentes interagem para gerar significado e propósito.
 
-```gurudev
-[bloco]
-    [sobrescrita]
-        "Contexto: autenticação"
-        [nivel="holistico"]
-        [raiz="SEG"]
-        [ont="acao"]
-    [/sobrescrita]
+Essa abordagem não só aprimora a expressividade e legibilidade da GuruDev®, mas também oferece uma poderosa ferramenta conceitual para a meta-análise e pesquisa de linguagens de programação em geral, sob uma perspectiva linguística e semiótica.
 
-    ¡codigo!
-        NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {
-            return hash(senhaInserida) == hash(senhaHashArmazenada);
-        }
-    !/codigo!
+---
 
-    [subescritas]
-        ¿python?
-        def verificar_senha(senha_inserida, senha_armazenada):
-            return hash(senha_inserida) == hash(senha_armazenada)
-        ?/python?
-    [/subescritas]
-[/bloco]
-```
+## 3. A Formalização: Nossa Gramática EBNF
 
-## 🏷️ Terminais (Tokens Reconhecidos pelo Lexer)
+A sintaxe da GuruDev® é formalizada na nossa **Gramática EBNF oficial**, detalhada em [`GRAMMAR_V1_0_0_ALPHA.md`](GRAMMAR_V1_0_0_ALPHA.md). Este documento técnico serve como a especificação precisa de como cada elemento da linguagem é estruturado, incluindo:
 
-<details>
-<summary><strong>Clique para expandir</strong></summary>
+* **Casos Gramaticais:** Como `VOC`, `NOM`, `ACU`, etc., dão papéis semânticos explícitos às operações do código.
+* **Blocos Tríplices:** A estrutura de `[bloco]`, `[sobrescrita]`, `¡codigo!` e `[subescritas]` e seus componentes.
+* **Anotações Semânticas:** O uso de `[nivel=""]`, `[raiz=""]`, `[clave=""]` e `[ont=""]` para contextualizar o código.
+* **Interoperabilidade Multilíngue:** Como a sintaxe da GuruDev® permite a inclusão e interação com código de outras linguagens (Python, JavaScript, Rust, etc.) de forma nativa e semântica.
 
-```ebnf
-BLOCO_START = "[bloco]" ;
-BLOCO_END = "[/bloco]" ;
-SOBRESCRITA_START = "[sobrescrita]" ;
-SOBRESCRITA_END = "[/sobrescrita]" ;
-SUBESCRITAS_START = "[subescritas]" ;
-SUBESCRITAS_END = "[/subescritas]" ;
-CODIGO_START = "¡codigo!" ;
-CODIGO_END = "!/codigo!" ;
+Esta gramática está em constante alinhamento com o desenvolvimento do nosso lexer e parser, garantindo uma base técnica sólida e consistente.
 
-PYTHON_START = "¿python?" ;
-PYTHON_END = "?/python?" ;
-RUST_START = "¿rust?" ;
-RUST_END = "?/rust?" ;
-JAVASCRIPT_START = "¿javascript?" ;
-JAVASCRIPT_END = "?/javascript?" ;
-CSHARP_START = "¿csharp?" ;
-CSHARP_END = "?/csharp?" ;
-WASM_START = "¿wasm?" ;
-WASM_END = "?/wasm?" ;
-CPP_START = "¿c++?" ;
-CPP_END = "?/c++?" ;
-JAVA_START = "¿java?" ;
-JAVA_END = "?/java?" ;
-SQL_START = "¿sql?" ;
-SQL_END = "?/sql?" ;
-R_START = "¿r?" ;
-R_END = "?/r?" ;
+---
 
-NIVEL_ATTR = "[nivel=" STRING_LITERAL "]" ;
-RAIZ_ATTR = "[raiz=" STRING_LITERAL "]" ;
-CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
-ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
+## 4. Veja a GuruDev® em Ação: O Lexer Interativo
 
-STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\' ANY_CHARACTER )* '"' ;
-INT_LITERAL = DIGIT+ ;
-FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
-BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
+Para ver a gramática da GuruDev® em funcionamento, experimente nosso **GuruDev® Interactive Lexer** no IA Manus!
 
-VOC = "VOC" ; NOM = "NOM" ; ACU = "ACU" ; DAT = "DAT" ;
-GEN = "GEN" ; INS = "INS" ; LOC = "LOC" ; ABL = "ABL" ;
-FUNCAO = "funcao" ; CLASSE = "classe" ; EXTENDS = "extends" ; IMPLEMENTS = "implements" ;
-BOOL_TYPE = "Bool" ; STRING_TYPE = "String" ; INT_TYPE = "Int" ; FLOAT_TYPE = "Float" ;
-VOID_TYPE = "Void" ; ARRAY_TYPE = "Array" ; OBJECT_TYPE = "Object" ; FORMULA_TYPE = "Formula" ;
-TEMPORAL_TYPE = "Temporal" ; IMAGEM_TYPE = "Imagem" ; AUDIO_TYPE = "Audio" ;
-VIDEO_TYPE = "Video" ; TABELA_TYPE = "Tabela" ; GRAFO_TYPE = "Grafo" ;
-IF_KEYWORD = "if" | "se" ; ELSE_KEYWORD = "else" | "senao" ;
-FOR_KEYWORD = "for" | "para" ; WHILE_KEYWORD = "while" | "enquanto" ;
-RETURN_KEYWORD = "return" | "retorna" ; BREAK_KEYWORD = "break" | "quebra" ;
-CONTINUE_KEYWORD = "continue" | "continua" ;
-SERIE_KEYWORD = "serie" ; PARALELO_KEYWORD = "paralelo" ; EM_KEYWORD = "em" ;
-PUBLICO = "publico" ; PRIVADO = "privado" ; PROTEGIDO = "protegido" ;
+🔗 **Link para o Lexer Interativo:** [https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)
 
-ASSIGN = "=" ; EQUALS = "==" ; NOT_EQUALS = "!=" ;
-LESS_THAN = "<" ; GREATER_THAN = ">" ; LESS_EQUAL = "<=" ; GREATER_EQUAL = ">=" ;
-PLUS = "+" ; MINUS = "-" ; MULTIPLY = "*" ; DIVIDE = "/" ; MODULO = "%" ;
-AND = "&&" ; OR = "||" ; NOT = "!" ; ARROW = "->" ;
+Escreva seu código GuruDev® e visualize a análise léxica em tempo real, observando como os tokens são gerados e como a máquina de estados processa as diferentes seções do código, incluindo as subescritas multilíngues.
 
-LPAREN = "(" ; RPAREN = ")" ; LBRACE = "{" ; RBRACE = "}" ;
-LBRACKET = "[" ; RBRACKET = "]" ; SEMICOLON = ";" ; COMMA = "," ;
-DOT = "." ; COLON = ":" ;
+---
 
-ID = LETTER (LETTER | DIGIT | "_")* ;
-
-WHITESPACE = ( ' ' | '\t' )+ ;
-NEWLINE = ( '\n' | '\r\n' )+ ;
-COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/" ) ;
-
-LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ;
-DIGIT = '0'...'9' ;
-ANY_CHARACTER = (* Qualquer caractere Unicode. *) ;
-ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
-ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
-```
-
-</details>
-
-## 🛠️ Como Usar
-
-- O lexer reconhece todos os tokens definidos nesta EBNF.
-- Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
-- A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
-
-## 📝 Notas Técnicas
-
-- `WHITESPACE` e `NEWLINE` são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser.
-- Comentários são ignorados pelo lexer.
-- A gramática é auto-contida: todos os terminais estão definidos neste arquivo.
-
-## 🚀 Contribuindo
-
-- Sugestões e melhorias são bem-vindas.
-- Para contribuir, abra uma **Issue** ou **Pull Request** neste repositório.
-
-## 📄 Licença
-
-_Apache 2.0_
-
-**GuruDev® — Código que transcende paradigmas. Sintaxe que honra a tradição.**
