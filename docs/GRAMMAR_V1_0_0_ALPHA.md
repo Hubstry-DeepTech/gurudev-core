@@ -9,6 +9,8 @@
 ---
 # Gramática GuruDev® v1.0.0-alpha
 
+# Gramática GuruDev® v1.0.0-alpha
+
 ## ⚠️ Notas Importantes sobre o Lexer e Parser
 
 (*
@@ -19,6 +21,10 @@ Quando instruções GuruDev® são escritas no topo do arquivo (“modo de discu
 - Inserir essas instruções dentro de uma função `principal()` implícita, servindo como ponto de entrada do programa.
 
 Isso permite scripts concisos, sem perder a estrutura semântica interna.
+
+Na GuruDev®, usamos "oração de código" para o que em outras linguagens seria chamado de "statement".
+Usamos "produção de valor" para o que seria "expression".
+Isso reforça a analogia linguística da linguagem.
 *)
 
 ---
@@ -28,13 +34,25 @@ Isso permite scripts concisos, sem perder a estrutura semântica interna.
 ### 1. Programa
 
 ```ebnf
-program = ( block | top_level_statement )+ ; (* Um programa é composto por um ou mais blocos ou instruções em modo de discurso direto *)
+program = ( block | oracao_de_codigo )+ ; (* Um programa é composto por um ou mais blocos ou orações de código em modo de discurso direto *)
 ```
 
-### 1.1. Instruções em Modo de Discurso Direto
+### 1.1. Oração de Código
 
 ```ebnf
-top_level_statement = gurudev_statement ; (* Uma instrução em modo de discurso direto é qualquer instrução GuruDev® válida *)
+oracao_de_codigo = ... ; (* Definição completa das orações de código GuruDev® *)
+```
+
+### 1.2. Produção de Valor
+
+```ebnf
+producao_de_valor = ... ; (* Definição completa das produções de valor GuruDev® *)
+```
+
+### 1.3. Instruções em Modo de Discurso Direto
+
+```ebnf
+top_level_statement = oracao_de_codigo ; (* Uma instrução em modo de discurso direto é qualquer oração de código válida *)
 ```
 
 ---
@@ -64,6 +82,54 @@ VOC.print(mensagem);
   !/codigo!
 [/bloco]
 -->
+
+---
+
+## <details>
+<summary>Terminais e definições resumidas</summary>
+
+```ebnf
+block = "[bloco]" sobrescrita? codigo "[/bloco]" ;
+
+sobrescrita = "[sobrescrita]" metadados "[/sobrescrita]" ;
+
+metadados = ... ;
+
+codigo = "¡codigo!" { oracao_de_codigo } "!/codigo!" ;
+
+oracao_de_codigo =  declaracao_variavel
+                  | declaracao_funcao
+                  | comando_controle
+                  | comando_saida
+                  | producao_de_valor ";" 
+                  | ... ;
+
+producao_de_valor = valor_literal
+                  | chamada_funcao
+                  | operacao
+                  | ... ;
+
+declaracao_variavel = tipo identificador "=" producao_de_valor ";" ;
+
+tipo = "String" | "Float" | "Int" | ... ;
+
+identificador = ... ;
+
+valor_literal = ... ;
+
+chamada_funcao = ... ;
+
+comando_controle = ... ;
+
+comando_saida = ... ;
+```
+</details>
+
+
+
+---
+
+
 
 
 
