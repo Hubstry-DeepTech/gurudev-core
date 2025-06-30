@@ -1,0 +1,83 @@
+# GuruDev® EBNF — Gramática Formal da Linguagem
+
+Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinhada ao lexer implementado em Python (PLY). Ela define de forma precisa e formal a estrutura sintática da linguagem, servindo como referência para o desenvolvimento do parser, documentação, testes e futuras expansões.
+
+---
+
+## 📚 **Visão Geral**
+
+- **Versão:** 1.0.0-alpha
+- **Autor:** Guilherme Gonçalves Machado
+- **Descrição:** Esta gramática cobre todos os requisitos do whitepaper GuruDev®, incluindo blocos tríplices, casos gramaticais, tipos nativos, interoperabilidade multilíngue, anotações semânticas e controle de fluxo.
+
+---
+
+## 🧩 **Estrutura Principal**
+
+- **Bloco GuruDev®:**  
+  Cada bloco é composto por:
+  - `[sobrescrita]` — Metadados/contexto semântico
+  - `¡codigo!` — Código GuruDev® principal
+  - `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)
+
+- **Exemplo:**
+  ```gurudev
+  [bloco]
+      [sobrescrita]
+          "Contexto: autenticação"
+          [nivel="holistico"]
+          [raiz="SEG"]
+          [ont="acao"]
+      [/sobrescrita]
+
+      ¡codigo!
+          NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {
+              return hash(senha_inserida) == hash(senhaHashArmazenada);
+          }
+      !/codigo!
+
+      [subescritas]
+          ¿python?
+          def verificar_senha(senha_inserida, senha_armazenada):
+              return hash(senha_inserida) == hash(senha_armazenada)
+          ?/python?
+      [/subescritas]
+  [/bloco]
+  ```
+
+---
+
+## 🛠️ **Como Usar**
+
+- **Lexer:**  
+  O lexer reconhece todos os tokens definidos nesta EBNF, incluindo `FOREIGN_CODE_CONTENT` para blocos de código estrangeiro.
+- **Parser:**  
+  Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
+- **Expansão:**  
+  A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
+
+---
+
+## 📝 **Notas Técnicas**
+
+- **WHITESPACE e NEWLINE** são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser, exceto onde explicitamente referenciados.
+- **Comentários** são ignorados pelo lexer e não chegam ao parser.
+- **A gramática é auto-contida:** Todos os terminais estão definidos ao final do arquivo.
+- **Consistência:** Os nomes dos tokens na EBNF batem exatamente com os nomes do Enum do lexer.
+
+---
+
+## 🚀 **Contribuindo**
+
+- Sugestões, correções e expansões são bem-vindas!
+- Para contribuir, abra um Pull Request ou Issue neste repositório.
+
+---
+
+## 📄 **Licença**
+
+[Defina a licença do projeto aqui — ex: Apache 2.0, MIT, etc.]
+
+---
+
+**GuruDev® — Código que transcende paradigmas, sintaxe que honra a tradição.**
