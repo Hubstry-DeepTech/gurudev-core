@@ -3,7 +3,7 @@
 ---
 
 ## 1. Introdução
-
+ 
 **GuruDev®** é uma linguagem de programação de propósito geral, com arquitetura **ontológica, multissemiótica e multimodal**. Inspirada nos quatro grandes campos do conhecimento humano — arte, ciência, filosofia e tradição espiritual —, cada estrutura da GuruDev® encontra correspondência com fundamentos desses campos, tornando-a uma linguagem interdisciplinar, expansiva e simbolicamente precisa.
 
 A GuruDev® opera através de um processador semântico de três camadas que integra:
