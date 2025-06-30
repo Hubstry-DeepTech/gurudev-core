@@ -7,12 +7,19 @@
 > **Status:** *Alpha 1.0.0-alpha (Alinhada ao Lexer)*
 
 ---
+# Gramática GuruDev® v1.0.0-alpha
 
 ## ⚠️ Notas Importantes sobre o Lexer e Parser
 
-- **WHITESPACE** e **NEWLINE** são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser entre os não-terminais, exceto onde sua presença é semanticamente relevante (ex: fim de linha para inferência de ponto-e-vírgula, não aplicável na GuruDev® com `;` explícito).
-- **Comentários** são ignorados pelo lexer e não chegam ao parser.
-- **A ordem das regras é crucial no lexer** (maior especificidade primeiro). No parser (usando ply.yacc, por exemplo), a gramática resolve ambiguidades com precedência e associatividade.
+(*
+--- Comportamento Implícito para Modo de Discurso Direto (Instruções no Topo) ---
+Quando instruções GuruDev® são escritas no topo do arquivo (“modo de discurso direto”, fora de um bloco explícito), o compilador/interpretador irá:
+- Encapsular essas instruções, implicitamente, em um `[bloco]...[/bloco]`.
+- Gerar uma seção `[sobrescrita]...[/sobrescrita]` padrão, com metadados inferidos (Contexto: "Script de Discurso Direto", Campo: "Geral", Nível: "literal", Raiz: "CORE", Ontologia: "acao").
+- Inserir essas instruções dentro de uma função `principal()` implícita, servindo como ponto de entrada do programa.
+
+Isso permite scripts concisos, sem perder a estrutura semântica interna.
+*)
 
 ---
 
@@ -21,7 +28,46 @@
 ### 1. Programa
 
 ```ebnf
-program = { block } ;
+program = ( block | top_level_statement )+ ; (* Um programa é composto por um ou mais blocos ou instruções em modo de discurso direto *)
+```
+
+### 1.1. Instruções em Modo de Discurso Direto
+
+```ebnf
+top_level_statement = gurudev_statement ; (* Uma instrução em modo de discurso direto é qualquer instrução GuruDev® válida *)
+```
+
+---
+
+## 📝 Exemplo: Hello World em modo de discurso direto
+
+```gurudev
+String mensagem = "Hello, World!";
+VOC.print(mensagem);
+```
+
+<!-- O código acima, internamente, será encapsulado como: -->
+<!--
+[bloco]
+  [sobrescrita]
+    "Contexto: Script de Discurso Direto"
+    [nivel="literal"]
+    [clave="geral"]
+    [raiz="CORE"]
+    [ont="acao"]
+  [/sobrescrita]
+  ¡codigo!
+    NOM funcao principal() {
+      String mensagem = "Hello, World!";
+      VOC.print(mensagem);
+    }
+  !/codigo!
+[/bloco]
+-->
+
+
+
+
 ```
 
 ### 2. Bloco GuruDev®
