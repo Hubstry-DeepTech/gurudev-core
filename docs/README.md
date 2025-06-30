@@ -145,6 +145,6 @@ ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de li
 
 ## 📄 Licença
 
-_Defina a licença desejada para o projeto: MIT, Apache 2.0, etc._
+_Apache 2.0_
 
 **GuruDev® — Código que transcende paradigmas. Sintaxe que honra a tradição.**
