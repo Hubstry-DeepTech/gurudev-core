@@ -1,4 +1,3 @@
-````
 # GuruDev® EBNF — Gramática Formal da Linguagem
 
 Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinhada ao lexer implementado em Python (PLY). Ela define de forma precisa e formal a estrutura sintática da linguagem, servindo como referência para o desenvolvimento do parser, documentação, testes e futuras expansões.
