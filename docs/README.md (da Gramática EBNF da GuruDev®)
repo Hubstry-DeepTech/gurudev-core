@@ -1,4 +1,7 @@
+Aqui está o README técnico da gramática GuruDev® pronto para colar no GitHub, com todos os blocos de código e espaçamentos corretos para renderização perfeita em Markdown.  
+**Basta copiar e colar o texto abaixo no seu arquivo README.md da gramática:**
 
+---
 
 # GuruDev® EBNF — Gramática Formal da Linguagem
 
@@ -16,7 +19,7 @@ Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinh
 
 ## 🌱 Estrutura Principal
 
-### **Bloco GuruDev®**
+### Bloco GuruDev®
 
 Cada bloco é composto por:
 
@@ -168,3 +171,5 @@ ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de li
 **GuruDev® — Código que transcende paradigmas, sintaxe que honra a tradição.**
 
 ---
+
+Se precisar de mais exemplos ou quiser expandir, só pedir!
