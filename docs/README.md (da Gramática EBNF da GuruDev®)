@@ -1,83 +1,170 @@
+
+
 # GuruDev® EBNF — Gramática Formal da Linguagem
 
 Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinhada ao lexer implementado em Python (PLY). Ela define de forma precisa e formal a estrutura sintática da linguagem, servindo como referência para o desenvolvimento do parser, documentação, testes e futuras expansões.
 
 ---
 
-## 📚 **Visão Geral**
+## 📚 Visão Geral
 
-- **Versão:** 1.0.0-alpha
-- **Autor:** Guilherme Gonçalves Machado
+- **Versão:** 1.0.0-alpha  
+- **Autor:** Guilherme Gonçalves Machado  
 - **Descrição:** Esta gramática cobre todos os requisitos do whitepaper GuruDev®, incluindo blocos tríplices, casos gramaticais, tipos nativos, interoperabilidade multilíngue, anotações semânticas e controle de fluxo.
 
 ---
 
-## 🧩 **Estrutura Principal**
+## 🌱 Estrutura Principal
 
-- **Bloco GuruDev®:**  
-  Cada bloco é composto por:
-  - `[sobrescrita]` — Metadados/contexto semântico
-  - `¡codigo!` — Código GuruDev® principal
-  - `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)
+### **Bloco GuruDev®**
 
-- **Exemplo:**
-  ```gurudev
-  [bloco]
-      [sobrescrita]
-          "Contexto: autenticação"
-          [nivel="holistico"]
-          [raiz="SEG"]
-          [ont="acao"]
-      [/sobrescrita]
+Cada bloco é composto por:
 
-      ¡codigo!
-          NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {
-              return hash(senha_inserida) == hash(senhaHashArmazenada);
-          }
-      !/codigo!
+- `[sobrescrita]` — Metadados/contexto semântico  
+- `¡codigo!` — Código GuruDev® principal  
+- `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)  
 
-      [subescritas]
-          ¿python?
-          def verificar_senha(senha_inserida, senha_armazenada):
-              return hash(senha_inserida) == hash(senha_armazenada)
-          ?/python?
-      [/subescritas]
-  [/bloco]
-  ```
+**Exemplo:**
 
----
+```gurudev
+[bloco]
+    [sobrescrita]
+        "Contexto: autenticação"
+        [nivel="holistico"]
+        [raiz="SEG"]
+        [ont="acao"]
+    [/sobrescrita]
 
-## 🛠️ **Como Usar**
+    ¡codigo!
+        NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {
+            return hash(senhaInserida) == hash(senhaHashArmazenada);
+        }
+    !/codigo!
 
-- **Lexer:**  
-  O lexer reconhece todos os tokens definidos nesta EBNF, incluindo `FOREIGN_CODE_CONTENT` para blocos de código estrangeiro.
-- **Parser:**  
-  Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
-- **Expansão:**  
-  A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
+    [subescritas]
+        ¿python?
+        def verificar_senha(senha_inserida, senha_armazenada):
+            return hash(senha_inserida) == hash(senha_armazenada)
+        ?/python?
+    [/subescritas]
+[/bloco]
+```
 
 ---
 
-## 📝 **Notas Técnicas**
+## 🏷️ Terminais (Tokens Reconhecidos pelo Lexer)
 
-- **WHITESPACE e NEWLINE** são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser, exceto onde explicitamente referenciados.
+<details>
+<summary><strong>Clique para expandir</strong></summary>
+
+```ebnf
+BLOCO_START = "[bloco]" ;
+BLOCO_END = "[/bloco]" ;
+SOBRESCRITA_START = "[sobrescrita]" ;
+SOBRESCRITA_END = "[/sobrescrita]" ;
+SUBESCRITAS_START = "[subescritas]" ;
+SUBESCRITAS_END = "[/subescritas]" ;
+CODIGO_START = "¡codigo!" ;
+CODIGO_END = "!/codigo!" ;
+
+PYTHON_START = "¿python?" ;
+PYTHON_END = "?/python?" ;
+RUST_START = "¿rust?" ;
+RUST_END = "?/rust?" ;
+JAVASCRIPT_START = "¿javascript?" ;
+JAVASCRIPT_END = "?/javascript?" ;
+CSHARP_START = "¿csharp?" ;
+CSHARP_END = "?/csharp?" ;
+WASM_START = "¿wasm?" ;
+WASM_END = "?/wasm?" ;
+CPP_START = "¿c++?" ;
+CPP_END = "?/c++?" ;
+JAVA_START = "¿java?" ;
+JAVA_END = "?/java?" ;
+SQL_START = "¿sql?" ;
+SQL_END = "?/sql?" ;
+R_START = "¿r?" ;
+R_END = "?/r?" ;
+
+NIVEL_ATTR = "[nivel=" STRING_LITERAL "]" ;
+RAIZ_ATTR = "[raiz=" STRING_LITERAL "]" ;
+CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
+ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
+
+STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\\' ANY_CHARACTER )* '"' ;
+INT_LITERAL = DIGIT+ ;
+FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
+BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
+
+VOC = "VOC" ; NOM = "NOM" ; ACU = "ACU" ; DAT = "DAT" ;
+GEN = "GEN" ; INS = "INS" ; LOC = "LOC" ; ABL = "ABL" ;
+FUNCAO = "funcao" ; CLASSE = "classe" ; EXTENDS = "extends" ; IMPLEMENTS = "implements" ;
+BOOL_TYPE = "Bool" ; STRING_TYPE = "String" ; INT_TYPE = "Int" ; FLOAT_TYPE = "Float" ;
+VOID_TYPE = "Void" ; ARRAY_TYPE = "Array" ; OBJECT_TYPE = "Object" ; FORMULA_TYPE = "Formula" ;
+TEMPORAL_TYPE = "Temporal" ; IMAGEM_TYPE = "Imagem" ; AUDIO_TYPE = "Audio" ;
+VIDEO_TYPE = "Video" ; TABELA_TYPE = "Tabela" ; GRAFO_TYPE = "Grafo" ;
+IF_KEYWORD = "if" | "se" ; ELSE_KEYWORD = "else" | "senao" ;
+FOR_KEYWORD = "for" | "para" ; WHILE_KEYWORD = "while" | "enquanto" ;
+RETURN_KEYWORD = "return" | "retorna" ; BREAK_KEYWORD = "break" | "quebra" ;
+CONTINUE_KEYWORD = "continue" | "continua" ;
+SERIE_KEYWORD = "serie" ; PARALELO_KEYWORD = "paralelo" ; EM_KEYWORD = "em" ;
+PUBLICO = "publico" ; PRIVADO = "privado" ; PROTEGIDO = "protegido" ;
+
+ASSIGN = "=" ; EQUALS = "==" ; NOT_EQUALS = "!=" ;
+LESS_THAN = "<" ; GREATER_THAN = ">" ; LESS_EQUAL = "<=" ; GREATER_EQUAL = ">=" ;
+PLUS = "+" ; MINUS = "-" ; MULTIPLY = "*" ; DIVIDE = "/" ; MODULO = "%" ;
+AND = "&&" ; OR = "||" ; NOT = "!" ; ARROW = "->" ;
+
+LPAREN = "(" ; RPAREN = ")" ; LBRACE = "{" ; RBRACE = "}" ;
+LBRACKET = "[" ; RBRACKET = "]" ; SEMICOLON = ";" ; COMMA = "," ;
+DOT = "." ; COLON = ":" ;
+
+ID = LETTER (LETTER | DIGIT | "_")* ;
+
+WHITESPACE = ( ' ' | '\t' )+ ;
+NEWLINE = ( '\n' | '\r\n' )+ ;
+COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/" ) ;
+
+LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ;
+DIGIT = '0'...'9' ;
+ANY_CHARACTER = (* Qualquer caractere Unicode. *) ;
+ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
+ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
+```
+</details>
+
+---
+
+## 🛠️ Como Usar
+
+- O lexer reconhece todos os tokens definidos nesta EBNF, incluindo `FOREIGN_CODE_CONTENT` para blocos de código estrangeiro.
+- Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
+- A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
+
+---
+
+## 📝 Notas Técnicas
+
+- **WHITESPACE** e **NEWLINE** são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser, exceto onde explicitamente referenciados.
 - **Comentários** são ignorados pelo lexer e não chegam ao parser.
 - **A gramática é auto-contida:** Todos os terminais estão definidos ao final do arquivo.
 - **Consistência:** Os nomes dos tokens na EBNF batem exatamente com os nomes do Enum do lexer.
 
 ---
 
-## 🚀 **Contribuindo**
+## 🚀 Contribuindo
 
 - Sugestões, correções e expansões são bem-vindas!
 - Para contribuir, abra um Pull Request ou Issue neste repositório.
 
 ---
 
-## 📄 **Licença**
+## 📄 Licença
 
 [Defina a licença do projeto aqui — ex: Apache 2.0, MIT, etc.]
 
 ---
 
 **GuruDev® — Código que transcende paradigmas, sintaxe que honra a tradição.**
+
+---
