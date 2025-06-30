@@ -1,47 +1,23 @@
+(* 
+  GuruDev® EBNF Completa
+  Versão: 1.0.0-alpha (Alinhada ao Lexer)
+  Autor: Guilherme Gonçalves Machado
+  Descrição: Gramática formal da linguagem GuruDev®, cobrindo todos os requisitos do whitepaper.
+*)
 
-# Gramática EBNF da GuruDev® (Versão 1.0.0-alpha - Lexer-Aligned)
+(*
+  --- Notas Importantes sobre o Lexer e Parser ---
+  - WHITESPACE e NEWLINE são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser entre os não-terminais, exceto onde sua presença é semanticamente relevante (ex: fim de linha para inferência de ponto-e-vírgula, não aplicável na GuruDev® com SEMICOLON explícito).
+  - Comentários são ignorados pelo lexer e não chegam ao parser.
+  - A ordem das regras é crucial no lexer (maior especificidade primeiro). No parser (usando ply.yacc, por exemplo), a gramática resolve ambiguidades com precedência e associatividade.
+*)
 
-Esta EBNF descreve a sintaxe completa da Linguagem de Programação Ontológica e Multissemiótica GuruDev®, alinhada com o comportamento do lexer `ply.lex` implementado. Ela define como o código GuruDev® é estruturado, incluindo suas anotações semânticas e a interoperabilidade nativa com outras linguagens.
-
------
-
-### Convenções EBNF
-
-  * `rule = definition ;`
-  * `"terminal"`: Palavras-chave e símbolos literais, exatamente como aparecem no código.
-  * `[ item ]`: Item opcional (zero ou uma ocorrência).
-  * `{ item }`: Item repetível (zero ou mais ocorrências).
-  * `item+`: Um ou mais itens.
-  * `( item1 | item2 )`: Escolha entre itens.
-  * `(* comment *)`: Comentários dentro da gramática.
-
------
-
-### 1\. Estrutura Geral do Programa
-
-Um programa GuruDev® é composto por um ou mais blocos principais.
-
-```ebnf
 program = { block } ;
-```
 
-### 2\. Definição do Bloco Principal (`[bloco]`)
+block = BLOCO_START WHITESPACE overscript_block WHITESPACE gurudev_code_block WHITESPACE subscript_block WHITESPACE BLOCO_END ;
 
-O bloco principal da GuruDev® engloba a estrutura tríplice de metadados, código GuruDev® e subescritas multilíngues.
-
-```ebnf
-block = BLOCO_START WHITESPACE overscript_block WHITESPACE gurudev_code_block WHITESPACE subscript_block BLOCO_END ;
-```
-
-### 3\. Bloco de Sobrescrita (`[sobrescrita]`)
-
-Define os metadados contextuais, semânticos e hermenêuticos do bloco GuruDev®.
-
-```ebnf
-overscript_block = SOBRESCRITA_START WHITESPACE { overscript_attribute } SOBRESCRITA_END ;
-overscript_attribute = ( STRING_LITERAL (* "Contexto: descrição do propósito" *)
-                       | STRING_LITERAL (* "Campo do conhecimento: área específica" *)
-                       | STRING_LITERAL (* "Nível de interpretação: tipo de processamento" *)
+overscript_block = SOBRESCRITA_START WHITESPACE { overscript_attribute WHITESPACE } SOBRESCRITA_END ;
+overscript_attribute = ( STRING_LITERAL (* Ex: "Contexto: descrição do propósito" *)
                        | NIVEL_ATTR
                        | RAIZ_ATTR
                        | CLAVE_ATTR
@@ -49,21 +25,11 @@ overscript_attribute = ( STRING_LITERAL (* "Contexto: descrição do propósito"
                        ) ;
 
 NIVEL_ATTR = LBRACKET "nivel=" STRING_LITERAL RBRACKET ;
-RAIZ_ATTR = LBRACKET "raiz=" STRING_LITERAL RBRACKET ;
+RAIZ_ATTR  = LBRACKET "raiz=" STRING_LITERAL RBRACKET ;
 CLAVE_ATTR = LBRACKET "clave=" STRING_LITERAL RBRACKET ;
-ONT_ATTR = LBRACKET "ont=" STRING_LITERAL RBRACKET ; (* Alinhado com [ont="substancia"] *)
+ONT_ATTR   = LBRACKET "ont=" STRING_LITERAL RBRACKET ;
 
-(* Note: Os valores internos STRING_LITERAL para Nivel, Raiz, Clave, Ont serão
-   mapeados para seus respectivos TokenType específicos pelo lexer.
-   Ex: STRING_LITERAL "literal" para NIVEL_LITERAL. *)
-```
-
-### 4\. Bloco de Código GuruDev® Principal (`¡codigo!`)
-
-Contém a lógica funcional escrita na sintaxe GuruDev®.
-
-```ebnf
-gurudev_code_block = CODIGO_START WHITESPACE { gurudev_statement } CODIGO_END ;
+gurudev_code_block = CODIGO_START WHITESPACE { gurudev_statement WHITESPACE } CODIGO_END ;
 
 gurudev_statement = ( declaration
                     | assignment
@@ -74,25 +40,25 @@ gurudev_statement = ( declaration
                     | return_statement
                     ) SEMICOLON ;
 
-declaration = ( ( type_keyword IDENTIFIER ) | ( case_keyword DOT IDENTIFIER ) ) [ ASSIGN expression ] ; (* Ajusta NOM e tipos *)
-assignment = ( ID | ( case_keyword DOT IDENTIFIER ) ) ASSIGN expression ; (* Ajusta ACU *)
+declaration = ( ( type_keyword IDENTIFIER ) | ( case_keyword DOT IDENTIFIER ) ) [ ASSIGN expression ] ;
+assignment  = ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) ASSIGN expression ;
 
 type_keyword = ( BOOL_TYPE | STRING_TYPE | INT_TYPE | FLOAT_TYPE | VOID_TYPE
                | ARRAY_TYPE LBRACKET RBRACKET
-               | OBJECT_TYPE LESS_THAN ID GREATER_THAN
+               | OBJECT_TYPE LESS_THAN IDENTIFIER GREATER_THAN
                | FORMULA_TYPE | TEMPORAL_TYPE | IMAGEM_TYPE | AUDIO_TYPE | VIDEO_TYPE
-               | TABELA_TYPE LESS_THAN ID GREATER_THAN
-               | GRAFO_TYPE LESS_THAN ID COMMA ID GREATER_THAN
-               | ID ) ; (* ID para classes customizadas *)
+               | TABELA_TYPE LESS_THAN IDENTIFIER GREATER_THAN
+               | GRAFO_TYPE LESS_THAN IDENTIFIER COMMA IDENTIFIER GREATER_THAN
+               | IDENTIFIER ) ; (* IDENTIFIER para classes customizadas *)
 
 case_keyword = ( VOC | NOM | ACU | DAT | GEN | INS | LOC | ABL ) ;
 
-function_call = ( ID | ( case_keyword DOT ID ) ) LPAREN [ argument_list ] RPAREN ;
-method_call = ID DOT ( ID | ( case_keyword DOT ID ) ) LPAREN [ argument_list ] RPAREN ;
+function_call = ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) LPAREN [ argument_list ] RPAREN ;
+method_call   = IDENTIFIER DOT ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) LPAREN [ argument_list ] RPAREN ;
 argument_list = expression { COMMA expression } ;
 
 expression = ( literal
-             | ID
+             | IDENTIFIER
              | function_call
              | method_call
              | binary_operation
@@ -107,27 +73,20 @@ binary_operation = expression ( PLUS | MINUS | MULTIPLY | DIVIDE | MODULO
                               | LESS_EQUAL | GREATER_EQUAL | AND | OR ) expression ;
 unary_operation = ( PLUS | MINUS | NOT ) expression ;
 
-control_flow = ( IF_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement } RBRACE [ ELSE_KEYWORD LBRACE { gurudev_statement } RBRACE ]
-               | FOR_KEYWORD LPAREN ( declaration | assignment ) SEMICOLON expression SEMICOLON assignment RPAREN LBRACE { gurudev_statement } RBRACE (* for (int i=0; i<n; i++) *)
-               | FOR_KEYWORD LPAREN type_keyword ID COLON ID RPAREN LBRACE { gurudev_statement } RBRACE (* for (Float peso : pesos) *)
-               | WHILE_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement } RBRACE
+control_flow = ( IF_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement WHITESPACE } RBRACE [ ELSE_KEYWORD LBRACE { gurudev_statement WHITESPACE } RBRACE ]
+               | FOR_KEYWORD LPAREN ( declaration | assignment ) SEMICOLON expression SEMICOLON assignment RPAREN LBRACE { gurudev_statement WHITESPACE } RBRACE
+               | FOR_KEYWORD LPAREN type_keyword IDENTIFIER COLON IDENTIFIER RPAREN LBRACE { gurudev_statement WHITESPACE } RBRACE
+               | WHILE_KEYWORD LPAREN expression RPAREN LBRACE { gurudev_statement WHITESPACE } RBRACE
                ) ;
 
 return_statement = RETURN_KEYWORD [ expression ] ;
 
-execution_control_block = ( SERIE_KEYWORD LBRACE { gurudev_statement } RBRACE
-                          | PARALELO_KEYWORD LBRACE { gurudev_statement } RBRACE
-                          | EM_KEYWORD ( ID | case_keyword DOT ID ) LBRACE { gurudev_statement } RBRACE (* em python { ... } *)
+execution_control_block = ( SERIE_KEYWORD LBRACE { gurudev_statement WHITESPACE } RBRACE
+                          | PARALELO_KEYWORD LBRACE { gurudev_statement WHITESPACE } RBRACE
+                          | EM_KEYWORD ( IDENTIFIER | case_keyword DOT IDENTIFIER ) LBRACE { gurudev_statement WHITESPACE } RBRACE
                           ) ;
-```
 
-### 5\. Bloco de Subescritas Multilíngues (`[subescritas]`)
-
-Contém blocos de código em linguagens estrangeiras para interoperabilidade.
-
-```ebnf
-subscript_block = SUBESCRITAS_START WHITESPACE { foreign_language_block } SUBESCRITAS_END ;
-
+subscript_block = SUBESCRITAS_START WHITESPACE { foreign_language_block WHITESPACE } SUBESCRITAS_END ;
 foreign_language_block = ( PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END
                          | RUST_START FOREIGN_CODE_CONTENT RUST_END
                          | JAVASCRIPT_START FOREIGN_CODE_CONTENT JAVASCRIPT_END
@@ -139,15 +98,13 @@ foreign_language_block = ( PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END
                          | R_START FOREIGN_CODE_CONTENT R_END
                          ) ;
 
-FOREIGN_CODE_CONTENT = ANY_CHARACTER_SEQUENCE ; (* Conteúdo bruto da linguagem estrangeira, não tokenizado pelo lexer da GuruDev® *)
-```
+(*
+FOREIGN_CODE_CONTENT: Este token é reconhecido pelo lexer como todo o conteúdo entre as tags de início e fim da linguagem estrangeira (inclusive quebras de linha e comentários internos), até o token de fechamento da linguagem correspondente. Este conteúdo é tratado como texto bruto e não é tokenizado pelo lexer da GuruDev®.
+*)
 
-### 6\. Terminais (Tokens Reconhecidos pelo Lexer)
+(* --- TERMINAIS (TOKENS RECONHECIDOS PELO LEXER) --- *)
 
-Esta seção lista os terminais (tokens) que o lexer produz, com as regras literais ou regex que os definem.
-
-```ebnf
-(* Estruturas Principais *)
+(* Estruturas de Blocos Principais *)
 BLOCO_START = "[bloco]" ;
 BLOCO_END = "[/bloco]" ;
 SOBRESCRITA_START = "[sobrescrita]" ;
@@ -157,7 +114,7 @@ SUBESCRITAS_END = "[/subescritas]" ;
 CODIGO_START = "¡codigo!" ;
 CODIGO_END = "!/codigo!" ;
 
-(* Subescritas de Linguagens *)
+(* Subescritas de Linguagens Estrangeiras (Tags de Início/Fim) *)
 PYTHON_START = "¿python?" ;
 PYTHON_END = "?/python?" ;
 RUST_START = "¿rust?" ;
@@ -177,22 +134,19 @@ SQL_END = "?/sql?" ;
 R_START = "¿r?" ;
 R_END = "?/r?" ;
 
-(* Conteúdo Bruto (para código estrangeiro) *)
-FOREIGN_CODE_CONTENT = ANY_CHARACTER_SEQUENCE ; (* Captura qualquer sequência de caracteres, incluindo newlines *)
-
-(* Atributos (os valores internos são capturados pelo lexer) *)
+(* Atributos (os valores internos são STRING_LITERAL capturados pelo lexer) *)
 NIVEL_ATTR = "[nivel=" STRING_LITERAL "]" ;
 RAIZ_ATTR = "[raiz=" STRING_LITERAL "]" ;
 CLAVE_ATTR = "[clave=" STRING_LITERAL "]" ;
 ONT_ATTR = "[ont=" STRING_LITERAL "]" ;
 
 (* Literais *)
-STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\\' ANY_CHARACTER )* '"' ; (* Corrigido para escape de aspas *)
+STRING_LITERAL = '"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\\' ANY_CHARACTER )* '"' ;
 INT_LITERAL = DIGIT+ ;
 FLOAT_LITERAL = DIGIT+ "." DIGIT+ [ "f" ] ;
 BOOLEAN_LITERAL = "true" | "false" | "verdadeiro" | "falso" ;
 
-(* Palavras-Chave (Tokens com valores literais exatos) *)
+(* Palavras-Chave (Tokens com valores literais exatos ou aliases) *)
 VOC = "VOC" ; NOM = "NOM" ; ACU = "ACU" ; DAT = "DAT" ;
 GEN = "GEN" ; INS = "INS" ; LOC = "LOC" ; ABL = "ABL" ;
 FUNCAO = "funcao" ; CLASSE = "classe" ; EXTENDS = "extends" ; IMPLEMENTS = "implements" ;
@@ -221,19 +175,40 @@ DOT = "." ; COLON = ":" ;
 (* Identificador (nomes de variáveis, funções, classes, etc. que não são palavras-chave) *)
 ID = LETTER (LETTER | DIGIT | "_")* ;
 
-(* Ignorados pelo Lexer *)
+(* Caracteres Ignorados pelo Lexer (não chegam ao Parser) *)
 WHITESPACE = ( ' ' | '\t' )+ ;
-NEWLINE = ( '\n' | '\r\n' )+ ; (* Reconhecido como token, se parser precisar *)
+NEWLINE = ( '\n' | '\r\n' )+ ;
 COMMENT = ( "//" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( "/*" (ANY_CHARACTER)* "*/" ) ;
 
-(* Componentes básicos de caracteres (internos para regex) *)
+(* Componentes Básicos de Caracteres (usados nas definições acima) *)
 LETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ; (* Inclui caracteres acentuados *)
 DIGIT = '0'...'9' ;
 ANY_CHARACTER = (* Qualquer caractere Unicode. Em EBNF, é um marcador conceitual. *) ;
 ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
 ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
 
-```
+(* --- FIM DA GRAMÁTICA --- *)
 
------
+(* --- Exemplo de Bloco GuruDev® Completo --- *)
 
+[bloco]
+    [sobrescrita]
+        "Contexto: autenticação"
+        [nivel="holistico"]
+        [raiz="SEG"]
+        [ont="acao"]
+    [/sobrescrita]
+
+    ¡codigo!
+        NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {
+            return hash(senhaInserida) == hash(senhaHashArmazenada);
+        }
+    !/codigo!
+
+    [subescritas]
+        ¿python?
+        def verificar_senha(senha_inserida, senha_armazenada):
+            return hash(senha_inserida) == hash(senha_armazenada)
+        ?/python?
+    [/subescritas]
+[/bloco]
