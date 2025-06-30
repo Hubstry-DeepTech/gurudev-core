@@ -1,6 +1,4 @@
-Claro! Aqui está a **gramática EBNF da GuruDev®** formatada em **Markdown** para você colar no GitHub, com hierarquia de títulos, negrito, itálico e blocos de código para máxima legibilidade e documentação:
 
----
 
 # GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer
 
@@ -295,7 +293,4 @@ ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de li
 
 > **FIM DA GRAMÁTICA**
 
----
 
-Se quiser, posso adaptar ainda mais o estilo ou inserir mais exemplos!  
-Agora é só colar no seu arquivo `.md` no GitHub! 🚀
