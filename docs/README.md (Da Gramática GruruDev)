@@ -1,3 +1,4 @@
+````md
 # GuruDev® EBNF — Gramática Formal da Linguagem
 
 Esta é a gramática EBNF oficial da linguagem de programação GuruDev®, alinhada ao lexer implementado em Python (PLY). Ela define de forma precisa e formal a estrutura sintática da linguagem, servindo como referência para o desenvolvimento do parser, documentação, testes e futuras expansões.
@@ -20,7 +21,7 @@ Cada bloco é composto por:
 
 - `[sobrescrita]` — Metadados/contexto semântico  
 - `¡codigo!` — Código GuruDev® principal  
-- `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)  
+- `[subescritas]` — Blocos de código estrangeiro (interoperabilidade)
 
 **Exemplo:**
 
@@ -46,7 +47,7 @@ Cada bloco é composto por:
         ?/python?
     [/subescritas]
 [/bloco]
-```
+````
 
 ---
 
@@ -129,41 +130,43 @@ ANY_CHARACTER = (* Qualquer caractere Unicode. *) ;
 ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;
 ANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;
 ```
+
 </details>
 
 ---
 
 ## 🛠️ Como Usar
 
-- O lexer reconhece todos os tokens definidos nesta EBNF, incluindo `FOREIGN_CODE_CONTENT` para blocos de código estrangeiro.
-- Use esta EBNF como base para implementar o parser (ex: com PLY/Yacc, ANTLR, etc.).
-- A gramática está pronta para expansão futura (ex: controle de erros, multimodalidade, macros).
+* O lexer reconhece todos os tokens definidos nesta EBNF.
+* Use como base para um parser em PLY, ANTLR ou equivalente.
+* Blocos de código estrangeiro são tratados como `FOREIGN_CODE_CONTENT`.
+* Estrutura extensível para suporte a macros, erros e multimodalidade.
 
 ---
 
 ## 📝 Notas Técnicas
 
-- **WHITESPACE** e **NEWLINE** são tokens produzidos pelo lexer, mas geralmente ignorados pelo parser, exceto onde explicitamente referenciados.
-- **Comentários** são ignorados pelo lexer e não chegam ao parser.
-- **A gramática é auto-contida:** Todos os terminais estão definidos ao final do arquivo.
-- **Consistência:** Os nomes dos tokens na EBNF batem exatamente com os nomes do Enum do lexer.
+* `WHITESPACE` e `NEWLINE` são ignorados pelo parser, salvo exceções.
+* Comentários são descartados pelo lexer.
+* A gramática é auto-contida: todos os tokens estão definidos neste arquivo.
+* Os nomes dos tokens correspondem diretamente aos identificadores no lexer.
 
 ---
 
 ## 🚀 Contribuindo
 
-- Sugestões, correções e expansões são bem-vindas!
-- Para contribuir, abra um Pull Request ou Issue neste repositório.
+* Sugestões e melhorias são bem-vindas.
+* Abra uma **Issue** ou **Pull Request** neste repositório.
 
 ---
 
 ## 📄 Licença
 
-[Defina a licença do projeto aqui — ex: Apache 2.0, MIT, etc.]
+ * Apache 2.0.*
 
 ---
 
-**GuruDev® — Código que transcende paradigmas, sintaxe que honra a tradição.**
+**GuruDev® — Código que transcende paradigmas. Sintaxe que honra a tradição.**
 
----
 
+```
