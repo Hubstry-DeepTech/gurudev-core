@@ -1,4 +1,3 @@
-````markdown
 # Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica
 
 ---
