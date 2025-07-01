@@ -1,0 +1,21 @@
+// Palavras-chave e nomes reservados
+RESERVED = "VOC" | "NOM" | "Math" | "Texto" | "escrever" | "imprimir" | "ler" | "tamanho" | "maiusculo" | "minusculo" | "abs" | "ceil" | "floor" | "sqrt" | "versao" | "autor" ;
+
+// Identificador de usuário (não pode ser RESERVED)
+IDENTIFICADOR = LETTER (LETTER | DIGIT | "_")* ;
+IDENTIFICADOR_INVALIDO = IDENTIFICADOR onde IDENTIFICADOR ∈ RESERVED ; // Erro!
+
+// Oração de código (nível superior)
+oracao_de_codigo = declaracao_variavel
+                 | chamada_funcao
+                 | comando_saida
+                 | ... ;
+
+// Comando de saída de texto
+comando_saida = VOC "." ("escrever" | "imprimir") "(" argumento ")" ";" ;
+
+// Chamada de função geral (exclui RESERVED)
+chamada_funcao = IDENTIFICADOR "(" argumento? ")" ";" ;
+
+// Exemplo de declaração de variável (garante que não usa RESERVED)
+declaracao_variavel = tipo IDENTIFICADOR "=" expressao ";" ;
