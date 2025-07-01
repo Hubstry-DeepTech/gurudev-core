@@ -1,0 +1,2 @@
+// Ao identificar um token IDENTIFICADOR, verificar:
+SE token ∈ RESERVED => ERRO ("Nome reservado para uso interno da linguagem")
