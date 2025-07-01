@@ -1,0 +1,6 @@
+// Teste: declarar variável com nome reservado
+declaracao_variavel = tipo IDENTIFICADOR "=" expressao ";" ;
+SE IDENTIFICADOR ∈ RESERVED => ERRO ("Nome reservado para uso interno")
+// Teste: função com nome reservado
+declaracao_funcao = "func" IDENTIFICADOR "(" parametros? ")" bloco ;
+SE IDENTIFICADOR ∈ RESERVED => ERRO ("Nome reservado para uso interno")
