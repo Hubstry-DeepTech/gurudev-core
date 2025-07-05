@@ -161,7 +161,8 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 🙏 Agradecimentos
 
-- **Claude AI** - Auxílio no desenvolvimento
+- **Claude AI (Anthropic)** - Auxílio no desenvolvimento
+- **Cursor (Anysphere)** - Auxílio no desenvolvimento e automação
 - **Comunidade Python** - Ferramentas e bibliotecas
 - **Academia** - Inspiração para Programação Comparada
 - **Hubstry-DeepTech** - Suporte e infraestrutura
@@ -187,4 +188,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 **Alexandria** - Conectando linguagens, unindo paradigmas, educando o futuro.
 
-© 2024 Guilherme Gonçalves Machado & Hubstry-DeepTech. Todos os direitos reservados. 
+© 2025 Guilherme Gonçalves Machado & Hubstry-DeepTech. Todos os direitos reservados. 

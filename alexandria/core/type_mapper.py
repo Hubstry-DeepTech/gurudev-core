@@ -70,11 +70,11 @@ class TypeMapper:
             "javascript": {
                 "number": TypeInfo("number", TypeCategory.PRIMITIVE, 8, False, False, 0, []),
                 "string": TypeInfo("string", TypeCategory.PRIMITIVE, None, False, False, "", []),
-                "boolean": TypeInfo("boolean", TypeCategory.PRIMITIVE, 1, False, False, false, []),
+                "boolean": TypeInfo("boolean", TypeCategory.PRIMITIVE, 1, False, False, False, []),
                 "array": TypeInfo("array", TypeCategory.COMPOSITE, None, True, True, [], []),
                 "object": TypeInfo("object", TypeCategory.COMPOSITE, None, True, True, {}, []),
-                "null": TypeInfo("null", TypeCategory.SPECIAL, None, True, False, null, []),
-                "undefined": TypeInfo("undefined", TypeCategory.SPECIAL, None, True, False, undefined, [])
+                "null": TypeInfo("null", TypeCategory.SPECIAL, None, True, False, None, []),
+                "undefined": TypeInfo("undefined", TypeCategory.SPECIAL, None, True, False, None, [])
             },
             "rust": {
                 "i8": TypeInfo("i8", TypeCategory.PRIMITIVE, 1, False, False, 0, []),
@@ -87,44 +87,44 @@ class TypeMapper:
                 "u64": TypeInfo("u64", TypeCategory.PRIMITIVE, 8, False, False, 0, []),
                 "f32": TypeInfo("f32", TypeCategory.PRIMITIVE, 4, False, False, 0.0, []),
                 "f64": TypeInfo("f64", TypeCategory.PRIMITIVE, 8, False, False, 0.0, []),
-                "bool": TypeInfo("bool", TypeCategory.PRIMITIVE, 1, False, False, false, []),
-                "String": TypeInfo("String", TypeCategory.PRIMITIVE, None, False, True, String::new(), []),
+                "bool": TypeInfo("bool", TypeCategory.PRIMITIVE, 1, False, False, False, []),
+                "String": TypeInfo("String", TypeCategory.PRIMITIVE, None, False, True, "", []),
                 "&str": TypeInfo("&str", TypeCategory.PRIMITIVE, None, False, False, "", []),
-                "Vec": TypeInfo("Vec", TypeCategory.COMPOSITE, None, True, True, Vec::new(), []),
-                "HashMap": TypeInfo("HashMap", TypeCategory.COMPOSITE, None, True, True, HashMap::new(), []),
+                "Vec": TypeInfo("Vec", TypeCategory.COMPOSITE, None, True, True, [], []),
+                "HashMap": TypeInfo("HashMap", TypeCategory.COMPOSITE, None, True, True, {}, []),
                 "Option": TypeInfo("Option", TypeCategory.GENERIC, None, True, False, None, []),
-                "Result": TypeInfo("Result", TypeCategory.GENERIC, None, True, False, Ok(()), [])
+                "Result": TypeInfo("Result", TypeCategory.GENERIC, None, True, False, None, [])
             },
             "java": {
                 "int": TypeInfo("int", TypeCategory.PRIMITIVE, 4, False, False, 0, []),
-                "long": TypeInfo("long", TypeCategory.PRIMITIVE, 8, False, False, 0L, []),
-                "float": TypeInfo("float", TypeCategory.PRIMITIVE, 4, False, False, 0.0f, []),
+                "long": TypeInfo("long", TypeCategory.PRIMITIVE, 8, False, False, 0, []),
+                "float": TypeInfo("float", TypeCategory.PRIMITIVE, 4, False, False, 0.0, []),
                 "double": TypeInfo("double", TypeCategory.PRIMITIVE, 8, False, False, 0.0, []),
-                "boolean": TypeInfo("boolean", TypeCategory.PRIMITIVE, 1, False, False, false, []),
+                "boolean": TypeInfo("boolean", TypeCategory.PRIMITIVE, 1, False, False, False, []),
                 "char": TypeInfo("char", TypeCategory.PRIMITIVE, 2, False, False, '\0', []),
                 "String": TypeInfo("String", TypeCategory.REFERENCE, None, False, False, "", []),
-                "Integer": TypeInfo("Integer", TypeCategory.REFERENCE, 4, True, False, null, []),
-                "Long": TypeInfo("Long", TypeCategory.REFERENCE, 8, True, False, null, []),
-                "Float": TypeInfo("Float", TypeCategory.REFERENCE, 4, True, False, null, []),
-                "Double": TypeInfo("Double", TypeCategory.REFERENCE, 8, True, False, null, []),
-                "Boolean": TypeInfo("Boolean", TypeCategory.REFERENCE, 1, True, False, null, []),
-                "Character": TypeInfo("Character", TypeCategory.REFERENCE, 2, True, False, null, []),
-                "List": TypeInfo("List", TypeCategory.COMPOSITE, None, True, True, null, []),
-                "Map": TypeInfo("Map", TypeCategory.COMPOSITE, None, True, True, null, []),
-                "Set": TypeInfo("Set", TypeCategory.COMPOSITE, None, True, True, null, [])
+                "Integer": TypeInfo("Integer", TypeCategory.REFERENCE, 4, True, False, None, []),
+                "Long": TypeInfo("Long", TypeCategory.REFERENCE, 8, True, False, None, []),
+                "Float": TypeInfo("Float", TypeCategory.REFERENCE, 4, True, False, None, []),
+                "Double": TypeInfo("Double", TypeCategory.REFERENCE, 8, True, False, None, []),
+                "Boolean": TypeInfo("Boolean", TypeCategory.REFERENCE, 1, True, False, None, []),
+                "Character": TypeInfo("Character", TypeCategory.REFERENCE, 2, True, False, None, []),
+                "List": TypeInfo("List", TypeCategory.COMPOSITE, None, True, True, None, []),
+                "Map": TypeInfo("Map", TypeCategory.COMPOSITE, None, True, True, None, []),
+                "Set": TypeInfo("Set", TypeCategory.COMPOSITE, None, True, True, None, [])
             },
             "csharp": {
                 "int": TypeInfo("int", TypeCategory.PRIMITIVE, 4, False, False, 0, []),
-                "long": TypeInfo("long", TypeCategory.PRIMITIVE, 8, False, False, 0L, []),
-                "float": TypeInfo("float", TypeCategory.PRIMITIVE, 4, False, False, 0.0f, []),
+                "long": TypeInfo("long", TypeCategory.PRIMITIVE, 8, False, False, 0, []),
+                "float": TypeInfo("float", TypeCategory.PRIMITIVE, 4, False, False, 0.0, []),
                 "double": TypeInfo("double", TypeCategory.PRIMITIVE, 8, False, False, 0.0, []),
-                "bool": TypeInfo("bool", TypeCategory.PRIMITIVE, 1, False, False, false, []),
+                "bool": TypeInfo("bool", TypeCategory.PRIMITIVE, 1, False, False, False, []),
                 "char": TypeInfo("char", TypeCategory.PRIMITIVE, 2, False, False, '\0', []),
                 "string": TypeInfo("string", TypeCategory.REFERENCE, None, False, False, "", []),
-                "object": TypeInfo("object", TypeCategory.REFERENCE, None, True, False, null, []),
-                "List": TypeInfo("List", TypeCategory.COMPOSITE, None, True, True, null, []),
-                "Dictionary": TypeInfo("Dictionary", TypeCategory.COMPOSITE, None, True, True, null, []),
-                "HashSet": TypeInfo("HashSet", TypeCategory.COMPOSITE, None, True, True, null, [])
+                "object": TypeInfo("object", TypeCategory.REFERENCE, None, True, False, None, []),
+                "List": TypeInfo("List", TypeCategory.COMPOSITE, None, True, True, None, []),
+                "Dictionary": TypeInfo("Dictionary", TypeCategory.COMPOSITE, None, True, True, None, []),
+                "HashSet": TypeInfo("HashSet", TypeCategory.COMPOSITE, None, True, True, None, [])
             }
         }
     

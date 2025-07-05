@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+alexandria/__init__.py
+alexandria/cli.py
+alexandria/core/analyzer.py
+alexandria/core/bridge.py
+alexandria/core/translator.py
+alexandria/core/type_mapper.py
+alexandria_lang.egg-info/PKG-INFO
+alexandria_lang.egg-info/SOURCES.txt
+alexandria_lang.egg-info/dependency_links.txt
+alexandria_lang.egg-info/entry_points.txt
+alexandria_lang.egg-info/requires.txt
+alexandria_lang.egg-info/top_level.txt
+tests/test_analyzer.py
