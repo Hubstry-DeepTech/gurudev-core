@@ -5,14 +5,18 @@ Uma biblioteca pioneira que implementa os princípios da Programação Comparada
 facilitando a interoperabilidade entre linguagens de programação através de
 análise comparativa sistemática.
 
-Autor: [Seu Nome]
+Idealizador e Criador Principal: Guilherme Gonçalves Machado
+Desenvolvido com auxílio de Inteligência Artificial (Claude AI)
+Empresa: Hubstry-DeepTech
+
 Versão: 0.1.0
 Licença: MIT
 """
 
 __version__ = "0.1.0"
-__author__ = "Alexandria Team"
-__email__ = "alexandria@programacao-comparada.org"
+__author__ = "Guilherme Gonçalves Machado"
+__email__ = "guilhermemachado@hubstry.com"
+__company__ = "Hubstry-DeepTech"
 
 from .core.analyzer import LanguageAnalyzer
 from .core.translator import CodeTranslator

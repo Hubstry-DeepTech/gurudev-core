@@ -9,10 +9,10 @@ description = "Biblioteca de Interoperabilidade e Programação Comparada"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Alexandria Team", email = "alexandria@programacao-comparada.org"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado@hubstry.com"}
 ]
 maintainers = [
-    {name = "Alexandria Team", email = "alexandria@programacao-comparada.org"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado@hubstry.com"}
 ]
 keywords = [
     "programming languages",
@@ -79,10 +79,10 @@ visualization = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/seu-usuario/alexandria"
-Documentation = "https://alexandria-lang.readthedocs.io/"
-Repository = "https://github.com/seu-usuario/alexandria"
-"Bug Tracker" = "https://github.com/seu-usuario/alexandria/issues"
+Homepage = "https://github.com/Hubstry-DeepTech/gurudev-core"
+Documentation = "https://github.com/Hubstry-DeepTech/gurudev-core/tree/main/alexandria"
+Repository = "https://github.com/Hubstry-DeepTech/gurudev-core"
+"Bug Tracker" = "https://github.com/Hubstry-DeepTech/gurudev-core/issues"
 
 [project.scripts]
 alexandria = "alexandria.cli:main"
