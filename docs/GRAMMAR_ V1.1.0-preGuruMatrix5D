@@ -1,0 +1,101 @@
+**GuruDev® EBNF — Versão 1.1.0-preGuruMatrix5D**
+
+> Alinhada com a versão anterior (1.0.0-alpha) e atualizada para suportar a expansão semântico-contextual com GuruMatrix5D.
+> Esta versão é retrocompatível e opcionalmente expande o modelo de metadados semânticos.
+
+---
+
+## ✨ Novidades nesta Versão
+
+* Suporte às **coordenadas 5D da GuruMatrix**:
+
+  * `nivel` (hermenêutico)
+  * `clave` (campo do saber)
+  * `ont` (categoria ontológica)
+  * `tempo` (fase da execução)
+  * `modo` (paradigma/linguagem alvo)
+* Inclusão de atributos opcionais `tempo`, `modo` e `paradigma` na sobrescrita
+
+---
+
+## 🔹 Sobrescrita Estendida
+
+```ebnf
+overscript_block = SOBRESCRITA_START WHITESPACE {
+  overscript_attribute WHITESPACE
+} SOBRESCRITA_END ;
+
+overscript_attribute = (
+  STRING_LITERAL
+  | NIVEL_ATTR
+  | RAIZ_ATTR
+  | CLAVE_ATTR
+  | ONT_ATTR
+  | TEMPO_ATTR?        (* novo *)
+  | PARADIGMA_ATTR?    (* novo *)
+  | MODO_ATTR?         (* novo *)
+) ;
+
+TEMPO_ATTR = LBRACKET "tempo=" STRING_LITERAL RBRACKET ;
+PARADIGMA_ATTR = LBRACKET "paradigma=" STRING_LITERAL RBRACKET ;
+MODO_ATTR = LBRACKET "modo=" STRING_LITERAL RBRACKET ;
+```
+
+### ✨ Exemplos
+
+```gurudev
+[sobrescrita]
+  "Contexto: visualização educacional"
+  [nivel="mistico"]
+  [clave="arte"]
+  [ont="qualidade"]
+  [tempo="execucao"]
+  [paradigma="funcional"]
+  [modo="python"]
+[/sobrescrita]
+```
+
+---
+
+## 📋 Atualizações no Comentário do Compilador
+
+Scripts em modo de discurso direto (fora de bloco) continuam sendo encapsulados implicitamente com atributos padrões.
+Nesta versão, o compilador pode inferir também `tempo` e `modo`, como:
+
+```text
+[nivel="literal"] [clave="geral"] [ont="acao"] [tempo="compilacao"] [modo="imperativo"]
+```
+
+---
+
+## 🏛️ Integração com GuruMatrix5D
+
+A representação semântica completa no Annotator segue:
+
+```text
+GuruMatrix[i][j][k][t][l]
+
+i = categoria ontológica
+j = campo do saber ou relação semântica
+k = nível hermenêutico (1 a 7)
+t = tempo de execução (compilacao, execucao, visualizacao, debug...)
+l = linguagem alvo ou paradigma
+```
+
+---
+
+## 🔄 Compatibilidade
+
+Esta versão é **100% retrocompatível**. Todos os exemplos da versão 1.0 continuam funcionando.
+
+---
+
+## 🏃 Roadmap
+
+* `v1.1.0-pre`: suporte estendido (esta versão)
+* `v1.1.0`: versão final da matriz integrada ao parser
+* `v1.2.0`: transformação semântica de bytecode no parser
+
+---
+
+> **FIM DA EXTENSÃO PRE-GuruMatrix5D**
