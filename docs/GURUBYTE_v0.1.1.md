@@ -4,7 +4,7 @@
 
 ## 🔎 Visão Geral
 
-**GuruByte** é o formato oficial de bytecode da linguagem de programação **GuruDev®**. Ele permite a execução simbólica, multimodal e multissemiótica dentro da **GuruDVM (GuruDev Virtual Machine)**.
+**GuruByte** é o formato oficial de bytecode da linguagem de programação **GuruDev®**. Ele permite a execução simbólica, multimodal e multissemiótica dentro da **GVM (GuruDev Virtual Machine)**.
 
 O formato `.gurub` conserva metadados semânticos, ontológicos e hermenêuticos, permitindo interoperabilidade programática, visualização pedagógica e operações em múltiplos paradigmas.
 
@@ -112,7 +112,7 @@ As instruções são interpretadas em função do contexto 5D de cada bloco:
 
 ## 🔭 Próximos Passos
 
-- Concluir MVP da **GuruDVM** com leitura de `.gurub`
+- Concluir MVP da **GDVM** com leitura de `.gurub`
 - Visualizador pedagógico por célula da **GuruMatrix 5D**
 - Transpilador experimental entre linguagens de destino
 
