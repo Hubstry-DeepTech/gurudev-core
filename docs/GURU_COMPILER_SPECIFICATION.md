@@ -1,113 +1,124 @@
-# **GuruCompiler Specification — Compilador GuruDev® → GuruByte**
-
-**GuruCompiler Specification — Compilador GuruDev® → GuruByte**
+**GuruCompiler Specification v0.2 — Compilador GuruDev® com Suporte à GuruMatrix\[5D]**
 
 ---
 
 ## 🔍 Visão Geral
 
-O **GuruCompiler** é o compilador oficial da linguagem GuruDev®. Ele transforma código-fonte semântico e multimodal escrito em GuruDev® para bytecode GuruByte (.gurub), pronto para execução na GVM.
+O **GuruCompiler** é o compilador oficial da linguagem **GuruDev®**. Ele transforma o código-fonte simbólico, multimodal e multissemótico em **bytecode `.gurub`**, interpretado pela **GVM (Guru Virtual Machine)**.
 
-O compilador é estruturado em módulos que garantem a preservação de marcadores semânticos, ontológicos e hermenêuticos, possibilitando compilação simbólica de dados e estruturas não-verbais.
-
----
-
-## 📅 Pipeline de Compilação
-
-```
-[Fonte .guru] ➔ Lexer ➔ Parser ➔ Context Analyzer ➔ Ontology Mapper
-         ➔ Instruction Generator ➔ Bytecode Generator ➔ [.gurub]
-
-```
+A versão **v0.2** introduz o mapeamento integral à **GuruMatrix\[5D]**, permitindo representação precisa de dimensões semânticas, hermenêuticas, ontológicas, temporais e paradigmáticas.
 
 ---
 
-## 🔋 Etapas
+## 📊 Pipeline de Compilação
+
+```plaintext
+[Fonte .guru] ➔ Lexer ➔ Parser ➔ Context Analyzer (GuruMatrix Mapper)
+         ➔ Ontology Mapper ➔ Instruction Generator ➔ Bytecode Generator ➔ [.gurub]
+```
+
+---
+
+## 🔋 Etapas Detalhadas
 
 ### 1. **Lexer (Analisador Léxico)**
 
-- Define o alfabeto simbólico da linguagem
-- Tokeniza:
-    - Palavras reservadas
-    - Delimitadores ((), {}, :, etc.)
-    - Claves, Tags, Operadores multimodais
+* Tokeniza palavras, estruturas, tipos, claves, tags multimodais
+* Suporte a operadores simbólicos, musicais, visuais e literais
 
 ### 2. **Parser (Analisador Sintático)**
 
-- Constrói a GuruAST (Abstract Syntax Tree)
-- Identifica blocos lógicos, relações de escopo, declarações, multimodalidade
+* Constrói a **GuruAST** (Abstract Syntax Tree)
+* Reforça coerência intermodal e escopos
+* Identifica estruturas gramaticais e blocos de execução
 
-### 3. **Context Analyzer**
+### 3. **Context Analyzer — GuruMatrix Mapper \[5D]**
 
-- Extrai e valida:
-    - Clave (campo do conhecimento)
-    - Hermenêutica (1 a 7)
-    - Categoria Ontológica
-    - Relacionamentos semânticos (rho_i)
+* Extrai e valida dimensões da **GuruMatrix\[5D]**:
+
+  * `Clave` (campo semântico: arte, ciência, filosofia, espiritual, geral)
+  * `Hermenêutica` (1 a 7)
+  * `Ontologia` (10 categorias aristotélicas)
+  * `TimeScope` (compilation | execution | visualization)
+  * `Mode` (imperativo, simbólico, funcional, estrutural...)
+  * `rho_i`: relações semânticas como simetria, equivalência etc.
 
 ### 4. **Ontology Mapper**
 
-- Mapeia cada objeto, atributo ou expressão para uma das 10 categorias de Aristóteles
-- Marca semanticamente o tipo de dado ou função envolvida
+* Mapeia instruções, tipos e operadores para categorias aristotélicas
+* Habilita rastreabilidade ontológica no bytecode
 
 ### 5. **Instruction Generator**
 
-- Traduz AST em instruções de baixo nível (GuruInstructionSet)
-- Encadeia execução de blocos
-- Define paralelismo, compensações, interop
+* Converte GuruAST em instruções do **GuruInstructionSet v0.1**
+* Define execução sequencial, paralela ou compensatória
+* Permite anotações ricas para visualização educacional
 
 ### 6. **Bytecode Generator**
 
-- Gera o arquivo `.gurub` com:
-    - HEADER com metadados
-    - CONTEXT com marcações
-    - CODEBLOCKS com instruções lineares ou paralelas
-    - CHECKSUM + ASSINATURA DIGITAL (opcional)
+* Gera arquivo `.gurub` com seções:
+
+  * `HEADER` (assinatura, versão)
+  * `CONTEXT` (GuruMatrix por bloco)
+  * `CONSTANTS` (recursos multimodais)
+  * `CODEBLOCKS` (execução + tags 5D)
+  * `FOOTER` (checksum + assinatura simbólica)
 
 ---
 
-## 🛋️ Suporte a Extensões
+## 🌍 Suporte a Modos
 
-- **Modo Educacional:** exporta arquivos com visualização pedagógica (JSON, HTML)
-- **Modo IA:** gera AST simbólica para agentes cognitivos
-- **Modo Interop:** permite transpiladores para Python, Lua, etc.
+| Modo             | Saída adicional gerada                      |
+| ---------------- | ------------------------------------------- |
+| Educacional      | JSON ou HTML com visualização da GuruMatrix |
+| Agente Cognitivo | GuruAST enriquecida                         |
+| Interoperável    | Transpiladores para Python, Lua, JS etc.    |
 
 ---
 
 ## 📊 Exemplo de Conversão
 
-**Fonte (.guru)**
+### Fonte (.guru)
 
+```gurudev
+[bloco]
+  [sobrescrita]
+    "Contexto: Teorema da Energia"
+    [nivel="ontologico"]
+    [clave="ciencia"]
+    [ont="relacao"]
+  [/sobrescrita]
+
+  ¡codigo!
+    NOM funcao energia() {
+      String f = "E = mc^2";
+      VOC.print(f);
+    }
+  !/codigo!
+[/bloco]
 ```
-def energia = "E = mc^2"
-tag hermeneutica=7
-clave ciencia
-mostre energia
 
-```
+### Bytecode (.gurub)
 
-**Bytecode (.gurub)**
-
-```
-HEADER: GURU 0.1.0
-CONTEXT: clave=ciencia, hermeneutica=7, ontologia=relacao
-CONSTANTS: F001=formula("E=mc^2")
+```plaintext
+HEADER: GURU v0.1.1
+CONTEXT: CLAVE=ciencia, HERMENEUTICS=7, ONTOLOGY=relacao, TIME=execution, MODE=imperativo
+CONSTANTS: F001=formula("E = mc^2")
 BLOCK 0001:
   LOAD F001
   DISPLAY
-  TAG Hermeneutics=7
-  MAP_TO CLAVE ciencia
-
+  TAG ONTOLOGY=relacao CLAVE=ciencia HERMENEUTICS=7 TIME=execution MODE=imperativo
 ```
 
 ---
 
-## 🌐 Roadmap do GuruCompiler
+## 🚀 Roadmap v0.3+
 
-- v0.1: Lexer + Parser + Instruction Generator (offline)
-- v0.2: Ontology Mapper + Bytecode export
-- v0.3: API REST + transpiler para Python
+* ✅ Visualizador educacional da GuruMatrix 5D (modo interativo)
+* ✅ MVP da GVM com execução de blocos .gurub
+* ✅ Transpilador para linguagens clássicas (Python, Lua, Rust)
+* ✅ Integração com assistentes de IA simbólica
 
 ---
 
-**Fim da Especificação do GuruCompiler v0.1**
+**Fim da Especificação GuruCompiler v0.2**
