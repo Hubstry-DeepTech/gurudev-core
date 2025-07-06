@@ -2,7 +2,7 @@
 
 ---
 
-## 🔍 Visão Geral
+## 🔍 Visão Geral 
 
 O **GuruInstructionSet** define as instruções executáveis no bytecode `.gurub` interpretado pela GuruDVM (GuruDev® Virtual Machine). As instruções foram criadas para suportar operações multimodais, multissemióticas e semânticas, respeitando os contextos de clave, hermenêutica e ontologia — agora expandidos para uma estrutura de **coordenadas 5D** (GuruMatrix[i][j][k][t][l]).
 
