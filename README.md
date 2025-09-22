@@ -1,6 +1,8 @@
 # gurudev-core
 # GuruDev Core · Powered by Hubstry-DeepTech
 
+> 🌐 **Language / Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
+
 **GuruDev** é uma linguagem de programação holística e ontológica, desenvolvida pela deep tech **Hubstry-DeepTech**.  
 Este repositório contém o núcleo da linguagem, incluindo sua gramática, interpretador e arquitetura conceitual.
 

@@ -1,0 +1,2 @@
+// When identifying an IDENTIFIER token, verify:
+IF token ∈ RESERVED => ERROR ("Reserved name for internal language use")

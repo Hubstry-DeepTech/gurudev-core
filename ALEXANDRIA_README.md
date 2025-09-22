@@ -1,5 +1,7 @@
 # Alexandria: Biblioteca de Interoperabilidade e Programação Comparada
 
+> 🌐 **Language / Idioma**: **Português** | [English](ALEXANDRIA_README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
+
 [![PyPI version](https://badge.fury.io/py/alexandria-lang.svg)](https://badge.fury.io/py/alexandria-lang)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -188,4 +190,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 **Alexandria** - Conectando linguagens, unindo paradigmas, educando o futuro.
 
-© 2025 Guilherme Gonçalves Machado & Hubstry-DeepTech. Todos os direitos reservados. 
+© 2025 Guilherme Gonçalves Machado & Hubstry-DeepTech. Todos os direitos reservados.
