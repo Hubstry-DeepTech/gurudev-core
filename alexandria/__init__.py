@@ -1,20 +1,13 @@
-"""
-Alexandria: Biblioteca de Interoperabilidade e Programação Comparada
+﻿"""
+GuruDev Core - Alexandria Library
+Biblioteca de Interoperabilidade e Programacao Comparada
 
-Uma biblioteca pioneira que implementa os princípios da Programação Comparada,
-facilitando a interoperabilidade entre linguagens de programação através de
-análise comparativa sistemática.
-
-Idealizador e Criador Principal: Guilherme Gonçalves Machado
-Desenvolvido com auxílio de Inteligência Artificial (Claude AI)
-Empresa: Hubstry-DeepTech
-
-Versão: 0.1.0
-Licença: MIT
+Autor: Guilherme Goncalves Machado (Hubstry-DeepTech)
+Versao: 0.2.0 | Licenca: MIT
 """
 
-__version__ = "0.1.0"
-__author__ = "Guilherme Gonçalves Machado"
+__version__ = "0.2.0"
+__author__ = "Guilherme Goncalves Machado"
 __email__ = "guilhermemachado@hubstry.com"
 __company__ = "Hubstry-DeepTech"
 
@@ -25,29 +18,19 @@ from .core.bridge import LanguageBridge
 
 __all__ = [
     "LanguageAnalyzer",
-    "CodeTranslator", 
+    "CodeTranslator",
     "TypeMapper",
     "LanguageBridge"
 ]
 
-# Configuração padrão
-DEFAULT_CONFIG = {
-    "analysis_depth": "comprehensive",
-    "translation_quality": "high",
-    "type_mapping_strategy": "semantic",
-    "bridge_protocol": "universal"
-}
-
 def get_version():
-    """Retorna a versão atual da biblioteca."""
     return __version__
 
 def get_info():
-    """Retorna informações sobre a biblioteca."""
     return {
-        "name": "Alexandria",
+        "name": "gurudev-core",
         "version": __version__,
         "author": __author__,
-        "description": "Biblioteca de Interoperabilidade e Programação Comparada",
-        "url": "https://github.com/seu-usuario/alexandria"
-    } 
+        "company": __company__,
+        "url": "https://github.com/marcusvmendes/gurudev-core"
+    }

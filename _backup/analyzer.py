@@ -49,14 +49,7 @@ class LanguageAnalyzer:
             data_path: Caminho para o arquivo de dados das linguagens
         """
         if data_path is None:
-            dev_path = Path(__file__).resolve().parent.parent.parent / "docs" / "programming_languages.json"
-            pkg_path = Path(__file__).resolve().parent / "data" / "programming_languages.json"
-            if dev_path.exists():
-                data_path = dev_path
-            elif pkg_path.exists():
-                data_path = pkg_path
-            else:
-                raise FileNotFoundError("JSON nao encontrado: " + str(dev_path) + ", " + str(pkg_path))
+            data_path = Path(__file__).parent.parent.parent / "docs" / "programming_languages.json"
         
         self.data_path = Path(data_path)
         self.languages_data = self._load_languages_data()
@@ -165,13 +158,15 @@ class LanguageAnalyzer:
         return score / total_weight if total_weight > 0 else 0.0
     
     def _compare_paradigms(self, paradigms_a: List[str], paradigms_b: List[str]) -> float:
-        """Compara paradigmas de programacao."""
+        """Compara paradigmas de programação."""
         set_a = set(paradigms_a)
-        set_b = set(paradigms_b)
+        set_b = set(paradigmas_b)
+        
         intersection = len(set_a.intersection(set_b))
         union = len(set_a.union(set_b))
+        
         return intersection / union if union > 0 else 0.0
-
+    
     def _compare_typing(self, typing_a: str, typing_b: str) -> float:
         """Compara sistemas de tipagem."""
         # Normaliza strings de tipagem
@@ -403,7 +398,7 @@ class LanguageAnalyzer:
                         if not any(v in lang_data[key] for v in value):
                             matches = False
                     else:
-                        if str(value) not in str(lang_data[key]):
+                        if value not in str(lang_data[key]):
                             matches = False
                 else:
                     matches = False

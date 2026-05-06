@@ -1,0 +1,2 @@
+[console_scripts]
+gurudev = gurudev.cli:main

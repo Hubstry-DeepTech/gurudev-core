@@ -1,70 +1,51 @@
 Metadata-Version: 2.4
-Name: alexandria-lang
-Version: 0.1.0
-Summary: Biblioteca de Interoperabilidade e Programação Comparada
-Home-page: https://github.com/seu-usuario/alexandria
-Author: Alexandria Team
-Author-email: Guilherme Gonçalves Machado <guilhermemachado@hubstry.com>
-Maintainer-email: Guilherme Gonçalves Machado <guilhermemachado@hubstry.com>
+Name: gurudev-core
+Version: 0.2.0
+Summary: GuruDev Core - Linguagem Ontologica de Programacao Multissemiotica
+Author-email: Guilherme Goncalves Machado <guilhermemachado@hubstry.com>
 License: MIT
-Project-URL: Homepage, https://github.com/Hubstry-DeepTech/gurudev-core
-Project-URL: Documentation, https://github.com/Hubstry-DeepTech/gurudev-core/tree/main/alexandria
-Project-URL: Repository, https://github.com/Hubstry-DeepTech/gurudev-core
-Project-URL: Bug Tracker, https://github.com/Hubstry-DeepTech/gurudev-core/issues
-Keywords: programming languages,comparative analysis,interoperability,code translation,type mapping,language bridges,programming education,research
+Project-URL: Homepage, https://github.com/marcusvmendes/gurudev-core
+Project-URL: Repository, https://github.com/marcusvmendes/gurudev-core
+Project-URL: Bug Tracker, https://github.com/marcusvmendes/gurudev-core/issues
+Keywords: gurudev,ontological-programming,programming-language,lexer,parser,ast,multisemiotic,comparative-programming,interoperability,hubstry,deeptech
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: Science/Research
-Classifier: Intended Audience :: Education
 Classifier: License :: OSI Approved :: MIT License
-Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
-Classifier: Topic :: Software Development :: Libraries :: Python Modules
-Classifier: Topic :: Software Development :: Code Generators
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Topic :: Software Development :: Compilers
 Classifier: Topic :: Scientific/Engineering :: Information Analysis
-Classifier: Topic :: Education
-Requires-Python: >=3.8
+Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: typing-extensions>=4.0.0
-Requires-Dist: pandas>=1.3.0
-Requires-Dist: numpy>=1.21.0
-Requires-Dist: matplotlib>=3.5.0
-Requires-Dist: seaborn>=0.11.0
-Requires-Dist: plotly>=5.0.0
+Requires-Dist: ply>=3.11
 Requires-Dist: click>=8.0.0
 Requires-Dist: rich>=10.0.0
-Requires-Dist: tqdm>=4.62.0
-Requires-Dist: jsonschema>=3.2.0
-Requires-Dist: loguru>=0.5.0
-Requires-Dist: pyyaml>=5.4.0
-Requires-Dist: pydantic>=1.8.0
 Provides-Extra: dev
-Requires-Dist: pytest>=6.2.0; extra == "dev"
-Requires-Dist: pytest-cov>=2.12.0; extra == "dev"
-Requires-Dist: pytest-mock>=3.6.0; extra == "dev"
-Requires-Dist: black>=21.0.0; extra == "dev"
-Requires-Dist: flake8>=3.9.0; extra == "dev"
-Requires-Dist: mypy>=0.910; extra == "dev"
-Provides-Extra: docs
-Requires-Dist: sphinx>=4.0.0; extra == "docs"
-Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "docs"
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Provides-Extra: alexandria
+Requires-Dist: pandas>=1.3.0; extra == "alexandria"
+Requires-Dist: numpy>=1.21.0; extra == "alexandria"
+Requires-Dist: jsonschema>=3.2.0; extra == "alexandria"
+Requires-Dist: pydantic>=2.0.0; extra == "alexandria"
+Requires-Dist: loguru>=0.5.0; extra == "alexandria"
 Provides-Extra: visualization
 Requires-Dist: matplotlib>=3.5.0; extra == "visualization"
 Requires-Dist: seaborn>=0.11.0; extra == "visualization"
 Requires-Dist: plotly>=5.0.0; extra == "visualization"
-Dynamic: author
-Dynamic: home-page
 Dynamic: license-file
-Dynamic: requires-python
 
 # gurudev-core
 # GuruDev Core · Powered by Hubstry-DeepTech
+
+> 🌐 **Language / Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
 
 **GuruDev** é uma linguagem de programação holística e ontológica, desenvolvida pela deep tech **Hubstry-DeepTech**.  
 Este repositório contém o núcleo da linguagem, incluindo sua gramática, interpretador e arquitetura conceitual.

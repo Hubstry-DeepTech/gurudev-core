@@ -5,8 +5,12 @@ Autor: Guilherme Gonçalves Machado
 Ferramenta: PLY (Python Lex-Yacc)
 """
 
+import sys
 import ply.lex as lex
 from typing import List, Optional
+
+# Referência estável ao próprio módulo (necessária para PLY)
+_this_module = sys.modules[__name__]
 
 # ============================================================
 # 1. LISTA DE TOKENS (OBRIGATÓRIA PARA PLY)
@@ -44,6 +48,13 @@ tokens = (
     # Atributos de sobrescrita
     'NIVEL_ATTR', 'RAIZ_ATTR', 'CLAVE_ATTR', 'ONT_ATTR',
     'TIPO_MAPEAMENTO_ATTR', 'INVERSAO_ATTR',
+    'NIVEL_LITERAL', 'NIVEL_ALEGORICO', 'NIVEL_MORAL', 'NIVEL_MISTICO',
+    'NIVEL_FUNCIONAL', 'NIVEL_ESTETICO', 'NIVEL_ONTOLOGICO', 'NIVEL_HOLISTICO',
+    'NIVEL_MATEMATICO', 'NIVEL_SIMBOLICO', 'NIVEL_PARABOLICO', 'NIVEL_HISTORICO',
+    'NIVEL_LINGUISTICO',
+    'CLAVE_ARTE', 'CLAVE_CIENCIA', 'CLAVE_FILOSOFIA', 'CLAVE_TRADICAO', 'CLAVE_GERAL',
+    'ONT_SUBSTANCIA', 'ONT_QUANTIDADE', 'ONT_QUALIDADE', 'ONT_RELACAO',
+    'ONT_LUGAR', 'ONT_TEMPO', 'ONT_SITUACAO', 'ONT_CONDICAO', 'ONT_ACAO', 'ONT_PAIXAO',
     
     # Casos gramaticais
     'VOC', 'NOM', 'ACU', 'DAT', 'GEN', 'INS', 'LOC', 'ABL',
@@ -94,17 +105,15 @@ states = (
     ('sobrescrita', 'exclusive'),
     ('gurudevcode', 'exclusive'),
     ('compensacao', 'exclusive'),
-    ('plastico', 'exclusive'),
-    ('modulacao', 'exclusive'),
-    ('python_code', 'exclusive'),
-    ('rust_code', 'exclusive'),
-    ('javascript_code', 'exclusive'),
-    ('csharp_code', 'exclusive'),
-    ('wasm_code', 'exclusive'),
-    ('cpp_code', 'exclusive'),
-    ('java_code', 'exclusive'),
-    ('sql_code', 'exclusive'),
-    ('r_code', 'exclusive'),
+    ('pycode', 'exclusive'),
+    ('rustcode', 'exclusive'),
+    ('jscode', 'exclusive'),
+    ('csharpcode', 'exclusive'),
+    ('wasmcode', 'exclusive'),
+    ('cppcode', 'exclusive'),
+    ('javacode', 'exclusive'),
+    ('sqlcode', 'exclusive'),
+    ('rcode', 'exclusive'),
 )
 
 # ============================================================
@@ -183,8 +192,6 @@ t_ignore = ' \t'
 t_sobrescrita_ignore = ' \t'
 t_gurudevcode_ignore = ' \t'
 t_compensacao_ignore = ' \t'
-t_plastico_ignore = ' \t'
-t_modulacao_ignore = ' \t'
 
 # ============================================================
 # 6. REGRAS DO ESTADO INITIAL
@@ -193,7 +200,7 @@ t_modulacao_ignore = ' \t'
 # --- Transições de Estado ---
 
 def t_SOBRESCRITA_START(t):
-    r'$$sobrescrita$$'
+    r'\$\$sobrescrita\$\$'
     t.lexer.push_state('sobrescrita')
     return t
 
@@ -203,18 +210,8 @@ def t_CODIGO_START(t):
     return t
 
 def t_COMPENSACAO_START(t):
-    r'$$compensacao$$'
+    r'\$\$compensacao\$\$'
     t.lexer.push_state('compensacao')
-    return t
-
-def t_PLASTICO_START(t):
-    r'$$plastico$$'
-    t.lexer.push_state('plastico')
-    return t
-
-def t_MODULACAO_START(t):
-    r'$$modulacao$$'
-    t.lexer.push_state('modulacao')
     return t
 
 # --- Tags que não mudam de estado ---
@@ -227,47 +224,47 @@ t_SUBESCRITAS_END = r'$$/subescritas$$'
 
 def t_PYTHON_START(t):
     r'¿python\?'
-    t.lexer.push_state('python_code')
+    t.lexer.push_state('pycode')
     return t
 
 def t_RUST_START(t):
     r'¿rust\?'
-    t.lexer.push_state('rust_code')
+    t.lexer.push_state('rustcode')
     return t
 
 def t_JAVASCRIPT_START(t):
     r'¿javascript\?'
-    t.lexer.push_state('javascript_code')
+    t.lexer.push_state('jscode')
     return t
 
 def t_CSHARP_START(t):
     r'¿csharp\?'
-    t.lexer.push_state('csharp_code')
+    t.lexer.push_state('csharpcode')
     return t
 
 def t_WASM_START(t):
     r'¿wasm\?'
-    t.lexer.push_state('wasm_code')
+    t.lexer.push_state('wasmcode')
     return t
 
 def t_CPP_START(t):
     r'¿c\+\+\?'
-    t.lexer.push_state('cpp_code')
+    t.lexer.push_state('cppcode')
     return t
 
 def t_JAVA_START(t):
     r'¿java\?'
-    t.lexer.push_state('java_code')
+    t.lexer.push_state('javacode')
     return t
 
 def t_SQL_START(t):
     r'¿sql\?'
-    t.lexer.push_state('sql_code')
+    t.lexer.push_state('sqlcode')
     return t
 
 def t_R_START(t):
     r'¿r\?'
-    t.lexer.push_state('r_code')
+    t.lexer.push_state('rcode')
     return t
 
 # --- Comentários (INITIAL) ---
@@ -349,8 +346,8 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_LBRACE = r'\{'
 t_RBRACE = r'\}'
-t_LBRACKET = r'$$'
-t_RBRACKET = r'$$'
+t_LBRACKET = r'\[\['
+t_RBRACKET = r'\]\]'
 t_SEMICOLON = r';'
 t_COMMA = r','
 t_DOT = r'\.'
@@ -374,26 +371,26 @@ def t_error(t):
 # ============================================================
 
 def t_sobrescrita_NIVEL_ATTR(t):
-    r'$$nivel="([^"]+)"$$'
+    r'\$\$nivel="([^"]+)"\$\$'
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = nivel_map.get(val, 'NIVEL_ATTR')
     t.value = val
     return t
 
 def t_sobrescrita_RAIZ_ATTR(t):
-    r'$$raiz="([^"]+)"$$'
+    r'\$\$raiz="([^"]+)"\$\$'
     t.value = t.value[t.value.find('"')+1:t.value.rfind('"')]
     return t
 
 def t_sobrescrita_CLAVE_ATTR(t):
-    r'$$clave="([^"]+)"$$'
+    r'\$\$clave="([^"]+)"\$\$'
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = clave_map.get(val, 'CLAVE_ATTR')
     t.value = val
     return t
 
 def t_sobrescrita_ONT_ATTR(t):
-    r'$$ont="([^"]+)"$$'
+    r'\$\$ont="([^"]+)"\$\$'
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = ont_map.get(val, 'ONT_ATTR')
     t.value = val
@@ -405,7 +402,7 @@ def t_sobrescrita_STRING_LITERAL(t):
     return t
 
 def t_sobrescrita_SOBRESCRITA_END(t):
-    r'$$/sobrescrita$$'
+    r'\$\$/sobrescrita\$\$'
     t.lexer.pop_state()
     return t
 
@@ -490,8 +487,8 @@ t_gurudevcode_LPAREN = r'\('
 t_gurudevcode_RPAREN = r'\)'
 t_gurudevcode_LBRACE = r'\{'
 t_gurudevcode_RBRACE = r'\}'
-t_gurudevcode_LBRACKET = r'$$'
-t_gurudevcode_RBRACKET = r'$$'
+t_gurudevcode_LBRACKET = r'\[\['
+t_gurudevcode_RBRACKET = r'\]\]'
 t_gurudevcode_SEMICOLON = r';'
 t_gurudevcode_COMMA = r','
 t_gurudevcode_DOT = r'\.'
@@ -514,96 +511,159 @@ def t_gurudevcode_error(t):
     t.lexer.skip(1)
 
 # ============================================================
-# 9. REGRAS PARA ESTADOS DE CÓDIGO ESTRANGEIRO
-# ============================================================
-
-# Macro para gerar regras de código estrangeiro
-# Cada linguagem: captura tudo até o token de fechamento
-
-def _make_foreign_rules(lang_name, end_pattern):
-    """Gera regras para um estado de código estrangeiro."""
-    
-    state_name = f'{lang_name}_code'
-    
-    # Conteúdo: captura tudo até o padrão de fechamento
-    def foreign_content(t):
-        t.type = 'FOREIGN_CODE_CONTENT'
-        t.lexer.lineno += t.value.count('\n')
-        return t
-    foreign_content.__doc__ = rf'[\s\S]+?(?={end_pattern})'
-    foreign_content.__name__ = f't_{state_name}_FOREIGN_CODE_CONTENT'
-    
-    # Token de fechamento
-    def foreign_end(t):
-        t.lexer.pop_state()
-        return t
-    foreign_end.__doc__ = end_pattern
-    foreign_end.__name__ = f't_{state_name}_{lang_name.upper()}_END'
-    
-    # Erro
-    def foreign_error(t):
-        print(f"[{lang_name.upper()}] Caractere ilegal '{t.value[0]}' na linha {t.lexer.lineno}")
-        t.lexer.skip(1)
-    foreign_error.__name__ = f't_{state_name}_error'
-    
-    return foreign_content, foreign_end, foreign_error
-
-# Gerar regras para cada linguagem
-_foreign_langs = {
-    'python': r'\?/python\?',
-    'rust': r'\?/rust\?',
-    'javascript': r'\?/javascript\?',
-    'csharp': r'\?/csharp\?',
-    'wasm': r'\?/wasm\?',
-    'cpp': r'\?/c\+\+\?',
-    'java': r'\?/java\?',
-    'sql': r'\?/sql\?',
-    'r': r'\?/r\?',
-}
-
-# Registrar as regras no escopo do módulo
-import sys
-_this_module = sys.modules[__name__]
-for _lang, _end in _foreign_langs.items():
-    _content, _end_func, _err = _make_foreign_rules(_lang, _end)
-    setattr(_this_module, _content.__name__, _content)
-    setattr(_this_module, _end_func.__name__, _end_func)
-    setattr(_this_module, _err.__name__, _err)
-    # Adicionar ignore para cada estado
-    setattr(_this_module, f't_{_lang}_code_ignore', '')
 
 # ============================================================
+# 9. STATIC FOREIGN LANGUAGE RULES
+# ============================================================
+
+t_pycode_ignore = ' \t'
+def t_pycode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/python\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_pycode_PYTHON_END(t):
+    r'\?/python\?'
+    t.lexer.pop_state()
+    return t
+def t_pycode_error(t):
+    t.lexer.skip(1)
+
+t_rustcode_ignore = ' \t'
+def t_rustcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/rust\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_rustcode_RUST_END(t):
+    r'\?/rust\?'
+    t.lexer.pop_state()
+    return t
+def t_rustcode_error(t):
+    t.lexer.skip(1)
+
+t_jscode_ignore = ' \t'
+def t_jscode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/javascript\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_jscode_JAVASCRIPT_END(t):
+    r'\?/javascript\?'
+    t.lexer.pop_state()
+    return t
+def t_jscode_error(t):
+    t.lexer.skip(1)
+
+t_csharpcode_ignore = ' \t'
+def t_csharpcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/csharp\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_csharpcode_CSHARP_END(t):
+    r'\?/csharp\?'
+    t.lexer.pop_state()
+    return t
+def t_csharpcode_error(t):
+    t.lexer.skip(1)
+
+t_wasmcode_ignore = ' \t'
+def t_wasmcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/wasm\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_wasmcode_WASM_END(t):
+    r'\?/wasm\?'
+    t.lexer.pop_state()
+    return t
+def t_wasmcode_error(t):
+    t.lexer.skip(1)
+
+t_cppcode_ignore = ' \t'
+def t_cppcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/c++\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_cppcode_CPP_END(t):
+    r'\?/c++\?'
+    t.lexer.pop_state()
+    return t
+def t_cppcode_error(t):
+    t.lexer.skip(1)
+
+t_javacode_ignore = ' \t'
+def t_javacode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/java\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_javacode_JAVA_END(t):
+    r'\?/java\?'
+    t.lexer.pop_state()
+    return t
+def t_javacode_error(t):
+    t.lexer.skip(1)
+
+t_sqlcode_ignore = ' \t'
+def t_sqlcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/sql\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_sqlcode_SQL_END(t):
+    r'\?/sql\?'
+    t.lexer.pop_state()
+    return t
+def t_sqlcode_error(t):
+    t.lexer.skip(1)
+
+t_rcode_ignore = ' \t'
+def t_rcode_FOREIGN_CODE_CONTENT(t):
+    r'[\s\S]+?(?=\?/r\?)'
+    t.type = 'FOREIGN_CODE_CONTENT'
+    t.lexer.lineno += t.value.count('\n')
+    return t
+def t_rcode_R_END(t):
+    r'\?/r\?'
+    t.lexer.pop_state()
+    return t
+def t_rcode_error(t):
+    t.lexer.skip(1)
+
 # 10. REGRAS PARA COMPENSAÇÃO, PLÁSTICO, MODULAÇÃO
 # ============================================================
 
 # Estado compensacao — herda regras do gurudevcode + sub-blocos
 
 def t_compensacao_ERRO_START(t):
-    r'$$erro[^$$]*\]'
+    r'\$\$erro[^\$\$]*\]'
     return t
 
 def t_compensacao_ERRO_END(t):
-    r'$$/erro$$'
+    r'\$\$/erro\$\$'
     return t
 
 def t_compensacao_DESEMPENHO_START(t):
-    r'$$desempenho[^$$]*\]'
+    r'\$\$desempenho[^\$\$]*\]'
     return t
 
 def t_compensacao_DESEMPENHO_END(t):
-    r'$$/desempenho$$'
+    r'\$\$/desempenho\$\$'
     return t
 
 def t_compensacao_ALTERNATIVA_START(t):
-    r'$$alternativa[^$$]*\]'
+    r'\$\$alternativa[^\$\$]*\]'
     return t
 
 def t_compensacao_ALTERNATIVA_END(t):
-    r'$$/alternativa$$'
+    r'\$\$/alternativa\$\$'
     return t
 
 def t_compensacao_COMPENSACAO_END(t):
-    r'$$/compensacao$$'
+    r'\$\$/compensacao\$\$'
     t.lexer.pop_state()
     return t
 
@@ -663,7 +723,7 @@ def t_compensacao_error(t):
 
 def build_lexer(**kwargs):
     """Constrói e retorna o lexer GuruDev®."""
-    return lex.lex(**kwargs)
+    return lex.lex(module=_this_module, **kwargs)
 
 def tokenize(source_code: str) -> List:
     """Tokeniza código-fonte GuruDev® e retorna lista de tokens."""
