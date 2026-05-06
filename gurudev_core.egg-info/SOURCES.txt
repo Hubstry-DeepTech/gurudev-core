@@ -20,7 +20,6 @@ src/ast_nodes.py
 src/cli.py
 src/interpreter.py
 src/parser.py
-src/parsetab.py
 src/repl.py
 src/symbol_table.py
 src/lexer/__init__.py

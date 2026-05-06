@@ -692,27 +692,125 @@ class GuruDevInterpreter:
         if self.debug:
             if no.sobrescrita:
                 s = no.sobrescrita
-                print(f"[DEBUG] Bloco — nivel:{s.nivel} raiz:{s.raiz} clave:{s.clave} ont:{s.ontologia}")
+                print(f"[DEBUG] Bloco - nivel:{s.nivel} raiz:{s.raiz} clave:{s.clave} ont:{s.ontologia}")
 
         resultado = None
 
+        # Executar codigo principal com compensacao de erro
         if no.codigo:
             self._entrar_escopo(f"bloco@{no.lineno}")
             try:
                 for oracao in no.codigo:
                     resultado = self._executar(oracao)
+            except Exception as e:
+                # Compensacao de erro: executar bloco alternativo
+                if no.compensacao and no.compensacao.erros:
+                    if self.debug:
+                        print(f"[DEBUG] Compensacao de erro ativada: {type(e).__name__}: {e}")
+                    compensated = False
+                    for erro_block in no.compensacao.erros:
+                        if erro_block.corpo:
+                            try:
+                                for oracao in erro_block.corpo:
+                                    resultado = self._executar(oracao)
+                                compensated = True
+                                if self.debug:
+                                    print(f"[DEBUG] Compensacao de erro: sucesso")
+                                break
+                            except Exception as inner_e:
+                                if self.debug:
+                                    print(f"[DEBUG] Compensacao falhou: {type(inner_e).__name__}: {inner_e}")
+                                continue
+                    if not compensated:
+                        raise
+                elif no.compensacao and no.compensacao.desempenhos:
+                    if self.debug:
+                        print(f"[DEBUG] Compensacao de desempenho ativada (fallback de erro)")
+                    compensated = False
+                    for desp_block in no.compensacao.desempenhos:
+                        if desp_block.corpo:
+                            try:
+                                for oracao in desp_block.corpo:
+                                    resultado = self._executar(oracao)
+                                compensated = True
+                                break
+                            except Exception:
+                                continue
+                    if not compensated:
+                        raise
+                else:
+                    raise
             finally:
                 self._sair_escopo()
 
+        # Executar subescritas (multi-lingua ativa)
         if no.subescritas:
             for sub in no.subescritas:
-                if self.debug:
-                    print(f"[DEBUG] Subescrita registrada: {sub.linguagem} ({len(sub.conteudo)} chars)")
+                if isinstance(sub, SubescritaLinguagem):
+                    if self.debug:
+                        print(f"[DEBUG] Executando subescrita {sub.linguagem} ({len(sub.conteudo)} chars)")
+                    resultado = self._exec_subescrita(sub)
+                elif self.debug:
+                    print(f"[DEBUG] Subescrita ignorada: {type(sub).__name__}")
+
+        # Executar compensacoes de desempenho e alternativa (pos-codigo)
+        if no.compensacao:
+            if no.compensacao.desempenhos:
+                for desp in no.compensacao.desempenhos:
+                    if desp.corpo:
+                        if self.debug:
+                            print(f"[DEBUG] Executando compensacao de desempenho")
+                        self._entrar_escopo(f"comp_desp@{no.lineno}")
+                        try:
+                            for oracao in desp.corpo:
+                                resultado = self._executar(oracao)
+                        finally:
+                            self._sair_escopo()
+            if no.compensacao.alternativas:
+                for alt in no.compensacao.alternativas:
+                    if alt.corpo:
+                        if self.debug:
+                            print(f"[DEBUG] Executando compensacao alternativa")
+                        self._entrar_escopo(f"comp_alt@{no.lineno}")
+                        try:
+                            for oracao in alt.corpo:
+                                resultado = self._executar(oracao)
+                        finally:
+                            self._sair_escopo()
 
         return resultado
+    def _exec_subescrita(self, sub: SubescritaLinguagem) -> Any:
+        """Executa codigo em linguagem estrangeira (subescrita)."""
+        lang = sub.linguagem.lower()
+        if lang == "python":
+            return self._exec_python_subescrita(sub.conteudo)
+        elif lang == "javascript" or lang == "js":
+            if self.debug:
+                print(f"[DEBUG] Subescrita JavaScript: suporte em desenvolvimento")
+            return None
+        else:
+            if self.debug:
+                print(f"[DEBUG] Subescrita '{lang}': execucao direta nao suportada ainda")
+            return None
+
+    def _exec_python_subescrita(self, code: str) -> Any:
+        """Executa codigo Python como subescrita do bloco ontologico."""
+        try:
+            scope = {
+                "__builtins__": __builtins__,
+                "print": print,
+            }
+            # Compartilhar builtins do GuruDev no escopo Python
+            for nome, func in Builtins.registro().items():
+                scope[nome] = func
+            exec(code, scope)
+        except Exception as e:
+            if self.debug:
+                print(f"[DEBUG] Erro na subescrita Python: {type(e).__name__}: {e}")
+            raise RuntimeError(f"Erro na subescrita Python: {e}")
+        return None
 
     # --- Declaracao de Variavel ---
-
     def _exec_declaracao(self, no: DeclaracaoVariavel) -> Any:
         valor = self._avaliar(no.valor) if no.valor else self._valor_padrao(no.tipo)
         valor = self._coercion_tipo(valor, no.tipo)
