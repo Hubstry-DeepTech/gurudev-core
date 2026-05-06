@@ -2,7 +2,7 @@
 🧠 Execution Profile
 Guilherme Gonçalves Machado acts as a solo founder and executes the functions of:
 
-🎯 CEO: Strategy, acceleration, funding programs (Microsoft, Artemísia, GitHub Education) 
+🎯 CEO: Strategy, acceleration, funding programs (Microsoft, GitHub Education, Santander Explorer)
 
 📈 CPO / Product Manager: MVPs, ideation, pipelines, AI testing
 
@@ -26,3 +26,15 @@ All networks and platforms are active (LinkedIn, GitHub, Product Hunt, Colab, No
 MVPs and theories are public and documented
 
 No paid media spending to date
+
+"Every stage of the GuruDev® ecosystem has been handcrafted, with deep technical knowledge, symbolic vision, and total execution by a solo founder who understands language as a civilizational technology. The project is not only functional: it is meaningful."
+
+---
+
+## 📞 Contact
+
+- **Email:** guilhermemachado.ceo@hubstry.dev
+- **Website:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Phone:** +55 (21) 96725-1593
+- **LinkedIn:** [Guilherme Gonçalves Machado](https://linkedin.com/in/guilhermegmachado)
+- **GitHub:** [@Hubstry-DeepTech](https://github.com/Hubstry-DeepTech)

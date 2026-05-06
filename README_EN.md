@@ -1,82 +1,148 @@
 # gurudev-core
 # GuruDev Core · Powered by Hubstry-DeepTech
 
-> 🌐 **Language / Idioma**: [Português](README.md) | **English** | [Bilingual Index](BILINGUAL_INDEX.md)
+> **Language**: [Português](README.md) | **English** | [Bilingual Index](BILINGUAL_INDEX.md)
 
-**GuruDev** is a holistic and ontological programming language, developed by the deep tech company **Hubstry-DeepTech**.  
-This repository contains the language core, including its grammar, interpreter, and conceptual architecture.
+**GuruDev** is a holistic and ontological programming language, developed by the deep tech company **Hubstry-DeepTech**.
+This repository contains the language core, including its grammar, interpreter, lexer, and conceptual architecture.
 
 ---
-## ✨ Try GuruDev® Now!
-
-Curious to see GuruDev® in action? We've launched an **interactive online environment** where you can test GuruDev® code natively and visualize token analysis in real-time!
-
-This **GuruDev® Interactive Lexer** (powered by our enhanced state machine lexer `ply.lex`) is your chance to explore the first layer of our compiler and see how GuruDev® processes its unique syntax, including:
-* Grammatical cases and semantic annotations.
-* GuruDev® block structures (`[bloco]`, `¡codigo!`).
-* Multilingual code blocks (`¿python?`, `¿javascript?`, `¿rust?`).
-
-Click the link below and start experimenting:
-
-🔗 **GuruDev® Interactive Lexer (IA Manus):** [https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)
 
 ## 🌟 Vision
 
-GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a multimodal and semantic paradigm, aligned with the demands of the next generation of computational systems.
+GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a multimodal and semantic paradigm, aligned with the demands of the next generation of computational systems. Its unique syntax of ontological blocks, semantic annotations, and multilingual interoperability sets it apart from any other existing programming language.
+
+---
+
+## ✨ Current Project Status (May 2026)
+
+The `gurudev-core` repository has undergone significant restructuring in 2025-2026, consolidating the technical foundation for continuous evolution. The following milestones have been achieved:
+
+### Core Engineering
+- **Refactored PLY Lexer**: State machine `ply.lex` with 9 dedicated lexical states (`pycode`, `jscode`, `rustcode`, `csharpcode`, `javacode`, `cppcode`, `gotocode`, `rubycode`, `codelang`), static rules (no dynamic `setattr`), and `module=_this_module` for correct token resolution.
+- **Semantic Analyzer (Alexandria)**: Fixed critical bugs in `analyzer.py` (JSON path fallback, int-in-str conversion, file duplication).
+- **Modern packaging**: Migration from `setup.py` to `pyproject.toml` with lightweight dependencies (`ply`, `click`, `rich`) and optional dependency groups.
+- **CI/CD (GitHub Actions)**: Pipeline configured for Python 3.10-3.12 with `pip install -e .` and automated tests.
+
+### Documentation & Governance
+- **Bilingual README** (PT/EN), **CONTRIBUTING**, **FOUNDER_PROFILE**, **roadmap**, and **bilingual index**.
+- **Financial modeling** with burn rate, runway, CAC, LTV, and net margin projections.
+- **Revenue models** documented (SaaS, B2B, marketplace, licensing, etc.).
+- **Whitepaper**, EBNF grammar, and articles on the GuruDev Processor published.
+
+### Ecosystem
+- **Alexandria**: Pioneering Comparative Programming library — analysis, translation, and type mapping across 15+ languages.
+- **GuruDev Interactive Lexer**: Online MVP for real-time tokenization ([IA Manus](https://dyh6i3cqzgoz.manus.space/)).
+- **Platform presence**: GitHub, Product Hunt, Google Colab, LinkedIn, Substack.
 
 ---
 
 ## 📂 Repository Structure
 
-- `src/` — Implementation of parser, tokenizer, interpreter, and compiler  
-- `grammar/` — EBNF grammar definitions of the language (versions)  
-- `examples/` — Example scripts written in GuruDev  
-- `docs/` — Whitepapers, technical documentation, and GuruDev processor architecture  
-- `tests/` — Automated tests to ensure quality and consistency  
-- `.github/workflows/` — CI/CD pipelines for build, testing, and deployment  
-- `README.md` — This file  
-- `LICENSE` — License terms
-
----
-
-## 🔗 Official Links
-
-- Official Website: [gurudev-tech.site](https://gurudev-tech.site)  
-- GitHub Pages Mirror: [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)  
-- Main Repository: [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)  
-- Product Hunt: [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)  
-- EBNF Grammar (History): [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)  
-- GuruDev Processor Article: [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)  
+```
+gurudev-core/
+├── src/                  # Lexer, interpreter, and GuruDev compiler
+│   └── lexer/            # PLY state machine (gurudev_lexer.py)
+├── alexandria/           # Comparative Programming library
+│   └── core/             # Analyzer, translator, type mapper
+├── grammar/              # EBNF grammar definitions
+├── examples/             # GuruDev example scripts
+├── docs/                 # Whitepapers, technical documentation, pitch decks
+├── tests/                # Automated tests
+├── .github/workflows/    # CI/CD (GitHub Actions)
+├── README.md             # Portuguese version
+├── README_EN.md          # This file (English)
+├── CONTRIBUTING.md       # Contribution guide
+├── FOUNDER_PROFILE.md    # Founder profile
+├── FINANCIAL_MODEL.md    # Financial modeling
+├── REVENUE_MODELS.md     # Revenue models
+├── roadmap.md            # Complete roadmap
+└── LICENSE               # Apache 2.0 License
+```
 
 ---
 
 ## 🚀 Getting Started
 
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
-   ```
+### Prerequisites
+- Python 3.10 or higher
+- Git
 
-2. Explore the examples in `examples/`.
+### Installation
 
-3. Check the formal grammar in `grammar/gurudev.ebnf`.
+```bash
+# Clone the repository
+git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+cd gurudev-core
 
-4. To contribute, read the guidelines in `.github/CONTRIBUTING.md` (under development).
+# Install in editable (development) mode
+pip install -e .
+
+# Or install dependencies directly
+pip install -r requirements.txt
+```
+
+### Running the Lexer
+
+```bash
+python examples/run_example.py
+```
+
+### Tests
+
+```bash
+# Run tests with pytest
+pytest tests/
+
+# Or via CI/CD (GitHub Actions automatically on each push)
+```
+
+---
+
+## 🔗 Official Links
+
+- **Hubstry Website:** [www.hubstry.dev](https://www.hubstry.dev)
+- **GuruDev Website:** [gurudev-tech.site](https://gurudev-tech.site)
+- **GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
+- **Main Repository:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
+- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
+- **GuruDev Interactive Lexer:** [IA Manus Demo](https://dyh6i3cqzgoz.manus.space/)
+- **EBNF Grammar (History):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
+
+---
 
 ## 🔐 Security and Governance
+
 This project is maintained under Hubstry-DeepTech's GitHub Enterprise infrastructure, utilizing:
 
-- GitHub Advanced Security (Code Scanning, Secret Scanning)
+- **GitHub Advanced Security** (Code Scanning, Secret Scanning)
+- **Dependabot** for dependency management
+- **GitHub Actions** for continuous integration and automated deployment
+- **GitHub Enterprise** as official organization ([Hubstry-DeepTech](https://github.com/Hubstry-DeepTech))
 
-- Dependabot for dependency management
-
-- GitHub Actions for continuous integration and automated deployment
+---
 
 ## 🤝 Contribute
-Your collaboration is welcome! Open issues for suggestions, bugs, or questions. Pull requests are carefully evaluated to ensure project integrity.
+
+Your collaboration is welcome! Open issues for suggestions, bugs, or questions. Pull requests are carefully evaluated to ensure project integrity. Check the [Contribution Guide](CONTRIBUTING_EN.md) for details.
+
+---
+
+## 📞 Contact
+
+- **Founder & CEO:** Guilherme Gonçalves Machado
+- **Email:** guilhermemachado.ceo@hubstry.dev
+- **Website:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Phone:** +55 (21) 96725-1593
+- **LinkedIn:** [Guilherme Gonçalves Machado](https://linkedin.com/in/guilhermegmachado)
+- **GitHub:** [@Hubstry-DeepTech](https://github.com/Hubstry-DeepTech)
+
+---
 
 ## 📜 License
-This project is licensed under the Apache 2.0 License.
 
-**Reprogram the world with semantics, intelligence, and resilience.**
+This project is licensed under the **Apache 2.0 License**.
+
+Reprogram the world with semantics, intelligence, and resilience.
+
 © Hubstry-DeepTech · All rights reserved.
