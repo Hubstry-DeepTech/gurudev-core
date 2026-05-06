@@ -256,6 +256,12 @@ class ExecucaoEm(Node):
 # ============================================================
 
 @dataclass
+class ArrayLiteral(Node):
+    """Array literal: [expr1, expr2, ...]"""
+    elementos: List[Node] = field(default_factory=list)
+
+
+@dataclass
 class Literal(Node):
     """String, Int, Float, Bool literal"""
     valor: Any = None

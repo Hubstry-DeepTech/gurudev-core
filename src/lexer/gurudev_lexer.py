@@ -200,7 +200,7 @@ t_compensacao_ignore = ' \t'
 # --- Transições de Estado ---
 
 def t_SOBRESCRITA_START(t):
-    r'\$\$sobrescrita\$\$'
+    r'\[?\$\$sobrescrita\$\$\]?'
     t.lexer.push_state('sobrescrita')
     return t
 
@@ -215,10 +215,21 @@ def t_COMPENSACAO_START(t):
     return t
 
 # --- Tags que não mudam de estado ---
-t_BLOCO_START = r'$$bloco$$'
-t_BLOCO_END = r'$$/bloco$$'
-t_SUBESCRITAS_START = r'$$subescritas$$'
-t_SUBESCRITAS_END = r'$$/subescritas$$'
+def t_BLOCO_START(t):
+    r'\[?\$\$bloco\$\$\]?'
+    return t
+
+def t_BLOCO_END(t):
+    r'\[?\$\$/bloco\$\$\]?'
+    return t
+
+def t_SUBESCRITAS_START(t):
+    r'\[?\$\$subescritas\$\$\]?'
+    return t
+
+def t_SUBESCRITAS_END(t):
+    r'\[?\$\$/subescritas\$\$\]?'
+    return t
 
 # --- Início de linguagens estrangeiras ---
 
@@ -346,8 +357,8 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_LBRACE = r'\{'
 t_RBRACE = r'\}'
-t_LBRACKET = r'\[\['
-t_RBRACKET = r'\]\]'
+t_LBRACKET = r'\['
+t_RBRACKET = r'\]'
 t_SEMICOLON = r';'
 t_COMMA = r','
 t_DOT = r'\.'
@@ -358,6 +369,8 @@ t_COLON = r':'
 def t_ID(t):
     r'[a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*'
     t.type = reserved.get(t.value, 'ID')
+    if t.type == 'BOOLEAN_LITERAL':
+        t.value = t.value.lower() in ('true', 'verdadeiro', '1')
     return t
 
 # --- Erro ---
@@ -371,26 +384,35 @@ def t_error(t):
 # ============================================================
 
 def t_sobrescrita_NIVEL_ATTR(t):
-    r'\$\$nivel="([^"]+)"\$\$'
+    r'\[?\$\$nivel="([^"]+)"\$\$\]?'
+    # Strip optional brackets from match
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = nivel_map.get(val, 'NIVEL_ATTR')
     t.value = val
     return t
 
 def t_sobrescrita_RAIZ_ATTR(t):
-    r'\$\$raiz="([^"]+)"\$\$'
+    r'\[?\$\$raiz="([^"]+)"\$\$\]?'
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
     t.value = t.value[t.value.find('"')+1:t.value.rfind('"')]
     return t
 
 def t_sobrescrita_CLAVE_ATTR(t):
-    r'\$\$clave="([^"]+)"\$\$'
+    r'\[?\$\$clave="([^"]+)"\$\$\]?'
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = clave_map.get(val, 'CLAVE_ATTR')
     t.value = val
     return t
 
 def t_sobrescrita_ONT_ATTR(t):
-    r'\$\$ont="([^"]+)"\$\$'
+    r'\[?\$\$ont="([^"]+)"\$\$\]?'
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = ont_map.get(val, 'ONT_ATTR')
     t.value = val
@@ -402,7 +424,7 @@ def t_sobrescrita_STRING_LITERAL(t):
     return t
 
 def t_sobrescrita_SOBRESCRITA_END(t):
-    r'\$\$/sobrescrita\$\$'
+    r'\[?\$\$/sobrescrita\$\$\]?'
     t.lexer.pop_state()
     return t
 
@@ -487,8 +509,8 @@ t_gurudevcode_LPAREN = r'\('
 t_gurudevcode_RPAREN = r'\)'
 t_gurudevcode_LBRACE = r'\{'
 t_gurudevcode_RBRACE = r'\}'
-t_gurudevcode_LBRACKET = r'\[\['
-t_gurudevcode_RBRACKET = r'\]\]'
+t_gurudevcode_LBRACKET = r'\['
+t_gurudevcode_RBRACKET = r'\]'
 t_gurudevcode_SEMICOLON = r';'
 t_gurudevcode_COMMA = r','
 t_gurudevcode_DOT = r'\.'
@@ -498,6 +520,8 @@ t_gurudevcode_COLON = r':'
 def t_gurudevcode_ID(t):
     r'[a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*'
     t.type = reserved.get(t.value, 'ID')
+    if t.type == 'BOOLEAN_LITERAL':
+        t.value = t.value.lower() in ('true', 'verdadeiro', '1')
     return t
 
 # Fim do bloco de código GuruDev®
@@ -700,6 +724,8 @@ def t_compensacao_INT_LITERAL(t):
 def t_compensacao_ID(t):
     r'[a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*'
     t.type = reserved.get(t.value, 'ID')
+    if t.type == 'BOOLEAN_LITERAL':
+        t.value = t.value.lower() in ('true', 'verdadeiro', '1')
     return t
 
 def t_compensacao_newline(t):

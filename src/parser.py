@@ -838,6 +838,33 @@ def p_producao_acesso_com_caso(p):
     )
 
 
+# Array literal
+
+def p_producao_array_literal(p):
+    '''producao_de_valor : LBRACKET lista_valores_opt RBRACKET'''
+    p[0] = ArrayLiteral(elementos=p[2], lineno=p.lineno(1))
+
+
+def p_lista_valores_opt_empty(p):
+    '''lista_valores_opt : empty'''
+    p[0] = []
+
+
+def p_lista_valores_opt_present(p):
+    '''lista_valores_opt : lista_valores'''
+    p[0] = p[1]
+
+
+def p_lista_valores_multiple(p):
+    '''lista_valores : lista_valores COMMA producao_de_valor'''
+    p[0] = p[1] + [p[3]]
+
+
+def p_lista_valores_single(p):
+    '''lista_valores : producao_de_valor'''
+    p[0] = [p[1]]
+
+
 # ============================================================
 # 11. REGRA EMPTY E ERRO
 # ============================================================

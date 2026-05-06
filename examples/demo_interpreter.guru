@@ -1,0 +1,147 @@
+[bloco]
+    [sobrescrita]
+        "Contexto: demonstracao completa do Interpreter GuruDev"
+        [nivel="holistico"]
+        [raiz="DEMO"]
+        [clave="ciencia"]
+        [ont="acao"]
+    [/sobrescrita]
+
+    ¡codigo!
+        // === 1. Declaracao de Variaveis ===
+        String nome = "GuruDev";
+        Int versao = 1;
+        Float pi = 3.14159;
+        Bool ativo = verdadeiro;
+        Array linguagens = ["Python", "Rust", "JavaScript"];
+        Object config = {};
+
+        escrever("=== GuruDev Interpreter v1.0 ===");
+        escrever("Nome:", nome);
+        escrever("Versao:", versao);
+        escrever("PI:", pi);
+        escrever("Ativo:", ativo);
+        escrever("Linguagens:", linguagens);
+        escrever("Tipo de nome:", tipo_de(nome));
+        escrever("");
+
+        // === 2. Funcoes ===
+        NOM funcao somar(Int a, Int b) -> Int {
+            return a + b;
+        }
+
+        NOM funcao fatorial(Int n) -> Int {
+            if (n <= 1) {
+                return 1;
+            }
+            return n * fatorial(n - 1);
+        }
+
+        NOM funcao fibonacci(Int n) -> Int {
+            if (n <= 0) { return 0; }
+            if (n == 1) { return 1; }
+            Int a = 0;
+            Int b = 1;
+            Int i = 2;
+            Int temp = 0;
+            while (i <= n) {
+                temp = a + b;
+                a = b;
+                b = temp;
+                i = i + 1;
+            }
+            return b;
+        }
+
+        escrever("10 + 20 =", somar(10, 20));
+        escrever("5! =", fatorial(5));
+        escrever("fib(10) =", fibonacci(10));
+        escrever("");
+
+        // === 3. Controle de Fluxo ===
+        Int x = 15;
+        if (x > 10) {
+            escrever(x, "eh maior que 10");
+        } else {
+            escrever(x, "nao eh maior que 10");
+        }
+
+        // For estilo C
+        Int soma = 0;
+        for (Int i = 1; i <= 5; i = i + 1) {
+            soma = soma + i;
+        }
+        escrever("Soma de 1 a 5:", soma);
+
+        // For-each
+        String lang = "";
+        for (String item : linguagens) {
+            escrever("  Linguagem:", item);
+        }
+
+        // While com continue
+        Int count = 0;
+        while (count < 5) {
+            count = count + 1;
+            if (count == 3) {
+                continue;
+            }
+            escrever("  count =", count);
+        }
+        escrever("");
+
+        // === 4. Funcoes Nativas ===
+        escrever("Hash:", hash("GuruDev"));
+        escrever("Tamanho:", tamanho("GuruDev"));
+        escrever("Absoluto:", absoluto(-42));
+        escrever("Raiz:", raiz(16));
+        escrever("Arredondar:", arredondar(3.7));
+        escrever("Seno:", seno(0));
+        escrever("PI nativo:", pi);
+        escrever("Maximo:", maximo(10, 20, 30));
+        escrever("Minimo:", minimo(10, 20, 30));
+        escrever("");
+
+        // === 5. Classes ===
+        NOM classe Pessoa {
+            String nome;
+            Int idade;
+
+            NOM funcao saudacao() -> String {
+                return "Ola, eu sou " + nome + ", tenho " + converter_string(idade) + " anos.";
+            }
+        }
+
+        // === 6. Serie ===
+        serie {
+            escrever("Passo 1: Lexer");
+            escrever("Passo 2: Parser");
+            escrever("Passo 3: Interpreter");
+        }
+
+        escrever("");
+        escrever("=== Todos os testes passaram! ===");
+    !/codigo!
+
+    [subescritas]
+        ¿python?
+        # Subescrita Python equivalente
+        def somar(a, b):
+            return a + b
+
+        def fatorial(n):
+            if n <= 1:
+                return 1
+            return n * fatorial(n - 1)
+        ?/python?
+
+        ¿rust?
+        // Subescrita Rust equivalente
+        fn somar(a: i32, b: i32) -> i32 { a + b }
+        fn fatorial(n: i32) -> i32 {
+            if n <= 1 { return 1; }
+            n * fatorial(n - 1)
+        }
+        ?/rust?
+    [/subescritas]
+[/bloco]
