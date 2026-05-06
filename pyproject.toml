@@ -1,81 +1,44 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "gurudev-core"
-version = "0.2.0"
-description = "GuruDev Core - Linguagem Ontologica de Programacao Multissemiotica"
+version = "0.1.0-alpha"
+description = "GuruDev — Linguagem Ontologica de Programacao"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Guilherme Goncalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
 ]
-keywords = [
-    "gurudev", "ontological-programming", "programming-language",
-    "lexer", "parser", "ast", "multisemiotic",
-    "comparative-programming", "interoperability", "hubstry", "deeptech"
-]
+keywords = ["programming language", "ontological", "gurudev", "interpreter", "compiler"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Topic :: Software Development :: Compilers",
-    "Topic :: Scientific/Engineering :: Information Analysis",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 dependencies = [
     "ply>=3.11",
-    "click>=8.0.0",
-    "rich>=10.0.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
-    "black>=23.0.0",
-    "flake8>=6.0.0",
-]
-alexandria = [
-    "pandas>=1.3.0",
-    "numpy>=1.21.0",
-    "jsonschema>=3.2.0",
-    "pydantic>=2.0.0",
-    "loguru>=0.5.0",
-]
-visualization = [
-    "matplotlib>=3.5.0",
-    "seaborn>=0.11.0",
-    "plotly>=5.0.0",
-]
+dev = ["pytest>=6.2.0"]
 
 [project.urls]
-Homepage = "https://github.com/marcusvmendes/gurudev-core"
-Repository = "https://github.com/marcusvmendes/gurudev-core"
-"Bug Tracker" = "https://github.com/marcusvmendes/gurudev-core/issues"
+Homepage = "https://github.com/Hubstry-DeepTech/gurudev-core"
+Repository = "https://github.com/Hubstry-DeepTech/gurudev-core"
 
 [project.scripts]
-gurudev = "gurudev.cli:main"
+gurudev = "src.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["src*", "alexandria*"]
-
-[tool.setuptools.package-data]
-alexandria = ["data/*.json"]
-
-[tool.black]
-line-length = 88
-target-version = ["py39"]
+include = ["src*"]
 
 [tool.pytest.ini_options]
-minversion = "7.0"
-testpaths = ["tests"]
-python_files = ["test_*.py"]
+testpaths = ["tests", "."]
+python_files = ["test_*.py", "*_test.py"]

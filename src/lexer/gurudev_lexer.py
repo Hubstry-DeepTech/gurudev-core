@@ -22,15 +22,13 @@ tokens = (
     'SOBRESCRITA_START', 'SOBRESCRITA_END',
     'SUBESCRITAS_START', 'SUBESCRITAS_END',
     'CODIGO_START', 'CODIGO_END',
-    
+
     # Blocos de interoperabilidade avançada
     'COMPENSACAO_START', 'COMPENSACAO_END',
     'ERRO_START', 'ERRO_END',
     'DESEMPENHO_START', 'DESEMPENHO_END',
     'ALTERNATIVA_START', 'ALTERNATIVA_END',
-    'PLASTICO_START', 'PLASTICO_END',
-    'MODULACAO_START', 'MODULACAO_END',
-    
+
     # Subescritas de linguagens estrangeiras
     'PYTHON_START', 'PYTHON_END',
     'RUST_START', 'RUST_END',
@@ -41,60 +39,49 @@ tokens = (
     'JAVA_START', 'JAVA_END',
     'SQL_START', 'SQL_END',
     'R_START', 'R_END',
-    
+
     # Conteúdo bruto de código estrangeiro
     'FOREIGN_CODE_CONTENT',
-    
+
     # Atributos de sobrescrita
     'NIVEL_ATTR', 'RAIZ_ATTR', 'CLAVE_ATTR', 'ONT_ATTR',
-    'TIPO_MAPEAMENTO_ATTR', 'INVERSAO_ATTR',
-    'NIVEL_LITERAL', 'NIVEL_ALEGORICO', 'NIVEL_MORAL', 'NIVEL_MISTICO',
-    'NIVEL_FUNCIONAL', 'NIVEL_ESTETICO', 'NIVEL_ONTOLOGICO', 'NIVEL_HOLISTICO',
-    'NIVEL_MATEMATICO', 'NIVEL_SIMBOLICO', 'NIVEL_PARABOLICO', 'NIVEL_HISTORICO',
-    'NIVEL_LINGUISTICO',
-    'CLAVE_ARTE', 'CLAVE_CIENCIA', 'CLAVE_FILOSOFIA', 'CLAVE_TRADICAO', 'CLAVE_GERAL',
-    'ONT_SUBSTANCIA', 'ONT_QUANTIDADE', 'ONT_QUALIDADE', 'ONT_RELACAO',
-    'ONT_LUGAR', 'ONT_TEMPO', 'ONT_SITUACAO', 'ONT_CONDICAO', 'ONT_ACAO', 'ONT_PAIXAO',
-    
+    'NIVEL_LITERAL', 'NIVEL_HOLISTICO',
+    'CLAVE_ARTE', 'CLAVE_CIENCIA', 'CLAVE_FILOSOFIA', 'CLAVE_GERAL',
+    'ONT_ACAO',
+
     # Casos gramaticais
     'VOC', 'NOM', 'ACU', 'DAT', 'GEN', 'INS', 'LOC', 'ABL',
-    
+
     # Palavras-chave estruturais
     'FUNCAO', 'CLASSE', 'EXTENDS', 'IMPLEMENTS',
-    
+
     # Tipos de dados
     'BOOL_TYPE', 'STRING_TYPE', 'INT_TYPE', 'FLOAT_TYPE', 'VOID_TYPE',
     'ARRAY_TYPE', 'OBJECT_TYPE', 'FORMULA_TYPE', 'TEMPORAL_TYPE',
     'IMAGEM_TYPE', 'AUDIO_TYPE', 'VIDEO_TYPE', 'TABELA_TYPE', 'GRAFO_TYPE',
-    
+
     # Controle de fluxo
     'IF_KEYWORD', 'ELSE_KEYWORD', 'FOR_KEYWORD', 'WHILE_KEYWORD',
     'RETURN_KEYWORD', 'BREAK_KEYWORD', 'CONTINUE_KEYWORD',
-    
+
     # Execução série/paralelo
     'SERIE_KEYWORD', 'PARALELO_KEYWORD', 'EM_KEYWORD',
-    
-    # Modificadores de acesso
-    'PUBLICO', 'PRIVADO', 'PROTEGIDO',
-    
+
     # Literais
     'STRING_LITERAL', 'INT_LITERAL', 'FLOAT_LITERAL', 'BOOLEAN_LITERAL',
-    
+
     # Identificador
     'ID',
-    
+
     # Operadores (multi-caractere primeiro)
     'EQUALS', 'NOT_EQUALS', 'LESS_EQUAL', 'GREATER_EQUAL',
     'AND', 'OR', 'ARROW',
     'ASSIGN', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'MODULO',
     'LESS_THAN', 'GREATER_THAN', 'NOT',
-    
+
     # Delimitadores
     'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'LBRACKET', 'RBRACKET',
     'SEMICOLON', 'COMMA', 'DOT', 'COLON',
-    
-    # Controle
-    'NEWLINE',
 )
 
 # ============================================================
@@ -141,9 +128,6 @@ reserved = {
     # Execução
     'serie': 'SERIE_KEYWORD', 'paralelo': 'PARALELO_KEYWORD', 'em': 'EM_KEYWORD',
     
-    # Modificadores de acesso
-    'publico': 'PUBLICO', 'privado': 'PRIVADO', 'protegido': 'PROTEGIDO',
-    
     # Tipos de dados (PascalCase)
     'Bool': 'BOOL_TYPE', 'String': 'STRING_TYPE', 'Int': 'INT_TYPE',
     'Float': 'FLOAT_TYPE', 'Void': 'VOID_TYPE', 'Array': 'ARRAY_TYPE',
@@ -161,27 +145,19 @@ reserved = {
 # ============================================================
 
 nivel_map = {
-    'literal': 'NIVEL_LITERAL', 'alegorico': 'NIVEL_ALEGORICO',
-    'moral': 'NIVEL_MORAL', 'mistico': 'NIVEL_MISTICO',
-    'funcional': 'NIVEL_FUNCIONAL', 'estetico': 'NIVEL_ESTETICO',
-    'ontologico': 'NIVEL_ONTOLOGICO', 'holistico': 'NIVEL_HOLISTICO',
-    'matematico': 'NIVEL_MATEMATICO', 'simbolico': 'NIVEL_SIMBOLICO',
-    'parabolico': 'NIVEL_PARABOLICO', 'historico': 'NIVEL_HISTORICO',
-    'linguistico': 'NIVEL_LINGUISTICO',
+    'literal': 'NIVEL_LITERAL',
+    'holistico': 'NIVEL_HOLISTICO',
 }
 
 clave_map = {
-    'arte': 'CLAVE_ARTE', 'ciencia': 'CLAVE_CIENCIA',
-    'filosofia': 'CLAVE_FILOSOFIA', 'tradicao': 'CLAVE_TRADICAO',
+    'arte': 'CLAVE_ARTE',
+    'ciencia': 'CLAVE_CIENCIA',
+    'filosofia': 'CLAVE_FILOSOFIA',
     'geral': 'CLAVE_GERAL',
 }
 
 ont_map = {
-    'substancia': 'ONT_SUBSTANCIA', 'quantidade': 'ONT_QUANTIDADE',
-    'qualidade': 'ONT_QUALIDADE', 'relacao': 'ONT_RELACAO',
-    'lugar': 'ONT_LUGAR', 'tempo': 'ONT_TEMPO',
-    'situacao': 'ONT_SITUACAO', 'condicao': 'ONT_CONDICAO',
-    'acao': 'ONT_ACAO', 'paixao': 'ONT_PAIXAO',
+    'acao': 'ONT_ACAO',
 }
 
 # ============================================================

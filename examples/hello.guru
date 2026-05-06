@@ -1,0 +1,8 @@
+String nome = "GuruDev";
+escrever("Ola, " + nome + "!");
+
+Int resultado = 10 + 20;
+escrever("10 + 20 =", resultado);
+
+Array nums = [1, 2, 3];
+for (Int x : nums) { escrever(x); }
