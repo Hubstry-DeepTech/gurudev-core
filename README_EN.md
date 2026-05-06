@@ -1,148 +1,149 @@
-# gurudev-core
-# GuruDev Core · Powered by Hubstry-DeepTech
+# GuruDev Core · Hubstry-DeepTech
 
-> **Language**: [Português](README.md) | **English** | [Bilingual Index](BILINGUAL_INDEX.md)
+> **Language**: [Português](README.md) | **English**
 
-**GuruDev** is a holistic and ontological programming language, developed by the deep tech company **Hubstry-DeepTech**.
-This repository contains the language core, including its grammar, interpreter, lexer, and conceptual architecture.
+**GuruDev** is a holistic and ontological programming language, entirely created by **Guilherme Gonçalves Machado** — from theoretical conception through complete architecture, including the invention of **GuruMatrix** (hexarrelational algebra π√f(A)) and the entire ontological foundation that differentiates the language. Developed under the **Hubstry-DeepTech** umbrella, GuruDev is not a "port" or wrapper of any existing language — it is an original creation, built from scratch.
 
 ---
 
-## 🌟 Vision
+## Vision
 
-GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a multimodal and semantic paradigm, aligned with the demands of the next generation of computational systems. Its unique syntax of ontological blocks, semantic annotations, and multilingual interoperability sets it apart from any other existing programming language.
+GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a **multimodal and semantic** programming paradigm aligned with the demands of next-generation computational systems. Its unique syntax of ontological blocks, semantic annotations, and multilingual interoperability differentiates it from any other programming language in existence.
 
----
-
-## ✨ Current Project Status (May 2026)
-
-The `gurudev-core` repository has undergone significant restructuring in 2025-2026, consolidating the technical foundation for continuous evolution. The following milestones have been achieved:
-
-### Core Engineering
-- **Refactored PLY Lexer**: State machine `ply.lex` with 9 dedicated lexical states (`pycode`, `jscode`, `rustcode`, `csharpcode`, `javacode`, `cppcode`, `gotocode`, `rubycode`, `codelang`), static rules (no dynamic `setattr`), and `module=_this_module` for correct token resolution.
-- **Semantic Analyzer (Alexandria)**: Fixed critical bugs in `analyzer.py` (JSON path fallback, int-in-str conversion, file duplication).
-- **Modern packaging**: Migration from `setup.py` to `pyproject.toml` with lightweight dependencies (`ply`, `click`, `rich`) and optional dependency groups.
-- **CI/CD (GitHub Actions)**: Pipeline configured for Python 3.10-3.12 with `pip install -e .` and automated tests.
-
-### Documentation & Governance
-- **Bilingual README** (PT/EN), **CONTRIBUTING**, **FOUNDER_PROFILE**, **roadmap**, and **bilingual index**.
-- **Financial modeling** with burn rate, runway, CAC, LTV, and net margin projections.
-- **Revenue models** documented (SaaS, B2B, marketplace, licensing, etc.).
-- **Whitepaper**, EBNF grammar, and articles on the GuruDev Processor published.
-
-### Ecosystem
-- **Alexandria**: Pioneering Comparative Programming library — analysis, translation, and type mapping across 15+ languages.
-- **GuruDev Interactive Lexer**: Online MVP for real-time tokenization ([IA Manus](https://dyh6i3cqzgoz.manus.space/)).
-- **Platform presence**: GitHub, Product Hunt, Google Colab, LinkedIn, Substack.
+The core idea is to use GuruDev with AI so that machines capture semantic level — transcending purely syntactic execution and achieving ontological comprehension of code.
 
 ---
 
-## 📂 Repository Structure
+## The Ontological Differentiator
 
-```
-gurudev-core/
-├── src/                  # Lexer, interpreter, and GuruDev compiler
-│   └── lexer/            # PLY state machine (gurudev_lexer.py)
-├── alexandria/           # Comparative Programming library
-│   └── core/             # Analyzer, translator, type mapper
-├── grammar/              # EBNF grammar definitions
-├── examples/             # GuruDev example scripts
-├── docs/                 # Whitepapers, technical documentation, pitch decks
-├── tests/                # Automated tests
-├── .github/workflows/    # CI/CD (GitHub Actions)
-├── README.md             # Portuguese version
-├── README_EN.md          # This file (English)
-├── CONTRIBUTING.md       # Contribution guide
-├── FOUNDER_PROFILE.md    # Founder profile
-├── FINANCIAL_MODEL.md    # Financial modeling
-├── REVENUE_MODELS.md     # Revenue models
-├── roadmap.md            # Complete roadmap
-└── LICENSE               # Apache 2.0 License
-```
+GuruDev is not "Python in Portuguese." It is a language with its own identity, grounded in three academic pillars published on Zenodo:
+
+### 1. Comparative Programming — Theoretical Foundations
+The language is based on the structural analysis of 15+ programming languages, extracting universal semantic patterns to create a grammar that is simultaneously accessible and expressive.
+
+📄 **doi:** [10.5281/zenodo.20028887](https://doi.org/10.5281/zenodo.20028887)
+
+### 2. IMIP — Multiple Interpretive Parametric Interface
+The **DISPATCH_ON_HERMENEUTICS** (IMIP §4.3) defines 7 interpretation levels for computational text, allowing the same expression to be understood across multiple semantic layers. **Constitutional Containment** (§5.5) restricts tokens per instance, ensuring ontological security.
+
+📄 **doi:** [10.5281/zenodo.19772798](https://doi.org/10.5281/zenodo.19772798)
+
+### 3. π√f(A) — Hexarrelational Algebra (GuruMatrix)
+The **GuruMatrix** is a 5-dimensional tensor that tracks operations by category, semantics, and interpretation level — the central data structure that empowers machines to capture semantic level. This work also explores the intersection with quantum computing.
+
+📄 **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
+📄 **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
 
 ---
 
-## 🚀 Getting Started
+## Ontological Syntax — The Engine
 
-### Prerequisites
-- Python 3.10 or higher
-- Git
+GuruDev's syntax enables **ontological blocks** with rewriting, compensation, and interoperability capabilities:
+
+| Construct | Syntax | Description |
+|---|---|---|
+| Block | `[$$bloco$$]` ... `[$$/bloco$$]` | Main ontological unit |
+| Override | `[$$sobrescrita$$]` ... `[$$/sobrescrita$$]` | Redefines operation behavior |
+| GuruDev Code | `¡codigo!` ... `!/codigo!` | Native code inside block |
+| Python Subscript | `¿python?` ... `?/python?` | Interoperability with Python (exec()) |
+| Compensation | `$$compensacao$$` ... `$$/compensacao$$` | Automatic fallback on error |
+| Error Handling | `$$erro]` | Captures failures with executable AST |
+
+---
+
+## Business Verticals
+
+GuruDev was designed with focus on four strategic verticals:
+
+- **Cybersecurity** — Ontological blocks with constitutional containment provide security at the semantic level, preventing unauthorized code interpretations.
+- **Games** — The language's multimodality and the ability to redefine behaviors via override enable creation of dynamic, adaptable rule systems for game engines.
+- **Cross-Language Interoperability** — Subscripts allow executing Python, JavaScript, Rust, and other languages within ontological blocks, with semantic tracking via GuruMatrix.
+- **General AI** — Native integration with DISPATCH_ON_HERMENEUTICS allows AI models to operate across multiple interpretation levels, capturing semantics and not just syntax.
+
+---
+
+## Current Project Status (May 2026)
+
+### Implemented Features
+- **38/38 tests passing** — complete automated test suite
+- **Lexer (PLY)** — state machine with 9 dedicated lexical states
+- **Parser (PLY)** — complete grammar including ontological blocks
+- **Interpreter** — full execution with active ontological engine
+- **Interactive REPL** — read-eval-print with auto-finalization
+- **CLI** — `gurudev run`, `gurudev test`, `gurudev repl`
+- **String Methods** (18) — `tamanho()`, `maiusculo()`, `minusculo()`, `contem()`, `substituir()`, and more
+- **Array Methods** (17) — `adicionar()`, `remover()`, `tamanho()`, `ordenar()`, `filtrar()`, and more
+- **Classes** — `isto`, `this`, `iniciar()`, properties, methods
+- **Ontological Engine** — blocks, subscripts, compensation active
 
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
 cd gurudev-core
-
-# Install in editable (development) mode
-pip install -e .
-
-# Or install dependencies directly
-pip install -r requirements.txt
+python -m pip install -e .
 ```
 
-### Running the Lexer
+### Usage
 
 ```bash
-python examples/run_example.py
-```
+# Run a .guru file
+gurudev run examples/calc.guru
 
-### Tests
+# Ontological example
+gurudev run examples/ontologico.guru
 
-```bash
-# Run tests with pytest
-pytest tests/
+# Interactive REPL
+gurudev repl
 
-# Or via CI/CD (GitHub Actions automatically on each push)
+# Test suite
+gurudev test
 ```
 
 ---
 
-## 🔗 Official Links
+## Repository Structure
+
+```
+gurudev-core/
+├── src/
+│   ├── lexer/                  # PLY state machine
+│   ├── parser.py               # Grammar with ontological blocks
+│   ├── interpreter.py          # Tree-walking interpreter + ontological engine
+│   ├── ast_nodes.py            # AST nodes
+│   └── repl.py                 # Interactive REPL
+├── examples/
+│   ├── calc.guru               # String/Array methods example
+│   └── ontologico.guru         # Ontological engine example
+├── run_interpreter_test.py     # Test suite (38 tests)
+├── pyproject.toml
+├── README.md                   # Portuguese version
+├── README_EN.md                # This file (English)
+└── LICENSE                     # Business Source License 1.1
+```
+
+---
+
+## Official Links
 
 - **Hubstry Website:** [www.hubstry.dev](https://www.hubstry.dev)
 - **GuruDev Website:** [gurudev-tech.site](https://gurudev-tech.site)
-- **GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
-- **Main Repository:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
-- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
-- **GuruDev Interactive Lexer:** [IA Manus Demo](https://dyh6i3cqzgoz.manus.space/)
-- **EBNF Grammar (History):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
+- **Repository:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
 
 ---
 
-## 🔐 Security and Governance
+## About the Creator
 
-This project is maintained under Hubstry-DeepTech's GitHub Enterprise infrastructure, utilizing:
-
-- **GitHub Advanced Security** (Code Scanning, Secret Scanning)
-- **Dependabot** for dependency management
-- **GitHub Actions** for continuous integration and automated deployment
-- **GitHub Enterprise** as official organization ([Hubstry-DeepTech](https://github.com/Hubstry-DeepTech))
+**Guilherme Gonçalves Machado** is the original creator of GuruDev — from the initial conception of the idea, through the architecture, language design, invention of the GuruMatrix, and the entire theoretical foundation published in academic papers. All intellectual property of the language, including its grammar, ontological syntax, interpretation engine, and data structures, is his original creation.
 
 ---
 
-## 🤝 Contribute
+## License
 
-Your collaboration is welcome! Open issues for suggestions, bugs, or questions. Pull requests are carefully evaluated to ensure project integrity. Check the [Contribution Guide](CONTRIBUTING_EN.md) for details.
+This project is licensed under the **Business Source License 1.1 (BSL 1.1)**.
 
----
+**Non-commercial** use (academic research, education, personal projects) is free and encouraged. **Commercial** use (selling, licensing, SaaS, integration into commercial products) requires express authorization from the creator.
 
-## 📞 Contact
+See the [LICENSE](LICENSE) file for full terms.
 
-- **Founder & CEO:** Guilherme Gonçalves Machado
-- **Email:** guilhermemachado.ceo@hubstry.dev
-- **Website:** [www.hubstry.dev](https://www.hubstry.dev)
-- **Phone:** +55 (21) 96725-1593
-- **LinkedIn:** [Guilherme Gonçalves Machado](https://linkedin.com/in/guilhermegmachado)
-- **GitHub:** [@Hubstry-DeepTech](https://github.com/Hubstry-DeepTech)
-
----
-
-## 📜 License
-
-This project is licensed under the **Apache 2.0 License**.
-
-Reprogram the world with semantics, intelligence, and resilience.
-
-© Hubstry-DeepTech · All rights reserved.
+© 2024-2026 Guilherme Gonçalves Machado · Hubstry-DeepTech. All rights reserved.

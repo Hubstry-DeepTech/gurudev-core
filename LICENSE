@@ -1,54 +1,114 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+Business Source License 1.1
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+Parameters
 
-   1. Definitions.
+Licensor:             Guilherme Goncalves Machado (Hubstry-DeepTech)
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+Licensed Work:        GuruDev Core (gurudev-core)
+                      The GuruDev programming language, including its lexer,
+                      parser, interpreter, ontological engine, GuruMatrix
+                      architecture, grammar, syntax, and all associated
+                      documentation, examples, and tooling.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License. In this case,
-      Guilherme Gonçalves Machado and Hubstry.
+Additional Use Grant: You may use the Licensed Work for academic research,
+                      education, personal projects, and non-commercial
+                      evaluation purposes without a separate commercial
+                      license.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity.
+Change Date:          2029-05-07
 
-      "Work" shall mean the language of programming Gurudev, its ecosystem,
-      tools and libraries, including but not limited to:
-      - the Gurudev language core,
-      - the Alexandria library collection,
-      - the Cathedral IDE,
-      - the Jerusalem operating system (Jerusalem OS),
-      - the Capela plugin suite (e.g., for VSCode, Google Colab),
-      - the Concilium platform,
-      - and the Hubstree application.
+Change License:       GNU General Public License v3.0 (GPL-3.0)
 
-      All of which are authored and maintained by Guilherme Gonçalves Machado
-      under the brand and legal entity of Hubstry.
+Notice
 
-      Other definitions ("Source", "Object", "Derivative Works", "Contribution", etc.)
-      remain as described in the official Apache License 2.0.
+The Business Source License (this document, or the "License") is not an Open
+Source license. However, the Licensed Work will eventually be made available
+under an Open Source License, as stated below.
 
-   2–9. [All other sections remain unchanged from the official Apache License 2.0.]
+Licensor Copyright Notice:
 
-   For completeness, see full text: https://www.apache.org/licenses/LICENSE-2.0
+    Copyright (c) 2024-2026 Guilherme Goncalves Machado
+    All rights reserved.
 
-   ------------------------------------------------------------------------------
+License Terms
 
-   Copyright 2025 Guilherme Gonçalves Machado / Hubstry
+1. Grant of License
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+   Subject to the terms and conditions of this License, Licensor hereby grants
+   to you a non-exclusive, worldwide, non-sublicensable, non-transferable,
+   limited license to use, reproduce, modify, and prepare Derivative Works of
+   the Licensed Work, solely for non-commercial purposes. Commercial use of
+   the Licensed Work, including but not limited to selling, licensing, renting,
+   leasing, or offering the Licensed Work as a service (SaaS), is expressly
+   prohibited without a separate written agreement with Licensor.
 
-       http://www.apache.org/licenses/LICENSE-2.0
+   For the avoidance of doubt, "non-commercial purposes" includes:
+   - Academic research and publication
+   - Educational use and teaching
+   - Personal projects and experimentation
+   - Open-source contribution (non-commercial)
+   - Evaluation and testing
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+   "Commercial purposes" includes, but is not limited to:
+   - Selling or licensing the Licensed Work or Derivative Works
+   - Using the Licensed Work in a commercial product or service
+   - Offering the Licensed Work as a managed service
+   - Integrating the Licensed Work into commercial software
+
+2. Restrictions
+
+   a. You may not sell, lease, or rent the Licensed Work.
+   b. You may not offer the Licensed Work as a managed service.
+   c. You may not use the Licensed Work for competitive purposes.
+   d. You may not remove or alter any proprietary notices.
+   e. You must retain all copyright, patent, trademark, and attribution
+      notices present in the Licensed Work.
+   f. You must include a copy of this License with any distribution.
+
+3. Ownership
+
+   The Licensed Work and all intellectual property rights therein are and shall
+   remain the exclusive property of Licensor. This License does not grant you
+   any ownership rights in the Licensed Work.
+
+4. Patent Grant
+
+   Subject to the terms and conditions of this License, Licensor hereby grants
+   to you a non-exclusive, worldwide, non-sublicensable, non-transferable,
+   limited license under any patent claims licensable by Licensor that are
+   necessarily infringed by the use or sale of the Licensed Work, solely for
+   non-commercial purposes.
+
+5. Limitation of Liability
+
+   IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+   PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+   OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+   WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+   OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OR DISTRIBUTION OF THE
+   LICENSED WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+6. Termination
+
+   This License and the rights granted hereunder will terminate automatically
+   upon any breach by you of the terms of this License. Upon termination, you
+   must cease all use, modification, and distribution of the Licensed Work.
+
+7. Change License
+
+   As stated in the Notice, on the Change Date (2029-05-07), the Licensed Work
+   will be made available under the Change License (GPL-3.0). Until that date,
+   the terms of this License apply.
+
+8. Versions of the License
+
+   Licensor may publish revised versions of this License. You may use the
+   Licensed Work under the terms of any version published by Licensor.
+
+9. Miscellaneous
+
+   This License represents the complete agreement concerning the subject matter
+   hereof. If any provision of this License is held to be unenforceable, such
+   provision shall be reformed only to the extent necessary to make it
+   enforceable.
