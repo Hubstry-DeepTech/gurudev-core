@@ -1,8 +1,24 @@
-String nome = "GuruDev";
-escrever("Ola, " + nome + "!");
+NOM classe Saudacao {
+    String nome;
+
+    NOM funcao iniciar(String n) {
+        this.nome = n;
+    }
+
+    NOM funcao dizer() -> String {
+        return "Ola, " + this.nome + "!";
+    }
+}
+
+Saudacao s = Saudacao("GuruDev");
+escrever(s.dizer());
 
 Int resultado = 10 + 20;
 escrever("10 + 20 =", resultado);
 
 Array nums = [1, 2, 3];
 for (Int x : nums) { escrever(x); }
+
+String texto = "  GuruDev  ";
+escrever("Trim:", texto.trim());
+escrever("Maiusculo:", texto.trim().maiusculo());

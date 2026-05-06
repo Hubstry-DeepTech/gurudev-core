@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GuruDev® REPL — Read-Eval-Print Loop
+GuruDev REPL - Read-Eval-Print Loop
 Prompt interativo para experimentar GuruDev.
 """
 
@@ -12,7 +12,7 @@ class GuruDevRepl:
 
     BANNER = [
         "",
-        "  GuruDev® REPL v0.1.0-alpha",
+        "  GuruDev REPL v0.1.0-alpha",
         "  Hubstry-DeepTech",
         "",
         '  Digite codigo GuruDev. "sair" para encerrar.',
@@ -74,6 +74,11 @@ class GuruDevRepl:
 
     def _exec(self, code):
         from src.parser import parse
+
+        # Injetar ; automaticamente se nao termina com ; ou }
+        s = code.rstrip()
+        if not s.endswith(";") and not s.endswith("}") and not s.endswith("!/codigo!") and not s.endswith("?/python?"):
+            code = s + ";"
 
         try:
             ast = parse(code, debug=False)

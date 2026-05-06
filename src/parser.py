@@ -358,6 +358,11 @@ def p_oracao_chamada_metodo(p):
     p[0] = p[1]
 
 
+def p_oracao_prop_atribuicao(p):
+    '''oracao_de_codigo : prop_atribuicao SEMICOLON'''
+    p[0] = p[1]
+
+
 def p_oracao_retorno(p):
     '''oracao_de_codigo : RETURN_KEYWORD producao_de_valor SEMICOLON'''
     p[0] = Retorno(valor=p[2], lineno=p.lineno(1))
@@ -687,6 +692,26 @@ def p_atribuicao_com_caso(p):
     )
 
 
+# --- Prop assignment: obj.prop = valor ---
+
+def p_prop_atribuicao(p):
+    '''prop_atribuicao : ID DOT ID ASSIGN producao_de_valor'''
+    p[0] = PropAtribuicao(
+        objeto=p[1], propriedade=p[3], valor=p[5],
+        lineno=p.lineno(1)
+    )
+
+
+def p_prop_atribuicao_caso(p):
+    '''prop_atribuicao : caso_gramatical DOT ID DOT ID ASSIGN producao_de_valor'''
+    p[0] = PropAtribuicao(
+        objeto=p[3], propriedade=p[5], valor=p[7],
+        caso_gramatical=p[1], lineno=p.lineno(1)
+    )
+
+
+# --- Funcao / Metodo chamadas ---
+
 def p_chamada_funcao(p):
     '''chamada_funcao : ID LPAREN argumentos_opt RPAREN'''
     p[0] = ChamadaFuncao(nome=p[1], argumentos=p[3], lineno=p.lineno(1))
@@ -821,6 +846,44 @@ def p_producao_chamada_funcao(p):
 def p_producao_chamada_metodo(p):
     '''producao_de_valor : chamada_metodo'''
     p[0] = p[1]
+
+
+# Method call on string literal: "texto".metodo(args)
+
+def p_producao_str_metodo(p):
+    '''producao_de_valor : STRING_LITERAL DOT ID LPAREN argumentos_opt RPAREN'''
+    lit = Literal(valor=p[1], tipo='string', lineno=p.lineno(1))
+    p[0] = ChamadaMetodo(
+        objeto=lit,
+        metodo=p[3],
+        argumentos=p[5],
+        lineno=p.lineno(1)
+    )
+
+
+# Method call on array literal: [1,2,3].metodo(args)
+
+def p_producao_arr_metodo(p):
+    '''producao_de_valor : LBRACKET lista_valores_opt RBRACKET DOT ID LPAREN argumentos_opt RPAREN'''
+    arr = ArrayLiteral(elementos=p[2] if p[2] else [], lineno=p.lineno(1))
+    p[0] = ChamadaMetodo(
+        objeto=arr,  # ArrayLiteral node directly
+        metodo=p[6],
+        argumentos=p[8],
+        lineno=p.lineno(1)
+    )
+
+
+# Property access on string literal: "texto".prop
+
+def p_producao_str_acesso(p):
+    '''producao_de_valor : STRING_LITERAL DOT ID'''
+    lit = Literal(valor=p[1], tipo='string', lineno=p.lineno(1))
+    p[0] = AcessoPropriedade(
+        objeto=lit,
+        propriedade=p[3],
+        lineno=p.lineno(1)
+    )
 
 
 # Acesso a propriedade

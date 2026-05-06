@@ -1,125 +1,176 @@
 Metadata-Version: 2.4
 Name: gurudev-core
-Version: 0.2.0
-Summary: GuruDev Core - Linguagem Ontologica de Programacao Multissemiotica
-Author-email: Guilherme Goncalves Machado <guilhermemachado@hubstry.com>
+Version: 0.1.0a0
+Summary: GuruDev — Linguagem Ontologica de Programacao
+Home-page: https://github.com/Hubstry-DeepTech/gurudev-core
+Author: Guilherme Gonçalves Machado
+Author-email: Guilherme Gonçalves Machado <guilhermemachado.ceo@hubstry.dev>
 License: MIT
-Project-URL: Homepage, https://github.com/marcusvmendes/gurudev-core
-Project-URL: Repository, https://github.com/marcusvmendes/gurudev-core
-Project-URL: Bug Tracker, https://github.com/marcusvmendes/gurudev-core/issues
-Keywords: gurudev,ontological-programming,programming-language,lexer,parser,ast,multisemiotic,comparative-programming,interoperability,hubstry,deeptech
-Classifier: Development Status :: 3 - Alpha
+Project-URL: Homepage, https://github.com/Hubstry-DeepTech/gurudev-core
+Project-URL: Repository, https://github.com/Hubstry-DeepTech/gurudev-core
+Keywords: programming language,ontological,gurudev,interpreter,compiler
+Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers
-Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.9
-Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
 Classifier: Topic :: Software Development :: Compilers
-Classifier: Topic :: Scientific/Engineering :: Information Analysis
-Requires-Python: >=3.9
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: ply>=3.11
-Requires-Dist: click>=8.0.0
-Requires-Dist: rich>=10.0.0
 Provides-Extra: dev
-Requires-Dist: pytest>=7.0.0; extra == "dev"
-Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
-Requires-Dist: black>=23.0.0; extra == "dev"
-Requires-Dist: flake8>=6.0.0; extra == "dev"
-Provides-Extra: alexandria
-Requires-Dist: pandas>=1.3.0; extra == "alexandria"
-Requires-Dist: numpy>=1.21.0; extra == "alexandria"
-Requires-Dist: jsonschema>=3.2.0; extra == "alexandria"
-Requires-Dist: pydantic>=2.0.0; extra == "alexandria"
-Requires-Dist: loguru>=0.5.0; extra == "alexandria"
-Provides-Extra: visualization
-Requires-Dist: matplotlib>=3.5.0; extra == "visualization"
-Requires-Dist: seaborn>=0.11.0; extra == "visualization"
-Requires-Dist: plotly>=5.0.0; extra == "visualization"
+Requires-Dist: pytest>=6.2.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
 Dynamic: license-file
+Dynamic: requires-python
 
 # gurudev-core
 # GuruDev Core · Powered by Hubstry-DeepTech
 
-> 🌐 **Language / Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
+> **Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
 
-**GuruDev** é uma linguagem de programação holística e ontológica, desenvolvida pela deep tech **Hubstry-DeepTech**.  
-Este repositório contém o núcleo da linguagem, incluindo sua gramática, interpretador e arquitetura conceitual.
+**GuruDev** é uma linguagem de programação holística e ontológica, desenvolvida pela deep tech **Hubstry-DeepTech**.
+Este repositório contém o núcleo da linguagem, incluindo sua gramática, interpretador, lexer e arquitetura conceitual.
 
 ---
-## ✨ Experimente GuruDev® Agora!
-
-Curioso para ver a GuruDev® em ação? Lançamos um **ambiente interativo online** onde você pode testar o código GuruDev® nativamente e visualizar a análise dos tokens em tempo real!
-
-Este **GuruDev® Interactive Lexer** (alimentado pelo nosso lexer aprimorado com máquina de estados `ply.lex`) é sua chance de explorar a primeira camada do nosso compilador e ver como a GuruDev® processa sua sintaxe única, incluindo:
-* Casos gramaticais e anotações semânticas.
-* Estruturas de blocos GuruDev® (`[bloco]`, `¡codigo!`).
-* Blocos de código multilíngues (`¿python?`, `¿javascript?`, `¿rust?`).
-
-Clique no link abaixo e comece a experimentar:
-
-🔗 **GuruDev® Interactive Lexer (IA Manus):** [https://dyh6i3cqzgoz.manus.space/](https://dyh6i3cqzgoz.manus.space/)
 
 ## 🌟 Visão
 
-GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma multimodal e semântico, alinhado às demandas da próxima geração de sistemas computacionais.
+GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma multimodal e semântico, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.
+
+---
+
+## ✨ Estado Atual do Projeto (Maio 2026)
+
+O repositório `gurudev-core` passou por uma reformulação significativa em 2025-2026, consolidando a base técnica para evolução contínua. Os seguintes marcos foram alcançados:
+
+### Engenharia do Core
+- **Lexer (PLY) refatorado**: Máquina de estados `ply.lex` com 9 estados léxicos dedicados (`pycode`, `jscode`, `rustcode`, `csharpcode`, `javacode`, `cppcode`, `gotocode`, `rubycode`, `codelang`), regras estáticas (sem `setattr` dinâmico), e `module=_this_module` para resolução correta de tokens.
+- **Analisador semântico (Alexandria)**: Corrigidos bugs críticos no `analyzer.py` (fallback de caminhos JSON, conversão int-in-str, duplicação de arquivos).
+- **Empacotamento moderno**: Migração de `setup.py` para `pyproject.toml` com dependências leves (`ply`, `click`, `rich`) e grupos opcionais.
+- **CI/CD (GitHub Actions)**: Pipeline configurada para Python 3.10-3.12 com `pip install -e .` e testes automatizados.
+
+### Documentação e Governança
+- **README bilingue** (PT/EN), **CONTRIBUTING**, **FOUNDER_PROFILE**, **roadmap** e **índice bilíngue**.
+- **Modelagem financeira** com projeção de burn rate, runway, CAC, LTV e margem líquida.
+- **Modelos de receita** documentados (SaaS, B2B, marketplace, licenciamento, etc.).
+- **Whitepaper**, gramática EBNF e artigos sobre o Processador GuruDev publicados.
+
+### Ecossistema
+- **Alexandria**: Biblioteca pioneira de Programação Comparada — análise, tradução e mapeamento de tipos entre 15+ linguagens.
+- **GuruDev Interactive Lexer**: MVP online para tokenização em tempo real ([IA Manus](https://dyh6i3cqzgoz.manus.space/)).
+- **Presença em plataformas**: GitHub, Product Hunt, Google Colab, LinkedIn, Substack.
 
 ---
 
 ## 📂 Estrutura do Repositório
 
-- `src/` — Implementação do parser, tokenizer, interpretador e compilador  
-- `grammar/` — Definições da gramática EBNF da linguagem (versões)  
-- `examples/` — Exemplos de scripts escritos em GuruDev  
-- `docs/` — Whitepapers, documentação técnica e arquitetura do processador GuruDev  
-- `tests/` — Testes automatizados para garantir qualidade e consistência  
-- `.github/workflows/` — Pipelines CI/CD para build, testes e deploy  
-- `README.md` — Este arquivo  
-- `LICENSE` — Termos de licença
-
----
-
-## 🔗 Links Oficiais
-
-- Site Oficial: [gurudev-tech.site](https://gurudev-tech.site)  
-- Espelho GitHub Pages: [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)  
-- Repositório Principal: [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)  
-- Product Hunt: [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)  
-- Gramática EBNF (Histórico): [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)  
-- Artigo do Processador GuruDev: [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)  
+```
+gurudev-core/
+├── src/                  # Lexer, interpretador e compilador GuruDev
+│   └── lexer/            # Máquina de estados PLY (gurudev_lexer.py)
+├── alexandria/           # Biblioteca de Programação Comparada
+│   └── core/             # Analyzer, translator, type mapper
+├── grammar/              # Definições da gramática EBNF
+├── examples/             # Scripts de exemplo em GuruDev
+├── docs/                 # Whitepapers, documentação técnica, pitch decks
+├── tests/                # Testes automatizados
+├── .github/workflows/    # CI/CD (GitHub Actions)
+├── README.md             # Este arquivo (PT)
+├── README_EN.md          # Versão em inglês
+├── CONTRIBUTING.md       # Guia de contribuição
+├── FOUNDER_PROFILE.md    # Perfil do founder
+├── FINANCIAL_MODEL.md    # Modelagem financeira
+├── REVENUE_MODELS.md     # Modelos de receita
+├── roadmap.md            # Roadmap completo
+└── LICENSE               # Licença Apache 2.0
+```
 
 ---
 
 ## 🚀 Comece a Usar
 
-1. Clone o repositório:  
-   ```bash
-   git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
-   Explore os exemplos em examples/.
+### Pré-requisitos
+- Python 3.10 ou superior
+- Git
 
-Consulte a gramática formal em grammar/gurudev.ebnf.
+### Instalação
 
-Para contribuir, leia as diretrizes em .github/CONTRIBUTING.md (em desenvolvimento).
+```bash
+# Clone o repositório
+git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+cd gurudev-core
 
-🔐 Segurança e Governança
+# Instale em modo de desenvolvimento (editável)
+pip install -e .
+
+# Ou instale as dependências diretamente
+pip install -r requirements.txt
+```
+
+### Executando o Lexer
+
+```bash
+python examples/run_example.py
+```
+
+### Testes
+
+```bash
+# Execute os testes com pytest
+pytest tests/
+
+# Ou via CI/CD (GitHub Actions automaticamente em cada push)
+```
+
+---
+
+## 🔗 Links Oficiais
+
+- **Site Hubstry:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Site GuruDev:** [gurudev-tech.site](https://gurudev-tech.site)
+- **GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
+- **Repositório Principal:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
+- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
+- **GuruDev Interactive Lexer:** [IA Manus Demo](https://dyh6i3cqzgoz.manus.space/)
+- **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
+
+---
+
+## 🔐 Segurança e Governança
+
 Este projeto é mantido sob a infraestrutura GitHub Enterprise da Hubstry-DeepTech, utilizando:
 
-GitHub Advanced Security (Code Scanning, Secret Scanning)
+- **GitHub Advanced Security** (Code Scanning, Secret Scanning)
+- **Dependabot** para gerenciamento de dependências
+- **GitHub Actions** para integração contínua e deploy automatizado
+- **GitHub Enterprise** como organização oficial ([Hubstry-DeepTech](https://github.com/Hubstry-DeepTech))
 
-Dependabot para gerenciamento de dependências
+---
 
-GitHub Actions para integração contínua e deploy automatizado
+## 🤝 Contribua
 
-🤝 Contribua
-Sua colaboração é bem-vinda! Abra issues para sugestões, bugs ou dúvidas. Pull requests são avaliados cuidadosamente para garantir a integridade do projeto.
+Sua colaboração é bem-vinda! Abra issues para sugestões, bugs ou dúvidas. Pull requests são avaliados cuidadosamente para garantir a integridade do projeto. Consulte o [Guia de Contribuição](CONTRIBUTING.md) para mais detalhes.
 
-📜 Licença
-Este projeto está licenciado sob a Apache 2.0 License.
+---
+
+## 📞 Contato
+
+- **Founder & CEO:** Guilherme Gonçalves Machado
+- **Email:** guilhermemachado.ceo@hubstry.dev
+- **Site:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Telefone:** (21) 96725-1593
+- **LinkedIn:** [Guilherme Gonçalves Machado](https://linkedin.com/in/guilhermegmachado)
+- **GitHub:** [@Hubstry-DeepTech](https://github.com/Hubstry-DeepTech)
+
+---
+
+## 📜 Licença
+
+Este projeto está licenciado sob a **Apache 2.0 License**.
 
 Reprograme o mundo com semântica, inteligência e resiliência.
-© Hubstry-DeepTech · All rights reserved.
 
+© Hubstry-DeepTech · All rights reserved.

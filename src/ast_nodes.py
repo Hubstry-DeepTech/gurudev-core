@@ -1,13 +1,10 @@
 """
-GuruDev® AST Nodes — Versão 1.0.0-alpha
-Definição dos nós da Árvore Sintático-Semântica (AST)
-Autor: Guilherme Gonçalves Machado
+GuruDev AST Nodes v1.1.0-alpha
+Definicao dos nos da Arvore Sintatico-Semantica (AST)
+Autor: Guilherme Goncalves Machado
+Hubstry-DeepTech
 
-Terminologia linguística:
-  - oracao_de_codigo (statement) → OracaoDeCodigo
-  - producao_de_valor (expression) → ProducaoDeValor
-  - bloco → Bloco (parágrafo computacional)
-  - programa → Programa (discurso pragmático)
+v1.1 changes: Added PropAtribuicao (property assignment)
 """
 
 from dataclasses import dataclass, field
@@ -20,34 +17,33 @@ from typing import List, Optional, Any
 
 @dataclass
 class Node:
-    """Nó base da AST. Todos os nós herdam deste."""
+    """No base da AST. Todos os nos herdam deste."""
     lineno: int = 0
-    # Coordenadas GuruMatrix (preenchidas pelo semantic_analyzer)
-    gm_ontologia: Optional[str] = None      # i - categoria aristotélica
-    gm_campo: Optional[str] = None          # j - campo do conhecimento
-    gm_hermeneutica: Optional[str] = None   # k - nível hermenêutico
-    gm_tempo: Optional[str] = None          # t - tempo de execução
-    gm_paradigma: Optional[str] = None      # l - paradigma/linguagem
+    gm_ontologia: Optional[str] = None
+    gm_campo: Optional[str] = None
+    gm_hermeneutica: Optional[str] = None
+    gm_tempo: Optional[str] = None
+    gm_paradigma: Optional[str] = None
 
 
 # ============================================================
-# PROGRAMA (Discurso Pragmático)
+# PROGRAMA
 # ============================================================
 
 @dataclass
 class Programa(Node):
-    """Nó raiz: o programa completo (discurso pragmático)."""
+    """No raiz: o programa completo."""
     elementos: List[Node] = field(default_factory=list)
 
 
 # ============================================================
-# BLOCO TRÍPLICE (Parágrafo)
+# BLOCO TRIPLO
 # ============================================================
 
 @dataclass
 class Sobrescrita(Node):
-    """Metadados semânticos do bloco."""
-    contextos: List[str] = field(default_factory=list)   # strings descritivas
+    """Metadados semanticos do bloco."""
+    contextos: List[str] = field(default_factory=list)
     nivel: Optional[str] = None
     raiz: Optional[str] = None
     clave: Optional[str] = None
@@ -56,18 +52,18 @@ class Sobrescrita(Node):
 
 @dataclass
 class SubescritaLinguagem(Node):
-    """Código em linguagem estrangeira."""
+    """Codigo em linguagem estrangeira."""
     linguagem: str = ""
     conteudo: str = ""
-    tipo_mapeamento: Optional[str] = None   # automatico, manual, estrito
+    tipo_mapeamento: Optional[str] = None
     conversao: Optional[str] = None
 
 
 @dataclass
 class Bloco(Node):
-    """Bloco tríplice: sobrescrita + código + subescritas."""
+    """Bloco triplo: sobrescrita + codigo + subescritas."""
     sobrescrita: Optional[Sobrescrita] = None
-    codigo: List[Node] = field(default_factory=list)          # orações de código
+    codigo: List[Node] = field(default_factory=list)
     subescritas: List[SubescritaLinguagem] = field(default_factory=list)
     compensacao: Optional['BlocoCompensacao'] = None
     plastico: Optional['BlocoPlastico'] = None
@@ -124,7 +120,7 @@ class BlocoModulacao(Node):
 
 
 # ============================================================
-# DECLARAÇÕES E DEFINIÇÕES
+# DECLARACOES E DEFINICOES
 # ============================================================
 
 @dataclass
@@ -133,8 +129,8 @@ class DeclaracaoVariavel(Node):
     tipo: str = ""
     nome: str = ""
     valor: Optional[Node] = None
-    caso_gramatical: Optional[str] = None   # VOC, NOM, ACU, etc.
-    modificador_acesso: Optional[str] = None  # publico, privado, protegido
+    caso_gramatical: Optional[str] = None
+    modificador_acesso: Optional[str] = None
 
 
 @dataclass
@@ -166,15 +162,23 @@ class DefinicaoClasse(Node):
 
 
 # ============================================================
-# ORAÇÕES DE CÓDIGO (Statements)
+# ORACOES DE CODIGO (Statements)
 # ============================================================
 
 @dataclass
 class Atribuicao(Node):
-    """Ex: ACU.variavel = valor; ou nome = valor;"""
+    """Ex: nome = valor;"""
     alvo: str = ""
     valor: Optional[Node] = None
     caso_gramatical: Optional[str] = None
+
+
+@dataclass
+class PropAtribuicao(Node):
+    """Ex: this.x = valor; ou obj.prop = valor;"""
+    objeto: str = ""
+    propriedade: str = ""
+    valor: Optional[Node] = None
 
 
 @dataclass
@@ -231,7 +235,7 @@ class Enquanto(Node):
 
 
 # ============================================================
-# EXECUÇÃO SÉRIE/PARALELO
+# EXECUCAO SERIE/PARALELO
 # ============================================================
 
 @dataclass
@@ -252,7 +256,7 @@ class ExecucaoEm(Node):
 
 
 # ============================================================
-# PRODUÇÕES DE VALOR (Expressions)
+# PRODUCOES DE VALOR (Expressions)
 # ============================================================
 
 @dataclass
@@ -265,7 +269,7 @@ class ArrayLiteral(Node):
 class Literal(Node):
     """String, Int, Float, Bool literal"""
     valor: Any = None
-    tipo: str = ""   # "string", "int", "float", "bool"
+    tipo: str = ""
 
 
 @dataclass
