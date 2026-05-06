@@ -1,4 +1,4 @@
-
+﻿
 # Links Oficiais — GuruDev® & Hubstry
 
 Este documento centraliza todos os links importantes relacionados à linguagem de programação GuruDev® e à Hubstry, a empresa por trás do projeto.
@@ -40,7 +40,7 @@ Um ambiente interativo para testar e visualizar a tokenização de código GuruD
 ## 🏛️ Hubstry – Deep Tech Ontológica
 
 * **Site Institucional:**
-    * [https://hubstry.com/](https://hubstry.com/)
+    * [https://www.hubstry.dev](https://www.hubstry.dev)
 * **Frontend MVP (Vercel):**
     * [https://hubstree-mvp.vercel.app/](https://hubstree-mvp.vercel.app/)
 * **Backend MVP (Render):**

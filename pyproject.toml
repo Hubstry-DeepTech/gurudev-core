@@ -1,4 +1,4 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -9,7 +9,7 @@ description = "GuruDev Core - Linguagem Ontologica de Programacao Multissemiotic
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Guilherme Goncalves Machado", email = "guilhermemachado@hubstry.com"}
+    {name = "Guilherme Goncalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
 ]
 keywords = [
     "gurudev", "ontological-programming", "programming-language",

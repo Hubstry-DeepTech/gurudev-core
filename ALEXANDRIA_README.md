@@ -1,4 +1,4 @@
-# Alexandria: Biblioteca de Interoperabilidade e Programação Comparada
+﻿# Alexandria: Biblioteca de Interoperabilidade e Programação Comparada
 
 > 🌐 **Language / Idioma**: **Português** | [English](ALEXANDRIA_README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
 
@@ -173,7 +173,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 - **Autor**: Guilherme Gonçalves Machado
 - **Empresa**: Hubstry-DeepTech
-- **Email**: guilhermemachado@hubstry.com
+- **Email**: guilhermemachado.ceo@hubstry.dev
 - **GitHub**: [@Hubstry-DeepTech](https://github.com/Hubstry-DeepTech)
 
 ## 🌟 Roadmap

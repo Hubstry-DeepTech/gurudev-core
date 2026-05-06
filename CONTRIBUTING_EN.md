@@ -1,4 +1,4 @@
-# 🤝 Contribution Guide — GuruDev® & Hubstry
+﻿# 🤝 Contribution Guide — GuruDev® & Hubstry
 
 Thank you for your interest in contributing to the GuruDev® ecosystem and Hubstry platform! This document provides guidelines for effective contributions aligned with our vision of an ontological and multisemiotic programming language.
 
@@ -227,7 +227,7 @@ make test-coverage
 ### Official Channels
 - **GitHub Issues**: Bugs and feature requests
 - **GitHub Discussions**: General discussions and proposals
-- **Email**: guilhermemachado@hubstry.com
+- **Email**: guilhermemachado.ceo@hubstry.dev
 - **LinkedIn**: [Guilherme Gonçalves Machado](https://linkedin.com/in/guilhermegmachado)
 
 ### Review Process
@@ -292,7 +292,7 @@ Contributors are recognized through:
 
 For contribution questions:
 - Open a [Discussion](https://github.com/Hubstry-DeepTech/gurudev-core/discussions)
-- Contact: guilhermemachado@hubstry.com
+- Contact: guilhermemachado.ceo@hubstry.dev
 - Check the [documentation](docs/)
 
 ---

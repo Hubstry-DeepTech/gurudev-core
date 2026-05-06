@@ -1,4 +1,4 @@
-## Complete Roadmap: GuruDev® & Hubstry (Authorial Journey)
+﻿## Complete Roadmap: GuruDev® & Hubstry (Authorial Journey)
 
 > 🌐 **Language / Idioma**: [Português](roadmap.md) | **English** | [Bilingual Index](../BILINGUAL_INDEX.md)
 

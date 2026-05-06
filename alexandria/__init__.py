@@ -8,7 +8,7 @@ Versao: 0.2.0 | Licenca: MIT
 
 __version__ = "0.2.0"
 __author__ = "Guilherme Goncalves Machado"
-__email__ = "guilhermemachado@hubstry.com"
+__email__ = "guilhermemachado.ceo@hubstry.dev"
 __company__ = "Hubstry-DeepTech"
 
 from .core.analyzer import LanguageAnalyzer

@@ -1,4 +1,4 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -9,10 +9,10 @@ description = "Biblioteca de Interoperabilidade e Programação Comparada"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado@hubstry.com"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
 ]
 maintainers = [
-    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado@hubstry.com"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
 ]
 keywords = [
     "programming languages",

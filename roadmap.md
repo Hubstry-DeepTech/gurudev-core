@@ -1,4 +1,4 @@
-
+﻿
 ## Roadmap Completo: GuruDev® & Hubstry (Jornada Autoral)
 
 Este roadmap detalha a evolução da Linguagem de Programação Ontológica e Multissemiótica GuruDev® e da plataforma Hubstry, integrando marcos passados e futuros, com foco em validação técnica, engajamento da comunidade e escalabilidade.
