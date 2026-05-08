@@ -203,10 +203,10 @@ class Continue(Node):
 
 @dataclass
 class Se(Node):
-    """if/se"""
+    """if/se - corpo_falso pode ser List[Node] (else) ou Se (elif chain)"""
     condicao: Optional[Node] = None
     corpo_verdadeiro: List[Node] = field(default_factory=list)
-    corpo_falso: List[Node] = field(default_factory=list)
+    corpo_falso: Any = None  # None | List[Node] | Se (para elif)
 
 
 @dataclass

@@ -62,7 +62,7 @@ tokens = (
 
     # Controle de fluxo
     'IF_KEYWORD', 'ELSE_KEYWORD', 'FOR_KEYWORD', 'WHILE_KEYWORD',
-    'RETURN_KEYWORD', 'BREAK_KEYWORD', 'CONTINUE_KEYWORD',
+    'RETURN_KEYWORD', 'BREAK_KEYWORD', 'CONTINUE_KEYWORD', 'ELIF_KEYWORD',
 
     # Execução série/paralelo
     'SERIE_KEYWORD', 'PARALELO_KEYWORD', 'EM_KEYWORD',
@@ -119,6 +119,7 @@ reserved = {
     # Controle de fluxo (com aliases em português)
     'if': 'IF_KEYWORD', 'se': 'IF_KEYWORD',
     'else': 'ELSE_KEYWORD', 'senao': 'ELSE_KEYWORD',
+    'elif': 'ELIF_KEYWORD', 'senao_se': 'ELIF_KEYWORD',
     'for': 'FOR_KEYWORD', 'para': 'FOR_KEYWORD',
     'while': 'WHILE_KEYWORD', 'enquanto': 'WHILE_KEYWORD',
     'return': 'RETURN_KEYWORD', 'retorna': 'RETURN_KEYWORD',

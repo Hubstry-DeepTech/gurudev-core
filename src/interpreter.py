@@ -941,8 +941,11 @@ class GuruDevInterpreter:
         condicao = self._avaliar(no.condicao)
         if self._verdadeiro(condicao):
             return self._executar_bloco_oracoes(no.corpo_verdadeiro)
-        elif no.corpo_falso:
-            return self._executar_bloco_oracoes(no.corpo_falso)
+        elif no.corpo_falso is not None:
+            if isinstance(no.corpo_falso, Se):
+                return self._exec_se(no.corpo_falso)
+            elif isinstance(no.corpo_falso, list):
+                return self._executar_bloco_oracoes(no.corpo_falso)
         return None
 
     def _exec_para(self, no: Para) -> Any:
@@ -1442,3 +1445,88 @@ if __name__ == '__main__':
             import traceback
             traceback.print_exc()
         sys.exit(1)
+
+
+# ==============================================================
+# CONTROLE DE FLUXO - adicionado por deploy_v27
+# ==============================================================
+
+class BreakSignal(Exception):
+    """Sinal de break para loops."""
+    pass
+
+
+class ContinueSignal(Exception):
+    """Sinal de continue para loops."""
+    pass
+
+
+    def visit_Se(self, node):
+        """Executar se/senao_se/senao."""
+        cond = self.visit(node.condicao)
+        if cond:
+            return self._exec_block(node.corpo_verdadeiro)
+        elif node.corpo_falso is not None:
+            if isinstance(node.corpo_falso, Se):
+                # elif chain: corpo_falso e outro Se node
+                return self.visit_Se(node.corpo_falso)
+            elif isinstance(node.corpo_falso, list):
+                # else block
+                return self._exec_block(node.corpo_falso)
+        return None
+
+
+    def visit_Enquanto(self, node):
+        """Executar enquanto (while)."""
+        while self.visit(node.condicao):
+            try:
+                self._exec_block(node.corpo)
+            except BreakSignal:
+                break
+            except ContinueSignal:
+                continue
+        return None
+
+
+    def visit_Para(self, node):
+        """Executar para (for estilo C)."""
+        self.visit(node.inicializacao)
+        while self.visit(node.condicao):
+            try:
+                self._exec_block(node.corpo)
+            except BreakSignal:
+                break
+            except ContinueSignal:
+                continue
+            self.visit(node.incremento)
+        return None
+
+
+    def visit_ParaCada(self, node):
+        """Executar para cada (for-each)."""
+        iterable = self.visit(node.iteravel) if not isinstance(node.iteravel, str) else None.get(node.iteravel, [])
+        for item in iterable:
+            None[node.variavel] = item
+            try:
+                self._exec_block(node.corpo)
+            except BreakSignal:
+                break
+            except ContinueSignal:
+                continue
+        return None
+
+
+    def _exec_block(self, statements):
+        """Executar lista de oracoes (helper para controle de fluxo)."""
+        result = None
+        for stmt in statements:
+            result = self.visit(stmt)
+        return result
+
+
+    def visit_Break(self, node):
+        raise BreakSignal()
+
+
+    def visit_Continue(self, node):
+        raise ContinueSignal()

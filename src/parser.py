@@ -625,14 +625,50 @@ def p_bloco_corpo(p):
 # 7. CONTROLE DE FLUXO
 # ============================================================
 
+
+
+def p_if_elif_statement(p):
+    '''if_statement : IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo elif_chain'''
+    first = Se(condicao=p[3], corpo_verdadeiro=p[5], lineno=p.lineno(1))
+    current = first
+    for cond, body in p[7]:
+        node = Se(condicao=cond, corpo_verdadeiro=body, lineno=p.lineno(1))
+        current.corpo_falso = [node]
+        current = node
+    p[0] = first
+
+
+
+def p_elif_chain_multiple(p):
+    '''elif_chain : elif_chain ELIF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo'''
+    p[0] = p[1] + [(p[4], p[6])]
+
+
+def p_elif_chain_single(p):
+    '''elif_chain : ELIF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo'''
+    p[0] = [(p[3], p[5])]
+
+
+# --- Controle de Fluxo: se / senao_se / senao (if / elif / else) ---
+
 def p_if_statement(p):
-    '''if_statement : IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo'''
-    p[0] = Se(condicao=p[3], corpo_verdadeiro=p[5], lineno=p.lineno(1))
+    '''if_statement : IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo else_opt'''
+    p[0] = Se(condicao=p[3], corpo_verdadeiro=p[5], corpo_falso=p[6], lineno=p.lineno(1))
 
 
-def p_if_else_statement(p):
-    '''if_statement : IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo ELSE_KEYWORD bloco_corpo'''
-    p[0] = Se(condicao=p[3], corpo_verdadeiro=p[5], corpo_falso=p[7], lineno=p.lineno(1))
+def p_else_opt_else(p):
+    '''else_opt : ELSE_KEYWORD bloco_corpo'''
+    p[0] = p[2]
+
+
+def p_else_opt_elif(p):
+    '''else_opt : ELIF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo else_opt'''
+    p[0] = Se(condicao=p[3], corpo_verdadeiro=p[5], corpo_falso=p[6], lineno=p.lineno(1))
+
+
+def p_else_opt_empty(p):
+    '''else_opt : empty'''
+    p[0] = None
 
 
 def p_for_statement(p):

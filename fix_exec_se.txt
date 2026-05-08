@@ -1,0 +1,10 @@
+﻿def _exec_se(self, no: Se) -> Any:
+    condicao = self._avaliar(no.condicao)
+    if self._verdadeiro(condicao):
+        return self._executar_bloco_oracoes(no.corpo_verdadeiro)
+    elif no.corpo_falso is not None:
+        if isinstance(no.corpo_falso, Se):
+            return self._exec_se(no.corpo_falso)
+        elif isinstance(no.corpo_falso, list):
+            return self._executar_bloco_oracoes(no.corpo_falso)
+    return None
