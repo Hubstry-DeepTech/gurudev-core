@@ -1,0 +1,44 @@
+// GuruDev Core - Exemplos de Funcoes
+// Demonstra definicao, chamada, return, recursao, params opcionais
+
+// --- Funcao simples sem retorno ---
+funcao saudacao(String nome) {
+    escrever("Ola, " + nome + "!");
+}
+saudacao("Mundo");
+
+// --- Funcao com retorno tipado ---
+NOM funcao dobrar(Int x) -> Int {
+    return x * 2;
+}
+Int resultado = dobrar(21);
+escrever("dobrar(21) = " + resultado);
+
+// --- Funcao com multiplos parametros ---
+funcao somar(Int a, Int b) -> Int {
+    return a + b;
+}
+escrever("3 + 7 = " + somar(3, 7));
+
+// --- Recursao ---
+funcao fatorial(Int n) -> Int {
+    se (n <= 1) {
+        return 1;
+    }
+    return n * fatorial(n - 1);
+}
+escrever("5! = " + fatorial(5));
+
+// --- Parametros opcionais com valor default (Tesniere: circunstantes) ---
+funcao criar_pessoa(String nome, Int idade = 0, String cidade = "N/A") {
+    escrever(nome + ", " + idade + ", " + cidade);
+}
+criar_pessoa("Ana");
+criar_pessoa("Bob", 30);
+criar_pessoa("Eve", 25, "Sao Paulo");
+
+// --- Funcao com caso gramatical (Wilmet: relacao instituida) ---
+DAT funcao enviar_mensagem(String destino, String msg) {
+    escrever("Para " + destino + ": " + msg);
+}
+enviar_mensagem("Alice", "Como vai?");

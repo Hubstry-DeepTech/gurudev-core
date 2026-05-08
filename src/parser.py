@@ -333,6 +333,13 @@ def p_oracao_declaracao(p):
     p[0] = p[1]
 
 
+# --- Anotacao semantica (Buhler) como statement separado ---
+
+def p_oracao_anotacao(p):
+    '''oracao_de_codigo : SEMANTIC_ANNOTATION'''
+    p[0] = AnotacaoSemantica(valor=p[1], lineno=p.lineno(1))
+
+
 def p_oracao_definicao_funcao(p):
     '''oracao_de_codigo : definicao_funcao'''
     p[0] = p[1]
@@ -440,6 +447,9 @@ def p_declaracao_com_caso(p):
 
 
 # --- Definição de Função ---
+
+
+
 
 def p_definicao_funcao(p):
     '''definicao_funcao : caso_opt FUNCAO ID LPAREN parametros_opt RPAREN bloco_corpo'''
@@ -614,6 +624,14 @@ def p_parametros_single(p):
 def p_parametro(p):
     '''parametro : tipo ID'''
     p[0] = Parametro(tipo=p[1], nome=p[2], lineno=p.lineno(1))
+
+
+def p_parametro_com_default(p):
+    '''parametro : tipo ID ASSIGN producao_de_valor'''
+    p[0] = Parametro(
+        tipo=p[1], nome=p[2], valor_padrao=p[4],
+        lineno=p.lineno(1)
+    )
 
 
 def p_bloco_corpo(p):

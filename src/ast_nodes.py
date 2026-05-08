@@ -142,12 +142,14 @@ class DefinicaoFuncao(Node):
     corpo: List[Node] = field(default_factory=list)
     caso_gramatical: Optional[str] = None
     modificador_acesso: Optional[str] = None
+    classificacao_semantica: Optional[str] = None  # Buhler: puro / efeito / expressao
 
 
 @dataclass
 class Parametro(Node):
     tipo: str = ""
     nome: str = ""
+    valor_padrao: Optional[Node] = None  # Tesniere: circunstante (opcional)""
 
 
 @dataclass
@@ -195,6 +197,16 @@ class Break(Node):
 @dataclass
 class Continue(Node):
     pass
+
+
+# ============================================================
+# ANOTACOES
+# ============================================================
+
+@dataclass
+class AnotacaoSemantica(Node):
+    """#sem: puro / #sem: efeito / #sem: expressao (Buhler - Organon)"""
+    valor: str = ""
 
 
 # ============================================================

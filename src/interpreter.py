@@ -19,6 +19,7 @@ import json
 from typing import Any, Dict, List, Optional
 
 from .ast_nodes import (
+    AnotacaoSemantica,
     Node, Programa, Bloco, Sobrescrita, SubescritaLinguagem,
     BlocoCompensacao, BlocoErro, BlocoDesempenho, BlocoAlternativa,
     BlocoPlastico, ModulacaoAlvo, BlocoModulacao,
@@ -666,6 +667,7 @@ class GuruDevInterpreter:
             Break: self._exec_break,
             Continue: self._exec_continue,
             Se: self._exec_se,
+            AnotacaoSemantica: self._exec_anotacao,
             Para: self._exec_para,
             ParaCada: self._exec_para_cada,
             Enquanto: self._exec_enquanto,
@@ -936,6 +938,9 @@ class GuruDevInterpreter:
         raise ContinueSignal()
 
     # --- Controle de Fluxo ---
+
+    def _exec_anotacao(self, no):
+        return None
 
     def _exec_se(self, no: Se) -> Any:
         condicao = self._avaliar(no.condicao)

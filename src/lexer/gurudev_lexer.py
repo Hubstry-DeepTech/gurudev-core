@@ -63,6 +63,7 @@ tokens = (
     # Controle de fluxo
     'IF_KEYWORD', 'ELSE_KEYWORD', 'FOR_KEYWORD', 'WHILE_KEYWORD',
     'RETURN_KEYWORD', 'BREAK_KEYWORD', 'CONTINUE_KEYWORD', 'ELIF_KEYWORD',
+    'SEMANTIC_ANNOTATION',
 
     # Execução série/paralelo
     'SERIE_KEYWORD', 'PARALELO_KEYWORD', 'EM_KEYWORD',
@@ -341,6 +342,14 @@ t_COMMA = r','
 t_DOT = r'\.'
 t_COLON = r':'
 
+
+# Semantic annotation: #sem: puro / #sem: efeito / #sem: expressao
+def t_SEMANTIC_ANNOTATION(t):
+    r'\#sem:\s*\w+'
+    # Extract value after #sem:
+    t.value = t.value.split(':')[1].strip()
+    return t
+
 # --- Identificadores e Palavras Reservadas ---
 
 def t_ID(t):
@@ -494,6 +503,13 @@ t_gurudevcode_DOT = r'\.'
 t_gurudevcode_COLON = r':'
 
 # Identificadores e Palavras Reservadas
+
+
+def t_gurudevcode_SEMANTIC_ANNOTATION(t):
+    r'\#sem:\s*\w+'
+    t.value = t.value.split(':')[1].strip()
+    return t
+
 def t_gurudevcode_ID(t):
     r'[a-zA-ZÀ-ÿ_][a-zA-ZÀ-ÿ0-9_]*'
     t.type = reserved.get(t.value, 'ID')

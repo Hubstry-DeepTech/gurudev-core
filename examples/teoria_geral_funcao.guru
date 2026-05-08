@@ -1,0 +1,98 @@
+// GuruDev Core - Teoria Geral da Funcao
+// Demonstracao das fundacoes linguisticas da funcao em GuruDev
+//
+// Baseado em:
+//   Tesniere (valencia): actantes (obrigatorios) vs circunstantes (opcionais)
+//   Buhler (Organon): puro (Darstellung), efeito (Appell), expressao (Ausdruck)
+//   Wilmet (relacao instituida): caso gramatical = natureza da funcao
+
+// =============================================================
+// 1. TESNIERE - VALENCIA
+//    Actantes = parametros obrigatorios (nucleo da relacao)
+//    Circunstantes = parametros opcionais com default (contexto periferico)
+// =============================================================
+
+// funcao com 1 actante + 2 circunstantes
+funcao criar_usuario(String nome, String email = "", Int idade = 0) {
+    escrever("Usuario: " + nome);
+    se (email != "") {
+        escrever("  Email: " + email);
+    }
+    escrever("  Idade: " + idade);
+}
+
+criar_usuario("Alice");                         // so actante
+criar_usuario("Bob", "bob@mail.com");           // actante + 1 circunstante
+criar_usuario("Eve", "eve@mail.com", 28);       // actante + 2 circunstantes
+
+// =============================================================
+// 2. BUHLER - ORGANON MODEL (classificacao semantica)
+//    #sem: puro       -> Darstellung (representacao, sem efeitos colaterais)
+//    #sem: efeito     -> Appell (acao, modifica estado externo)
+//    #sem: expressao  -> Ausdruck (expressao do estado interior do sistema)
+// =============================================================
+
+// Funcao pura: dado mesmo input, sempre mesmo output (Darstellung)
+#sem: puro
+funcao quadrado(Int x) -> Int {
+    return x * x;
+}
+escrever("quadrado(7) = " + quadrado(7));
+
+// Funcao de efeito: modifica estado, gera saida (Appell)
+#sem: efeito
+funcao registrar_log(String msg) {
+    escrever("[LOG] " + msg);
+}
+registrar_log("Sistema iniciado");
+
+// Funcao de expressao: comunica estado interno (Ausdruck)
+#sem: expressao
+funcao status_sistema() -> String {
+    return "operacional";
+}
+escrever("Status: " + status_sistema());
+
+// =============================================================
+// 3. WILMET - FUNCAO COMO RELACAO INSTITUIDA
+//    O caso gramatical define a NATUREZA da relacao que a funcao
+//    institui entre seus argumentos.
+//    NOM = relacao primaria/definidora (essencia)
+//    DAT = relacao direcional (destinatario)
+//    ACU = relacao transformadora (alvo de transformacao)
+//    GEN = relacao de pertenca/classificacao
+//    INS = relacao instrumental (meio/ferramenta)
+// =============================================================
+
+// NOM: funcao definidora - estabelece a essencia do calculo
+NOM funcao calcular_area(Int largura, Int altura) -> Int {
+    return largura * altura;
+}
+escrever("Area: " + calcular_area(5, 3));
+
+// DAT: funcao direcional - envia/destina algo
+DAT funcao notificar(String destinatario, String mensagem) {
+    escrever("NOTIFICACAO para " + destinatario + ": " + mensagem);
+}
+notificar("admin", "Backup concluido");
+
+// ACU: funcao transformadora - transforma o alvo
+ACU funcao converter_para_maiusculo(String texto) -> String {
+    return texto;
+}
+escrever("Resultado: " + converter_para_maiusculo("teste"));
+
+// =============================================================
+// 4. COMBINACAO: Tesniere + Buhler + Wilmet juntos
+// =============================================================
+
+#sem: puro
+NOM funcao media(Int a, Int b, Int c = 0) -> Int {
+    se (c == 0) {
+        return (a + b) / 2;
+    }
+    return (a + b + c) / 3;
+}
+
+escrever("Media de 8 e 10: " + media(8, 10));
+escrever("Media de 8, 10 e 7: " + media(8, 10, 7));
