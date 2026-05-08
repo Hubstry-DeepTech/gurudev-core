@@ -146,9 +146,29 @@ reserved = {
 # 4. MAPAS SEMÂNTICOS
 # ============================================================
 
+# Niveis Hermeneuticos
+# ------------------
+# Canonicos (1-7): definidos no WHITEPAPER §4, GURU_MATRIX5D e GURUBYTE
+#   1=Literal  2=Alegorico  3=Moral  4=Mistico  5=Funcional  6=Estetico  7=Ontologico
+# Estendidos (8-13): niveis auxiliares para dominios especificos
+#   8=Holistico  9=Matematico  10=Simbolico  11=Parabolico  12=Historico  13=Linguistico
+#
 nivel_map = {
-    'literal': 'NIVEL_LITERAL',
-    'holistico': 'NIVEL_HOLISTICO',
+    # --- Canonicos (1-7) ---
+    'literal':    'NIVEL_LITERAL',
+    'alegorico':  'NIVEL_ALEGORICO',
+    'moral':      'NIVEL_MORAL',
+    'mistico':    'NIVEL_MISTICO',
+    'funcional':  'NIVEL_FUNCIONAL',
+    'estetico':   'NIVEL_ESTETICO',
+    'ontologico': 'NIVEL_ONTOLOGICO',
+    # --- Estendidos (8-13) ---
+    'holistico':   'NIVEL_HOLISTICO',
+    'matematico':  'NIVEL_MATEMATICO',
+    'simbolico':   'NIVEL_SIMBOLICO',
+    'parabolico':  'NIVEL_PARABOLICO',
+    'historico':   'NIVEL_HISTORICO',
+    'linguistico': 'NIVEL_LINGUISTICO',
 }
 
 clave_map = {

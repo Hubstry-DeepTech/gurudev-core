@@ -133,8 +133,66 @@ def p_sobrescrita_attr_nivel_holistico(p):
     '''sobrescrita_attr : NIVEL_HOLISTICO'''
     p[0] = ('nivel', 'holistico')
 
-# (Adicionar regras para cada NIVEL_* que o lexer pode produzir)
-# Para simplificar, podemos usar uma regra genérica:
+# Regras para todos os 13 niveis hermeneuticos
+# Canonicos (1-7): Literal, Alegorico, Moral, Mistico, Funcional, Estetico, Ontologico
+# Estendidos (8-13): Holistico, Matematico, Simbolico, Parabolico, Historico, Linguistico
+# (NIVEL_LITERAL e NIVEL_HOLISTICO ja tem regras acima)
+
+
+def p_sobrescrita_attr_nivel_alegorico(p):
+    '''sobrescrita_attr : NIVEL_ALEGORICO'''
+    p[0] = ('nivel', 'alegorico')
+
+
+def p_sobrescrita_attr_nivel_moral(p):
+    '''sobrescrita_attr : NIVEL_MORAL'''
+    p[0] = ('nivel', 'moral')
+
+
+def p_sobrescrita_attr_nivel_mistico(p):
+    '''sobrescrita_attr : NIVEL_MISTICO'''
+    p[0] = ('nivel', 'mistico')
+
+
+def p_sobrescrita_attr_nivel_funcional(p):
+    '''sobrescrita_attr : NIVEL_FUNCIONAL'''
+    p[0] = ('nivel', 'funcional')
+
+
+def p_sobrescrita_attr_nivel_estetico(p):
+    '''sobrescrita_attr : NIVEL_ESTETICO'''
+    p[0] = ('nivel', 'estetico')
+
+
+def p_sobrescrita_attr_nivel_ontologico(p):
+    '''sobrescrita_attr : NIVEL_ONTOLOGICO'''
+    p[0] = ('nivel', 'ontologico')
+
+
+def p_sobrescrita_attr_nivel_matematico(p):
+    '''sobrescrita_attr : NIVEL_MATEMATICO'''
+    p[0] = ('nivel', 'matematico')
+
+
+def p_sobrescrita_attr_nivel_simbolico(p):
+    '''sobrescrita_attr : NIVEL_SIMBOLICO'''
+    p[0] = ('nivel', 'simbolico')
+
+
+def p_sobrescrita_attr_nivel_parabolico(p):
+    '''sobrescrita_attr : NIVEL_PARABOLICO'''
+    p[0] = ('nivel', 'parabolico')
+
+
+def p_sobrescrita_attr_nivel_historico(p):
+    '''sobrescrita_attr : NIVEL_HISTORICO'''
+    p[0] = ('nivel', 'historico')
+
+
+def p_sobrescrita_attr_nivel_linguistico(p):
+    '''sobrescrita_attr : NIVEL_LINGUISTICO'''
+    p[0] = ('nivel', 'linguistico')
+
 
 def p_sobrescrita_attr_raiz(p):
     '''sobrescrita_attr : RAIZ_ATTR'''
