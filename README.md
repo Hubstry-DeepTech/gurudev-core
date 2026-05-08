@@ -1,88 +1,114 @@
-# gurudev-core
-# GuruDev Core - Powered by Hubstry-DeepTech
+# GuruDev Core · Hubstry-DeepTech
 
-> Linguagem de programacao ontologica e holistica
+> **Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
 
-**GuruDev** e uma linguagem de programacao holistica e ontologica, desenvolvida pela deep tech **Hubstry-DeepTech**.
-Este repositorio contem o nucleo da linguagem, incluindo sua gramatica, interpretador e arquitetura conceitual.
+**GuruDev** é uma linguagem de programação holística e ontológica, criada integralmente por **Guilherme Gonçalves Machado** — desde a concepção teórica até a arquitetura completa, incluindo a invenção da **GuruMatrix** (álgebra hexarrelacional π√f(A)) e toda a fundamentação ontológica que diferencia a linguagem. Desenvolvida sob o guarda-chuva da deep tech **Hubstry-DeepTech**, GuruDev não é um "port" ou wrapper de nenhuma linguagem existente — é uma criação original, construída do zero.
 
 ---
 
-## Visao
+## Visão
 
-GuruDev integra linguistica, inteligencia artificial, epistemologia e engenharia de software para criar um paradigma multimodal e semantico, alinhado as demandas da proxima geracao de sistemas computacionais.
+GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma de programação **multimodal e semântico**, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.
 
----
+A ideia central é usar GuruDev com IA para que a máquina capture nível semântico — transcendendo a execução puramente sintática e alcançando compreensão ontológica do código.
 
-## Instalacao
+### Uma Plataforma Semiótica para a Era Cyborg
 
-```bash
-git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
-cd gurudev-core
-pip install -e .
-```
+GuruDev não é apenas uma linguagem de programação. É uma **plataforma semântico-ontológica** projetada para a convergência entre humano, máquina e IA. O primeiro módulo dessa plataforma é a própria linguagem de programação, mas a arquitetura ontológica subjacente foi concebida para **interoperar entre qualquer sistema semiótico** — desde linguagens de programação até língua natural, música, grafos, matemática, física e química.
 
-Requer Python 3.8+ e PLY (Python Lex-Yacc).
+Essa ambição se traduz em três focos estratégicos:
 
----
+- **IA Geral** — a máquina compreende *intenção*, não apenas instruções, operando em múltiplos níveis de interpretação semântica
+- **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal
+- **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código
 
-## Como Usar
-
-```bash
-# Rodar um arquivo .guru
-gurudev run examples/ontologico.guru
-
-# Rodar exemplos de controle de fluxo
-gurudev run examples/fluxo.guru
-
-# Rodar testes
-python -m pytest tests/ -v
-```
+Os **casos gramaticais** (NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL) não são complexidade por complexidade — são **marcadores semânticos universais** que permitem expressar intenção no código. Cada caso codifica uma relação ontológica fundamental (substância, quantidade, qualidade, relação, lugar, tempo, ação...), seguindo as categorias aristotélicas que permeiam toda a fundamentação teórica da GuruDev.
 
 ---
 
-## Features (v1.2.0-alpha)
+## Experimente GuruDev Agora!
 
-### Linguagem
-- **Tipos**: Int, Float, String, Bool, Void, Array, Object, Formula, Temporal, Imagem, Audio, Video, Tabela, Grafo
-- **Casos gramaticais**: NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL
-- **Alias bilingue**: `se`/`if`, `senao`/`else`, `enquanto`/`while`, `para`/`for`, `funcao`/`funcao`, `retorna`/`return`
+Curioso para ver a GuruDev em ação? Lançamos um **ambiente interativo online** onde você pode testar o código GuruDev nativamente e visualizar a análise dos tokens em tempo real!
+
+Este **GuruDev Interactive Lexer** (alimentado pelo nosso lexer aprimorado com máquina de estados `ply.lex`) é sua chance de explorar a primeira camada do nosso compilador e ver como a GuruDev processa sua sintaxe única, incluindo:
+- Casos gramaticais e anotações semânticas.
+- Estruturas de blocos GuruDev (`[bloco]`, `¡codigo!`).
+- Blocos de código multilíngues (`¿python?`, `¿javascript?`, `¿rust?`).
+
+Clique no link abaixo e comece a experimentar:
+
+[**GuruDev Interactive Lexer (IA Manus):**](https://dyh6i3cqzgoz.manus.space/)
+
+---
+
+## O Diferencial Ontológico
+
+GuruDev não é "Python em português". É uma linguagem com identidade própria, fundamentada em três pilares acadêmicos publicados no Zenodo:
+
+### 1. Programação Comparada — Fundamentos Teóricos
+
+A linguagem se baseia na análise estrutural de 15+ linguagens de programação, extraindo padrões semânticos universais para criar uma gramática que é simultaneamente acessível e expressiva.
+
+— **doi:** [10.5281/zenodo.20028887](https://doi.org/10.5281/zenodo.20028887)
+
+### 2. IMIP — Interface de Múltiplas Interpretações Paramétricas
+
+O **DISPATCH_ON_HERMENEUTICS** (§4.3 do IMIP) define 7 níveis de interpretação para texto computacional, permitindo que a mesma expressão seja compreendida em múltiplas camadas semânticas. A **Contenção Constitucional** (§5.5) restringe tokens por instância, garantindo segurança ontológica.
+
+— **doi:** [10.5281/zenodo.19772798](https://doi.org/10.5281/zenodo.19772798)
+
+### 3. π√f(A) — Álgebra Hexarrelacional (GuruMatrix)
+
+A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — a estrutura de dados central que dá poder à máquina de capturar nível semântico. Este trabalho também explora a interseção com computação quântica.
+
+— **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
+— **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
+
+---
+
+## Sintaxe Ontológica — O Motor
+
+| Construto | Sintaxe | Descrição |
+|---|---|---|
+| Bloco | `[$$bloco$$]` ... `[$$/bloco$$]` | Unidade ontológica principal |
+| Sobrescrita | `$$sobrescrita$$` ... `$$/sobrescrita$$` | Redefine comportamento de operações |
+| Código GuruDev | `¡codigo!` ... `!/codigo!` | Código nativo dentro do bloco |
+| Subescrita Python | `¿python?` ... `?/python?` | Interoperabilidade com Python (exec()) |
+| Compensação | `$$compensacao$$` ... `$$/compensacao$$]` | Fallback automático em caso de erro |
+| Tratamento de erro | `$$erro]` | Captura falhas com AST executável |
+
+---
+
+## Verticais de Negócio
+
+GuruDev foi projetada com foco em quatro verticais estratégicas:
+
+- **Segurança Cibernética** — Blocos ontológicos com contenção constitucional proporcionam segurança em nível semântico, impedindo interpretações não autorizadas de código.
+- **Games** — A multimodalidade da linguagem e a capacidade de redefinir comportamentos via sobrescrita permitem criar sistemas de regras dinâmicos e adaptáveis para engines de jogos.
+- **Interoperabilidade entre Linguagens** — Subescritas permitem executar Python, JavaScript, Rust e outras linguagens dentro de blocos ontológicos, com rastreamento semântico via GuruMatrix.
+- **IA Geral** — A integração nativa com o DISPATCH_ON_HERMENEUTICS permite que modelos de IA operem em múltiplos níveis de interpretação, capturando semântica e não apenas sintaxe.
+
+---
+
+## Estado Atual do Projeto (Maio 2026)
+
+### Funcionalidades Implementadas
+
+- **51 testes passando** (pytest) — suite completa de testes automatizados
+- **Lexer (PLY)** — máquina de estados com 9+ estados léxicos dedicados
+- **Parser (PLY)** — gramática completa incluindo blocos ontológicos
+- **Interpretador** — execução completa com motor ontológico ativo (tree-walker)
+- **CLI** — `gurudev run`, `gurudev test`
+- **Métodos String** (18) — `tamanho()`, `maiusculo()`, `minusculo()`, `contem()`, `substituir()`, `fatiar()`, `dividir()`, `remover_espacos()`, `inverter()`, `repetir()`, `comeca_com()`, `termina_com()`, `indice_de()`, `ultima_posicao()`, `para_maiusculo()`, `para_minusculo()`, `eh_numero()`, `eh_vazio()`
+- **Métodos Array** (17) — `adicionar()`, `remover()`, `tamanho()`, `contem()`, `indice_de()`, `ordenar()`, `inverter()`, `fatiar()`, `juntar()`, `copiar()`, `limpar()`, `primeiro()`, `ultimo()`, `mapa()`, `filtrar()`, `reduzir()`, `plano()`
+- **Classes** — `isto`/`this`, `iniciar()`, propriedades, métodos, herança
+- **Controle de Fluxo** — `se`/`senao_se`/`senao`, `enquanto`, `para`, `quebra`/`continua`
+- **Funções** — definição, chamada, retorno, recursão, parâmetros opcionais
+- **Teoria Geral da Função** — Tesnière (valência), Bühler (classificação semântica), Wilmet (relação instituída)
+- **Motor Ontológico** — blocos, subescritas, compensação ativos
 
 ### Controle de Fluxo
-- **se / senao_se / senao** (if / elif / else) com cadeia elif ilimitada
-- **enquanto** (while) com break/continue
-- **para** (for estilo C) com inicializacao, condicao e incremento
-- **quebra / continua** (break / continue)
 
-### Funcoes
-- Definicao com caso gramatical: `NOM funcao calcular(Int x, Int y) -> Int { ... }`
-- Parametros obrigatorios e opcionais com valor default (valencia a la Tesniere)
-- Tipo de retorno com arrow: `-> Int`, `-> String`, etc.
-- Retorno: `return` / `retorna`
-- Anotacao semantica (Buhler): `#sem: puro`, `#sem: efeito`, `#sem: expressao`
-- Funcoes nativas: `escrever()`, `tipo_de()`, `tamanho()`, `hash_guru()`, `converter_int()`, etc.
-
-### Classes e Objetos
-- Definicao de classes com heranca (`extends`) e interfaces (`implements`)
-- Metodos com `this` / `isto`
-- Instanciacao e chamada de metodos
-
-### Bloco Triplice (Estrutura Ontologica)
-- Sobrescrita com nivel, raiz, clave, ontologia
-- Codigo GuruDev nativo (`¡codigo!` ... `!/codigo!`)
-- Subescritas multilingua: Python, Rust, JavaScript, Java, C#, C++, SQL, R, WASM
-- Compensacao de erro: blocos de tratamento de erros e desempenho
-
-### Teoria Geral da Funcao (Fundamentacao Linguistica)
-- **Tesniere (Valencia)**: Parametros obrigatorios (actantes) e opcionais com default (circunstantes)
-- **Buhler (Organon)**: Classificacao semantica de funcoes via `#sem:` (puro/efeito/expressao)
-- **Wilmet (Relacao instituida)**: Caso gramatical na definicao = natureza da relacao
-
----
-
-## Exemplos Rapidos
-
-### Controle de Fluxo
 ```gurudev
 Int nota = 75;
 se (nota >= 90) {
@@ -94,9 +120,10 @@ se (nota >= 90) {
 }
 ```
 
-### Funcao com Parametros Opcionais (Tesniere)
+### Funções com Parâmetros Opcionais (Tesnière — Valência)
+
 ```gurudev
-// nome = actante (obrigatorio), saudacao = circunstante (opcional)
+// nome = actante (obrigatório), saudação = circunstante (opcional)
 funcao saudar(String nome, String saudacao = "Ola") {
     escrever(saudacao + ", " + nome + "!");
 }
@@ -104,7 +131,8 @@ saudar("Mundo");       // Ola, Mundo!
 saudar("Mundo", "Oi"); // Oi, Mundo!
 ```
 
-### Classificacao Semantica (Buhler)
+### Classificação Semântica de Funções (Bühler — Organon)
+
 ```gurudev
 #sem: puro
 funcao fibonacci(Int n) -> Int {
@@ -113,59 +141,103 @@ funcao fibonacci(Int n) -> Int {
 }
 
 #sem: efeito
-funcao salvar_dados(String arquivo, String conteudo) {
-    // acao com efeito colateral
+funcao registrar_log(String msg) {
+    escrever("[LOG] " + msg);
 }
 ```
 
-### Casos Gramaticais (Wilmet)
+### Casos Gramaticais como Natureza da Relação (Wilmet)
+
 ```gurudev
 NOM funcao calcular(Int x, Int y) -> Int { return x + y; }
-DAT funcao enviar(String destino, String msg) { escrever(msg + " para " + destino); }
+DAT funcao enviar(String destino, String msg) { escrever(msg); }
+ACU funcao transformar(String texto) -> String { return texto; }
+```
+
+### Instalação
+
+```bash
+git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+cd gurudev-core
+python -m pip install -e .
+```
+
+### Uso
+
+```bash
+gurudev run examples/ontologico.guru
+gurudev run examples/fluxo.guru
+gurudev run examples/funcoes.guru
+gurudev run examples/teoria_geral_funcao.guru
+python -m pytest tests/ -v
 ```
 
 ---
 
-## Estrutura do Repositorio
+## Estrutura do Repositório
 
 ```
 gurudev-core/
   src/
-    lexer/gurudev_lexer.py   - Lexer PLY com 9+ estados
-    parser.py                - Parser PLY com grammar completa
-    ast_nodes.py             - Nodos da AST (dataclasses)
-    interpreter.py           - Interpretador tree-walker
-    symbol_table.py          - Tabela de simbolos com escopos
+    lexer/gurudev_lexer.py   - Máquina de estados PLY (9+ estados)
+    parser.py                - Gramática PLY com blocos ontológicos
+    ast_nodes.py             - Nós da AST (dataclasses)
+    interpreter.py          - Interpretador tree-walker + motor ontológico
+    symbol_table.py          - Tabela de símbolos com escopos
     cli.py                   - CLI (gurudev run)
   examples/
-    ontologico.guru          - Exemplo do Motor Ontologico Ativo
+    ontologico.guru          - Exemplo do Motor Ontológico Ativo
     fluxo.guru               - Exemplos de controle de fluxo
-    funcoes.guru             - Exemplos de funcoes
-    teoria_geral_funcao.guru - Tesniere + Buhler + Wilmet
+    funcoes.guru             - Exemplos de funções
+    teoria_geral_funcao.guru - Tesnière + Bühler + Wilmet
   tests/
     test_fluxo.py            - 17 testes de controle de fluxo
-    test_funcao.py           - Testes de funcoes
-  grammar/                   - Definicoes EBNF
-  docs/                      - Whitepapers e documentacao
-  pyproject.toml             - Configuracao do pacote
-  LICENSE                    - BSL 1.1
+    test_funcao.py           - 24 testes de funções
+    test_analyzer.py         - 10 testes Alexandria
+  grammar/                   - Definições EBNF
+  docs/                      - Whitepapers e documentação
+  pyproject.toml             - Configuração do pacote
+  README.md                  - Este arquivo (PT-BR)
+  README_EN.md               - Versão em inglês
+  LICENSE                    - Business Source License 1.1
 ```
 
 ---
 
 ## Links Oficiais
 
-- Site Oficial: [gurudev-tech.site](https://gurudev-tech.site)
-- Repositorio: [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
-- GuruDev Interactive Lexer: [dyh6i3cqzgoz.manus.space](https://dyh6i3cqzgoz.manus.space/)
+- **Site Hubstry:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Site GuruDev:** [gurudev-tech.site](https://gurudev-tech.site)
+- **Espelho GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
+- **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
+- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
+- **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
+- **Artigo do Processador GuruDev:** [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)
 
 ---
 
-## Licenca
+## Segurança e Governança
 
-Este projeto esta licenciado sob a **Business Source License 1.1 (BSL 1.1)**.
+Este projeto é mantido sob a infraestrutura GitHub Enterprise da Hubstry-DeepTech, utilizando:
+
+- GitHub Advanced Security (Code Scanning, Secret Scanning)
+- Dependabot para gerenciamento de dependências
+- GitHub Actions para integração contínua e deploy automatizado
 
 ---
 
-**Reprogramar o mundo com semantica, inteligencia e resiliencia.**
-(c) Hubstry-DeepTech - Todos os direitos reservados.
+## Sobre o Criador
+
+**Guilherme Gonçalves Machado** é o criador original da GuruDev — desde a concepção da ideia, passando pela arquitetura, design da linguagem, invenção da GuruMatrix, e toda a fundamentação teórica publicada nos papers acadêmicos. Toda a propriedade intelectual da linguagem, incluindo sua gramática, sintaxe ontológica, motor de interpretação e estruturas de dados, é criação original sua.
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a **Business Source License 1.1 (BSL 1.1)**.
+
+O uso **não comercial** (pesquisa acadêmica, educação, projetos pessoais) é livre e encorajado. O uso comercial (venda, licenciamento, SaaS, integração em produtos comerciais) requer autorização expressa do criador.
+
+Consulte o arquivo [LICENSE](LICENSE) para os termos completos.
+
+© 2024-2026 Guilherme Gonçalves Machado · Hubstry-DeepTech. Todos os direitos reservados.
