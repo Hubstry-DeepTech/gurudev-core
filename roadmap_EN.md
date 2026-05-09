@@ -1,4 +1,4 @@
-﻿## Complete Roadmap: GuruDev® & Hubstry (Authorial Journey)
+## Complete Roadmap: GuruDev® & Hubstry (Authorial Journey)
 
 > 🌐 **Language / Idioma**: [Português](roadmap.md) | **English** | [Bilingual Index](../BILINGUAL_INDEX.md)
 
@@ -143,6 +143,21 @@ This roadmap details the evolution of the Ontological and Multisemiotic Programm
         * Develop specific versions (`GuruDev.v(Alef, 00)` for Cybersecurity, `GuruDev.v(Alif, 00)` for General AI, etc.) with libraries and tools optimized for these domains.
     * **Research and Development (R&D):**
         * Explore new frontiers for the language, such as integration with quantum computing (according to the analogy of "binary and quantum processors"), brain-machine interfaces, among others.
+
+---
+
+> ### Technical Milestones Achieved — Quantum Vertical (2026)
+>
+> The quantum vertical was implemented in 4 phases during the roadmap's Phase 2 period, positioning GuruDev as the **semantic protocol of the classical-quantum interface**.
+>
+> | Phase | Module | Commit | Tests |
+> |-------|--------|--------|-------|
+> | 1 | Alexandria Quantum Data | `897acb2` | +31 → 130 |
+> | 2 | Quantum Interface | `17b8cf5` | +59 → 189 |
+> | 3 | Quantum Dispatch + R⁶ | `fa07956` | +50 → 239 |
+> | 4 | PiRoot VQE Experiment | `f968903` | +88 → **327** |
+>
+> **Total: 327 tests passing** — GuruDev Core v1.2.0-alpha with complete quantum vertical.
 
 * **Hubstry Focus:**
     * **Ecosystem Robustness:**

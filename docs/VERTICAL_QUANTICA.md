@@ -1,158 +1,160 @@
-# Vertical Quantica — GuruDev Core
+# Vertical Quântica — GuruDev Core
 
-> Autor: Guilherme Goncalves Machado | Hubstry — Pesquisa Independente em Deep Tech
-> Fonte: Machado (2026b). "pi*sqrt(f(A)) e Computacao Quantica: Isomorfismos, Analogias e Fronteiras."
-
----
-
-## Visao Geral
-
-A vertical quantica da GuruDev Core estabelece conexoes formais entre a algebra hexa relacional de significancia pi*sqrt(f(A)) e as estruturas matematicas da computacao quantica. Este documento sintetiza os resultados fundamentais, organizados por nivel de certeza: isomorfismos demonstrados, analogias formalizadas, conjecturas e fronteiras explicitas.
-
-**Principio fundamental**: nenhuma linha deste documento propoe, sugere ou tolera qualquer variante de misticismo quantico. Todas as conexoes sao de natureza matematica, com limites declarados.
+> **Autor:** Guilherme Gonçalves Machado | Hubstry — Pesquisa Independente em Deep Tech
+> **Fonte:** Machado (2026b). *π√f(A) e Computação Quântica: Isomorfismos, Analogias e Fronteiras.*
+> **DOI:** [10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462)
+> **Publicado:** Fevereiro de 2026 | Versão v1 (Working Paper)
 
 ---
 
-## Isomorfismos Matematicos Demonstrados
+## Visão Geral
 
-### 1. Produto Tensorial (Identidade Algebrica)
+A vertical quântica da GuruDev Core estabelece conexões formais entre a álgebra hexarrelacional de significância π√f(A) e as estruturas matemáticas da computação quântica. Este documento sintetiza os resultados fundamentais, organizados por nível de certeza: isomorfismos demonstrados, analogias formalizadas, conjecturas e fronteiras explícitas.
 
-O produto tensorial definido em pi*sqrt(f(A)) para vetores de significancia e o produto tensorial da mecanica quantica para estados compostos sao **instancias da mesma construcao universal** da algebra multilinear.
+**Princípio fundamental:** nenhuma linha deste documento propõe, sugere ou tolera qualquer variante de misticismo quântico. Todas as conexões são de natureza matemática, com limites declarados.
 
-**Em pi*sqrt(f(A)):**
+---
+
+## Isomorfismos Matemáticos Demonstrados
+
+### 1. Produto Tensorial (Identidade Algébrica)
+
+O produto tensorial definido em π√f(A) para vetores de significância e o produto tensorial da mecânica quântica para estados compostos são **instâncias da mesma construção universal** da álgebra multilinear.
+
+**Em π√f(A):**
 ```
-f(A) . f(B) = M em R^{6x6}, M_{ij} = f_{rho_i}(A) . f_{rho_j}(B)
+f(A) ⊗ f(B) = M ∈ ℝ⁶ˣ⁶,  M_{ij} = f_{ρᵢ}(A) · f_{ρⱼ}(B)
 ```
 
-**Na mecanica quantica:**
+**Na mecânica quântica:**
 ```
-|psi> . |phi> em H_A . H_B ~ C^{mn}, componentes: psi_i . phi_j
+|ψ⟩ ⊗ |φ⟩ ∈ H_A ⊗ H_B ~ ℂᵐⁿ,  componentes: ψᵢ · φⱼ
 ```
 
-Ambas satisfazem: bilinearidade, propriedade universal, dimensionalidade dim(V . W) = dim(V) * dim(W). A unica diferenca e o corpo de escalares (R vs C).
+Ambas satisfazem: bilinearidade, propriedade universal, dimensionalidade dim(V ⊗ W) = dim(V) · dim(W). A única diferença é o corpo de escalares (ℝ vs ℂ).
 
 ### 2. Reticulado de 64 Perfis = Base Computacional de 6 Qubits
 
-Os 64 perfis binarios de significancia (cada relacao rho_k presente/ausente) formam um reticulado isomorfo a base computacional de um registro de 6 qubits:
+Os 64 perfis binários de significância (cada relação ρₖ presente/ausente) formam um reticulado isomorfo à base computacional de um registro de 6 qubits:
 
 ```
-Sigma = {0,1}^6  <-->  B = {|b1 b2 b3 b4 b5 b6> : b_k em {0,1}}
+Σ = {0,1}⁶  ⟷  B = {|b₁b₂b₃b₄b₅b₆⟩ : bₖ ∈ {0,1}}
 ```
 
-| Estrutura em pi*sqrt(f(A)) | Estrutura em Computacao Quantica |
+| Estrutura em π√f(A) | Estrutura em Computação Quântica |
 |---|---|
-| Vetor f(A) em [0,1]^6 | Estado |psi> em C^n |
-| Produto tensorial f(A) . f(B) | Produto tensorial |psi> . |phi> |
-| Perfil sigma em {0,1}^6 | Vetor de base |sigma> em C^64 |
-| 7 perfis consistentes (Sigma_C) | Subespaco H_C de dimensao 7 |
-| 57 perfis inconsistentes | Complemento ortogonal H_C^perp, dim=57 |
-| Escalar de coerencia Coh(A,B) | Produto interno <psi|phi> |
+| Vetor f(A) em [0,1]⁶ | Estado |ψ⟩ em ℂⁿ |
+| Produto tensorial f(A) ⊗ f(B) | Produto tensorial |ψ⟩ ⊗ |φ⟩ |
+| Perfil σ em {0,1}⁶ | Vetor de base |σ⟩ em ℂ⁶⁴ |
+| 7 perfis consistentes (Σ_C) | Subespaço H_C de dimensão 7 |
+| 57 perfis inconsistentes | Complemento ortogonal H_C^⊥, dim=57 |
+| Escalar de coerência Coh(A,B) | Produto interno ⟨ψ|φ⟩ |
 
 ---
 
 ## Analogias Estruturais Formalizadas
 
-### Analogia 1: Emaranhamento Quantico como Instancia de rho_6 (Compensacao)
+### Analogia 1: Emaranhamento Quântico como Instância de ρ₆ (Compensação)
 
-A relacao rho_6 exige anulacao mutua (delta(x) = -delta(y)) e emergencia (Omega(x + y) > Omega(x) + Omega(y)). Estados emaranhados satisfazem ambas:
+A relação ρ₆ exige anulação mútua (δ(x) = −δ(y)) e emergência (Ω(x + y) > Ω(x) + Ω(y)). Estados emaranhados satisfazem ambas:
 
-- **Anulacao**: S(rho_A) = S(rho_B) para estados puros bipartidos (estado de Bell: maxima desordem local)
-- **Emergencia**: I(A:B) = S(rho_A) + S(rho_B) - S(rho_AB) > 0 (informacao mutua quantica)
+- **Anulação:** S(ρ_A) = S(ρ_B) para estados puros bipartidos (estado de Bell: máxima desordem local)
+- **Emergência:** I(A:B) = S(ρ_A) + S(ρ_B) − S(ρ_AB) > 0 (informação mútua quântica)
 
-**Valor quantificavel**: f_rho_6(A,B) = E(psi) / ln(d), onde E e a entropia de emaranhamento.
+**Valor quantificável:** f_ρ₆(A,B) = E(ψ) / ln(d), onde E é a entropia de emaranhamento.
 
-**Limites**: Exata para estados puros bipartidos. Aproximada para estados mistos (NP-hard).
+**Limites:** Exata para estados puros bipartidos. Aproximada para estados mistos (NP-hard).
 
-### Analogia 2: Teorema da Nao-Clonagem como Limite de rho_3 (Equivalencia)
+### Analogia 2: Teorema da Não-Clonagem como Limite de ρ₃ (Equivalência)
 
-rho_3 = substituibilidade em todo contexto. O teorema de Wootters-Zurek proibe clonagem de estados quanticos desconhecidos, limitando a equivalencia verificavel:
+ρ₃ = substituibilidade em todo contexto. O teorema de Wootters-Zurek proíbe clonagem de estados quânticos desconhecidos, limitando a equivalência verificável:
 
 ```
-f_rho_3(|psi>, |phi>) <= |<psi|phi>|^2
+f_ρ₃(|ψ⟩, |φ⟩) ≤ |⟨ψ|φ⟩|²
 ```
 
-Para estados ortogonais: rho_3 = 0. Para estados identicos: rho_3 = 1.
+Para estados ortogonais: ρ₃ = 0. Para estados idênticos: ρ₃ = 1.
 
-### Analogia 3: Decoerencia e Convergencia Hermeneutica
+### Analogia 3: Decoerência e Convergência Hermenêutica
 
-Ambos sao processos com estrutura de ponto fixo atrativo sob iteracao:
+Ambos são processos com estrutura de ponto fixo atrativo sob iteração:
 
-- **Decoerencia**: Zurek (1981/2003) — estados quanticos perdem coerencia por interacao com o ambiente
-- **Convergencia hermeneutica**: Machado (2026a) — Pi(A) converge super-exponencialmente para 1 com expoentes 1/pi, 1/pi^2, ...
+- **Decoerência:** Zurek (1981/2003) — estados quânticos perdem coerência por interação com o ambiente
+- **Convergência hermenêutica:** Machado (2026a) — Π(A) converge super-exponencialmente para 1 com expoentes 1/π, 1/π², ...
 
-**Limite**: Mecanismos diferentes (medições ambientais vs. operador algebrico), substancia diferente (fases vs. vetores reais), valoração diferente (perda vs. convergencia).
+**Limite:** Mecanismos diferentes (medições ambientais vs. operador algébrico), substância diferente (fases vs. vetores reais), valoração diferente (perda vs. convergência).
 
 ---
 
-## Perfis Quanticos de Significancia (Extensao Proposta)
+## Perfis Quânticos de Significância (Extensão Proposta)
 
-Perfis quanticos permitem superposicao: um algoritmo pode estar em superposicao de multiplos perfis ate ser avaliado (medido):
+Perfis quânticos permitem superposição: um algoritmo pode estar em superposição de múltiplos perfis até ser avaliado (medido):
 
 ```
-|sigma>_q = sum_{sigma} alpha_sigma |sigma>   (alpha_sigma em C, sum |alpha_sigma|^2 = 1)
+|σ⟩_q = Σ_σ α_σ |σ⟩   (α_σ ∈ ℂ, Σ |α_σ|² = 1)
 ```
 
-O valor esperado de significancia:
+O valor esperado de significância:
 ```
-<Pi> = sum_{sigma} |alpha_sigma|^2 * Pi(sigma)
+⟨Π⟩ = Σ_σ |α_σ|² · Π(σ)
 ```
 
-**Colapso por avaliacao**: ao medir, o perfil colapsa para um perfil classico.
+**Colapso por avaliação:** ao medir, o perfil colapsa para um perfil clássico.
 
 ---
 
-## Algoritmos Quanticos como Portadores de Perfis Hexarrelacionais
+## Algoritmos Quânticos como Portadores de Perfis Hexarrelacionais
 
-### Shor (Fatoracao) — Perfil Conjectural
+### Shor (Fatoração) — Perfil Conjectural
 
-| Relacao | Valor | Justificativa |
+| Relação | Valor | Justificativa |
 |---|---|---|
-| rho_1 (Similitude) | 0.9 | Saida altamente estruturada |
-| rho_2 (Homologia) | 0.85 | Preserva estrutura algébrica |
-| rho_3 (Equivalencia) | 0.3 | Probabilistico |
-| rho_4 (Simetria) | 0.7 | QFT e transformação unitária |
-| rho_5 (Equilibrio) | 0.2 | Sem anulacao mutua obvia |
-| rho_6 (Compensacao) | 0.5 | Usa emaranhamento como recurso |
+| ρ₁ (Similitude) | 0.9 | Saída altamente estruturada |
+| ρ₂ (Homologia) | 0.85 | Preserva estrutura algébrica |
+| ρ₃ (Equivalência) | 0.3 | Probabilístico |
+| ρ₄ (Simetria) | 0.7 | QFT é transformação unitária |
+| ρ₅ (Equilíbrio) | 0.2 | Sem anulação mútua óbvia |
+| ρ₆ (Compensação) | 0.5 | Usa emaranhamento como recurso |
 
-**Nota**: rho_4 > rho_3 viola a cadeia de implicacao — anomalia detectavel!
+**Nota:** ρ₄ > ρ₃ viola a cadeia de implicação — anomalia detectável!
 
 ### Grover (Busca) — Perfil Conjectural
 
-| Relacao | Valor | Justificativa |
+| Relação | Valor | Justificativa |
 |---|---|---|
-| rho_1 | 0.95 | Alta probabilidade de acerto |
-| rho_4 | 0.9 | Iteração = composição de reflexões |
+| ρ₁ | 0.95 | Alta probabilidade de acerto |
+| ρ₄ | 0.9 | Iteração = composição de reflexões |
 
-### VQE (Variational Quantum Eigensolver) — Caso Paradigmatico de rho_6
+### VQE (Variational Quantum Eigensolver) — Caso Paradigmático de ρ₆
 
-| Relacao | Valor | Justificativa |
+| Relação | Valor | Justificativa |
 |---|---|---|
-| rho_6 (Compensacao) | 0.9 | Emerge classico-quântica maxima |
-| rho_5 (Equilibrio) | 0.7 | Otimização busca equilíbrio |
+| ρ₆ (Compensação) | 0.9 | Emergência clássico-quântica máxima |
+| ρ₅ (Equilíbrio) | 0.7 | Otimização busca equilíbrio |
 
-VQE e o algoritmo mais "natural" na taxonomia hexa relacional — perfil consistente com a cadeia de implicacao.
+VQE é o algoritmo mais "natural" na taxonomia hexarrelacional — perfil consistente com a cadeia de implicação.
 
 ---
 
-## Protocolos Quanticos na Linguagem Hexa Relacional
+## Protocolos Quânticos na Linguagem Hexarrelacional
 
-| Protocolo | Recurso (rho consumida) | Produto (rho gerada) | Auxiliar |
+| Protocolo | Recurso (ρ consumida) | Produto (ρ gerada) | Auxiliar |
 |---|---|---|---|
-| **Teleportacao** | rho_6 (emaranhamento) | rho_3 (equivalência de estado) | 2 bits clássicos |
-| **QKD (BB84)** | rho_5 (equilíbrio A-B) | rho_3 (equivalência de chave) | Canal quantico + classico |
-| **Codificação Superdensa** | rho_6 (emaranhamento) | rho_3 (equivalência de mensagem) | 1 qubit transmitido |
+| **Teleportação** | ρ₆ (emaranhamento) | ρ₃ (equivalência de estado) | 2 bits clássicos |
+| **QKD (BB84)** | ρ₅ (equilíbrio A-B) | ρ₃ (equivalência de chave) | Canal quântico + clássico |
+| **Codificação Superdensa** | ρ₆ (emaranhamento) | ρ₃ (equivalência de mensagem) | 1 qubit transmitido |
 
-**Padrao identificado**: todos os protocolos convertem rho_5 ou rho_6 em rho_3. As relacoes mais profundas sao recursos que viabilizam equivalencia.
+**Padrão identificado:** todos os protocolos convertem ρ₅ ou ρ₆ em ρ₃. As relações mais profundas são recursos que viabilizam equivalência.
 
 ---
 
-## Fronteiras Explicitas (O Que Nao Se Conecta)
+## Fronteiras Explícitas (O Que Não Se Conecta)
 
-1. **pi e phi nao sao constantes quânticas** — aparecem na mecanica quantica (h-bar = h/2*pi), mas nao tem papel privilegiado.
-2. **Semióse nao e superposição** — indeterminacao semiótica (epistemológica) difere de superposição quantica (ontológica, na interpretação padrão).
-3. **Decoerência nao e convergência hermeneutica** — estrutura de ponto fixo compartilhada, mas mecanismos, substancia e valoração diferentes.
-4. **pi*sqrt(f(A)) nao "explica" fenômenos quânticos** — correspondencias sao matematicas, não causais.
-5. **Nenhuma variante de misticismo quântico e tolerada**.
+1. **π e φ não são constantes quânticas** — aparecem na mecânica quântica (ℏ = h/2π), mas não têm papel privilegiado.
+2. **Semióse não é superposição** — indeterminação semiótica (epistemológica) difere de superposição quântica (ontológica, na interpretação padrão).
+3. **Decoerência não é convergência hermenêutica** — estrutura de ponto fixo compartilhada, mas mecanismos, substância e valoração diferentes.
+4. **π√f(A) não "explica" fenômenos quânticos** — correspondências são matemáticas, não causais.
+5. **Nenhuma variante de misticismo quântico é tolerada.**
 
 ---
 
@@ -160,20 +162,35 @@ VQE e o algoritmo mais "natural" na taxonomia hexa relacional — perfil consist
 
 | # | Problema | Tipo | Prazo |
 |---|---|---|---|
-| 1 | Formalizar emaranhamento = rho_6 via teoria da informação quantica | Teórico | 6-12 meses |
-| 2 | Computar f para algoritmos quânticos reais | Computacional | 12-24 meses |
-| 3 | Testar PiRoot em circuitos variacionais (barren plateaus) | Computacional/Experimental | 3-6 meses |
-| 4 | Investigar se a cadeia de implicacao vale no domínio quântico | Teórico | 12-24 meses |
+| 1 | Formalizar emaranhamento = ρ₆ via teoria da informação quântica | Teórico | 6–12 meses |
+| 2 | Computar f para algoritmos quânticos reais | Computacional | 12–24 meses |
+| 3 | Testar PiRoot em circuitos variacionais (barren plateaus) | Computacional/Experimental | 3–6 meses |
+| 4 | Investigar se a cadeia de implicação vale no domínio quântico | Teórico | 12–24 meses |
 | 5 | Perfis quânticos — quais superposições são realizáveis? | Teórico | Indeterminado |
-| 6 | Leis de conservação hexa relacionais em protocolos quânticos | Teórico | 12-24 meses |
+| 6 | Leis de conservação hexarrelacionais em protocolos quânticos | Teórico | 12–24 meses |
 | 7 | Complexidade computacional de perfis quânticos | Teórico/Computacional | Variável |
-| 8 | Implementação em hardware quântico | Experimental | 3-5 anos |
+| 8 | Implementação em hardware quântico | Experimental | 3–5 anos |
 
 ---
 
-## Referencias
+## Status de Implementação (2026)
 
-- Machado, G. G. (2026a). pi*sqrt(f(A)): Uma Álgebra Hexa Relacional de Significância para Algoritmos. Zenodo.
-- Machado, G. G. (2026b). pi*sqrt(f(A)) e Computação Quântica: Isomorfismos, Analogias e Fronteiras. Hubstry.
+A vertical quântica foi implementada no GuruDev Core em 4 fases, totalizando **327 testes automatizados**:
+
+| Fase | Módulo | Commit | Descrição |
+|------|--------|--------|-----------|
+| 1 | `alexandria/data/` + `quantum_comparator.py` | `897acb2` | 8 linguagens, 4 algoritmos, 10 pares clássico-quânticos, QuantumComparator, ConsistencyChecker |
+| 2 | `alexandria/core/quantum_interface.py` | `17b8cf5` | TipoDelegacao (4 tipos), AUSENTES_QUANTICO, classificação de delegação ρ₁-ρ₆ |
+| 3 | `src/interpreter.py` + `src/quantum_result.py` | `fa07956` | dispatch_quantico(), QuantumResult probabilístico, vetor R⁶ hexarrelacional no interpretador |
+| 4 | `experiments/piroot_vqe/` | `f968903` | Experimento PiRoot-VQE, detecção de barren plateaus via ρ₅, análise de correlação π√ |
+
+**Problema aberto #3** (PiRoot em circuitos variacionais) foi parcialmente abordado pelo experimento PiRoot-VQE (Fase 4), que implementa detecção semântica de barren plateaus através da degradação de ρ₅ (equilíbrio) e aumento da entropia de Shannon.
+
+---
+
+## Referências
+
+- Machado, G. G. (2026a). π√f(A): Uma Álgebra Hexarrelacional de Significância para Algoritmos. Zenodo.
+- Machado, G. G. (2026b). π√f(A) e Computação Quântica: Isomorfismos, Analogias e Fronteiras. **[DOI: 10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462)**
 - Nielsen, M. A. & Chuang, I. L. (2010). Quantum Computation and Quantum Information. Cambridge University Press.
 - Preskill, J. (2018). Quantum computing in the NISQ era and beyond. Quantum, 2, 79.

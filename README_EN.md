@@ -1,121 +1,103 @@
-# gurudev-core
-# GuruDev Core - Powered by Hubstry-DeepTech
+# GuruDev Core · Hubstry-DeepTech
 
-> Ontological and holistic programming language
+> **Language**: [Português](README.md) | **English**
 
-**GuruDev** is a holistic and ontological programming language, developed by the deep tech company **Hubstry-DeepTech**.
-This repository contains the language core, including its grammar, interpreter, and conceptual architecture.
+**GuruDev** is a holistic and ontological programming language, entirely created by **Guilherme Gonçalves Machado** — from theoretical conception through complete architecture, including the invention of **GuruMatrix** (hexarrelational algebra π√f(A)) and the entire ontological foundation that differentiates the language. Developed under the **Hubstry-DeepTech** umbrella, GuruDev is not a "port" or wrapper of any existing language — it is an original creation, built from scratch.
 
 ---
 
 ## Vision
 
-GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a multimodal and semantic paradigm, aligned with the demands of the next generation of computational systems.
+GuruDev integrates linguistics, artificial intelligence, epistemology, and software engineering to create a **multimodal and semantic** programming paradigm aligned with the demands of next-generation computational systems. Its unique syntax of ontological blocks, semantic annotations, and multilingual interoperability differentiates it from any other programming language in existence.
+
+The core idea is to use GuruDev with AI so that machines capture semantic level — transcending purely syntactic execution and achieving ontological comprehension of code.
 
 ---
 
-## Installation
+## The Ontological Differentiator
+
+GuruDev is not "Python in Portuguese." It is a language with its own identity, grounded in three academic pillars published on Zenodo:
+
+### 1. Comparative Programming — Theoretical Foundations
+The language is based on the structural analysis of 15+ programming languages, extracting universal semantic patterns to create a grammar that is simultaneously accessible and expressive.
+
+📄 **doi:** [10.5281/zenodo.20028887](https://doi.org/10.5281/zenodo.20028887)
+
+### 2. IMIP — Multiple Interpretive Parametric Interface
+The **DISPATCH_ON_HERMENEUTICS** (IMIP §4.3) defines 7 interpretation levels for computational text, allowing the same expression to be understood across multiple semantic layers. **Constitutional Containment** (§5.5) restricts tokens per instance, ensuring ontological security.
+
+📄 **doi:** [10.5281/zenodo.19772798](https://doi.org/10.5281/zenodo.19772798)
+
+### 3. π√f(A) — Hexarrelational Algebra (GuruMatrix)
+The **GuruMatrix** is a 5-dimensional tensor that tracks operations by category, semantics, and interpretation level — the central data structure that empowers machines to capture semantic level. This work also explores the intersection with quantum computing.
+
+📄 **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
+📄 **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
+
+---
+
+## Ontological Syntax — The Engine
+
+GuruDev's syntax enables **ontological blocks** with rewriting, compensation, and interoperability capabilities:
+
+| Construct | Syntax | Description |
+|---|---|---|
+| Block | `[$$bloco$$]` ... `[$$/bloco$$]` | Main ontological unit |
+| Override | `[$$sobrescrita$$]` ... `[$$/sobrescrita$$]` | Redefines operation behavior |
+| GuruDev Code | `¡codigo!` ... `!/codigo!` | Native code inside block |
+| Python Subscript | `¿python?` ... `?/python?` | Interoperability with Python (exec()) |
+| Compensation | `$$compensacao$$` ... `$$/compensacao$$` | Automatic fallback on error |
+| Error Handling | `$$erro]` | Captures failures with executable AST |
+
+---
+
+## Business Verticals
+
+GuruDev was designed with focus on four strategic verticals:
+
+- **Cybersecurity** — Ontological blocks with constitutional containment provide security at the semantic level, preventing unauthorized code interpretations.
+- **Games** — The language's multimodality and the ability to redefine behaviors via override enable creation of dynamic, adaptable rule systems for game engines.
+- **Cross-Language Interoperability** — Subscripts allow executing Python, JavaScript, Rust, and other languages within ontological blocks, with semantic tracking via GuruMatrix.
+- **General AI** — Native integration with DISPATCH_ON_HERMENEUTICS allows AI models to operate across multiple interpretation levels, capturing semantics and not just syntax.
+
+---
+
+## Current Project Status (May 2026)
+
+### Implemented Features
+- **38/38 tests passing** — complete automated test suite
+- **Lexer (PLY)** — state machine with 9 dedicated lexical states
+- **Parser (PLY)** — complete grammar including ontological blocks
+- **Interpreter** — full execution with active ontological engine
+- **Interactive REPL** — read-eval-print with auto-finalization
+- **CLI** — `gurudev run`, `gurudev test`, `gurudev repl`
+- **String Methods** (18) — `tamanho()`, `maiusculo()`, `minusculo()`, `contem()`, `substituir()`, and more
+- **Array Methods** (17) — `adicionar()`, `remover()`, `tamanho()`, `ordenar()`, `filtrar()`, and more
+- **Classes** — `isto`, `this`, `iniciar()`, properties, methods
+- **Ontological Engine** — blocks, subscripts, compensation active
+
+### Installation
 
 ```bash
 git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
 cd gurudev-core
-pip install -e .
+python -m pip install -e .
 ```
 
-Requires Python 3.8+ and PLY (Python Lex-Yacc).
-
----
-
-## Usage
+### Usage
 
 ```bash
 # Run a .guru file
+gurudev run examples/calc.guru
+
+# Ontological example
 gurudev run examples/ontologico.guru
 
-# Run control flow examples
-gurudev run examples/fluxo.guru
+# Interactive REPL
+gurudev repl
 
-# Run tests
-python -m pytest tests/ -v
-```
-
----
-
-## Features (v1.2.0-alpha)
-
-### Language
-- **Types**: Int, Float, String, Bool, Void, Array, Object, Formula, Temporal, Imagem, Audio, Video, Tabela, Grafo
-- **Grammatical cases**: NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL
-- **Bilingual aliases**: `se`/`if`, `senao`/`else`, `enquanto`/`while`, `para`/`for`, `retorna`/`return`
-
-### Control Flow
-- **se / senao_se / senao** (if / elif / else) with unlimited elif chaining
-- **enquanto** (while) with break/continue
-- **para** (C-style for) with initialization, condition, and increment
-- **quebra / continua** (break / continue)
-
-### Functions
-- Definition with grammatical case: `NOM funcao calcular(Int x, Int y) -> Int { ... }`
-- Required and optional parameters with default values (Tesniere's valence)
-- Return type with arrow: `-> Int`, `-> String`, etc.
-- Return: `return` / `retorna`
-- Semantic annotation (Buhler): `#sem: puro`, `#sem: efeito`, `#sem: expressao`
-- Built-in functions: `escrever()`, `tipo_de()`, `tamanho()`, `hash_guru()`, `converter_int()`, etc.
-
-### Classes and Objects
-- Class definition with inheritance (`extends`) and interfaces (`implements`)
-- Methods with `this` / `isto`
-- Instantiation and method calls
-
-### Ontological Triple Block
-- Overscript with level, root, key, ontology
-- Native GuruDev code (`¡codigo!` ... `!/codigo!`)
-- Multilingual subscripts: Python, Rust, JavaScript, Java, C#, C++, SQL, R, WASM
-- Error compensation: error handling and performance blocks
-
-### General Theory of Function (Linguistic Foundation)
-- **Tesniere (Valence)**: Required parameters (actants) and optional with default (circumstants)
-- **Buhler (Organon)**: Semantic function classification via `#sem:` (pure/effect/expression)
-- **Wilmet (Instituted relation)**: Grammatical case on definition = nature of the relation
-
----
-
-## Quick Examples
-
-### Control Flow
-```gurudev
-Int grade = 75;
-if (grade >= 90) {
-    escrever("A");
-} senao_se (grade >= 70) {
-    escrever("B");
-} senao {
-    escrever("F");
-}
-```
-
-### Optional Parameters (Tesniere)
-```gurudev
-// name = actant (required), greeting = circumstant (optional)
-funcao greet(String name, String greeting = "Hello") {
-    escrever(greeting + ", " + name + "!");
-}
-greet("World");        // Hello, World!
-greet("World", "Oi");  // Oi, World!
-```
-
-### Semantic Classification (Buhler)
-```gurudev
-#sem: puro
-funcao fibonacci(Int n) -> Int {
-    if (n <= 1) { return n; }
-    return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-#sem: efeito
-funcao save_data(String file, String content) {
-    // side-effect action
-}
+# Test suite
+gurudev test
 ```
 
 ---
@@ -124,109 +106,35 @@ funcao save_data(String file, String content) {
 
 ```
 gurudev-core/
-  src/
-    lexer/gurudev_lexer.py   - PLY lexer with 9+ states
-    parser.py                - PLY parser with full grammar
-    ast_nodes.py             - AST nodes (dataclasses)
-    interpreter.py           - Tree-walker interpreter + ontological engine
-    semantic_analyzer.py     - Alexandria integration (subscript analysis)
-    symbol_table.py          - Symbol table with scopes
-    cli.py                   - CLI (gurudev run)
-  alexandria/
-    __init__.py              - v0.3.0, 6 exported classes
-    cli.py                   - Alexandria CLI (compare, translate, etc.)
-    core/
-      analyzer.py            - LanguageAnalyzer (25 languages)
-      translator.py          - CodeTranslator
-      type_mapper.py         - TypeMapper
-      bridge.py              - LanguageBridge / BridgeManager
-      quantum_comparator.py  - QuantumComparator + ConsistencyChecker
-    data/
-      programming_languages.json  - 25 classical languages
-      quantum_languages.json      - 8 quantum languages (rho_1-rho_6)
-      quantum_algorithms.json     - 4 algorithms (Shor, Grover, VQE, QAOA)
-      classical_quantum_pairs.json - 10 classical-quantum pairs
-  examples/                  - GuruDev example scripts
-  tests/                     - 130 automated tests (pytest)
-  grammar/                   - EBNF grammar definitions
-  docs/                      - Whitepapers and documentation
-  pyproject.toml             - Package configuration
-  LICENSE                    - BSL 1.1
+├── src/
+│   ├── lexer/                  # PLY state machine
+│   ├── parser.py               # Grammar with ontological blocks
+│   ├── interpreter.py          # Tree-walking interpreter + ontological engine
+│   ├── ast_nodes.py            # AST nodes
+│   └── repl.py                 # Interactive REPL
+├── examples/
+│   ├── calc.guru               # String/Array methods example
+│   └── ontologico.guru         # Ontological engine example
+├── run_interpreter_test.py     # Test suite (38 tests)
+├── pyproject.toml
+├── README.md                   # Portuguese version
+├── README_EN.md                # This file (English)
+└── LICENSE                     # Business Source License 1.1
 ```
-
----
-
----
-
-## Quantum — Quantum Computing Vertical
-
-GuruDev Core integrates a quantum computing research vertical, based on Machado (2026b) — [DOI: 10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462):
-
-- **Demonstrated isomorphisms:** identical tensor product between significance vectors and quantum states; canonical bijection between 64 binary profiles and 6-qubit computational basis
-- **Formalized analogies:** entanglement as instance of compensation (ρ₆), no-cloning theorem as equivalence limit (ρ₃), decoherence as hermeneutic convergence
-- **Proposed extension:** quantum significance profiles with superposition and collapse upon evaluation
-- **8 open problems** with testability criteria
-
-> No variant of quantum mysticism is tolerated. All connections are mathematical, with declared limits.
-
-Full documentation: [`docs/VERTICAL_QUANTICA.md`](docs/VERTICAL_QUANTICA.md) | [`docs/VERTICAL_QUANTICA_EN.md`](docs/VERTICAL_QUANTICA_EN.md)
-
-<!-- ALEXANDRIA_SECTION_START -->
-
-## Alexandria — Interoperability and Comparative Programming Library
-
-**Alexandria** (v0.3.0) is GuruDev Core's integrated comparative programming, semantic analysis, and multilingual interoperability library. It provides weighted comparisons between languages, type mapping, code translation, and, as of Phase 1, **hexarelational quantum profiles** based on the ρ₁-ρ₆ algebra from Machado (2026b).
-
-### Modules
-
-| Module | Class | Function |
-|---|---|---|
-| `core.analyzer` | `LanguageAnalyzer` | Weighted comparative analysis (25 classical languages) |
-| `core.translator` | `CodeTranslator` | Cross-language code translation |
-| `core.type_mapper` | `TypeMapper` | Cross-language type mapping |
-| `core.bridge` | `LanguageBridge` | Async interoperability bridges |
-| `core.quantum_comparator` | `QuantumComparator` | Comparison via ρ₁-ρ₆ hexarelational profiles |
-| `core.quantum_comparator` | `ConsistencyChecker` | Chain validation ρ₆⇒ρ₅⇒...⇒ρ₁ |
-
-### Alexandria Quantum (Phase 1)
-
-Based on DOI [10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462), Alexandria Quantum adds:
-
-- **`quantum_languages.json`** — 8 quantum languages (Qiskit, Q#, Cirq, PennyLane, Silq, OpenQASM 3, Quipper, CUDA Quantum) with `perfil_hexarrelacional_conjectural` (ρ₁-ρ₆) and `anomalia_cadeia_implicacao`
-- **`quantum_algorithms.json`** — 4 algorithms (Shor, Grover, VQE, QAOA) with profiles and `classificacao_tats`
-- **`classical_quantum_pairs.json`** — 10 classical-quantum pairs with dominant ρ (including GuruDev↔Silq as direct correspondence via constitutional containment)
-- **`QuantumComparator`** — language/algorithm comparison via Euclidean distance, golden ratio norm (φ^k), and π√ transform
-- **`ConsistencyChecker`** — validates the implication chain ρ₆⇒ρ₅⇒...⇒ρ₁ with 0.05 tolerance, detecting anomalies like ρ₄>ρ₃ (Shor, Grover, Cirq, OpenQASM 3)
-
-### Usage
-
-```python
-from alexandria import QuantumComparator, ConsistencyChecker
-
-comp = QuantumComparator()
-
-# Compare quantum languages
-result = comp.compare_languages("Qiskit", "Cirq")
-print(result.similarity_score)
-
-# Check implication chain consistency
-check = comp.check_consistency("Shor")  # False (anomaly: rho4 > rho3)
-print(check['consistente'])
-
-# Classical-quantum pair GuruDev-Silq
-pair = comp.get_pair("GuruDev", "Silq")
-print(pair['rho_dominante'])  # rho6
-```
-
-<!-- ALEXANDRIA_SECTION_END -->
 
 ---
 
 ## Official Links
 
-- Official Website: [gurudev-tech.site](https://gurudev-tech.site)
-- Repository: [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
-- GuruDev Interactive Lexer: [dyh6i3cqzgoz.manus.space](https://dyh6i3cqzgoz.manus.space/)
+- **Hubstry Website:** [www.hubstry.dev](https://www.hubstry.dev)
+- **GuruDev Website:** [gurudev-tech.site](https://gurudev-tech.site)
+- **Repository:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
+
+---
+
+## About the Creator
+
+**Guilherme Gonçalves Machado** is the original creator of GuruDev — from the initial conception of the idea, through the architecture, language design, invention of the GuruMatrix, and the entire theoretical foundation published in academic papers. All intellectual property of the language, including its grammar, ontological syntax, interpretation engine, and data structures, is his original creation.
 
 ---
 
@@ -234,7 +142,8 @@ print(pair['rho_dominante'])  # rho6
 
 This project is licensed under the **Business Source License 1.1 (BSL 1.1)**.
 
----
+**Non-commercial** use (academic research, education, personal projects) is free and encouraged. **Commercial** use (selling, licensing, SaaS, integration into commercial products) requires express authorization from the creator.
 
-**Reprogram the world with semantics, intelligence, and resilience.**
-(c) Hubstry-DeepTech - All rights reserved.
+See the [LICENSE](LICENSE) file for full terms.
+
+© 2024-2026 Guilherme Gonçalves Machado · Hubstry-DeepTech. All rights reserved.
