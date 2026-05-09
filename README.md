@@ -1,179 +1,258 @@
-# Vertical Quantica — GuruDev Core
+# GuruDev Core · Hubstry-DeepTech
 
-> Autor: Guilherme Goncalves Machado | Hubstry — Pesquisa Independente em Deep Tech
-> Fonte: Machado (2026b). "pi*sqrt(f(A)) e Computacao Quantica: Isomorfismos, Analogias e Fronteiras."
+> **Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)
 
----
-
-## Visao Geral
-
-A vertical quantica da GuruDev Core estabelece conexoes formais entre a algebra hexa relacional de significancia pi*sqrt(f(A)) e as estruturas matematicas da computacao quantica. Este documento sintetiza os resultados fundamentais, organizados por nivel de certeza: isomorfismos demonstrados, analogias formalizadas, conjecturas e fronteiras explicitas.
-
-**Principio fundamental**: nenhuma linha deste documento propoe, sugere ou tolera qualquer variante de misticismo quantico. Todas as conexoes sao de natureza matematica, com limites declarados.
+**GuruDev** é uma linguagem de programação holística e ontológica, criada integralmente por **Guilherme Gonçalves Machado** — desde a concepção teórica até a arquitetura completa, incluindo a invenção da **GuruMatrix** (álgebra hexarrelacional π√f(A)) e toda a fundamentação ontológica que diferencia a linguagem. Desenvolvida sob o guarda-chuva da deep tech **Hubstry-DeepTech**, GuruDev não é um "port" ou wrapper de nenhuma linguagem existente — é uma criação original, construída do zero.
 
 ---
 
-## Isomorfismos Matematicos Demonstrados
+## Visão
 
-### 1. Produto Tensorial (Identidade Algebrica)
+GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma de programação **multimodal e semântico**, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.
 
-O produto tensorial definido em pi*sqrt(f(A)) para vetores de significancia e o produto tensorial da mecanica quantica para estados compostos sao **instancias da mesma construcao universal** da algebra multilinear.
+A ideia central é usar GuruDev com IA para que a máquina capture nível semântico — transcendendo a execução puramente sintática e alcançando compreensão ontológica do código.
 
-**Em pi*sqrt(f(A)):**
-```
-f(A) . f(B) = M em R^{6x6}, M_{ij} = f_{rho_i}(A) . f_{rho_j}(B)
-```
+### Uma Plataforma Semiótica para a Era Cyborg
 
-**Na mecanica quantica:**
-```
-|psi> . |phi> em H_A . H_B ~ C^{mn}, componentes: psi_i . phi_j
-```
+GuruDev não é apenas uma linguagem de programação. É uma **plataforma semântico-ontológica** projetada para a convergência entre humano, máquina e IA. O primeiro módulo dessa plataforma é a própria linguagem de programação, mas a arquitetura ontológica subjacente foi concebida para **interoperar entre qualquer sistema semiótico** — desde linguagens de programação até língua natural, música, grafos, matemática, física e química.
 
-Ambas satisfazem: bilinearidade, propriedade universal, dimensionalidade dim(V . W) = dim(V) * dim(W). A unica diferenca e o corpo de escalares (R vs C).
+Essa ambição se traduz em três focos estratégicos:
 
-### 2. Reticulado de 64 Perfis = Base Computacional de 6 Qubits
+- **IA Geral** — a máquina compreende *intenção*, não apenas instruções, operando em múltiplos níveis de interpretação semântica
+- **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal
+- **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código
 
-Os 64 perfis binarios de significancia (cada relacao rho_k presente/ausente) formam um reticulado isomorfo a base computacional de um registro de 6 qubits:
-
-```
-Sigma = {0,1}^6  <-->  B = {|b1 b2 b3 b4 b5 b6> : b_k em {0,1}}
-```
-
-| Estrutura em pi*sqrt(f(A)) | Estrutura em Computacao Quantica |
-|---|---|
-| Vetor f(A) em [0,1]^6 | Estado |psi> em C^n |
-| Produto tensorial f(A) . f(B) | Produto tensorial |psi> . |phi> |
-| Perfil sigma em {0,1}^6 | Vetor de base |sigma> em C^64 |
-| 7 perfis consistentes (Sigma_C) | Subespaco H_C de dimensao 7 |
-| 57 perfis inconsistentes | Complemento ortogonal H_C^perp, dim=57 |
-| Escalar de coerencia Coh(A,B) | Produto interno <psi|phi> |
+Os **casos gramaticais** (NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL) não são complexidade por complexidade — são **marcadores semânticos universais** que permitem expressar intenção no código. Cada caso codifica uma relação ontológica fundamental (substância, quantidade, qualidade, relação, lugar, tempo, ação...), seguindo as categorias aristotélicas que permeiam toda a fundamentação teórica da GuruDev.
 
 ---
 
-## Analogias Estruturais Formalizadas
+## Experimente GuruDev Agora!
 
-### Analogia 1: Emaranhamento Quantico como Instancia de rho_6 (Compensacao)
+Curioso para ver a GuruDev em ação? Lançamos um **ambiente interativo online** onde você pode testar o código GuruDev nativamente e visualizar a análise dos tokens em tempo real!
 
-A relacao rho_6 exige anulacao mutua (delta(x) = -delta(y)) e emergencia (Omega(x + y) > Omega(x) + Omega(y)). Estados emaranhados satisfazem ambas:
+Este **GuruDev Interactive Lexer** (alimentado pelo nosso lexer aprimorado com máquina de estados `ply.lex`) é sua chance de explorar a primeira camada do nosso compilador e ver como a GuruDev processa sua sintaxe única, incluindo:
+- Casos gramaticais e anotações semânticas.
+- Estruturas de blocos GuruDev (`[bloco]`, `¡codigo!`).
+- Blocos de código multilíngues (`¿python?`, `¿javascript?`, `¿rust?`).
 
-- **Anulacao**: S(rho_A) = S(rho_B) para estados puros bipartidos (estado de Bell: maxima desordem local)
-- **Emergencia**: I(A:B) = S(rho_A) + S(rho_B) - S(rho_AB) > 0 (informacao mutua quantica)
+Clique no link abaixo e comece a experimentar:
 
-**Valor quantificavel**: f_rho_6(A,B) = E(psi) / ln(d), onde E e a entropia de emaranhamento.
-
-**Limites**: Exata para estados puros bipartidos. Aproximada para estados mistos (NP-hard).
-
-### Analogia 2: Teorema da Nao-Clonagem como Limite de rho_3 (Equivalencia)
-
-rho_3 = substituibilidade em todo contexto. O teorema de Wootters-Zurek proibe clonagem de estados quanticos desconhecidos, limitando a equivalencia verificavel:
-
-```
-f_rho_3(|psi>, |phi>) <= |<psi|phi>|^2
-```
-
-Para estados ortogonais: rho_3 = 0. Para estados identicos: rho_3 = 1.
-
-### Analogia 3: Decoerencia e Convergencia Hermeneutica
-
-Ambos sao processos com estrutura de ponto fixo atrativo sob iteracao:
-
-- **Decoerencia**: Zurek (1981/2003) — estados quanticos perdem coerencia por interacao com o ambiente
-- **Convergencia hermeneutica**: Machado (2026a) — Pi(A) converge super-exponencialmente para 1 com expoentes 1/pi, 1/pi^2, ...
-
-**Limite**: Mecanismos diferentes (medições ambientais vs. operador algebrico), substancia diferente (fases vs. vetores reais), valoração diferente (perda vs. convergencia).
+[**GuruDev Interactive Lexer (IA Manus):**](https://dyh6i3cqzgoz.manus.space/)
 
 ---
 
-## Perfis Quanticos de Significancia (Extensao Proposta)
+## O Diferencial Ontológico
 
-Perfis quanticos permitem superposicao: um algoritmo pode estar em superposicao de multiplos perfis ate ser avaliado (medido):
+GuruDev não é "Python em português". É uma linguagem com identidade própria, fundamentada em três pilares acadêmicos publicados no Zenodo:
 
-```
-|sigma>_q = sum_{sigma} alpha_sigma |sigma>   (alpha_sigma em C, sum |alpha_sigma|^2 = 1)
-```
+### 1. Programação Comparada — Fundamentos Teóricos
 
-O valor esperado de significancia:
-```
-<Pi> = sum_{sigma} |alpha_sigma|^2 * Pi(sigma)
-```
+A linguagem se baseia na análise estrutural de 15+ linguagens de programação, extraindo padrões semânticos universais para criar uma gramática que é simultaneamente acessível e expressiva.
 
-**Colapso por avaliacao**: ao medir, o perfil colapsa para um perfil classico.
+— **doi:** [10.5281/zenodo.20028887](https://doi.org/10.5281/zenodo.20028887)
+
+### 2. IMIP — Interface de Múltiplas Interpretações Paramétricas
+
+O **DISPATCH_ON_HERMENEUTICS** (§4.3 do IMIP) define 7 níveis de interpretação para texto computacional, permitindo que a mesma expressão seja compreendida em múltiplas camadas semânticas. A **Contenção Constitucional** (§5.5) restringe tokens por instância, garantindo segurança ontológica.
+
+— **doi:** [10.5281/zenodo.19772798](https://doi.org/10.5281/zenodo.19772798)
+
+### 3. π√f(A) — Álgebra Hexarrelacional (GuruMatrix)
+
+A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — a estrutura de dados central que dá poder à máquina de capturar nível semântico. Este trabalho também explora a interseção com computação quântica.
+
+— **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
+— **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
 
 ---
 
-## Algoritmos Quanticos como Portadores de Perfis Hexarrelacionais
+## Sintaxe Ontológica — O Motor
 
-### Shor (Fatoracao) — Perfil Conjectural
-
-| Relacao | Valor | Justificativa |
+| Construto | Sintaxe | Descrição |
 |---|---|---|
-| rho_1 (Similitude) | 0.9 | Saida altamente estruturada |
-| rho_2 (Homologia) | 0.85 | Preserva estrutura algébrica |
-| rho_3 (Equivalencia) | 0.3 | Probabilistico |
-| rho_4 (Simetria) | 0.7 | QFT e transformação unitária |
-| rho_5 (Equilibrio) | 0.2 | Sem anulacao mutua obvia |
-| rho_6 (Compensacao) | 0.5 | Usa emaranhamento como recurso |
-
-**Nota**: rho_4 > rho_3 viola a cadeia de implicacao — anomalia detectavel!
-
-### Grover (Busca) — Perfil Conjectural
-
-| Relacao | Valor | Justificativa |
-|---|---|---|
-| rho_1 | 0.95 | Alta probabilidade de acerto |
-| rho_4 | 0.9 | Iteração = composição de reflexões |
-
-### VQE (Variational Quantum Eigensolver) — Caso Paradigmatico de rho_6
-
-| Relacao | Valor | Justificativa |
-|---|---|---|
-| rho_6 (Compensacao) | 0.9 | Emerge classico-quântica maxima |
-| rho_5 (Equilibrio) | 0.7 | Otimização busca equilíbrio |
-
-VQE e o algoritmo mais "natural" na taxonomia hexa relacional — perfil consistente com a cadeia de implicacao.
+| Bloco | `[$$bloco$$]` ... `[$$/bloco$$]` | Unidade ontológica principal |
+| Sobrescrita | `$$sobrescrita$$` ... `$$/sobrescrita$$` | Redefine comportamento de operações |
+| Código GuruDev | `¡codigo!` ... `!/codigo!` | Código nativo dentro do bloco |
+| Subescrita Python | `¿python?` ... `?/python?` | Interoperabilidade com Python (exec()) |
+| Compensação | `$$compensacao$$` ... `$$/compensacao$$]` | Fallback automático em caso de erro |
+| Tratamento de erro | `$$erro]` | Captura falhas com AST executável |
 
 ---
 
-## Protocolos Quanticos na Linguagem Hexa Relacional
+## Verticais de Negócio
 
-| Protocolo | Recurso (rho consumida) | Produto (rho gerada) | Auxiliar |
-|---|---|---|---|
-| **Teleportacao** | rho_6 (emaranhamento) | rho_3 (equivalência de estado) | 2 bits clássicos |
-| **QKD (BB84)** | rho_5 (equilíbrio A-B) | rho_3 (equivalência de chave) | Canal quantico + classico |
-| **Codificação Superdensa** | rho_6 (emaranhamento) | rho_3 (equivalência de mensagem) | 1 qubit transmitido |
+GuruDev foi projetada com foco em quatro verticais estratégicas:
 
-**Padrao identificado**: todos os protocolos convertem rho_5 ou rho_6 em rho_3. As relacoes mais profundas sao recursos que viabilizam equivalencia.
-
----
-
-## Fronteiras Explicitas (O Que Nao Se Conecta)
-
-1. **pi e phi nao sao constantes quânticas** — aparecem na mecanica quantica (h-bar = h/2*pi), mas nao tem papel privilegiado.
-2. **Semióse nao e superposição** — indeterminacao semiótica (epistemológica) difere de superposição quantica (ontológica, na interpretação padrão).
-3. **Decoerência nao e convergência hermeneutica** — estrutura de ponto fixo compartilhada, mas mecanismos, substancia e valoração diferentes.
-4. **pi*sqrt(f(A)) nao "explica" fenômenos quânticos** — correspondencias sao matematicas, não causais.
-5. **Nenhuma variante de misticismo quântico e tolerada**.
+- **Segurança Cibernética** — Blocos ontológicos com contenção constitucional proporcionam segurança em nível semântico, impedindo interpretações não autorizadas de código.
+- **Games** — A multimodalidade da linguagem e a capacidade de redefinir comportamentos via sobrescrita permitem criar sistemas de regras dinâmicos e adaptáveis para engines de jogos.
+- **Interoperabilidade entre Linguagens** — Subescritas permitem executar Python, JavaScript, Rust e outras linguagens dentro de blocos ontológicos, com rastreamento semântico via GuruMatrix.
+- **IA Geral** — A integração nativa com o DISPATCH_ON_HERMENEUTICS permite que modelos de IA operem em múltiplos níveis de interpretação, capturando semântica e não apenas sintaxe.
 
 ---
 
-## 8 Problemas Abertos
+## Estado Atual do Projeto (Maio 2026)
 
-| # | Problema | Tipo | Prazo |
-|---|---|---|---|
-| 1 | Formalizar emaranhamento = rho_6 via teoria da informação quantica | Teórico | 6-12 meses |
-| 2 | Computar f para algoritmos quânticos reais | Computacional | 12-24 meses |
-| 3 | Testar PiRoot em circuitos variacionais (barren plateaus) | Computacional/Experimental | 3-6 meses |
-| 4 | Investigar se a cadeia de implicacao vale no domínio quântico | Teórico | 12-24 meses |
-| 5 | Perfis quânticos — quais superposições são realizáveis? | Teórico | Indeterminado |
-| 6 | Leis de conservação hexa relacionais em protocolos quânticos | Teórico | 12-24 meses |
-| 7 | Complexidade computacional de perfis quânticos | Teórico/Computacional | Variável |
-| 8 | Implementação em hardware quântico | Experimental | 3-5 anos |
+### Funcionalidades Implementadas
+
+- **51 testes passando** (pytest) — suite completa de testes automatizados
+- **Lexer (PLY)** — máquina de estados com 9+ estados léxicos dedicados
+- **Parser (PLY)** — gramática completa incluindo blocos ontológicos
+- **Interpretador** — execução completa com motor ontológico ativo (tree-walker)
+- **CLI** — `gurudev run`, `gurudev test`
+- **Métodos String** (18) — `tamanho()`, `maiusculo()`, `minusculo()`, `contem()`, `substituir()`, `fatiar()`, `dividir()`, `remover_espacos()`, `inverter()`, `repetir()`, `comeca_com()`, `termina_com()`, `indice_de()`, `ultima_posicao()`, `para_maiusculo()`, `para_minusculo()`, `eh_numero()`, `eh_vazio()`
+- **Métodos Array** (17) — `adicionar()`, `remover()`, `tamanho()`, `contem()`, `indice_de()`, `ordenar()`, `inverter()`, `fatiar()`, `juntar()`, `copiar()`, `limpar()`, `primeiro()`, `ultimo()`, `mapa()`, `filtrar()`, `reduzir()`, `plano()`
+- **Classes** — `isto`/`this`, `iniciar()`, propriedades, métodos, herança
+- **Controle de Fluxo** — `se`/`senao_se`/`senao`, `enquanto`, `para`, `quebra`/`continua`
+- **Funções** — definição, chamada, retorno, recursão, parâmetros opcionais
+- **Teoria Geral da Função** — Tesnière (valência), Bühler (classificação semântica), Wilmet (relação instituída)
+- **Motor Ontológico** — blocos, subescritas, compensação ativos
+
+### Controle de Fluxo
+
+```gurudev
+Int nota = 75;
+se (nota >= 90) {
+    escrever("A");
+} senao_se (nota >= 70) {
+    escrever("B");
+} senao {
+    escrever("F");
+}
+```
+
+### Funções com Parâmetros Opcionais (Tesnière — Valência)
+
+```gurudev
+// nome = actante (obrigatório), saudação = circunstante (opcional)
+funcao saudar(String nome, String saudacao = "Ola") {
+    escrever(saudacao + ", " + nome + "!");
+}
+saudar("Mundo");       // Ola, Mundo!
+saudar("Mundo", "Oi"); // Oi, Mundo!
+```
+
+### Classificação Semântica de Funções (Bühler — Organon)
+
+```gurudev
+#sem: puro
+funcao fibonacci(Int n) -> Int {
+    se (n <= 1) { return n; }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+#sem: efeito
+funcao registrar_log(String msg) {
+    escrever("[LOG] " + msg);
+}
+```
+
+### Casos Gramaticais como Natureza da Relação (Wilmet)
+
+```gurudev
+NOM funcao calcular(Int x, Int y) -> Int { return x + y; }
+DAT funcao enviar(String destino, String msg) { escrever(msg); }
+ACU funcao transformar(String texto) -> String { return texto; }
+```
+
+### Instalação
+
+```bash
+git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+cd gurudev-core
+python -m pip install -e .
+```
+
+### Uso
+
+```bash
+gurudev run examples/ontologico.guru
+gurudev run examples/fluxo.guru
+gurudev run examples/funcoes.guru
+gurudev run examples/teoria_geral_funcao.guru
+python -m pytest tests/ -v
+```
 
 ---
 
-## Referencias
+## Estrutura do Repositório
 
-- Machado, G. G. (2026a). pi*sqrt(f(A)): Uma Álgebra Hexa Relacional de Significância para Algoritmos. Zenodo.
-- Machado, G. G. (2026b). pi*sqrt(f(A)) e Computação Quântica: Isomorfismos, Analogias e Fronteiras. Hubstry.
-- Nielsen, M. A. & Chuang, I. L. (2010). Quantum Computation and Quantum Information. Cambridge University Press.
-- Preskill, J. (2018). Quantum computing in the NISQ era and beyond. Quantum, 2, 79.
+```
+gurudev-core/
+  src/
+    lexer/gurudev_lexer.py   - Máquina de estados PLY (9+ estados)
+    parser.py                - Gramática PLY com blocos ontológicos
+    ast_nodes.py             - Nós da AST (dataclasses)
+    interpreter.py          - Interpretador tree-walker + motor ontológico
+    symbol_table.py          - Tabela de símbolos com escopos
+    cli.py                   - CLI (gurudev run)
+  examples/
+    ontologico.guru          - Exemplo do Motor Ontológico Ativo
+    fluxo.guru               - Exemplos de controle de fluxo
+    funcoes.guru             - Exemplos de funções
+    teoria_geral_funcao.guru - Tesnière + Bühler + Wilmet
+  tests/
+    test_fluxo.py            - 17 testes de controle de fluxo
+    test_funcao.py           - 24 testes de funções
+    test_analyzer.py         - 10 testes Alexandria
+  grammar/                   - Definições EBNF
+  docs/                      - Whitepapers e documentação
+  pyproject.toml             - Configuração do pacote
+  README.md                  - Este arquivo (PT-BR)
+  README_EN.md               - Versão em inglês
+  LICENSE                    - Business Source License 1.1
+```
+
+---
+
+---
+
+## Quântica — Vertical de Computação Quântica
+
+A GuruDev Core integra uma vertical de pesquisa em computação quântica, baseada no trabalho de Machado (2026b) — [DOI: 10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462):
+
+- **Isomorfismos demonstrados:** produto tensorial idêntico entre vetores de significância e estados quânticos; bijeção canônica entre 64 perfis binários e base computacional de 6 qubits
+- **Analogias formalizadas:** emaranhamento como instância de compensação (ρ₆), teorema da não-clonagem como limite de equivalência (ρ₃), decoerência como convergência hermenêutica
+- **Extensão proposta:** perfis quânticos de significância com superposição e colapso por avaliação
+- **8 problemas abertos** com critérios de testabilidade
+
+> Nenhuma variante de misticismo quântico é tolerada. Todas as conexões são matemáticas, com limites declarados.
+
+Documentação completa: [`docs/VERTICAL_QUANTICA.md`](docs/VERTICAL_QUANTICA.md) | [`docs/VERTICAL_QUANTICA_EN.md`](docs/VERTICAL_QUANTICA_EN.md)
+
+## Links Oficiais
+
+- **Site Hubstry:** [www.hubstry.dev](https://www.hubstry.dev)
+- **Site GuruDev:** [gurudev-tech.site](https://gurudev-tech.site)
+- **Espelho GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
+- **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
+- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
+- **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
+- **Artigo do Processador GuruDev:** [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)
+
+---
+
+## Segurança e Governança
+
+Este projeto é mantido sob a infraestrutura GitHub Enterprise da Hubstry-DeepTech, utilizando:
+
+- GitHub Advanced Security (Code Scanning, Secret Scanning)
+- Dependabot para gerenciamento de dependências
+- GitHub Actions para integração contínua e deploy automatizado
+
+---
+
+## Sobre o Criador
+
+**Guilherme Gonçalves Machado** é o criador original da GuruDev — desde a concepção da ideia, passando pela arquitetura, design da linguagem, invenção da GuruMatrix, e toda a fundamentação teórica publicada nos papers acadêmicos. Toda a propriedade intelectual da linguagem, incluindo sua gramática, sintaxe ontológica, motor de interpretação e estruturas de dados, é criação original sua.
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a **Business Source License 1.1 (BSL 1.1)**.
+
+O uso **não comercial** (pesquisa acadêmica, educação, projetos pessoais) é livre e encorajado. O uso comercial (venda, licenciamento, SaaS, integração em produtos comerciais) requer autorização expressa do criador.
+
+Consulte o arquivo [LICENSE](LICENSE) para os termos completos.
+
+© 2024-2026 Guilherme Gonçalves Machado · Hubstry-DeepTech. Todos os direitos reservados.
