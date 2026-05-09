@@ -128,11 +128,26 @@ gurudev-core/
     lexer/gurudev_lexer.py   - PLY lexer with 9+ states
     parser.py                - PLY parser with full grammar
     ast_nodes.py             - AST nodes (dataclasses)
-    interpreter.py           - Tree-walker interpreter
+    interpreter.py           - Tree-walker interpreter + ontological engine
+    semantic_analyzer.py     - Alexandria integration (subscript analysis)
     symbol_table.py          - Symbol table with scopes
     cli.py                   - CLI (gurudev run)
+  alexandria/
+    __init__.py              - v0.3.0, 6 exported classes
+    cli.py                   - Alexandria CLI (compare, translate, etc.)
+    core/
+      analyzer.py            - LanguageAnalyzer (25 languages)
+      translator.py          - CodeTranslator
+      type_mapper.py         - TypeMapper
+      bridge.py              - LanguageBridge / BridgeManager
+      quantum_comparator.py  - QuantumComparator + ConsistencyChecker
+    data/
+      programming_languages.json  - 25 classical languages
+      quantum_languages.json      - 8 quantum languages (rho_1-rho_6)
+      quantum_algorithms.json     - 4 algorithms (Shor, Grover, VQE, QAOA)
+      classical_quantum_pairs.json - 10 classical-quantum pairs
   examples/                  - GuruDev example scripts
-  tests/                     - Automated tests (pytest)
+  tests/                     - 130 automated tests (pytest)
   grammar/                   - EBNF grammar definitions
   docs/                      - Whitepapers and documentation
   pyproject.toml             - Package configuration
@@ -155,6 +170,57 @@ GuruDev Core integrates a quantum computing research vertical, based on Machado 
 > No variant of quantum mysticism is tolerated. All connections are mathematical, with declared limits.
 
 Full documentation: [`docs/VERTICAL_QUANTICA.md`](docs/VERTICAL_QUANTICA.md) | [`docs/VERTICAL_QUANTICA_EN.md`](docs/VERTICAL_QUANTICA_EN.md)
+
+<!-- ALEXANDRIA_SECTION_START -->
+
+## Alexandria — Interoperability and Comparative Programming Library
+
+**Alexandria** (v0.3.0) is GuruDev Core's integrated comparative programming, semantic analysis, and multilingual interoperability library. It provides weighted comparisons between languages, type mapping, code translation, and, as of Phase 1, **hexarelational quantum profiles** based on the ρ₁-ρ₆ algebra from Machado (2026b).
+
+### Modules
+
+| Module | Class | Function |
+|---|---|---|
+| `core.analyzer` | `LanguageAnalyzer` | Weighted comparative analysis (25 classical languages) |
+| `core.translator` | `CodeTranslator` | Cross-language code translation |
+| `core.type_mapper` | `TypeMapper` | Cross-language type mapping |
+| `core.bridge` | `LanguageBridge` | Async interoperability bridges |
+| `core.quantum_comparator` | `QuantumComparator` | Comparison via ρ₁-ρ₆ hexarelational profiles |
+| `core.quantum_comparator` | `ConsistencyChecker` | Chain validation ρ₆⇒ρ₅⇒...⇒ρ₁ |
+
+### Alexandria Quantum (Phase 1)
+
+Based on DOI [10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462), Alexandria Quantum adds:
+
+- **`quantum_languages.json`** — 8 quantum languages (Qiskit, Q#, Cirq, PennyLane, Silq, OpenQASM 3, Quipper, CUDA Quantum) with `perfil_hexarrelacional_conjectural` (ρ₁-ρ₆) and `anomalia_cadeia_implicacao`
+- **`quantum_algorithms.json`** — 4 algorithms (Shor, Grover, VQE, QAOA) with profiles and `classificacao_tats`
+- **`classical_quantum_pairs.json`** — 10 classical-quantum pairs with dominant ρ (including GuruDev↔Silq as direct correspondence via constitutional containment)
+- **`QuantumComparator`** — language/algorithm comparison via Euclidean distance, golden ratio norm (φ^k), and π√ transform
+- **`ConsistencyChecker`** — validates the implication chain ρ₆⇒ρ₅⇒...⇒ρ₁ with 0.05 tolerance, detecting anomalies like ρ₄>ρ₃ (Shor, Grover, Cirq, OpenQASM 3)
+
+### Usage
+
+```python
+from alexandria import QuantumComparator, ConsistencyChecker
+
+comp = QuantumComparator()
+
+# Compare quantum languages
+result = comp.compare_languages("Qiskit", "Cirq")
+print(result.similarity_score)
+
+# Check implication chain consistency
+check = comp.check_consistency("Shor")  # False (anomaly: rho4 > rho3)
+print(check['consistente'])
+
+# Classical-quantum pair GuruDev-Silq
+pair = comp.get_pair("GuruDev", "Silq")
+print(pair['rho_dominante'])  # rho6
+```
+
+<!-- ALEXANDRIA_SECTION_END -->
+
+---
 
 ## Official Links
 

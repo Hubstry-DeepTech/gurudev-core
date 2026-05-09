@@ -94,7 +94,7 @@ GuruDev foi projetada com foco em quatro verticais estratégicas:
 
 ### Funcionalidades Implementadas
 
-- **51 testes passando** (pytest) — suite completa de testes automatizados
+- **130 testes passando** (pytest) — suite completa de testes automatizados
 - **Lexer (PLY)** — máquina de estados com 9+ estados léxicos dedicados
 - **Parser (PLY)** — gramática completa incluindo blocos ontológicos
 - **Interpretador** — execução completa com motor ontológico ativo (tree-walker)
@@ -183,8 +183,23 @@ gurudev-core/
     parser.py                - Gramática PLY com blocos ontológicos
     ast_nodes.py             - Nós da AST (dataclasses)
     interpreter.py          - Interpretador tree-walker + motor ontológico
+    semantic_analyzer.py    - Integração Alexandria (análise subscrita)
     symbol_table.py          - Tabela de símbolos com escopos
     cli.py                   - CLI (gurudev run)
+  alexandria/
+    __init__.py              - v0.3.0, 6 classes exportadas
+    cli.py                   - CLI Alexandria (compare, translate, etc.)
+    core/
+      analyzer.py            - LanguageAnalyzer (25 linguagens)
+      translator.py          - CodeTranslator
+      type_mapper.py         - TypeMapper
+      bridge.py              - LanguageBridge / BridgeManager
+      quantum_comparator.py  - QuantumComparator + ConsistencyChecker
+    data/
+      programming_languages.json  - 25 linguagens clássicas
+      quantum_languages.json      - 8 linguagens quânticas (ρ₁-ρ₆)
+      quantum_algorithms.json     - 4 algoritmos (Shor, Grover, VQE, QAOA)
+      classical_quantum_pairs.json - 10 pares clássico-quânticos
   examples/
     ontologico.guru          - Exemplo do Motor Ontológico Ativo
     fluxo.guru               - Exemplos de controle de fluxo
@@ -194,6 +209,10 @@ gurudev-core/
     test_fluxo.py            - 17 testes de controle de fluxo
     test_funcao.py           - 24 testes de funções
     test_analyzer.py         - 10 testes Alexandria
+    test_quantum_comparator.py - 31 testes QuantumComparator + ConsistencyChecker
+    test_alexandria_integration.py - 31 testes integração interpreter
+    test_interpreter.py      - 19 testes interpretador
+    test_gurumatrix.py       - 6 testes GuruMatrix
   grammar/                   - Definições EBNF
   docs/                      - Whitepapers e documentação
   pyproject.toml             - Configuração do pacote
@@ -218,6 +237,57 @@ A GuruDev Core integra uma vertical de pesquisa em computação quântica, basea
 > Nenhuma variante de misticismo quântico é tolerada. Todas as conexões são matemáticas, com limites declarados.
 
 Documentação completa: [`docs/VERTICAL_QUANTICA.md`](docs/VERTICAL_QUANTICA.md) | [`docs/VERTICAL_QUANTICA_EN.md`](docs/VERTICAL_QUANTICA_EN.md)
+
+<!-- ALEXANDRIA_SECTION_START -->
+
+## Alexandria — Biblioteca de Interoperabilidade e Programação Comparada
+
+A **Alexandria** (v0.3.0) é a biblioteca integrada de programação comparada, análise semântica e interoperabilidade multilíngue do GuruDev Core. Ela fornece comparações ponderadas entre linguagens, mapeamento de tipos, tradução de código e, a partir da Fase 1, **perfis hexarrelacionais quânticos** baseados na álgebra ρ₁-ρ₆ de Machado (2026b).
+
+### Módulos
+
+| Módulo | Classe | Função |
+|---|---|---|
+| `core.analyzer` | `LanguageAnalyzer` | Análise comparativa ponderada (25 linguagens clássicas) |
+| `core.translator` | `CodeTranslator` | Tradução de código entre linguagens |
+| `core.type_mapper` | `TypeMapper` | Mapeamento de tipos cross-language |
+| `core.bridge` | `LanguageBridge` | Bridges assíncronos de interoperabilidade |
+| `core.quantum_comparator` | `QuantumComparator` | Comparação via perfis ρ₁-ρ₆ hexarrelacionais |
+| `core.quantum_comparator` | `ConsistencyChecker` | Validação da cadeia ρ₆⇒ρ₅⇒...⇒ρ₁ |
+
+### Alexandria Quantum (Fase 1)
+
+Baseado no DOI [10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462), a Alexandria Quantum adiciona:
+
+- **`quantum_languages.json`** — 8 linguagens quânticas (Qiskit, Q#, Cirq, PennyLane, Silq, OpenQASM 3, Quipper, CUDA Quantum) com `perfil_hexarrelacional_conjectural` (ρ₁-ρ₆) e `anomalia_cadeia_implicacao`
+- **`quantum_algorithms.json`** — 4 algoritmos (Shor, Grover, VQE, QAOA) com perfis e `classificacao_tats`
+- **`classical_quantum_pairs.json`** — 10 pares clássico-quânticos com ρ dominante (incluindo GuruDev↔Silq como correspondência direta por contenção constitucional)
+- **`QuantumComparator`** — comparação entre linguagens/algoritmos via distância euclidiana, norma áurea (φ^k) e transformação π√
+- **`ConsistencyChecker`** — valida a cadeia de implicação ρ₆⇒ρ₅⇒...⇒ρ₁ com tolerância de 0.05, detectando anomalias como ρ₄>ρ₃ (Shor, Grover, Cirq, OpenQASM 3)
+
+### Uso
+
+```python
+from alexandria import QuantumComparator, ConsistencyChecker
+
+comp = QuantumComparator()
+
+# Comparar linguagens quanticas
+result = comp.compare_languages("Qiskit", "Cirq")
+print(result.similarity_score)
+
+# Verificar consistencia da cadeia de implicacao
+check = comp.check_consistency("Shor")  # False (anomalia: rho4 > rho3)
+print(check['consistente'])
+
+# Par classico-quantico GuruDev-Silq
+pair = comp.get_pair("GuruDev", "Silq")
+print(pair['rho_dominante'])  # rho6
+```
+
+<!-- ALEXANDRIA_SECTION_END -->
+
+---
 
 ## Links Oficiais
 

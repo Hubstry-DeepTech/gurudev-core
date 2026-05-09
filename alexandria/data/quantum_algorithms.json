@@ -1,0 +1,110 @@
+[
+  {
+    "nome": "Shor",
+    "nome_completo": "Fatoração de inteiros (Shor)",
+    "tipo": "Fatoração",
+    "ano_proposto": 1994,
+    "criador": "Peter Shor",
+    "referencia": "Shor, P. W. (1994). Algorithms for quantum computation. SIAM J. Comput.",
+    "complexidade": "Quantum polynomial time (O((log N)^3))",
+    "paradigma_quantico": "gate-based",
+    "emaranhamento_requerido": true,
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.9,
+      "rho2_homologia": 0.85,
+      "rho3_equivalencia": 0.3,
+      "rho4_simetria": 0.7,
+      "rho5_equilibrio": 0.2,
+      "rho6_compensacao": 0.5,
+      "fonte": "Machado 2026b, Seção 5 — inferido de QFT e transformação unitária"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": true,
+      "par": "rho4 > rho3",
+      "hipotese": "QFT (simetria) garante estrutura sem equivalência verificável — resultado é probabilístico"
+    },
+    "classificacao_tats": "anomalia-detectavel",
+    "observacoes": "O algoritmo de Shor é o caso canônico de anomalia na cadeia de implicação hexarrelacional: a QFT fornece simetria (rho4) sem equivalência (rho3) porque o resultado é probabilístico. Essa anomalia é detectável e constitui propriedade, não bug."
+  },
+  {
+    "nome": "Grover",
+    "nome_completo": "Busca não estruturada (Grover)",
+    "tipo": "Busca",
+    "ano_proposto": 1996,
+    "criador": "Lov Grover",
+    "referencia": "Grover, L. K. (1996). A fast quantum mechanical algorithm for database search. STOC.",
+    "complexidade": "O(sqrt(N)) vs O(N) clássico — speedup quadrático",
+    "paradigma_quantico": "gate-based",
+    "emaranhamento_requerido": false,
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.95,
+      "rho2_homologia": 0.6,
+      "rho3_equivalencia": 0.7,
+      "rho4_simetria": 0.9,
+      "rho5_equilibrio": 0.3,
+      "rho6_compensacao": 0.2,
+      "fonte": "Machado 2026b, Seção 5 — iteração = composição de reflexões"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": true,
+      "par": "rho4 > rho3",
+      "hipotese": "reflexões quânticas preservam simetria sem equivalência determinística"
+    },
+    "classificacao_tats": "anomalia-detectavel",
+    "observacoes": "Grover ilustra anomalia de forma diferente de Shor: cada iteração é uma reflexão (simetria rho4) que amplifica amplitude do alvo sem equivalência determinística. Anomalia aqui é estrutural ao algoritmo."
+  },
+  {
+    "nome": "VQE",
+    "nome_completo": "Variational Quantum Eigensolver",
+    "tipo": "Otimização variacional",
+    "ano_proposto": 2014,
+    "criador": "Peruzzo et al.",
+    "referencia": "Peruzzo, A. et al. (2014). A variational eigenvalue solver on a photonic quantum processor. Nature Commun.",
+    "complexidade": "Híbrido — O(n) passos clássicos + O(1) avaliação quântica por passo",
+    "paradigma_quantico": "variacional-hibrido",
+    "emaranhamento_requerido": true,
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.7,
+      "rho2_homologia": 0.8,
+      "rho3_equivalencia": 0.5,
+      "rho4_simetria": 0.6,
+      "rho5_equilibrio": 0.7,
+      "rho6_compensacao": 0.9,
+      "fonte": "Machado 2026b, Seção 5 — emergência clássico-quântica máxima"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": "cadeia de implicação preservada — perfil consistente — algoritmo mais natural na taxonomia hexarrelacional"
+    },
+    "classificacao_tats": "consistente-paradigmatico",
+    "observacoes": "VQE é o algoritmo mais natural na taxonomia hexarrelacional. O computador clássico otimiza (rho5), o quântico prepara e mede (rho6), e a emergência é do sistema composto: Omega(C+Q) >> Omega(C) + Omega(Q). Perfil consistente com a cadeia de implicação."
+  },
+  {
+    "nome": "QAOA",
+    "nome_completo": "Quantum Approximate Optimization Algorithm",
+    "tipo": "Otimização combinatória",
+    "ano_proposto": 2014,
+    "criador": "Farhi, Goldstone, Gutmann",
+    "referencia": "Farhi, E. et al. (2014). A Quantum Approximate Optimization Algorithm. arXiv:1411.4028.",
+    "complexidade": "Híbrido — O(p) camadas quânticas + O(n) iterações clássicas",
+    "paradigma_quantico": "variacional-hibrido",
+    "emaranhamento_requerido": true,
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.6,
+      "rho2_homologia": 0.75,
+      "rho3_equivalencia": 0.4,
+      "rho4_simetria": 0.5,
+      "rho5_equilibrio": 0.6,
+      "rho6_compensacao": 0.7,
+      "fonte": "Machado 2026b, Seção 5 — similar ao VQE mas com cadeia de implicação marginal"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": "cadeia marginalmente preservada — deltas pequenos entre rho adjacentes"
+    },
+    "classificacao_tats": "consistente-marginal",
+    "observacoes": "QAOA é um caso intermediário entre Shor/Grover (anomalia clara) e VQE (consistência clara). Perfil hexarrelacional marginal — deltas entre rho adjacentes são menores que em VQE, sugerindo que a cadeia de implicação vale mas não é robusta."
+  }
+]

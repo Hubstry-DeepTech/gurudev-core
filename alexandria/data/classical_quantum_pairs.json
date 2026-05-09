@@ -1,0 +1,72 @@
+[
+  {
+    "classica": "Python",
+    "quantica": "Qiskit",
+    "rho_dominante": "rho2",
+    "nota": "hospedagem — Python é substrato, não par semântico. Relação de homologia por shared runtime.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "Python",
+    "quantica": "PennyLane",
+    "rho_dominante": "rho5",
+    "nota": "equilíbrio diferenciável — gradientes fluem entre clássico e quântico. Interface natural para quantum ML.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "Python",
+    "quantica": "Cirq",
+    "rho_dominante": "rho2",
+    "nota": "hospedagem — similar a Qiskit mas com ecossistema Google.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "C++",
+    "quantica": "CUDA Quantum",
+    "rho_dominante": "rho6",
+    "nota": "emergência híbrida — GPU+QPU como co-processadores. A performance do sistema composto emerge da delegação clássico-quântica.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "GuruDev",
+    "quantica": "Silq",
+    "rho_dominante": "rho6",
+    "nota": "contenção constitucional em ambos — par mais próximo. Silq elimina operações causadoras de vazamento por ausência estrutural; GuruDev elimina tokens por contenção constitucional. Correspondência direta, não metáfora.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "GuruDev",
+    "quantica": "Qiskit",
+    "rho_dominante": "rho3",
+    "nota": "equivalência via delegação — GuruDev expressa intenção semântica, Qiskit executa o circuito. A delegação preserva equivalência de propósito via protocolo rho.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "GuruDev",
+    "quantica": "PennyLane",
+    "rho_dominante": "rho6",
+    "nota": "emergência variacional — GuruDev como camada semântica que governa otimização. rho5 (equilíbrio) e rho6 (compensação) cooperam no ciclo variacional.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "GuruDev",
+    "quantica": "Q#",
+    "rho_dominante": "rho2",
+    "nota": "homologia ontológica — ambas são linguagens de propósito geral com tipos quânticos como cidadãos de primeira classe na interface.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "GuruDev",
+    "quantica": "CUDA Quantum",
+    "rho_dominante": "rho6",
+    "nota": "co-processamento — GuruDev gerencia a semântica da delegação, CUDA Quantum gerencia GPU+QPU. Emergência do sistema composto.",
+    "fonte": "Machado 2026b, Seção 6"
+  },
+  {
+    "classica": "Python",
+    "quantica": "Quipper",
+    "rho_dominante": "rho1",
+    "nota": "similitude funcional — ambas expressam computação como funções, mas Quipper está embedded em Haskell e Python não compartilha o sistema de tipos.",
+    "fonte": "Machado 2026b, Seção 6"
+  }
+]

@@ -1,0 +1,258 @@
+[
+  {
+    "nome": "Qiskit",
+    "proposito": "Computação quântica gate-based NISQ",
+    "tipagem": "Forte, dinâmica (Python)",
+    "ano_criacao": 2017,
+    "criador": "IBM Quantum",
+    "paradigmas": ["Imperativa", "Orientada a objetos", "Quântica"],
+    "paradigma_quantico": "gate-based-NISQ",
+    "modelo_computacional": "circuito quântico",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Python",
+    "multiplataforma": true,
+    "hello_world": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])",
+    "status": "Em uso ativo",
+    "observacoes": "Framework dominante para computação quântica NISQ da IBM. Integração direta com hardware IBM Quantum e simuladores Aer.",
+    "ide_principal": "Jupyter Notebook, VS Code",
+    "empresa_desenvolvedora": "IBM Quantum",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.85,
+      "rho2_homologia": 0.70,
+      "rho3_equivalencia": 0.60,
+      "rho4_simetria": 0.65,
+      "rho5_equilibrio": 0.50,
+      "rho6_compensacao": 0.75,
+      "fonte": "Machado 2026b, Seção 5 — inferido de VQE/QAOA"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": null
+    }
+  },
+  {
+    "nome": "Q#",
+    "proposito": "Computação quântica universal fault-tolerant",
+    "tipagem": "Forte, estática",
+    "ano_criacao": 2017,
+    "criador": "Microsoft Quantum",
+    "paradigmas": ["Funcional", "Quântica"],
+    "paradigma_quantico": "fault-tolerant",
+    "modelo_computacional": "circuito quântico + orquestração",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Própria (F#-like)",
+    "multiplataforma": true,
+    "hello_world": "operation BellPair() : (Result, Result) {\n    use q = Qubit();\n    H(q);\n    return (M(q), M(q));\n}",
+    "status": "Em uso ativo",
+    "observacoes": "Linguagem de domínio quântico da Microsoft. Sintaxe F#-like com tipos quânticos nativos. Qubits gerenciados pelo runtime, não pelo programador.",
+    "ide_principal": "Visual Studio, VS Code com QDK",
+    "empresa_desenvolvedora": "Microsoft Quantum",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.80,
+      "rho2_homologia": 0.75,
+      "rho3_equivalencia": 0.65,
+      "rho4_simetria": 0.60,
+      "rho5_equilibrio": 0.45,
+      "rho6_compensacao": 0.55,
+      "fonte": "Machado 2026b, Seção 5 — inferido de topological qubits"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": null
+    }
+  },
+  {
+    "nome": "PennyLane",
+    "proposito": "Computação quântica diferenciável (machine learning)",
+    "tipagem": "Forte, dinâmica (Python)",
+    "ano_criacao": 2018,
+    "criador": "Xanadu",
+    "paradigmas": ["Funcional", "Diferenciável", "Quântica"],
+    "paradigma_quantico": "variacional-diferenciavel",
+    "modelo_computacional": "circuito quântico parametrizado",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Python",
+    "multiplataforma": true,
+    "hello_world": "import pennylane as qml\ndev = qml.device('default.qubit', wires=1)\n@qml.qnode(dev)\ndef circuit(x):\n    qml.RX(x, wires=0)\n    return qml.expval(qml.PauliZ(0))",
+    "status": "Em uso ativo",
+    "observacoes": "Framework focado em quantum machine learning. Diferenciação automática de circuitos quânticos — gradients via backpropagation. Backend-agnostic (suporta Qiskit, Cirq, etc.).",
+    "ide_principal": "Jupyter Notebook, VS Code",
+    "empresa_desenvolvedora": "Xanadu",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.70,
+      "rho2_homologia": 0.65,
+      "rho3_equivalencia": 0.50,
+      "rho4_simetria": 0.55,
+      "rho5_equilibrio": 0.80,
+      "rho6_compensacao": 0.70,
+      "fonte": "Machado 2026b, Seção 5 — rho5 alto por equilíbrio gradiente"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": null
+    }
+  },
+  {
+    "nome": "Cirq",
+    "proposito": "Computação quântica gate-based NISQ (Google)",
+    "tipagem": "Forte, dinâmica (Python)",
+    "ano_criacao": 2018,
+    "criador": "Google Quantum AI",
+    "paradigmas": ["Imperativa", "Quântica"],
+    "paradigma_quantico": "gate-based-NISQ",
+    "modelo_computacional": "circuito quântico",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Python",
+    "multiplataforma": true,
+    "hello_world": "import cirq\nq0, q1 = cirq.LineQubit.range(2)\ncircuit = cirq.Circuit(cirq.H(q0), cirq.CNOT(q0, q1), cirq.measure(q0, q1))",
+    "status": "Em uso ativo",
+    "observacoes": "Framework do Google para NISQ. Foco em otimização de circuitos para hardware Sycamore. Integração nativa com Google Quantum Computing Service.",
+    "ide_principal": "Jupyter Notebook, VS Code",
+    "empresa_desenvolvedora": "Google Quantum AI",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.90,
+      "rho2_homologia": 0.60,
+      "rho3_equivalencia": 0.55,
+      "rho4_simetria": 0.75,
+      "rho5_equilibrio": 0.40,
+      "rho6_compensacao": 0.50,
+      "fonte": "Machado 2026b, Seção 5 — rho1 alto vs Qiskit"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": true,
+      "par": "rho4 > rho3",
+      "hipotese": "unitariedade quântica garante simetria sem equivalência verificável"
+    }
+  },
+  {
+    "nome": "Silq",
+    "proposito": "Computação quântica com safe uncomputation",
+    "tipagem": "Forte, estática",
+    "ano_criacao": 2020,
+    "criador": "Benjamin Bichsel (ETH Zürich)",
+    "paradigmas": ["Funcional", "Imperativa", "Quântica"],
+    "paradigma_quantico": "safe-uncomputation",
+    "modelo_computacional": "circuito quântico + automatic uncomputation",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Própria",
+    "multiplataforma": true,
+    "hello_world": "def main() {\n    qubit[2] qs;\n    H(qs[0]);\n    CX(qs[0], qs[1]);\n    return measure(qs);\n}",
+    "status": "Pesquisa acadêmica",
+    "observacoes": "Única linguagem com safe uncomputation nativa — qubits auxiliares são liberados por ausência estrutural de operações causadoras de vazamento. Contenção constitucional quântica: operações que violam coerência são arquiteturalmente ausentes. Paralelo direto com o terceiro pilar GuruDev.",
+    "ide_principal": "VS Code com extensão Silq",
+    "empresa_desenvolvedora": "ETH Zürich",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.65,
+      "rho2_homologia": 0.70,
+      "rho3_equivalencia": 0.55,
+      "rho4_simetria": 0.60,
+      "rho5_equilibrio": 0.55,
+      "rho6_compensacao": 0.85,
+      "fonte": "Machado 2026b, Seção 6 — rho6 alto por contenção constitucional"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": "cadeia de implicação preservada — perfil consistente"
+    }
+  },
+  {
+    "nome": "OpenQASM 3",
+    "proposito": "Assembly quântico interoperável",
+    "tipagem": "Fraca, estática",
+    "ano_criacao": 2020,
+    "criador": "IBM / Comunidade QISKit",
+    "paradigmas": ["Imperativa", "Assembly"],
+    "paradigma_quantico": "assembly",
+    "modelo_computacional": "circuito quântico de baixo nível",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Própria",
+    "multiplataforma": true,
+    "hello_world": "OPENQASM 3.0;\ninclude \"stdgates.inc\";\nqubit[2] q;\nbit[2] c;\nh q[0];\ncx q[0], q[1];\nc[0] = measure q[0];\nc[1] = measure q[1];",
+    "status": "Em uso ativo (padrão)",
+    "observacoes": "Padrão aberto IEEE para descrição de circuitos quânticos. Camada de interoperabilidade entre frameworks. Bijecção direta com circuitos quânticos — rho4 alto.",
+    "ide_principal": "Editor de texto, VS Code",
+    "empresa_desenvolvedora": "IBM / IEEE",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.75,
+      "rho2_homologia": 0.60,
+      "rho3_equivalencia": 0.55,
+      "rho4_simetria": 0.85,
+      "rho5_equilibrio": 0.35,
+      "rho6_compensacao": 0.30,
+      "fonte": "Machado 2026b, Seção 5 — rho4 alto por bijeção com circuitos"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": true,
+      "par": "rho4 > rho3",
+      "hipotese": "bijecão com circuitos garante simetria estrutural sem equivalência semântica"
+    }
+  },
+  {
+    "nome": "Quipper",
+    "proposito": "Computação quântica funcional com tipos de circuito dependentes",
+    "tipagem": "Forte, estática",
+    "ano_criacao": 2013,
+    "criador": "Peter Selinger (Dalhousie University)",
+    "paradigmas": ["Funcional", "Quântica"],
+    "paradigma_quantico": "gate-based-funcional",
+    "modelo_computacional": "circuito quântico com tipos dependentes",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "Haskell (embedded DSL)",
+    "multiplataforma": true,
+    "hello_world": "import Quipper\nmain :: IO ()\nmain = print_simple (circuito_bell)\n  where circuito_bell = do\n          q <- qinit\n          r <- qinit\n          hadamard q\n          cnot q r\n          (q', r') <- measure (q, r)",
+    "status": "Pesquisa acadêmica",
+    "observacoes": "Primeira linguagem quântica com tipos de circuito dependentes. Computação de tamanho de circuito em tempo de compilação. DSL embedded em Haskell — academia-first.",
+    "ide_principal": "GHCi, VS Code",
+    "empresa_desenvolvedora": "Dalhousie University",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.60,
+      "rho2_homologia": 0.75,
+      "rho3_equivalencia": 0.50,
+      "rho4_simetria": 0.55,
+      "rho5_equilibrio": 0.40,
+      "rho6_compensacao": 0.45,
+      "fonte": "Machado 2026b, Seção 5 — inferido de tipos dependentes"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": null
+    }
+  },
+  {
+    "nome": "CUDA Quantum",
+    "proposito": "Computação quântica híbrida GPU+QPU (NVIDIA)",
+    "tipagem": "Forte, estática",
+    "ano_criacao": 2023,
+    "criador": "NVIDIA",
+    "paradigmas": ["Imperativa", "Quântica", "HPC"],
+    "paradigma_quantico": "gate-based-hibrido",
+    "modelo_computacional": "circuito quântico + GPU co-processing",
+    "emaranhamento_nativo": true,
+    "linguagem_hospedeira": "C++",
+    "multiplataforma": true,
+    "hello_world": "#include <cudaq.h>\n__qpu__ void bell() {\n  cudaq::qubit q;\n  h(q);\n  mz(q);\n}",
+    "status": "Em uso ativo",
+    "observacoes": "Framework NVIDIA para hybrid quantum-classical computing. Co-processamento GPU+QPU nativo. Integração com ecossistema NVIDIA (CUDA, cuQuantum). Crescente relevância industrial.",
+    "ide_principal": "VS Code, NVIDIA Nsight",
+    "empresa_desenvolvedora": "NVIDIA",
+    "perfil_hexarrelacional_conjectural": {
+      "rho1_similitude": 0.70,
+      "rho2_homologia": 0.55,
+      "rho3_equivalencia": 0.45,
+      "rho4_simetria": 0.60,
+      "rho5_equilibrio": 0.65,
+      "rho6_compensacao": 0.80,
+      "fonte": "Machado 2026b, Seção 6 — rho6 alto por emergência híbrida GPU+QPU"
+    },
+    "anomalia_cadeia_implicacao": {
+      "detectada": false,
+      "par": null,
+      "hipotese": "cadeia de implicação preservada — perfil consistente"
+    }
+  }
+]
