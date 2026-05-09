@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools==69.5.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "gurudev-core"
-version = "1.2.0-alpha"
+version = "1.2.0a0"
 description = "GuruDev — Linguagem Ontológica de Programação"
 readme = "README.md"
 license = {text = "Business Source License 1.1"}
@@ -17,7 +17,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
-    "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
