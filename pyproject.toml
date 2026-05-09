@@ -5,19 +5,26 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "gurudev-core"
 version = "1.2.0-alpha"
-description = "GuruDev - Linguagem Ontologica de Programacao"
+description = "GuruDev — Linguagem Ontológica de Programação"
 readme = "README.md"
 license = {text = "Business Source License 1.1"}
 authors = [
-    {name = "Guilherme Goncalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
+    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}
 ]
-keywords = ["programming language", "ontological", "gurudev", "interpreter", "compiler"]
+keywords = ["programming language", "ontological", "gurudev", "interpreter", "compiler", "quantum", "hexarelational"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
     "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
     "Topic :: Software Development :: Compilers",
 ]
 requires-python = ">=3.8"
@@ -29,15 +36,17 @@ dependencies = [
 dev = ["pytest>=6.2.0"]
 
 [project.urls]
-Homepage = "https://github.com/Hubstry-DeepTech/gurudev-core"
+Homepage = "https://www.hubstry.dev"
+Documentation = "https://gurudev-tech.site"
 Repository = "https://github.com/Hubstry-DeepTech/gurudev-core"
+Issues = "https://github.com/Hubstry-DeepTech/gurudev-core/issues"
 
 [project.scripts]
 gurudev = "src.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["src*"]
+include = ["src*", "alexandria*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
