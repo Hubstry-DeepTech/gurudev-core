@@ -1,4 +1,4 @@
-"""GuruDev Interpreter v1.2.0-alpha — Hermeneutic dispatch + compensacao + Alexandria"""
+"""GuruDev Interpreter v1.2.0-alpha — Hermeneutic dispatch + compensacao + Alexandria + Quantum"""
 import copy
 import math
 import builtins
@@ -79,6 +79,7 @@ class Interpreter:
         self.semantic_analyzer = None
         self.significance_vectors = []
         self.hermeneutic_log = []
+        self.quantum_results = []
         self._hermeneutic_handlers = {
             "literal": self._h_literal,
             "ontologico": self._h_ontologico,
@@ -89,6 +90,23 @@ class Interpreter:
         try:
             from .semantic_analyzer import SemanticAnalyzer
             self.semantic_analyzer = SemanticAnalyzer()
+        except Exception:
+            pass
+        self._quantum_interface_available = False
+        try:
+            from alexandria.core.quantum_interface import (
+                classificar_delegacao,
+                classificar_por_nome,
+                verificar_contencao,
+                PERFIS_CONJECTURAIS,
+                PERFIS_ALGORITMOS,
+            )
+            self._quantum_interface_available = True
+            self._qi_classificar = classificar_delegacao
+            self._qi_classificar_nome = classificar_por_nome
+            self._qi_verificar = verificar_contencao
+            self._qi_perfis = PERFIS_CONJECTURAIS
+            self._qi_algoritmos = PERFIS_ALGORITMOS
         except Exception:
             pass
 
@@ -140,9 +158,15 @@ class Interpreter:
         self._exec_bloco_com_compensacao(bloco)
 
     def _h_ontologico(self, bloco):
-        """Nivel Ontologico: executa + calcula Significance Vector."""
+        """Nivel Ontologico: executa + calcula Significance Vector R5 + R6 (quantico)."""
         self._exec_bloco_com_compensacao(bloco)
         sv = self._significance_vector(bloco)
+        # R6 hexarrelacional quando paradigma quantico
+        if self._is_quantum_paradigm(bloco.gm_paradigma):
+            r6 = self._hexarelational_vector(bloco)
+            sv["r6_hexarrelacional"] = r6["vector"]
+            sv["r6_norm"] = r6["norm"]
+            sv["r6_fonte"] = r6["fonte"]
         self.significance_vectors.append(sv)
 
     def _h_default(self, bloco):
@@ -152,7 +176,7 @@ class Interpreter:
             self.hermeneutic_log.append(bloco.gm_hermeneutica)
 
     # ================================================================
-    # SIGNIFICANCE VECTOR (R5)
+    # SIGNIFICANCE VECTOR (R5) + HEXARRELACIONAL (R6)
     # ================================================================
 
     def _significance_vector(self, bloco):
@@ -171,6 +195,71 @@ class Interpreter:
             "gm_hermeneutica": bloco.gm_hermeneutica,
             "gm_tempo": bloco.gm_tempo,
             "gm_paradigma": bloco.gm_paradigma,
+        }
+
+    def _is_quantum_paradigm(self, paradigma):
+        """Verifica se o paradigma indica contexto quantico."""
+        if paradigma is None:
+            return False
+        p = paradigma.lower()
+        quantum_markers = [
+            "quantico", "quantica", "quantum",
+            "qiskit", "q#", "cirq", "pennylane",
+            "gate-based", "variacional", "hibrido",
+            "vqe", "qaoa", "shor", "grover",
+        ]
+        return any(marker in p for marker in quantum_markers)
+
+    def _hexarelational_vector(self, bloco):
+        """
+        Calcula vetor hexarrelacional R6 (rho1-rho6) para blocos quanticos.
+
+        Se gm_paradigma corresponder a uma linguagem/algoritmo conhecido,
+        usa o perfil conjectural. Caso contrario, computa a partir das
+        dimensoes do bloco via hash categorico.
+
+        Returns:
+            Dicionario com vector (6 floats), norm, fonte
+        """
+        if self._quantum_interface_available:
+            paradigma = (bloco.gm_paradigma or "").lower()
+            # Buscar perfil conjectural por nome
+            for nome, dados in self._qi_perfis.items():
+                if nome.lower() in paradigma:
+                    rho = dados["rho"]
+                    fonte = dados.get("fonte", "PERFIS_CONJECTURAIS")
+                    norm = math.sqrt(sum(v*v for v in rho))
+                    return {
+                        "vector": rho,
+                        "norm": round(norm, 6),
+                        "fonte": fonte,
+                    }
+            for nome, dados in self._qi_algoritmos.items():
+                if nome.lower() in paradigma:
+                    rho = dados["rho"]
+                    fonte = dados.get("fonte", "PERFIS_ALGORITMOS")
+                    norm = math.sqrt(sum(v*v for v in rho))
+                    return {
+                        "vector": rho,
+                        "norm": round(norm, 6),
+                        "fonte": fonte,
+                    }
+
+        # Fallback: computar R6 via hash categorico das dimensoes do bloco
+        dimensoes = [
+            bloco.gm_ontologia or "",
+            bloco.gm_campo or "",
+            bloco.gm_hermeneutica or "",
+            bloco.gm_tempo or "",
+            bloco.gm_paradigma or "",
+            "quantico",  # 6a dimensao: paradigma quantico
+        ]
+        rho = [self._categorical_hash(d) for d in dimensoes]
+        norm = math.sqrt(sum(v*v for v in rho))
+        return {
+            "vector": rho,
+            "norm": round(norm, 6),
+            "fonte": "hash_categorico_fallback",
         }
 
     @staticmethod
@@ -471,3 +560,89 @@ class Interpreter:
         if isinstance(obj, dict):
             return obj.get(n.propriedade)
         return getattr(obj, n.propriedade, None)
+
+    # ================================================================
+    # QUANTUM DISPATCH — Protocolo Semantico Classico-Quantico
+    # ================================================================
+
+    def dispatch_quantico(self, operacao, perfil=None, nome=None, n_qubits=2, shots=1024):
+        """
+        Despacha uma operacao quantica via protocolo GuruDev.
+
+        GuruDev NAO executa computacao quantica real — e o protocolo semantico
+        que governa a interface classico-quantica. Este metodo:
+        1. Verifica contencao constitucional (AUSENTES_QUANTICO)
+        2. Classifica a delegacao via rho1-rho6
+        3. Gera QuantumResult probabilistico simulado
+
+        Args:
+            operacao: Nome da operacao quantica
+            perfil: Perfil hexarrelacional [rho1..rho6] (opcional)
+            nome: Nome da linguagem/algoritmo para lookup (opcional)
+            n_qubits: Numero de qubits para simulacao (default 2)
+            shots: Numero de medicoes simuladas (default 1024)
+
+        Returns:
+            QuantumResult com distribuicao probabilistica
+        """
+        from .quantum_result import QuantumResult
+
+        # 1. Verificar contencao constitucional
+        if self._quantum_interface_available:
+            contencao = self._qi_verificar(operacao)
+            if not contencao.contida:
+                qr = QuantumResult.error(
+                    mensagem=contencao.justificativa,
+                    operacao=operacao,
+                )
+                qr.metadata["limite_constitucional"] = contencao.limite_constitucional
+                self.quantum_results.append(qr)
+                return qr
+
+        # 2. Classificar delegacao
+        delegacao_tipo = "conservacao"  # default
+        rho_perfil = perfil or [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+        if self._quantum_interface_available:
+            if perfil:
+                resultado = self._qi_classificar(rho_perfil, nome=nome or operacao)
+                delegacao_tipo = resultado.tipo.value
+                rho_perfil = resultado.perfil
+            elif nome:
+                resultado = self._qi_classificar_nome(nome)
+                if resultado:
+                    delegacao_tipo = resultado.tipo.value
+                    rho_perfil = resultado.perfil
+
+        # 3. Gerar resultado probabilistico simulado
+        qr = QuantumResult.simulate(
+            n_qubits=n_qubits,
+            delegacao_tipo=delegacao_tipo,
+            operacao=operacao,
+            perfil_rho=rho_perfil,
+            shots=shots,
+        )
+        qr.metadata["delegacao_classificada"] = True
+
+        self.quantum_results.append(qr)
+        return qr
+
+    def verificar_contencao_quantica(self, operacao):
+        """
+        Verifica se uma operacao quantica esta contida no protocolo.
+
+        Args:
+            operacao: Nome da operacao a verificar
+
+        Returns:
+            Dict com 'contida', 'categoria', 'justificativa' ou None se interface indisponivel
+        """
+        if not self._quantum_interface_available:
+            return None
+        r = self._qi_verificar(operacao)
+        return {
+            "contida": r.contida,
+            "categoria": r.categoria,
+            "justificativa": r.justificativa,
+            "limite_constitucional": r.limite_constitucional,
+        }
