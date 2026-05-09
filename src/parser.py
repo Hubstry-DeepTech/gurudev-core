@@ -105,7 +105,10 @@ def p_bloco(p):
         bloco.gm_hermeneutica = sob.nivel
     # Defaults para dimensoes sem atributo na sobrescrita
     bloco.gm_tempo = 'compilacao'
-    bloco.gm_paradigma = 'imperativo'
+    if p[2] is not None and getattr(p[2], 'paradigma', None):
+        bloco.gm_paradigma = p[2].paradigma
+    else:
+        bloco.gm_paradigma = 'imperativo'
     # Propagar gm_* para nos filhos do codigo
     _propagar_gm(bloco)
     p[0] = bloco
@@ -139,6 +142,8 @@ def p_sobrescrita_conteudo(p):
             sob.clave = attr[1]
         elif attr[0] == 'ont':
             sob.ontologia = attr[1]
+        elif attr[0] == 'paradigma':
+            sob.paradigma = attr[1]
     p[0] = sob
 
 
@@ -270,6 +275,66 @@ def p_sobrescrita_attr_ont(p):
 def p_sobrescrita_attr_ont_acao(p):
     '''sobrescrita_attr : ONT_ACAO'''
     p[0] = ('ont', 'acao')
+
+def p_sobrescrita_attr_paradigma(p):
+    '''sobrescrita_attr : PARADIGMA_ATTR'''
+    p[0] = ('paradigma', p[1])
+
+
+def p_sobrescrita_attr_paradigma_vqe(p):
+    '''sobrescrita_attr : PARADIGMA_VQE'''
+    p[0] = ('paradigma', 'vqe')
+
+
+def p_sobrescrita_attr_paradigma_qaoa(p):
+    '''sobrescrita_attr : PARADIGMA_QAOA'''
+    p[0] = ('paradigma', 'qaoa')
+
+
+def p_sobrescrita_attr_paradigma_quantico(p):
+    '''sobrescrita_attr : PARADIGMA_QUANTICO'''
+    p[0] = ('paradigma', 'quantico')
+
+
+def p_sobrescrita_attr_paradigma_quantum(p):
+    '''sobrescrita_attr : PARADIGMA_QUANTUM'''
+    p[0] = ('paradigma', 'quantum')
+
+
+def p_sobrescrita_attr_paradigma_variacional(p):
+    '''sobrescrita_attr : PARADIGMA_VARIACIONAL'''
+    p[0] = ('paradigma', 'variacional')
+
+
+def p_sobrescrita_attr_paradigma_hibrido(p):
+    '''sobrescrita_attr : PARADIGMA_HIBRIDO'''
+    p[0] = ('paradigma', 'hibrido')
+
+
+def p_sobrescrita_attr_paradigma_imperativo(p):
+    '''sobrescrita_attr : PARADIGMA_IMPERATIVO'''
+    p[0] = ('paradigma', 'imperativo')
+
+
+def p_sobrescrita_attr_paradigma_funcional(p):
+    '''sobrescrita_attr : PARADIGMA_FUNCIONAL'''
+    p[0] = ('paradigma', 'funcional')
+
+
+def p_sobrescrita_attr_paradigma_oo(p):
+    '''sobrescrita_attr : PARADIGMA_OO'''
+    p[0] = ('paradigma', 'orientado_a_objetos')
+
+
+def p_sobrescrita_attr_paradigma_logico(p):
+    '''sobrescrita_attr : PARADIGMA_LOGICO'''
+    p[0] = ('paradigma', 'logico')
+
+
+def p_sobrescrita_attr_paradigma_declarativo(p):
+    '''sobrescrita_attr : PARADIGMA_DECLARATIVO'''
+    p[0] = ('paradigma', 'declarativo')
+
 
 # (Adicionar regras para cada ONT_* conforme necessário)
 

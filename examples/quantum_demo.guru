@@ -1,0 +1,30 @@
+/*************************************************************
+ * quantum_demo.guru — Demonstracao End-to-End do Pipeline Quantico
+ * GuruDev (R) | Hubstry-DeepTech
+ *
+ * Execute:  gurudev run examples/quantum_demo.guru
+ *
+ * Este bloco ativa o pipeline quantico completo:
+ *   1. R5 (Vetor de Significancia)
+ *   2. R6 (Hexarrelacional p1-p6)
+ *   3. QuantumResult + Shannon Entropy
+ *   4. TipoDelegacao classificacao
+ *************************************************************/
+
+[bloco]
+    [sobrescrita]
+        "Contexto: demonstracao end-to-end do pipeline quantico GuruDev"
+        [$$nivel="ontologico"$$]
+        [$$raiz="QUANTUM_DEMO"$$]
+        [$$clave="ciencia"$$]
+        [$$ont="acao"$$]
+        [$$paradigma="vqe"$$]
+    [/sobrescrita]
+
+Â¡codigo!
+        String titulo = "Demo Quantica GuruDev";
+        Int n_qubits = 2;
+        Float energia_otimizada = -1.5;
+        Bool quantum_ativo = verdadeiro;
+Â¡/codigo!
+[/bloco]

@@ -186,6 +186,21 @@ ont_map = {
     'acao': 'ONT_ACAO',
 }
 
+paradigma_map = {
+    'imperativo': 'PARADIGMA_IMPERATIVO',
+    'funcional': 'PARADIGMA_FUNCIONAL',
+    'orientado_a_objetos': 'PARADIGMA_OO',
+    'logico': 'PARADIGMA_LOGICO',
+    'declarativo': 'PARADIGMA_DECLARATIVO',
+    'vqe': 'PARADIGMA_VQE',
+    'qaoa': 'PARADIGMA_QAOA',
+    'quantico': 'PARADIGMA_QUANTICO',
+    'quantum': 'PARADIGMA_QUANTUM',
+    'variacional': 'PARADIGMA_VARIACIONAL',
+    'hibrido': 'PARADIGMA_HIBRIDO',
+}
+
+
 # ============================================================
 # 5. CARACTERES IGNORADOS
 # ============================================================
@@ -425,6 +440,15 @@ def t_sobrescrita_ONT_ATTR(t):
         t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
     t.type = ont_map.get(val, 'ONT_ATTR')
+    t.value = val
+    return t
+
+def t_sobrescrita_PARADIGMA_ATTR(t):
+    r'\[?\$\$paradigma="([^"]+)"\$\$\]?'
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
+    val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
+    t.type = paradigma_map.get(val, 'PARADIGMA_ATTR')
     t.value = val
     return t
 

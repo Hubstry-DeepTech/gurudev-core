@@ -93,7 +93,7 @@ def _run_file(args):
         sys.exit(1)
 
     from src.parser import parse
-    from src.interpreter import GuruDevInterpreter
+    from src.interpreter import Interpreter
 
     with open(filepath, "r", encoding="utf-8") as f:
         source = f.read()
@@ -103,14 +103,47 @@ def _run_file(args):
         print("gurudev: falha no parsing — AST vazia.")
         sys.exit(1)
 
-    interp = GuruDevInterpreter(debug=debug)
+    interp = Interpreter()
     try:
         interp.interpretar(ast)
     except Exception as e:
         print(f"gurudev: erro em runtime — {type(e).__name__}: {e}")
         sys.exit(1)
-
-
+    # ---- Quantum Output: R5 + R6 + QuantumResult ----
+    if interp.significance_vectors or interp.quantum_results:
+        for sv in interp.significance_vectors:
+            if 'r6_hexarrelacional' in sv and not interp.quantum_results:
+                qr = interp.dispatch_quantico(
+                    operacao='quantum_' + (sv.get('gm_paradigma') or 'unknown'),
+                    nome=sv.get('gm_paradigma'),
+                    n_qubits=2,
+                    shots=1024,
+                )
+        print()
+        print('=' * 60)
+        print('  GuruDev (R) Quantum Results')
+        print('=' * 60)
+        for i, sv in enumerate(interp.significance_vectors):
+            print(f'\n[Bloco {i+1}] R5 (Vetor de Significancia):')
+            print(f'  vector:  {sv[\"vector\"]}')
+            print(f'  norm:    {sv[\"norm\"]}')
+            print(f'  gm:      ontologia={sv[\"gm_ontologia\"]} | campo={sv[\"gm_campo\"]} | '
+                  f'hermeneutica={sv[\"gm_hermeneutica\"]} | tempo={sv[\"gm_tempo\"]} | '
+                  f'paradigma={sv[\"gm_paradigma\"]}')
+            if 'r6_hexarrelacional' in sv:
+                print(f'  R6 (Hexarrelacional): {sv[\"r6_hexarrelacional\"]}')
+                print(f'  R6 norm:   {sv[\"r6_norm\"]}')
+                print(f'  R6 fonte:  {sv[\"r6_fonte\"]}')
+        for i, qr in enumerate(interp.quantum_results):
+            print(f'\n[QR {i+1}] QuantumResult:')
+            print(f'  operacao:      {qr.operacao}')
+            print(f'  delegacao:     {qr.delegacao_tipo}')
+            print(f'  entropy:       {qr.entropy:.6f}')
+            print(f'  distribution:  {qr.distribution}')
+            print(f'  most_likely:   {qr.most_likely()}')
+            if qr.is_error:
+                print(f'  ERRO:          {qr.erro}')
+        print()
 def _run_repl(args):
     from src.repl import GuruDevRepl
     debug = "--debug" in args

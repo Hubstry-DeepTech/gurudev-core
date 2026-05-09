@@ -48,6 +48,7 @@ class Sobrescrita(Node):
     raiz: Optional[str] = None
     clave: Optional[str] = None
     ontologia: Optional[str] = None
+    paradigma: Optional[str] = None
 
 
 @dataclass
