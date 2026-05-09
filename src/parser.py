@@ -62,15 +62,53 @@ def p_elemento_top_level(p):
 # 3. BLOCO TRÍPLICE
 # ============================================================
 
+
+def _propagar_gm(bloco):
+    """Propaga coordenadas GuruMatrix do bloco para nos filhos."""
+    gm = {}
+    if bloco.gm_ontologia: gm["gm_ontologia"] = bloco.gm_ontologia
+    if bloco.gm_campo: gm["gm_campo"] = bloco.gm_campo
+    if bloco.gm_hermeneutica: gm["gm_hermeneutica"] = bloco.gm_hermeneutica
+    if bloco.gm_tempo: gm["gm_tempo"] = bloco.gm_tempo
+    if bloco.gm_paradigma: gm["gm_paradigma"] = bloco.gm_paradigma
+
+    def visitar(no):
+        if no is None:
+            return
+        for attr, val in gm.items():
+            if getattr(no, attr, None) is None:
+                setattr(no, attr, val)
+        for fld in getattr(no.__class__, "__dataclass_fields__", {}):
+            child = getattr(no, fld, None)
+            if isinstance(child, list):
+                for item in child:
+                    visitar(item)
+
+    for no in bloco.codigo:
+        visitar(no)
+
+
 def p_bloco(p):
     '''bloco : BLOCO_START sobrescrita_opt codigo_block subescritas_opt compensacao_opt BLOCO_END'''
-    p[0] = Bloco(
+    bloco = Bloco(
         sobrescrita=p[2],
         codigo=p[3],
         subescritas=p[4] if p[4] else [],
         compensacao=p[5],
         lineno=p.lineno(1)
     )
+    # Popular coordenadas GuruMatrix a partir da Sobrescrita
+    if p[2] is not None:
+        sob = p[2]
+        bloco.gm_ontologia = sob.ontologia
+        bloco.gm_campo = sob.clave
+        bloco.gm_hermeneutica = sob.nivel
+    # Defaults para dimensoes sem atributo na sobrescrita
+    bloco.gm_tempo = 'compilacao'
+    bloco.gm_paradigma = 'imperativo'
+    # Propagar gm_* para nos filhos do codigo
+    _propagar_gm(bloco)
+    p[0] = bloco
 
 
 # --- Sobrescrita ---
