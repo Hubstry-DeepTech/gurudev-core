@@ -52,6 +52,9 @@ tokens = (
     'NIVEL_PARABOLICO', 'NIVEL_HISTORICO', 'NIVEL_LINGUISTICO',
     'CLAVE_ARTE', 'CLAVE_CIENCIA', 'CLAVE_FILOSOFIA', 'CLAVE_GERAL',
     'ONT_ACAO',
+    PARADIGMA_ATTR, PARADIGMA_IMPERATIVO, PARADIGMA_FUNCIONAL, PARADIGMA_OO,
+    PARADIGMA_LOGICO, PARADIGMA_DECLARATIVO, PARADIGMA_VQE, PARADIGMA_QAOA,
+    PARADIGMA_QUANTICO, PARADIGMA_QUANTUM, PARADIGMA_VARIACIONAL, PARADIGMA_HIBRIDO,
 
     # Casos gramaticais
     'VOC', 'NOM', 'ACU', 'DAT', 'GEN', 'INS', 'LOC', 'ABL',
@@ -185,6 +188,21 @@ clave_map = {
 ont_map = {
     'acao': 'ONT_ACAO',
 }
+
+paradigma_map = {
+    'imperativo': 'PARADIGMA_IMPERATIVO',
+    'funcional': 'PARADIGMA_FUNCIONAL',
+    'orientado_a_objetos': 'PARADIGMA_OO',
+    'logico': 'PARADIGMA_LOGICO',
+    'declarativo': 'PARADIGMA_DECLARATIVO',
+    'vqe': 'PARADIGMA_VQE',
+    'qaoa': 'PARADIGMA_QAOA',
+    'quantico': 'PARADIGMA_QUANTICO',
+    'quantum': 'PARADIGMA_QUANTUM',
+    'variacional': 'PARADIGMA_VARIACIONAL',
+    'hibrido': 'PARADIGMA_HIBRIDO',
+}
+
 
 paradigma_map = {
     'imperativo': 'PARADIGMA_IMPERATIVO',
@@ -452,6 +470,14 @@ def t_sobrescrita_PARADIGMA_ATTR(t):
     t.value = val
     return t
 
+def t_sobrescrita_PARADIGMA_ATTR(t):
+    r'\[?\$\$paradigma="([^"]+)"\$\$\]?'
+    if t.value.startswith('[') and t.value.endswith(']'):
+        t.value = t.value[1:-1]
+    val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
+    t.type = paradigma_map.get(val, 'PARADIGMA_ATTR')
+    t.value = val
+    return t
 def t_sobrescrita_STRING_LITERAL(t):
     r'"([^"\\]|\\.)*"'
     t.value = t.value[1:-1]

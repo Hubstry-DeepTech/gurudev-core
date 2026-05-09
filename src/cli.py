@@ -125,15 +125,15 @@ def _run_file(args):
         print('=' * 60)
         for i, sv in enumerate(interp.significance_vectors):
             print(f'\n[Bloco {i+1}] R5 (Vetor de Significancia):')
-            print(f'  vector:  {sv[\"vector\"]}')
-            print(f'  norm:    {sv[\"norm\"]}')
-            print(f'  gm:      ontologia={sv[\"gm_ontologia\"]} | campo={sv[\"gm_campo\"]} | '
-                  f'hermeneutica={sv[\"gm_hermeneutica\"]} | tempo={sv[\"gm_tempo\"]} | '
-                  f'paradigma={sv[\"gm_paradigma\"]}')
+            print(f'  vector:  {sv["vector"]}')
+            print(f'  norm:    {sv["norm"]}')
+            print(f'  gm:      ontologia={sv["gm_ontologia"]} | campo={sv["gm_campo"]} | '
+                  f'hermeneutica={sv["gm_hermeneutica"]} | tempo={sv["gm_tempo"]} | '
+                  f'paradigma={sv["gm_paradigma"]}')
             if 'r6_hexarrelacional' in sv:
-                print(f'  R6 (Hexarrelacional): {sv[\"r6_hexarrelacional\"]}')
-                print(f'  R6 norm:   {sv[\"r6_norm\"]}')
-                print(f'  R6 fonte:  {sv[\"r6_fonte\"]}')
+                print(f'  R6 (Hexarrelacional): {sv["r6_hexarrelacional"]}')
+                print(f'  R6 norm:   {sv["r6_norm"]}')
+                print(f'  R6 fonte:  {sv["r6_fonte"]}')
         for i, qr in enumerate(interp.quantum_results):
             print(f'\n[QR {i+1}] QuantumResult:')
             print(f'  operacao:      {qr.operacao}')
