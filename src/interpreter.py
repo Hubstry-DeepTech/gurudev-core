@@ -1,5 +1,6 @@
-"""GuruDev Interpreter v1.1.0-alpha - Tree-walking com casos gramaticais + Alexandria"""
+"""GuruDev Interpreter v1.2.0-alpha — Hermeneutic dispatch + compensacao + Alexandria"""
 import copy
+import math
 import builtins
 from .ast_nodes import *
 
@@ -19,6 +20,14 @@ class BreakSignal(Exception):
 
 class ContinueSignal(Exception):
     pass
+
+
+HERMENEUTIC_ORDINAL = {
+    "literal": 1, "alegorico": 2, "moral": 3, "mistico": 4,
+    "funcional": 5, "estetico": 6, "ontologico": 7, "holistico": 8,
+    "matematico": 9, "simbolico": 10, "parabolico": 11,
+    "historico": 12, "linguistico": 13,
+}
 
 
 class Ambiente:
@@ -59,7 +68,7 @@ class Ambiente:
 
 
 class Interpreter:
-    """Interpretador tree-walking GuruDev com casos gramaticais e Alexandria."""
+    """Interpretador tree-walking GuruDev com dispatch hermeneutico e Alexandria."""
 
     def __init__(self):
         self.env = Ambiente()
@@ -68,6 +77,12 @@ class Interpreter:
         self.subscrita_analyses = []
         self.last_subscrita_result = None
         self.semantic_analyzer = None
+        self.significance_vectors = []
+        self.hermeneutic_log = []
+        self._hermeneutic_handlers = {
+            "literal": self._h_literal,
+            "ontologico": self._h_ontologico,
+        }
         self._init_alexandria()
 
     def _init_alexandria(self):
@@ -94,25 +109,99 @@ class Interpreter:
     def _e(self, node):
         return self._x(node)
 
-    # ---- Programa / Bloco ----
+    # ================================================================
+    # HERMENEUTIC DISPATCH
+    # ================================================================
+
+    def _exec_bloco_com_compensacao(self, bloco):
+        """Executa codigo + subscritas com compensacao condicional (so em except)."""
+        try:
+            for stmt in bloco.codigo:
+                self._x(stmt)
+            if hasattr(bloco, 'subscritas') and bloco.subscritas:
+                for sub in bloco.subscritas:
+                    self._x(sub)
+        except (ReturnSignal, BreakSignal, ContinueSignal):
+            raise
+        except Exception as e:
+            if bloco.compensacao:
+                if bloco.compensacao.erros:
+                    for err_block in bloco.compensacao.erros:
+                        self._x(err_block)
+                    return
+                elif bloco.compensacao.alternativas:
+                    for alt in bloco.compensacao.alternativas:
+                        self._x(alt)
+                    return
+            raise
+    
+    def _h_literal(self, bloco):
+        """Nivel Literal: executa diretamente, sem anotacao."""
+        self._exec_bloco_com_compensacao(bloco)
+
+    def _h_ontologico(self, bloco):
+        """Nivel Ontologico: executa + calcula Significance Vector."""
+        self._exec_bloco_com_compensacao(bloco)
+        sv = self._significance_vector(bloco)
+        self.significance_vectors.append(sv)
+
+    def _h_default(self, bloco):
+        """Nivel padrao: executa + anota nivel hermeneutico."""
+        self._exec_bloco_com_compensacao(bloco)
+        if bloco.gm_hermeneutica:
+            self.hermeneutic_log.append(bloco.gm_hermeneutica)
+
+    # ================================================================
+    # SIGNIFICANCE VECTOR (R5)
+    # ================================================================
+
+    def _significance_vector(self, bloco):
+        """Calcula Significance Vector R5 e norma Euclidiana."""
+        v0 = self._categorical_hash(bloco.gm_ontologia)
+        v1 = self._categorical_hash(bloco.gm_campo)
+        v2 = HERMENEUTIC_ORDINAL.get(bloco.gm_hermeneutica, 0) / 13.0
+        v3 = self._categorical_hash(bloco.gm_tempo)
+        v4 = self._categorical_hash(bloco.gm_paradigma)
+        norm = math.sqrt(v0*v0 + v1*v1 + v2*v2 + v3*v3 + v4*v4)
+        return {
+            "vector": [v0, v1, v2, v3, v4],
+            "norm": round(norm, 6),
+            "gm_ontologia": bloco.gm_ontologia,
+            "gm_campo": bloco.gm_campo,
+            "gm_hermeneutica": bloco.gm_hermeneutica,
+            "gm_tempo": bloco.gm_tempo,
+            "gm_paradigma": bloco.gm_paradigma,
+        }
+
+    @staticmethod
+    def _categorical_hash(value):
+        """Converte string categorica para float em [0, 1]."""
+        if value is None:
+            return 0.0
+        h = 0
+        for ch in value:
+            h = (h * 31 + ord(ch)) % 997
+        return h / 997.0
+
+    # ================================================================
+    # PROGRAMA / BLOCO
+    # ================================================================
 
     def _x_Programa(self, n):
         for elem in n.elementos:
             self._x(elem)
 
     def _x_Bloco(self, n):
-        for stmt in n.codigo:
-            self._x(stmt)
-        for sub in n.subscritas:
-            self._x(sub)
-        if n.compensacao:
-            self._x(n.compensacao)
+        handler = self._hermeneutic_handlers.get(n.gm_hermeneutica, self._h_default)
+        handler(n)
         if n.plastico:
             self._x(n.plastico)
         if n.modulacao:
             self._x(n.modulacao)
 
-    # ---- Declaracoes ----
+    # ================================================================
+    # DECLARACOES
+    # ================================================================
 
     def _x_DeclaracaoVariavel(self, n):
         val = self._e(n.valor) if n.valor else None
@@ -150,7 +239,9 @@ class Interpreter:
         else:
             self.env.set(n.alvo, val)
 
-    # ---- Chamadas ----
+    # ================================================================
+    # CHAMADAS
+    # ================================================================
 
     def _x_ChamadaFuncao(self, n):
         caso = n.caso_gramatical
@@ -207,7 +298,9 @@ class Interpreter:
                 return method(*args)
         raise GuruDevError(f"metodo '{n.metodo}' nao encontrado em '{n.objeto}'")
 
-    # ---- Controle de fluxo ----
+    # ================================================================
+    # CONTROLE DE FLUXO
+    # ================================================================
 
     def _x_Retorno(self, n):
         raise ReturnSignal(self._e(n.valor) if n.valor else None)
@@ -261,7 +354,9 @@ class Interpreter:
     def _x_Continue(self, n):
         raise ContinueSignal()
 
-    # ---- Execucao Serie / Paralelo / Em ----
+    # ================================================================
+    # EXECUCAO SERIE / PARALELO / EM
+    # ================================================================
 
     def _x_ExecucaoSerie(self, n):
         for stmt in n.corpo:
@@ -279,7 +374,9 @@ class Interpreter:
         else:
             raise GuruDevError(f"Execucao em {n.linguagem} nao suportada")
 
-    # ---- Interoperabilidade: Subescrita ----
+    # ================================================================
+    # INTEROPERABILIDADE: SUBESCRTA
+    # ================================================================
 
     def _x_SubescritaLinguagem(self, n):
         if self.semantic_analyzer and self.semantic_analyzer.available:
@@ -290,20 +387,19 @@ class Interpreter:
                 local_vars = {}
                 exec(n.conteudo, {"__builtins__": builtins}, local_vars)
                 self.last_subscrita_result = local_vars
+                for nome, valor in local_vars.items():
+                    if not nome.startswith("__"):
+                        self.env.decl(nome, valor)
             except Exception as e:
                 self.last_subscrita_result = {"__error__": str(e)}
         else:
             self.last_subscrita_result = {"__lang__": n.linguagem}
 
-    # ---- Compensacao ----
+    # ================================================================
+    # COMPENSACAO
+    # ================================================================
 
-    def _x_BlocoCompensacao(self, n):
-        for erro in n.erros:
-            self._x(erro)
-        for d in n.desempenhos:
-            self._x(d)
-        for alt in n.alternativas:
-            self._x(alt)
+    
 
     def _x_BlocoErro(self, n):
         for stmt in n.corpo:
@@ -317,7 +413,9 @@ class Interpreter:
         for stmt in n.corpo:
             self._x(stmt)
 
-    # ---- Plasticidade / Modulacao ----
+    # ================================================================
+    # PLASTICIDADE / MODULACAO
+    # ================================================================
 
     def _x_BlocoPlastico(self, n):
         for stmt in n.corpo:
@@ -331,7 +429,9 @@ class Interpreter:
         for stmt in n.corpo:
             self._x(stmt)
 
-    # ---- Expressoes ----
+    # ================================================================
+    # EXPRESSOES
+    # ================================================================
 
     def _x_Literal(self, n):
         return n.valor
