@@ -45,6 +45,18 @@ tokens = (
 
     # Atributos de sobrescrita
     'NIVEL_ATTR', 'RAIZ_ATTR', 'CLAVE_ATTR', 'ONT_ATTR',
+    'PARADIGMA_ATTR',
+    'PARADIGMA_IMPERATIVO',
+    'PARADIGMA_FUNCIONAL',
+    'PARADIGMA_OO',
+    'PARADIGMA_LOGICO',
+    'PARADIGMA_DECLARATIVO',
+    'PARADIGMA_VQE',
+    'PARADIGMA_QAOA',
+    'PARADIGMA_QUANTICO',
+    'PARADIGMA_QUANTUM',
+    'PARADIGMA_VARIACIONAL',
+    'PARADIGMA_HIBRIDO',
     # Niveis Hermeneuticos - Canonicos (1-7) + Estendidos (8-13)
     'NIVEL_LITERAL', 'NIVEL_ALEGORICO', 'NIVEL_MORAL', 'NIVEL_MISTICO',
     'NIVEL_FUNCIONAL', 'NIVEL_ESTETICO', 'NIVEL_ONTOLOGICO',
@@ -52,9 +64,6 @@ tokens = (
     'NIVEL_PARABOLICO', 'NIVEL_HISTORICO', 'NIVEL_LINGUISTICO',
     'CLAVE_ARTE', 'CLAVE_CIENCIA', 'CLAVE_FILOSOFIA', 'CLAVE_GERAL',
     'ONT_ACAO',
-    PARADIGMA_ATTR, PARADIGMA_IMPERATIVO, PARADIGMA_FUNCIONAL, PARADIGMA_OO,
-    PARADIGMA_LOGICO, PARADIGMA_DECLARATIVO, PARADIGMA_VQE, PARADIGMA_QAOA,
-    PARADIGMA_QUANTICO, PARADIGMA_QUANTUM, PARADIGMA_VARIACIONAL, PARADIGMA_HIBRIDO,
 
     # Casos gramaticais
     'VOC', 'NOM', 'ACU', 'DAT', 'GEN', 'INS', 'LOC', 'ABL',
@@ -204,20 +213,6 @@ paradigma_map = {
 }
 
 
-paradigma_map = {
-    'imperativo': 'PARADIGMA_IMPERATIVO',
-    'funcional': 'PARADIGMA_FUNCIONAL',
-    'orientado_a_objetos': 'PARADIGMA_OO',
-    'logico': 'PARADIGMA_LOGICO',
-    'declarativo': 'PARADIGMA_DECLARATIVO',
-    'vqe': 'PARADIGMA_VQE',
-    'qaoa': 'PARADIGMA_QAOA',
-    'quantico': 'PARADIGMA_QUANTICO',
-    'quantum': 'PARADIGMA_QUANTUM',
-    'variacional': 'PARADIGMA_VARIACIONAL',
-    'hibrido': 'PARADIGMA_HIBRIDO',
-}
-
 
 # ============================================================
 # 5. CARACTERES IGNORADOS
@@ -235,7 +230,7 @@ t_compensacao_ignore = ' \t'
 # --- Transições de Estado ---
 
 def t_SOBRESCRITA_START(t):
-    r'\[sobrescrita\]|\[?\$\$sobrescrita\$\$\]?'
+    r'\[?\$\$sobrescrita\$\$\]?'
     t.lexer.push_state('sobrescrita')
     return t
 
@@ -245,25 +240,25 @@ def t_CODIGO_START(t):
     return t
 
 def t_COMPENSACAO_START(t):
-    r'\[compensacao\]|\$\$compensacao\$\$'
+    r'\$\$compensacao\$\$'
     t.lexer.push_state('compensacao')
     return t
 
 # --- Tags que não mudam de estado ---
 def t_BLOCO_START(t):
-    r'\[bloco\]|\[?\$\$bloco\$\$\]?'
+    r'\[?\$\$bloco\$\$\]?'
     return t
 
 def t_BLOCO_END(t):
-    r'\[/bloco\]|\[?\$\$/bloco\$\$\]?'
+    r'\[?\$\$/bloco\$\$\]?'
     return t
 
 def t_SUBESCRITAS_START(t):
-    r'\[subescritas\]|\[?\$\$subescritas\$\$\]?'
+    r'\[?\$\$subescritas\$\$\]?'
     return t
 
 def t_SUBESCRITAS_END(t):
-    r'\[/subescritas\]|\[?\$\$/subescritas\$\$\]?'
+    r'\[?\$\$/subescritas\$\$\]?'
     return t
 
 # --- Início de linguagens estrangeiras ---
@@ -427,7 +422,7 @@ def t_error(t):
 # ============================================================
 
 def t_sobrescrita_NIVEL_ATTR(t):
-    r'\[nivel="([^"]+)"\]|\[?\$\$nivel="([^"]+)"\$\$\]?'
+    r'\[?\$\$nivel="([^"]+)"\$\$\]?'
     # Strip optional brackets from match
     if t.value.startswith('[') and t.value.endswith(']'):
         t.value = t.value[1:-1]
@@ -437,14 +432,14 @@ def t_sobrescrita_NIVEL_ATTR(t):
     return t
 
 def t_sobrescrita_RAIZ_ATTR(t):
-    r'\[raiz="([^"]+)"\]|\[?\$\$raiz="([^"]+)"\$\$\]?'
+    r'\[?\$\$raiz="([^"]+)"\$\$\]?'
     if t.value.startswith('[') and t.value.endswith(']'):
         t.value = t.value[1:-1]
     t.value = t.value[t.value.find('"')+1:t.value.rfind('"')]
     return t
 
 def t_sobrescrita_CLAVE_ATTR(t):
-    r'\[clave="([^"]+)"\]|\[?\$\$clave="([^"]+)"\$\$\]?'
+    r'\[?\$\$clave="([^"]+)"\$\$\]?'
     if t.value.startswith('[') and t.value.endswith(']'):
         t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
@@ -453,7 +448,7 @@ def t_sobrescrita_CLAVE_ATTR(t):
     return t
 
 def t_sobrescrita_ONT_ATTR(t):
-    r'\[ont="([^"]+)"\]|\[?\$\$ont="([^"]+)"\$\$\]?'
+    r'\[?\$\$ont="([^"]+)"\$\$\]?'
     if t.value.startswith('[') and t.value.endswith(']'):
         t.value = t.value[1:-1]
     val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
@@ -470,19 +465,16 @@ def t_sobrescrita_PARADIGMA_ATTR(t):
     t.value = val
     return t
 
-def t_sobrescrita_PARADIGMA_ATTR(t):
-    r'\[?\$\$paradigma="([^"]+)"\$\$\]?'
-    if t.value.startswith('[') and t.value.endswith(']'):
-        t.value = t.value[1:-1]
-    val = t.value[t.value.find('"')+1:t.value.rfind('"')].lower()
-    t.type = paradigma_map.get(val, 'PARADIGMA_ATTR')
-    t.value = val
-    return t
-def t_sobrescrita_STRING_LITERAL(t):
     r'"([^"\\]|\\.)*"'
     t.value = t.value[1:-1]
     return t
 
+
+
+def t_sobrescrita_STRING_LITERAL(t):
+    r'"([^"\\]|\\.)*"'
+    t.value = t.value[1:-1]
+    return t
 
 def t_sobrescrita_GENERIC_ATTR(t):
     r'\[?\$?\$?[a-zA-Z\xc0-\xff_][a-zA-Z\xc0-\xff0-9_]*="([^"]+)"\$?\$?\]?'
@@ -496,7 +488,7 @@ def t_sobrescrita_GENERIC_ATTR(t):
     return t
 
 def t_sobrescrita_SOBRESCRITA_END(t):
-    r'\[/sobrescrita\]|\[?\$\$/sobrescrita\$\$\]?'
+    r'\[?\$\$/sobrescrita\$\$\]?'
     t.lexer.pop_state()
     return t
 
@@ -608,6 +600,7 @@ def t_gurudevcode_CODIGO_END(t):
     r'[!\xa1]/codigo!'
     t.lexer.pop_state()
     return t
+
 
 
 def t_gurudevcode_BLOCO_START(t):
@@ -788,7 +781,7 @@ def t_compensacao_ALTERNATIVA_END(t):
     return t
 
 def t_compensacao_COMPENSACAO_END(t):
-    r'\[/compensacao\]|\$\$/compensacao\$\$'
+    r'\$\$/compensacao\$\$'
     t.lexer.pop_state()
     return t
 

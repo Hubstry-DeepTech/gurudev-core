@@ -1,0 +1,59 @@
+warning: in the working copy of '.github/dependabot.yml', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.github/dependabot.yml b/.github/dependabot.yml[m
+[1mindex ca0af14..a1b4201 100644[m
+[1m--- a/.github/dependabot.yml[m
+[1m+++ b/.github/dependabot.yml[m
+[36m@@ -1,26 +1,9 @@[m
+[31m-version: 2[m
+[32m+[m[32m﻿version: 2[m
+ updates:[m
+   - package-ecosystem: "pip"[m
+     directory: "/"[m
+     schedule:[m
+       interval: "weekly"[m
+[31m-[m
+[31m-  - package-ecosystem: "npm"[m
+[31m-    directory: "/"[m
+[31m-    schedule:[m
+[31m-      interval: "weekly"[m
+[31m-[m
+[31m-  - package-ecosystem: "gradle"[m
+[31m-    directory: "/"[m
+[31m-    schedule:[m
+[31m-      interval: "weekly"[m
+[31m-[m
+[31m-  - package-ecosystem: "maven"[m
+[31m-    directory: "/"[m
+[31m-    schedule:[m
+[31m-      interval: "weekly"[m
+[31m-[m
+[31m-  - package-ecosystem: "cargo"[m
+[31m-    directory: "/"[m
+[31m-    schedule:[m
+[31m-      interval: "weekly"[m
+[32m+[m[32m    ignore:[m
+[32m+[m[32m      - dependency-name: "setuptools"[m
+[32m+[m[32m        versions: [">=70.0.0"][m
+[1mdiff --git a/pyproject.toml b/pyproject.toml[m
+[1mindex 169043f..6be05f5 100644[m
+[1m--- a/pyproject.toml[m
+[1m+++ b/pyproject.toml[m
+[36m@@ -1,15 +1,15 @@[m
+[31m-[build-system][m
+[32m+[m[32m﻿[build-system][m
+ requires = ["setuptools==69.5.1", "wheel"][m
+ build-backend = "setuptools.build_meta"[m
+ [m
+ [project][m
+ name = "gurudev-core"[m
+ version = "1.2.0a0"[m
+[31m-description = "GuruDev — Linguagem Ontológica de Programação"[m
+[32m+[m[32mdescription = "GuruDev â€” Linguagem OntolÃ³gica de ProgramaÃ§Ã£o"[m
+ readme = "README.md"[m
+ license = {text = "Business Source License 1.1"}[m
+ authors = [[m
+[31m-    {name = "Guilherme Gonçalves Machado", email = "guilhermemachado.ceo@hubstry.dev"}[m
+[32m+[m[32m    {name = "Guilherme GonÃ§alves Machado", email = "guilhermemachado.ceo@hubstry.dev"}[m
+ ][m
+ keywords = ["programming language", "ontological", "gurudev", "interpreter", "compiler", "quantum", "hexarelational"][m
+ classifiers = [[m
