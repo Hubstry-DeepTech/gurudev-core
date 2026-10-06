@@ -11,6 +11,8 @@ import json
 import math
 from typing import Any, Dict
 
+from .instancia import Instancia
+
 
 def _eh_instancia(valor) -> bool:
     """Instancia de classe GuruDev (dict com __classe__)."""
@@ -55,6 +57,8 @@ class Builtins:
             return "String"
         if isinstance(valor, list):
             return "Array"
+        if isinstance(valor, Instancia):
+            return valor.classe
         if _eh_instancia(valor):
             return valor["__classe__"]
         if isinstance(valor, dict):
