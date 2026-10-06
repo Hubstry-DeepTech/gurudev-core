@@ -67,3 +67,7 @@ test_content.txt
 
 # === Backup directory ===
 _backup/
+
+# === Copias de trabalho ===
+*.bak
+*.bak[0-9]*
