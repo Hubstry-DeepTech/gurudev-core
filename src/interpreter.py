@@ -3,6 +3,9 @@ import copy
 import math
 import builtins
 from .ast_nodes import *
+from .nativas import Builtins, StringMethods, ArrayMethods
+
+NATIVAS = Builtins.registro()
 
 
 class GuruDevError(Exception):
@@ -58,6 +61,13 @@ class Ambiente:
         self.vars[nome] = valor
         if freeze:
             self.frozen.add(nome)
+
+    def get_func(self, nome):
+        if nome in self.funcs:
+            return self.funcs[nome]
+        if self.pai:
+            return self.pai.get_func(nome)
+        return None
 
     def has(self, nome):
         if nome in self.vars:
@@ -336,16 +346,18 @@ class Interpreter:
         caso = n.caso_gramatical
         if caso == "VOC":
             self.call_log.append(n.nome)
-        fn = self.env.funcs.get(n.nome)
+        fn = self.env.get_func(n.nome)
         if fn is None:
+            nativa = NATIVAS.get(n.nome)
+            if callable(nativa):
+                return nativa(*[self._e(a) for a in n.argumentos])
             raise GuruDevError(f"funcao '{n.nome}' indefinida")
         args = [self._e(a) for a in n.argumentos]
         if caso == "INS":
             call_env = Ambiente()
         else:
             call_env = Ambiente(pai=self.env)
-        for p, a in zip(fn.parametros, args):
-            call_env.decl(p.nome, a)
+        self._ligar_parametros(fn, args, call_env)
         old = self.env
         self.env = call_env
         try:
@@ -360,8 +372,21 @@ class Interpreter:
             self.env = old
         return None
 
+    def _ligar_parametros(self, fn, args, call_env):
+        """Liga argumentos; parametros ausentes recebem o valor padrao."""
+        for i, p in enumerate(fn.parametros):
+            if i < len(args):
+                call_env.decl(p.nome, args[i])
+            elif getattr(p, "valor_padrao", None) is not None:
+                call_env.decl(p.nome, self._e(p.valor_padrao))
+            else:
+                call_env.decl(p.nome, None)
+
     def _x_ChamadaMetodo(self, n):
-        obj = self.env.get(n.objeto)
+        if isinstance(n.objeto, Node):
+            obj = self._e(n.objeto)
+        else:
+            obj = self.env.get(n.objeto)
         args = [self._e(a) for a in n.argumentos]
         if isinstance(obj, dict):
             fn = obj.get(n.metodo)
@@ -381,6 +406,10 @@ class Interpreter:
                 return None
             elif callable(fn):
                 return fn(*args)
+        elif isinstance(obj, str) and n.metodo in StringMethods._METHODS:
+            return StringMethods.dispatch(obj, n.metodo, args)
+        elif isinstance(obj, list) and n.metodo in ArrayMethods._METHODS:
+            return ArrayMethods.dispatch(obj, n.metodo, args)
         else:
             method = getattr(obj, n.metodo, None)
             if callable(method):
@@ -398,6 +427,8 @@ class Interpreter:
         if self._e(n.condicao):
             for s in n.corpo_verdadeiro:
                 self._x(s)
+        elif isinstance(n.corpo_falso, Se):
+            self._x(n.corpo_falso)
         elif n.corpo_falso:
             for s in n.corpo_falso:
                 self._x(s)
@@ -525,6 +556,9 @@ class Interpreter:
     def _x_Literal(self, n):
         return n.valor
 
+    def _x_ArrayLiteral(self, n):
+        return [self._e(e) for e in n.elementos]
+
     def _x_Identificador(self, n):
         return self.env.get(n.nome)
 
@@ -532,7 +566,10 @@ class Interpreter:
         left = self._e(n.esquerda)
         right = self._e(n.direita)
         op = n.operador
-        if op == "+": return left + right
+        if op == "+":
+            if isinstance(left, str) or isinstance(right, str):
+                return Builtins._repr(left) + Builtins._repr(right)
+            return left + right
         if op == "-": return left - right
         if op == "*": return left * right
         if op == "/": return left / right
