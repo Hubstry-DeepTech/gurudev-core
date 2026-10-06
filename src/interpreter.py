@@ -333,6 +333,19 @@ class Interpreter:
         self.env.decl(n.nome, class_ns)
         self.env.classes[n.nome] = class_ns
 
+    def _x_PropAtribuicao(self, n):
+        obj = self.env.get(n.objeto)
+        val = self._e(n.valor)
+        if isinstance(obj, Instancia):
+            obj.atributos[n.propriedade] = val
+            return
+        if isinstance(obj, dict):
+            obj[n.propriedade] = val
+            return
+        raise GuruDevError(
+            f"nao e possivel atribuir '{n.propriedade}' em '{n.objeto}'"
+        )
+
     def _x_Atribuicao(self, n):
         val = self._e(n.valor)
         caso = n.caso_gramatical
@@ -400,7 +413,32 @@ class Interpreter:
         atributos = {}
         for decl in classe.get("__atributos__", []):
             atributos[decl.nome] = self._e(decl.valor) if decl.valor else None
-        return Instancia(classe["__name__"], classe, atributos)
+        inst = Instancia(classe["__name__"], classe, atributos)
+        construtor = inst.metodo("iniciar")
+        if construtor is not None:
+            self._chamar_metodo(inst, construtor, args)
+        return inst
+
+    def _chamar_metodo(self, inst, fn, args):
+        """Executa um metodo com this/isto ligados a instancia.
+
+        'isto' e apenas o nome em portugues para o mesmo objeto: ambos
+        os nomes apontam para a mesma Instancia.
+        """
+        call_env = Ambiente(pai=self.env)
+        call_env.decl("this", inst)
+        call_env.decl("isto", inst)
+        self._ligar_parametros(fn, args, call_env)
+        old = self.env
+        self.env = call_env
+        try:
+            for stmt in fn.corpo:
+                self._x(stmt)
+        except ReturnSignal as r:
+            return r.value
+        finally:
+            self.env = old
+        return None
 
     def _ligar_parametros(self, fn, args, call_env):
         """Liga argumentos; parametros ausentes recebem o valor padrao."""
@@ -418,6 +456,13 @@ class Interpreter:
         else:
             obj = self.env.get(n.objeto)
         args = [self._e(a) for a in n.argumentos]
+        if isinstance(obj, Instancia):
+            fn = obj.metodo(n.metodo)
+            if fn is None:
+                raise GuruDevError(
+                    f"metodo '{n.metodo}' nao existe na classe '{obj.classe}'"
+                )
+            return self._chamar_metodo(obj, fn, args)
         if isinstance(obj, dict):
             fn = obj.get(n.metodo)
             if isinstance(fn, DefinicaoFuncao):
@@ -623,7 +668,16 @@ class Interpreter:
         raise GuruDevError(f"operador unario desconhecido: {n.operador}")
 
     def _x_AcessoPropriedade(self, n):
-        obj = self.env.get(n.objeto)
+        if isinstance(n.objeto, Node):
+            obj = self._e(n.objeto)
+        else:
+            obj = self.env.get(n.objeto)
+        if isinstance(obj, Instancia):
+            if n.propriedade not in obj.atributos:
+                raise GuruDevError(
+                    f"atributo '{n.propriedade}' nao existe em '{obj.classe}'"
+                )
+            return obj.atributos[n.propriedade]
         if isinstance(obj, dict):
             return obj.get(n.propriedade)
         return getattr(obj, n.propriedade, None)
