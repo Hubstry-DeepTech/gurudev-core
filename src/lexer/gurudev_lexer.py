@@ -687,12 +687,12 @@ def t_wasmcode_error(t):
 
 t_cppcode_ignore = ' \t'
 def t_cppcode_FOREIGN_CODE_CONTENT(t):
-    r'[\s\S]+?(?=\?/c++\?)'
+    r'[\s\S]+?(?=\?/c\+\+\?)'
     t.type = 'FOREIGN_CODE_CONTENT'
     t.lexer.lineno += t.value.count('\n')
     return t
 def t_cppcode_CPP_END(t):
-    r'\?/c++\?'
+    r'\?/c\+\+\?'
     t.lexer.pop_state()
     return t
 def t_cppcode_error(t):
