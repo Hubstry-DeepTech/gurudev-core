@@ -14,20 +14,26 @@ import pytest
 RAIZ = Path(__file__).resolve().parent.parent
 EXEMPLOS = sorted((RAIZ / "examples").glob("*.guru"))
 
-# Exemplos que dependem de recursos ainda nao reimplementados no parser
-# atual (instanciacao de classes, encadeamento de metodos, literal de
-# objeto). Ficam registrados aqui ate a reimplementacao.
+# Exemplos que dependem de recursos ainda nao reimplementados
+# (encadeamento de metodos, literal de objeto). Ficam registrados aqui
+# ate a reimplementacao.
 PENDENTES = {
-    "calc.guru": "instanciacao de classes e atribuicao a this.atributo",
-    "demo_interpreter.guru": "literal de objeto ({}) e instanciacao de classes",
+    "demo_interpreter.guru": "literal de objeto ({})",
     "hello.guru": "encadeamento de metodos (texto.trim().maiusculo())",
 }
 
 
-@pytest.mark.parametrize("exemplo", EXEMPLOS, ids=lambda p: p.name)
+def _casos():
+    for exemplo in EXEMPLOS:
+        motivo = PENDENTES.get(exemplo.name)
+        marcas = [pytest.mark.xfail(reason=motivo, strict=True)] if motivo else []
+        yield pytest.param(exemplo, id=exemplo.name, marks=marcas)
+
+
+# strict=True: se um exemplo pendente passar a funcionar, o teste falha
+# e obriga a remove-lo de PENDENTES, mantendo a lista fiel ao codigo.
+@pytest.mark.parametrize("exemplo", list(_casos()))
 def test_exemplo_executa(exemplo):
-    if exemplo.name in PENDENTES:
-        pytest.xfail(PENDENTES[exemplo.name])
     resultado = subprocess.run(
         [sys.executable, "-m", "src.cli", "run", str(exemplo)],
         cwd=RAIZ,

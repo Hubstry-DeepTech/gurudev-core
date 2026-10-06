@@ -51,3 +51,80 @@ def test_instancias_sao_independentes():
 def test_classe_inexistente_continua_erro():
     with pytest.raises(GuruDevError):
         _run("Empresa e = Fantasma();")
+
+
+# ------------------------------------------------------------------
+# 2. Estado da instancia / this
+# ------------------------------------------------------------------
+
+EMPRESA_COM_CONSTRUTOR = """
+NOM classe Empresa {
+    String nome;
+    String sede;
+    NOM funcao iniciar(String n, String s) {
+        this.nome = n;
+        this.sede = s;
+    }
+    NOM funcao mudar_sede(String s) {
+        isto.sede = s;
+    }
+    NOM funcao descricao() -> String {
+        return this.nome + " (" + this.sede + ")";
+    }
+}
+"""
+
+
+def test_ciclo_completo_iniciar_this_leitura(capsys):
+    # Empresa(...) -> iniciar(...) -> this.sede = "Brasil" -> e.sede
+    _run(
+        EMPRESA_COM_CONSTRUTOR
+        + 'Empresa e = Empresa("Acme", "Brasil"); escrever(e.sede);'
+    )
+    assert capsys.readouterr().out.strip() == "Brasil"
+
+
+def test_metodo_le_estado_via_this(capsys):
+    _run(
+        EMPRESA_COM_CONSTRUTOR
+        + 'Empresa e = Empresa("Acme", "Brasil"); escrever(e.descricao());'
+    )
+    assert capsys.readouterr().out.strip() == "Acme (Brasil)"
+
+
+def test_isto_e_alias_de_this_no_mesmo_objeto(capsys):
+    _run(
+        EMPRESA_COM_CONSTRUTOR
+        + 'Empresa e = Empresa("Acme", "Brasil"); e.mudar_sede("Portugal");'
+        + " escrever(e.descricao());"
+    )
+    assert capsys.readouterr().out.strip() == "Acme (Portugal)"
+
+
+def test_atribuicao_externa_a_propriedade(capsys):
+    _run(
+        EMPRESA_COM_CONSTRUTOR
+        + 'Empresa e = Empresa("Acme", "Brasil"); e.sede = "Chile"; escrever(e.sede);'
+    )
+    assert capsys.readouterr().out.strip() == "Chile"
+
+
+def test_estado_nao_vaza_entre_instancias(capsys):
+    _run(
+        EMPRESA_COM_CONSTRUTOR
+        + 'Empresa a = Empresa("A", "Brasil"); Empresa b = Empresa("B", "Chile");'
+        + " escrever(a.sede, b.sede);"
+    )
+    assert capsys.readouterr().out.strip() == "Brasil Chile"
+
+
+def test_atributo_inexistente_e_erro():
+    with pytest.raises(GuruDevError):
+        _run(
+            EMPRESA_COM_CONSTRUTOR + 'Empresa e = Empresa("A", "B"); escrever(e.cnpj);'
+        )
+
+
+def test_metodo_inexistente_e_erro():
+    with pytest.raises(GuruDevError):
+        _run(EMPRESA_COM_CONSTRUTOR + 'Empresa e = Empresa("A", "B"); e.voar();')
