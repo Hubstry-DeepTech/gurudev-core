@@ -102,12 +102,14 @@ GuruDev foi projetada com foco em quatro verticais estratégicas:
 - **Funções nativas** — `escrever()`, `imprimir()`, `tipo_de()`, `hash()`, `tamanho()`, `converter_int()`, `converter_float()`, `converter_string()`, `converter_bool()`, `ler_entrada()`, `para_json()`, `de_json()`, `randint()`, `raiz()`, `absoluto()`, `arredondar()`, `seno()`, `cosseno()`, `tangente()`, `logaritmo()`, `potencia()`, `maximo()`, `minimo()`
 - **Métodos String** — `tamanho()`, `maiusculo()`, `minusculo()`, `dividir()`, `substring()`, `trim()`, `contem()`, `substituir()`, `indice()`, `repetir()`, `vazio()`, `maiusculo_primeiro()`, `minusculo_primeiro()`, `inverter()`, `comeca_com()`, `termina_com()`, `ultimo_indice()`
 - **Métodos Array** — `tamanho()`, `adicionar()`, `remover_ultimo()`, `contem()`, `ordenar()`, `juntar()`, `remover()`, `inserir()`, `inverter()`, `vazio()`, `fatia()`, `primeiro()`, `ultimo()`, `indice()`, `limpar()`, `copiar()`
+- **Classes** — instanciação, construtor `iniciar()`, `this`/`isto`, leitura e atribuição de propriedades, contrato de tipos dos atributos (`String`, `Int`, `Float`, `Bool`, `Array`)
 
 ### Em reimplementação
 
 Recursos presentes em versões anteriores e ainda não reincorporados ao parser/interpretador atual (os exemplos que dependem deles estão marcados como pendentes em `tests/test_examples.py`):
 
-- **Classes** — instanciação, `isto`/`this`, `iniciar()`, atribuição a propriedades, herança
+- **Herança e interfaces de classe** — `extends`/`implements` são reconhecidos, mas ainda não resolvidos
+- **Tipos de usuário em atributos** — atributo cujo tipo é outra classe ainda não é verificado
 - **Encadeamento de métodos** — `texto.trim().maiusculo()`
 - **Literal de objeto** — `{}`
 - **`mapear()` / `filtrar()`** com funções GuruDev como argumento
