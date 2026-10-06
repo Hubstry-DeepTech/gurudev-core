@@ -8,6 +8,17 @@ from .instancia import Instancia
 
 NATIVAS = Builtins.registro()
 
+# Contrato de tipos dos atributos de classe. Apenas os tipos primitivos
+# abaixo sao verificados; tipos de usuario (outra classe) ainda nao.
+# bool e excluido de Int/Float porque, em Python, bool herda de int.
+_TIPOS_VERIFICADOS = {
+    "String": lambda v: isinstance(v, str),
+    "Int": lambda v: isinstance(v, int) and not isinstance(v, bool),
+    "Float": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool),
+    "Bool": lambda v: isinstance(v, bool),
+    "Array": lambda v: isinstance(v, list),
+}
+
 
 class GuruDevError(Exception):
     pass
@@ -337,6 +348,8 @@ class Interpreter:
         obj = self.env.get(n.objeto)
         val = self._e(n.valor)
         if isinstance(obj, Instancia):
+            tipo = self._tipo_do_atributo(obj, n.propriedade)
+            self._verificar_tipo(obj.classe, tipo, n.propriedade, val)
             obj.atributos[n.propriedade] = val
             return
         if isinstance(obj, dict):
@@ -412,12 +425,36 @@ class Interpreter:
         """Cria a Instancia com os atributos declarados no estado inicial."""
         atributos = {}
         for decl in classe.get("__atributos__", []):
-            atributos[decl.nome] = self._e(decl.valor) if decl.valor else None
+            valor = self._e(decl.valor) if decl.valor else None
+            self._verificar_tipo(classe["__name__"], decl.tipo, decl.nome, valor)
+            atributos[decl.nome] = valor
         inst = Instancia(classe["__name__"], classe, atributos)
         construtor = inst.metodo("iniciar")
         if construtor is not None:
             self._chamar_metodo(inst, construtor, args)
         return inst
+
+    @staticmethod
+    def _verificar_tipo(nome_classe, tipo, atributo, valor):
+        """Rejeita valor incompativel com o tipo declarado do atributo.
+
+        nulo e aceito (atributo ainda nao preenchido); tipos fora de
+        _TIPOS_VERIFICADOS nao sao verificados nesta etapa.
+        """
+        if valor is None:
+            return
+        verificador = _TIPOS_VERIFICADOS.get(tipo)
+        if verificador is not None and not verificador(valor):
+            raise GuruDevError(
+                f"tipo incompativel: {nome_classe}.{atributo} e {tipo}, "
+                f"recebeu {Builtins.tipo_de(valor)}"
+            )
+
+    def _tipo_do_atributo(self, inst, atributo):
+        for decl in inst.definicao.get("__atributos__", []):
+            if decl.nome == atributo:
+                return decl.tipo
+        return None
 
     def _chamar_metodo(self, inst, fn, args):
         """Executa um metodo com this/isto ligados a instancia.
