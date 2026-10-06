@@ -4,6 +4,7 @@ import math
 import builtins
 from .ast_nodes import *
 from .nativas import Builtins, StringMethods, ArrayMethods
+from .instancia import Instancia
 
 NATIVAS = Builtins.registro()
 
@@ -319,9 +320,16 @@ class Interpreter:
 
     def _x_DefinicaoClasse(self, n):
         class_ns = {"__name__": n.nome, "__super__": n.superclasse}
+        metodos = {}
+        atributos = []
         for membro in n.membros:
             if isinstance(membro, DefinicaoFuncao):
                 class_ns[membro.nome] = membro
+                metodos[membro.nome] = membro
+            elif isinstance(membro, DeclaracaoVariavel):
+                atributos.append(membro)
+        class_ns["__metodos__"] = metodos
+        class_ns["__atributos__"] = atributos
         self.env.decl(n.nome, class_ns)
         self.env.classes[n.nome] = class_ns
 
@@ -348,6 +356,9 @@ class Interpreter:
             self.call_log.append(n.nome)
         fn = self.env.get_func(n.nome)
         if fn is None:
+            classe = self._buscar_classe(n.nome)
+            if classe is not None:
+                return self._instanciar(classe, [self._e(a) for a in n.argumentos])
             nativa = NATIVAS.get(n.nome)
             if callable(nativa):
                 return nativa(*[self._e(a) for a in n.argumentos])
@@ -371,6 +382,25 @@ class Interpreter:
         finally:
             self.env = old
         return None
+
+    # ================================================================
+    # CLASSES / INSTANCIAS
+    # ================================================================
+
+    def _buscar_classe(self, nome):
+        amb = self.env
+        while amb is not None:
+            if nome in amb.classes:
+                return amb.classes[nome]
+            amb = amb.pai
+        return None
+
+    def _instanciar(self, classe, args):
+        """Cria a Instancia com os atributos declarados no estado inicial."""
+        atributos = {}
+        for decl in classe.get("__atributos__", []):
+            atributos[decl.nome] = self._e(decl.valor) if decl.valor else None
+        return Instancia(classe["__name__"], classe, atributos)
 
     def _ligar_parametros(self, fn, args, call_env):
         """Liga argumentos; parametros ausentes recebem o valor padrao."""
