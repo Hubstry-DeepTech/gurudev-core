@@ -22,7 +22,7 @@ cd gurudev-core
 pip install -e .
 ```
 
-Requires Python 3.8+ and PLY (Python Lex-Yacc).
+Requires Python 3.10+ and PLY (Python Lex-Yacc).
 
 ---
 
