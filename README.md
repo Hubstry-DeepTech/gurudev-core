@@ -90,18 +90,28 @@ GuruDev foi projetada com foco em quatro verticais estratégicas:
 
 ---
 
-## Estado Atual do Projeto (Maio 2026)
+## Estado Atual do Projeto (Outubro 2026)
 
 ### Funcionalidades Implementadas
 
-- **327 testes passando** (pytest) — suite completa de testes automatizados
+- **Testes automatizados** (pytest) — unitários e de execução de todos os exemplos (`tests/test_examples.py`)
 - **Lexer (PLY)** — máquina de estados com 9+ estados léxicos dedicados
 - **Parser (PLY)** — gramática completa incluindo blocos ontológicos
-- **Interpretador** — execução completa com motor ontológico ativo (tree-walker)
+- **Interpretador** — tree-walker com motor ontológico ativo
 - **CLI** — `gurudev run`, `gurudev test`
-- **Métodos String** (18) — `tamanho()`, `maiusculo()`, `minusculo()`, `contem()`, `substituir()`, `fatiar()`, `dividir()`, `remover_espacos()`, `inverter()`, `repetir()`, `comeca_com()`, `termina_com()`, `indice_de()`, `ultima_posicao()`, `para_maiusculo()`, `para_minusculo()`, `eh_numero()`, `eh_vazio()`
-- **Métodos Array** (17) — `adicionar()`, `remover()`, `tamanho()`, `contem()`, `indice_de()`, `ordenar()`, `inverter()`, `fatiar()`, `juntar()`, `copiar()`, `limpar()`, `primeiro()`, `ultimo()`, `mapa()`, `filtrar()`, `reduzir()`, `plano()`
-- **Classes** — `isto`/`this`, `iniciar()`, propriedades, métodos, herança
+- **Funções nativas** — `escrever()`, `imprimir()`, `tipo_de()`, `hash()`, `tamanho()`, `converter_int()`, `converter_float()`, `converter_string()`, `converter_bool()`, `ler_entrada()`, `para_json()`, `de_json()`, `randint()`, `raiz()`, `absoluto()`, `arredondar()`, `seno()`, `cosseno()`, `tangente()`, `logaritmo()`, `potencia()`, `maximo()`, `minimo()`
+- **Métodos String** — `tamanho()`, `maiusculo()`, `minusculo()`, `dividir()`, `substring()`, `trim()`, `contem()`, `substituir()`, `indice()`, `repetir()`, `vazio()`, `maiusculo_primeiro()`, `minusculo_primeiro()`, `inverter()`, `comeca_com()`, `termina_com()`, `ultimo_indice()`
+- **Métodos Array** — `tamanho()`, `adicionar()`, `remover_ultimo()`, `contem()`, `ordenar()`, `juntar()`, `remover()`, `inserir()`, `inverter()`, `vazio()`, `fatia()`, `primeiro()`, `ultimo()`, `indice()`, `limpar()`, `copiar()`
+
+### Em reimplementação
+
+Recursos presentes em versões anteriores e ainda não reincorporados ao parser/interpretador atual (os exemplos que dependem deles estão marcados como pendentes em `tests/test_examples.py`):
+
+- **Classes** — instanciação, `isto`/`this`, `iniciar()`, atribuição a propriedades, herança
+- **Encadeamento de métodos** — `texto.trim().maiusculo()`
+- **Literal de objeto** — `{}`
+- **`mapear()` / `filtrar()`** com funções GuruDev como argumento
+
 - **Controle de Fluxo** — `se`/`senao_se`/`senao`, `enquanto`, `para`, `quebra`/`continua`
 - **Funções** — definição, chamada, retorno, recursão, parâmetros opcionais
 - **Teoria Geral da Função** — Tesnière (valência), Bühler (classificação semântica), Wilmet (relação instituída)
