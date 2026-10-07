@@ -77,7 +77,7 @@ GuruDev não é apenas uma linguagem de programação. É uma **plataforma semâ
 
 Essa ambição se traduz em três focos estratégicos:
 
-- **IA Geral** — a máquina compreende *intenção*, não apenas instruções, operando em múltiplos níveis de interpretação semântica
+- **IA verificável** — representar, de forma determinística, as regras e entidades sobre as quais sistemas de IA operam, registrando sob qual nível de interpretação cada leitura é feita
 - **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal
 - **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código
 
@@ -118,7 +118,7 @@ O **DISPATCH_ON_HERMENEUTICS** (§4.3 do IMIP) define 7 níveis de interpretaç�
 
 ### 3. π√f(A) — Álgebra Hexarrelacional (GuruMatrix)
 
-A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — a estrutura de dados central que dá poder à máquina de capturar nível semântico. Este trabalho também explora a interseção com computação quântica.
+A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — proposta como estrutura de representação do estado semântico. Na implementação atual, o vetor de significância é calculado a partir de rótulos categóricos; sua evolução para estados e operadores semânticos verificáveis está em desenho. Este trabalho também explora a interseção com computação quântica.
 
 — **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
 — **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
@@ -145,7 +145,7 @@ GuruDev foi projetada com foco em quatro verticais estratégicas:
 - **Segurança Cibernética** — Blocos ontológicos com contenção constitucional proporcionam segurança em nível semântico, impedindo interpretações não autorizadas de código.
 - **Games** — A multimodalidade da linguagem e a capacidade de redefinir comportamentos via sobrescrita permitem criar sistemas de regras dinâmicos e adaptáveis para engines de jogos.
 - **Interoperabilidade entre Linguagens** — Subescritas permitem executar Python, JavaScript, Rust e outras linguagens dentro de blocos ontológicos, com rastreamento semântico via GuruMatrix.
-- **IA Geral** — A integração nativa com o DISPATCH_ON_HERMENEUTICS permite que modelos de IA operem em múltiplos níveis de interpretação, capturando semântica e não apenas sintaxe.
+- **IA verificável** — Regras e entidades declaradas na linguagem servem de referência para verificar, com evidência rastreável, saídas de modelos de IA; o DISPATCH_ON_HERMENEUTICS registra sob qual nível de interpretação cada bloco é executado.
 
 ---
 
@@ -440,7 +440,6 @@ print(pair['rho_dominante'])  # rho6
 - **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
 - **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
 - **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
-- **Artigo do Processador GuruDev:** [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)
 
 ---
 
