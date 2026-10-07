@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistente GuruDev</title>
+<style>
+  :root {
+    --fundo: #f6f5f1; --papel: #ffffff; --tinta: #1d1d1b; --suave: #6b6a65;
+    --linha: #dddbd3; --acento: #1f5f8b; --ok: #2e7d4f; --alerta: #a4471c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #141413; --papel: #1e1e1c; --tinta: #ecebe6; --suave: #a3a29b;
+      --linha: #34332f; --acento: #6aa9d6; --ok: #6cc08f; --alerta: #e08a5f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fundo); color: var(--tinta);
+         font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .sub { color: var(--suave); margin: 0 0 24px; }
+  textarea { width: 100%; min-height: 84px; padding: 12px; font: inherit;
+             border: 1px solid var(--linha); border-radius: 8px;
+             background: var(--papel); color: var(--tinta); resize: vertical; }
+  .acoes { display: flex; gap: 8px; align-items: center; margin: 8px 0 16px; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; }
+  #enviar { background: var(--acento); color: #fff; border: 0; padding: 8px 18px; }
+  #enviar:disabled { opacity: .5; cursor: wait; }
+  .exemplos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+  .exemplos button { background: var(--papel); color: var(--tinta);
+                     border: 1px solid var(--linha); padding: 4px 10px;
+                     font-size: .85rem; }
+  section { background: var(--papel); border: 1px solid var(--linha);
+            border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+  section h2 { font-size: .8rem; letter-spacing: .06em; text-transform: uppercase;
+               color: var(--suave); margin: 0 0 8px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word;
+        font: 14px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+  .texto { white-space: pre-wrap; }
+  .ok { color: var(--ok); } .alerta { color: var(--alerta); }
+  ul { margin: 0; padding-left: 18px; }
+  .estado { font-size: .75rem; border: 1px solid var(--linha); border-radius: 99px;
+            padding: 0 8px; margin-left: 6px; color: var(--suave); }
+  [hidden] { display: none !important; }
+  footer { color: var(--suave); font-size: .8rem; margin-top: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Assistente GuruDev</h1>
+  <p class="sub">Pergunte sobre a linguagem GuruDev. Respostas baseadas na
+    documentação, com fontes e estado de implementação; o código gerado é
+    executado no interpretador real.</p>
+
+  <textarea id="pergunta" maxlength="500"
+            placeholder="Ex.: Escreva um Olá Mundo em GuruDev"></textarea>
+  <div class="acoes">
+    <button id="enviar">Perguntar</button>
+    <span id="status" class="sub" style="margin:0"></span>
+  </div>
+  <div class="exemplos" id="exemplos"></div>
+
+  <section id="r-texto" hidden><h2>Resposta</h2><div class="texto"></div></section>
+  <section id="r-exec" hidden><h2>Execução</h2><pre></pre></section>
+  <section id="r-pol" hidden><h2>Política de segurança</h2>
+    <div class="alerta"></div></section>
+  <section id="r-fontes" hidden><h2>Fontes consultadas</h2><ul></ul></section>
+
+  <footer>Demonstração técnica. A IA gera; as regras de segurança e o
+    interpretador decidem o que executa.</footer>
+</main>
+<script>
+const EXEMPLOS = [
+  "O que é a GuruDev?",
+  "Escreva um Olá Mundo em GuruDev",
+  "Calcule o fatorial de 5 em GuruDev",
+  "Crie uma classe Pessoa com nome e idade",
+  "O que é a GuruMatrix 5D?",
+  "Mostre um bloco ontológico em GuruDev",
+  "Posso usar texto.trim().maiusculo() em GuruDev?",
+  "Escreva um programa GuruDev com um trecho em Python e execute",
+];
+const $ = (s) => document.querySelector(s);
+const caixa = $("#pergunta"), botao = $("#enviar"), status = $("#status");
+
+for (const e of EXEMPLOS) {
+  const b = document.createElement("button");
+  b.textContent = e;
+  b.onclick = () => { caixa.value = e; perguntar(); };
+  $("#exemplos").appendChild(b);
+}
+
+function mostrar(id, visivel) { $(id).hidden = !visivel; }
+
+async function perguntar() {
+  const pergunta = caixa.value.trim();
+  if (!pergunta) return;
+  botao.disabled = true;
+  status.textContent = "Consultando…";
+  ["#r-texto", "#r-exec", "#r-pol", "#r-fontes"].forEach((i) => mostrar(i, false));
+  try {
+    const r = await fetch("/api/perguntar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pergunta }),
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.erro || "erro");
+    $("#r-texto .texto").textContent = d.texto;
+    mostrar("#r-texto", true);
+    if (d.execucao) {
+      const pre = $("#r-exec pre");
+      pre.textContent = d.execucao.ok
+        ? d.execucao.saida
+        : "Falha na execução:\n" + (d.execucao.erro || "");
+      pre.className = d.execucao.ok ? "ok" : "alerta";
+      mostrar("#r-exec", true);
+    }
+    if (d.politica) {
+      $("#r-pol div").textContent = d.politica.regra + ": " + d.politica.motivo;
+      mostrar("#r-pol", true);
+    }
+    const ul = $("#r-fontes ul");
+    ul.replaceChildren();
+    for (const f of d.fontes || []) {
+      const li = document.createElement("li");
+      li.textContent = `[${f.id}] ${f.fonte} — ${f.secao}`;
+      const s = document.createElement("span");
+      s.className = "estado";
+      s.textContent = f.estado;
+      li.appendChild(s);
+      ul.appendChild(li);
+    }
+    mostrar("#r-fontes", (d.fontes || []).length > 0);
+    status.textContent = `Respondido em ${d.duracao} s`;
+  } catch (e) {
+    status.textContent = "Erro: " + e.message;
+  } finally {
+    botao.disabled = false;
+  }
+}
+botao.onclick = perguntar;
+caixa.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) perguntar();
+});
+</script>
+</body>
+</html>
