@@ -21,5 +21,4 @@ for (Int x : nums) { escrever(x); }
 
 String texto = "  GuruDev  ";
 escrever("Trim:", texto.trim());
-String limpo = texto.trim();
-escrever("Maiusculo:", limpo.maiusculo());
+escrever("Maiusculo:", texto.trim().maiusculo());
