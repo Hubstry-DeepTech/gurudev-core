@@ -69,7 +69,7 @@ A Hubstry Deep Tech é uma startup pré-seed sediada no Rio de Janeiro.
 
 GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma de programação **multimodal e semântico**, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.
 
-A ideia central é usar GuruDev com IA para que a máquina capture nível semântico — transcendendo a execução puramente sintática e alcançando compreensão ontológica do código.
+A ideia central é tornar o significado explícito no próprio código: entidades, regras e contexto de interpretação passam a ser representados e verificados pela linguagem, em vez de ficarem implícitos para a máquina.
 
 ### Uma Plataforma Semiótica para a Era Cyborg
 
@@ -81,22 +81,24 @@ Essa ambição se traduz em três focos estratégicos:
 - **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal
 - **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código
 
-Os **casos gramaticais** (NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL) não são complexidade por complexidade — são **marcadores semânticos universais** que permitem expressar intenção no código. Cada caso codifica uma relação ontológica fundamental (substância, quantidade, qualidade, relação, lugar, tempo, ação...), seguindo as categorias aristotélicas que permeiam toda a fundamentação teórica da GuruDev.
+Os **casos gramaticais** (NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL) não são complexidade por complexidade — são **marcadores semânticos universais** que permitem expressar intenção no código. Cada caso codifica uma relação ontológica fundamental (substância, quantidade, qualidade, relação, lugar, tempo, ação...), com base nas categorias aristotélicas que orientam a fundamentação teórica da GuruDev; o mapeamento formal entre casos gramaticais e categorias está em desenho.
 
 ---
 
 ## Experimente GuruDev Agora!
 
-Curioso para ver a GuruDev em ação? Lançamos um **ambiente interativo online** onde você pode testar o código GuruDev nativamente e visualizar a análise dos tokens em tempo real!
+A forma de experimentar a GuruDev hoje é localmente, em poucos minutos. Requer Python 3.10 ou superior.
 
-Este **GuruDev Interactive Lexer** (alimentado pelo nosso lexer aprimorado com máquina de estados `ply.lex`) é sua chance de explorar a primeira camada do nosso compilador e ver como a GuruDev processa sua sintaxe única, incluindo:
-- Casos gramaticais e anotações semânticas.
-- Estruturas de blocos GuruDev (`[bloco]`, `¡codigo!`).
-- Blocos de código multilíngues (`¿python?`, `¿javascript?`, `¿rust?`).
+```bash
+git clone https://github.com/Hubstry-DeepTech/gurudev-core.git
+cd gurudev-core
+python -m pip install -e .
+gurudev run examples/fluxo.guru
+```
 
-Clique no link abaixo e comece a experimentar:
+O último comando executa um programa de exemplo com controle de fluxo (`se`/`senao_se`/`senao`, laços e funções). Outros exemplos estão em [`examples/`](examples/), e a seção [Uso](#uso) lista os principais.
 
-[**GuruDev Interactive Lexer (IA Manus):**](https://dyh6i3cqzgoz.manus.space/)
+Um ambiente interativo no navegador está no roteiro de ferramentas, ainda sem data de publicação.
 
 ---
 
@@ -435,8 +437,7 @@ print(pair['rho_dominante'])  # rho6
 ## Links Oficiais
 
 - **Site Hubstry:** [www.hubstry.dev](https://www.hubstry.dev)
-- **Site GuruDev:** [gurudev-tech.site](https://gurudev-tech.site)
-- **Espelho GitHub Pages:** [marcabru-tech.github.io/gurudev-site](https://marcabru-tech.github.io/gurudev-site/)
+- **Site GuruDev:** [hubstry.dev/gurudev-site](https://hubstry.dev/gurudev-site/)
 - **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
 - **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
 - **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
