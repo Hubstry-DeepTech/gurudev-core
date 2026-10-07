@@ -6,6 +6,65 @@
 
 ---
 
+## Em uma frase
+
+**GuruDev é uma linguagem para representar regras, entidades e signos e verificar, com evidência rastreável, se saídas de sistemas de IA as respeitam.** O núcleo da linguagem funciona hoje; o validador semântico é o próximo marco.
+
+## Por que agora
+
+Sistemas de IA e agentes estão passando a operar com maior autonomia em fluxos que exigem justificativa, controle e rastreabilidade. Em contextos regulados, a resposta de um modelo não basta: é preciso indicar qual regra foi aplicada, sobre quais fatos e com que resultado. A GuruDev é desenvolvida para produzir esse registro de forma determinística, com a IA atuando como observadora do veredito, e não como sua autoridade.
+
+## Para quem
+
+| Público | O que ganha | Como se envolver |
+|---|---|---|
+| Investidores | Tese de infraestrutura de verificação semântica para IA, com maturidade declarada por camada e marcos verificáveis | Conversa sobre investimento pré-seed |
+| Executivos (C-level) | Auditabilidade de respostas de IA sobre regras do negócio e da regulação aplicável | Piloto ou implantação em um domínio delimitado |
+| Founders de startups | Camada de representação e validação semântica para produtos baseados em IA | Parceria de desenvolvimento ou integração |
+| Decisores de governo | Verificabilidade e rastreabilidade de sistemas de IA usados em políticas e serviços públicos | Pesquisa aplicada ou piloto institucional |
+
+## Estágio e maturidade
+
+Maturidade medida em TRL (Technology Readiness Level, escala de 1 a 9) **por camada; não é um TRL único do produto.**
+
+| Camada | TRL | Evidência |
+|---|---|---|
+| Núcleo da linguagem: lexer, parser, interpretador, classes e contrato de tipos | 4 | Validado em laboratório; suíte automatizada verde em Python 3.10, 3.11 e 3.12 |
+| Tese semântica: entidade, relação, regra e validador | 3 | Arquitetura definida em nota de desenho; validador em desenvolvimento |
+| Arquitetura semiótica: signo, contexto e operadores entre representações | 2 | Conceito formulado |
+
+## Próximos marcos
+
+1. **Regras declaradas na própria linguagem**, com verificação de pureza, aridade e tipos de parâmetros.
+2. **Validador determinístico:** para cada regra e instância, um status (válido, violação ou indeterminado) acompanhado da evidência utilizada.
+3. **Primeiro domínio regulatório** modelado a partir de fonte normativa identificável.
+4. **Benchmark pré-registrado:** as mesmas perguntas respondidas por IA sozinha e por IA apoiada pela GuruDev, com perguntas e critérios congelados antes da modelagem.
+
+## Modelo de negócio
+
+- **Licença:** BSL (Business Source License); uso não comercial livre, uso comercial mediante autorização.
+- **Pacotes de regras por domínio**, mantidos e atualizados por assinatura.
+- **Validador como serviço** (API) e instalação no ambiente do cliente.
+- **Implantação e consultoria** em domínios regulados.
+
+## Posicionamento
+
+A GuruDev atua na interseção de quatro categorias: verificação formal de saídas de IA, regras como código, camadas de representação semântica e governança e validação de agentes. O diferencial em desenvolvimento é a combinação de regras e evidência sobre regulação brasileira, em português, com status explícito de indeterminação e um modelo de signo que não se limita a texto.
+
+## Princípios de operação
+
+- **IA observadora, não autoridade:** a IA explica o veredito citando a evidência registrada, sem poder alterá-lo.
+- **Decisão humana:** autorização e responsabilidade humanas em todo o ciclo (human-in-the-loop).
+- **Afirmações proporcionais à maturidade:** hipóteses de produto são tratadas como hipóteses até serem medidas.
+
+## Como se envolver
+
+**Contato:** [guilhermemachado.ceo@hubstry.dev](mailto:guilhermemachado.ceo@hubstry.dev) · [hubstry.dev](https://www.hubstry.dev)
+
+A Hubstry Deep Tech é uma startup pré-seed sediada no Rio de Janeiro.
+
+---
+
 ## Visão
 
 GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma de programação **multimodal e semântico**, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.
@@ -18,7 +77,7 @@ GuruDev não é apenas uma linguagem de programação. É uma **plataforma semâ
 
 Essa ambição se traduz em três focos estratégicos:
 
-- **IA Geral** — a máquina compreende *intenção*, não apenas instruções, operando em múltiplos níveis de interpretação semântica
+- **IA verificável** — representar, de forma determinística, as regras e entidades sobre as quais sistemas de IA operam, registrando sob qual nível de interpretação cada leitura é feita
 - **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal
 - **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código
 
@@ -59,7 +118,7 @@ O **DISPATCH_ON_HERMENEUTICS** (§4.3 do IMIP) define 7 níveis de interpretaç�
 
 ### 3. π√f(A) — Álgebra Hexarrelacional (GuruMatrix)
 
-A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — a estrutura de dados central que dá poder à máquina de capturar nível semântico. Este trabalho também explora a interseção com computação quântica.
+A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — proposta como estrutura de representação do estado semântico. Na implementação atual, o vetor de significância é calculado a partir de rótulos categóricos; sua evolução para estados e operadores semânticos verificáveis está em desenho. Este trabalho também explora a interseção com computação quântica.
 
 — **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)
 — **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)
@@ -86,7 +145,7 @@ GuruDev foi projetada com foco em quatro verticais estratégicas:
 - **Segurança Cibernética** — Blocos ontológicos com contenção constitucional proporcionam segurança em nível semântico, impedindo interpretações não autorizadas de código.
 - **Games** — A multimodalidade da linguagem e a capacidade de redefinir comportamentos via sobrescrita permitem criar sistemas de regras dinâmicos e adaptáveis para engines de jogos.
 - **Interoperabilidade entre Linguagens** — Subescritas permitem executar Python, JavaScript, Rust e outras linguagens dentro de blocos ontológicos, com rastreamento semântico via GuruMatrix.
-- **IA Geral** — A integração nativa com o DISPATCH_ON_HERMENEUTICS permite que modelos de IA operem em múltiplos níveis de interpretação, capturando semântica e não apenas sintaxe.
+- **IA verificável** — Regras e entidades declaradas na linguagem servem de referência para verificar, com evidência rastreável, saídas de modelos de IA; o DISPATCH_ON_HERMENEUTICS registra sob qual nível de interpretação cada bloco é executado.
 
 ---
 
@@ -381,7 +440,6 @@ print(pair['rho_dominante'])  # rho6
 - **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
 - **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)
 - **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)
-- **Artigo do Processador GuruDev:** [claude.ai/artifact](https://claude.ai/public/artifacts/73e2a8b5-535e-4ac7-9f9f-181936263727)
 
 ---
 
