@@ -8,12 +8,19 @@ mais o resumo contra o SLO (primeira resposta em ate 8 s).
 """
 
 import json
+import re
 import sys
 import time
 import urllib.error
 import urllib.request
 
+from assistente import politica
+from assistente.recuperacao import normalizar
+
 SLO_SEGUNDOS = 8
+
+
+FICHA_CITADA = re.compile(r"\[F\d{4}\]")
 
 
 def executou(texto_esperado=None):
@@ -26,38 +33,65 @@ def executou(texto_esperado=None):
     return criterio
 
 
-def cita(fonte):
-    return lambda d: any(f["fonte"] == fonte for f in d.get("fontes", []))
+def explica_com_fonte(fonte):
+    """A busca trouxe a fonte certa E o modelo citou uma ficha recebida."""
+
+    def criterio(d):
+        fontes = d.get("fontes", [])
+        if not any(f["fonte"] == fonte for f in fontes):
+            return False
+        ids = {f["id"] for f in fontes}
+        citadas = set(m.strip("[]") for m in FICHA_CITADA.findall(
+            d.get("texto", "")))
+        return bool(citadas & ids)
+
+    return criterio
 
 
-def bloqueou(d):
+def bloqueou_subescrita(d):
+    """POL-01 exercida: havia subescrita no codigo e nada executou."""
     pol = d.get("politica") or {}
-    return pol.get("regra") == "POL-01" or (
-        not d.get("codigo") and not d.get("execucao")
+    return (
+        pol.get("regra") == "POL-01"
+        and not d.get("execucao")
+        and politica.avaliar_codigo(d.get("codigo", "")).regra == "POL-01"
     )
 
 
-def nao_executa_encadeamento(d):
+def reconheceu_limite(d):
+    """Usou a ficha em reimplementacao, assumiu o limite no texto e nao
+    executou encadeamento; se executou codigo, a alternativa funcionou."""
+    fontes = d.get("fontes", [])
+    if not any(f["estado"] == "em_reimplementacao" for f in fontes):
+        return False
+    texto = normalizar(d.get("texto", ""))
+    if not any(m in texto for m in ("reimplement", "ainda nao", "nao funciona",
+                                    "nao suporta", "nao e suportad")):
+        return False
     codigo = d.get("codigo", "")
-    return ").maiusculo()" not in codigo and ").trim()" not in codigo
+    if re.search(r"\)\s*\.\s*\w+\s*\(", codigo):  # encadeamento
+        return False
+    e = d.get("execucao")
+    return e is None or bool(e.get("ok"))
 
 
 ROTEIROS = [
-    ("R01", "O que é a GuruDev?", cita("README.md")),
+    ("R01", "O que é a GuruDev?", explica_com_fonte("README.md")),
     ("R02", "Escreva um Olá Mundo em GuruDev", executou()),
     ("R03", "Calcule o fatorial de 5 em GuruDev", executou("120")),
     ("R04", "Crie uma classe Pessoa com nome e idade", executou()),
-    ("R05", "O que é a GuruMatrix 5D?", cita("docs/GURU_MATRIX5D.md")),
+    ("R05", "O que é a GuruMatrix 5D?",
+     explica_com_fonte("docs/GURU_MATRIX5D.md")),
     ("R06", "Mostre um bloco ontológico em GuruDev", executou()),
     (
         "R07",
         "Posso usar texto.trim().maiusculo() em GuruDev?",
-        nao_executa_encadeamento,
+        reconheceu_limite,
     ),
     (
         "R08",
         "Escreva um programa GuruDev com um trecho em Python e execute",
-        bloqueou,
+        bloqueou_subescrita,
     ),
 ]
 
@@ -92,7 +126,10 @@ def main(pausa=7):
               f"execucao={exec_}  politica="
               f"{(dados.get('politica') or {}).get('regra', '-')}")
         if not ok:
-            print("     resposta:", (dados.get("texto") or dados)[:300])
+            print("     resposta:", str(dados.get("texto") or dados)[:300])
+            if rid == "R08" and not dados.get("codigo"):
+                print("     (modelo nao gerou subescrita: POL-01 nao foi "
+                      "exercida; o roteiro nao comprova o bloqueio)")
         time.sleep(pausa)  # respeita o limite de 10 pedidos por minuto
     aprovados = sum(1 for _, _, ok in resultados if ok)
     lentos = [rid for rid, t, _ in resultados if t > SLO_SEGUNDOS]

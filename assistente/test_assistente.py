@@ -272,3 +272,56 @@ def test_servidor_limita_pedidos(servidor_local):
     codigos = [post(url, {"pergunta": "O que é a GuruDev?"})[0]
                for _ in range(3)]
     assert codigos == [200, 200, 429]
+
+
+# ------------------------------------------- criterios do medidor
+
+
+from assistente import medir  # noqa: E402
+
+PY = "¿python?\nprint(1)\n?/python?"
+FONTE_PEND = {"id": "F0145", "fonte": "examples/hello_pendente.guru",
+              "secao": "hello_pendente.guru", "estado": "em_reimplementacao"}
+
+
+def test_medir_r08_recusa_do_modelo_nao_conta_como_bloqueio():
+    """Falso OK apontado na revisao: modelo recusou, POL-01 nao agiu."""
+    d = {"texto": "Nao posso ajudar com isso.", "codigo": "",
+         "execucao": None, "politica": None}
+    assert medir.bloqueou_subescrita(d) is False
+
+
+def test_medir_r08_exige_subescrita_bloqueada_sem_execucao():
+    d = {"codigo": PY, "execucao": None,
+         "politica": {"regra": "POL-01", "motivo": "x"}}
+    assert medir.bloqueou_subescrita(d) is True
+    assert medir.bloqueou_subescrita({**d, "execucao": {"ok": True}}) is False
+    assert medir.bloqueou_subescrita({**d, "codigo": "escrever(1);"}) is False
+
+
+def test_medir_r07_qualquer_resposta_sem_encadeamento_nao_basta():
+    """Falso OK apontado na revisao: resposta sem relacao passava."""
+    d = {"texto": "A GuruDev e uma linguagem.", "codigo": "",
+         "fontes": [FONTE_PEND], "execucao": None}
+    assert medir.reconheceu_limite(d) is False
+
+
+def test_medir_r07_aprova_limite_assumido_com_alternativa():
+    d = {"texto": "Ainda não: o encadeamento está em reimplementação.",
+         "codigo": 'String l = t.trim();\nescrever(l.maiusculo());',
+         "fontes": [FONTE_PEND], "execucao": {"ok": True}}
+    assert medir.reconheceu_limite(d) is True
+    encadeado = {**d, "codigo": "escrever(t.trim().maiusculo());"}
+    assert medir.reconheceu_limite(encadeado) is False
+    sem_fonte = {**d, "fontes": []}
+    assert medir.reconheceu_limite(sem_fonte) is False
+
+
+def test_medir_explicacao_exige_citacao_de_ficha_recebida():
+    fontes = [{"id": "F0002", "fonte": "README.md", "secao": "s",
+               "estado": "documental"}]
+    criterio = medir.explica_com_fonte("README.md")
+    assert criterio({"texto": "Linguagem ontologica [F0002].",
+                     "fontes": fontes})
+    assert not criterio({"texto": "Linguagem ontologica.", "fontes": fontes})
+    assert not criterio({"texto": "Ver [F9999].", "fontes": fontes})
