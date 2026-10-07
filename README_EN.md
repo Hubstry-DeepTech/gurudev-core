@@ -1,10 +1,68 @@
-# gurudev-core
 # GuruDev Core - Powered by Hubstry-DeepTech
 
 > Ontological and holistic programming language
 
 **GuruDev** is a holistic and ontological programming language, developed by the deep tech company **Hubstry-DeepTech**.
 This repository contains the language core, including its grammar, interpreter, and conceptual architecture.
+
+---
+
+## In one sentence
+
+**GuruDev is a language for representing rules, entities and signs, and for verifying, with traceable evidence, whether the outputs of AI systems comply with them.** The language core works today; the semantic validator is the next milestone.
+
+## Why now
+
+AI systems and agents are starting to operate with greater autonomy in workflows that require justification, control and traceability. In regulated contexts, a model's answer is not enough: it must be possible to state which rule was applied, to which facts, and with what result. GuruDev is being developed to produce that record deterministically, with AI acting as an observer of the verdict rather than its authority.
+
+## Who it is for
+
+| Audience | What they get | How to engage |
+|---|---|---|
+| Investors | An infrastructure thesis for semantic verification of AI, with maturity stated per layer and verifiable milestones | Pre-seed investment conversation |
+| Executives (C-level) | Auditability of AI answers against business rules and applicable regulation | Pilot or deployment in a bounded domain |
+| Startup founders | A semantic representation and validation layer for AI-based products | Development partnership or integration |
+| Government decision-makers | Verifiability and traceability of AI systems used in public policy and services | Applied research or institutional pilot |
+
+## Stage and maturity
+
+Maturity is measured in TRL (Technology Readiness Level, a 1–9 scale) **per layer; it is not a single product TRL.**
+
+| Layer | TRL | Evidence |
+|---|---|---|
+| Language core: lexer, parser, interpreter, classes and type contract | 4 | Validated in a laboratory setting; automated test suite green on Python 3.10, 3.11 and 3.12 |
+| Semantic thesis: entity, relation, rule and validator | 3 | Architecture defined in a design note; validator under development |
+| Semiotic architecture: sign, context and operators between representations | 2 | Concept formulated |
+
+## Next milestones
+
+1. **Rules declared in the language itself**, with checks for purity, arity and parameter types.
+2. **Deterministic validator:** for each rule and instance, a status (valid, violation or indeterminate) together with the evidence used.
+3. **First regulatory domain** modelled from an identifiable normative source.
+4. **Pre-registered benchmark:** the same questions answered by AI alone and by AI supported by GuruDev, with questions and criteria frozen before modelling.
+
+## Business model
+
+- **License:** BSL (Business Source License); free non-commercial use, commercial use subject to authorization.
+- **Rule packages per domain**, maintained and updated by subscription.
+- **Validator as a service** (API) and installation in the client's environment.
+- **Deployment and consulting** in regulated domains.
+
+## Positioning
+
+GuruDev sits at the intersection of four categories: formal verification of AI outputs, rules as code, semantic representation layers, and agent governance and validation. The differentiator under development is the combination of rules and evidence on Brazilian regulation, in Portuguese, with an explicit indeterminate status and a sign model not limited to text.
+
+## Operating principles
+
+- **AI as observer, not authority:** AI explains the verdict by citing the recorded evidence, without being able to change it.
+- **Human decision:** human authorization and accountability throughout the cycle (human-in-the-loop).
+- **Claims proportional to maturity:** product hypotheses are treated as hypotheses until they are measured.
+
+## How to engage
+
+**Contact:** [guilhermemachado.ceo@hubstry.dev](mailto:guilhermemachado.ceo@hubstry.dev) · [hubstry.dev](https://www.hubstry.dev)
+
+Hubstry Deep Tech is a pre-seed startup based in Rio de Janeiro, Brazil.
 
 ---
 
@@ -260,9 +318,8 @@ print(pair['rho_dominante'])  # rho6
 
 ## Official Links
 
-- Official Website: [gurudev-tech.site](https://gurudev-tech.site)
+- GuruDev Website: [hubstry.dev/gurudev-site](https://hubstry.dev/gurudev-site/)
 - Repository: [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)
-- GuruDev Interactive Lexer: [dyh6i3cqzgoz.manus.space](https://dyh6i3cqzgoz.manus.space/)
 
 ---
 
