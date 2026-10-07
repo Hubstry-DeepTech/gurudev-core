@@ -18,8 +18,8 @@ EXEMPLOS = sorted((RAIZ / "examples").glob("*.guru"))
 # (encadeamento de metodos, literal de objeto). Ficam registrados aqui
 # ate a reimplementacao.
 PENDENTES = {
-    "demo_interpreter.guru": "literal de objeto ({})",
-    "hello.guru": "encadeamento de metodos (texto.trim().maiusculo())",
+    "demo_interpreter_pendente.guru": "literal de objeto ({})",
+    "hello_pendente.guru": "encadeamento de metodos (texto.trim().maiusculo())",
 }
 
 
