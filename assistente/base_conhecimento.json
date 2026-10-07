@@ -1,0 +1,1170 @@
+[
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0001",
+  "secao": "GuruDev Core · Hubstry-DeepTech",
+  "texto": "> **Idioma**: **Português** | [English](README_EN.md) | [Índice Bilíngue](BILINGUAL_INDEX.md)\n\n**GuruDev** é uma linguagem de programação holística e ontológica, criada integralmente por **Guilherme Gonçalves Machado** — desde a concepção teórica até a arquitetura completa, incluindo a invenção da **GuruMatrix** (álgebra hexarrelacional π√f(A)) e toda a fundamentação ontológica que diferencia a linguagem. Desenvolvida sob o guarda-chuva da deep tech **Hubstry-DeepTech**, GuruDev não é um \"port\" ou wrapper de nenhuma linguagem existente — é uma criação original, construída do zero.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0002",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Em uma frase",
+  "texto": "**GuruDev é uma linguagem para representar regras, entidades e signos e verificar, com evidência rastreável, se saídas de sistemas de IA as respeitam.** O núcleo da linguagem funciona hoje; o validador semântico é o próximo marco.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0003",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Por que agora",
+  "texto": "Sistemas de IA e agentes estão passando a operar com maior autonomia em fluxos que exigem justificativa, controle e rastreabilidade. Em contextos regulados, a resposta de um modelo não basta: é preciso indicar qual regra foi aplicada, sobre quais fatos e com que resultado. A GuruDev é desenvolvida para produzir esse registro de forma determinística, com a IA atuando como observadora do veredito, e não como sua autoridade.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0004",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estágio e maturidade",
+  "texto": "Maturidade medida em TRL (Technology Readiness Level, escala de 1 a 9) **por camada; não é um TRL único do produto.**\n\n| Camada | TRL | Evidência |\n|---|---|---|\n| Núcleo da linguagem: lexer, parser, interpretador, classes e contrato de tipos | 4 | Validado em laboratório; suíte automatizada verde em Python 3.10, 3.11 e 3.12 |\n| Tese semântica: entidade, relação, regra e validador | 3 | Arquitetura definida em nota de desenho; validador em desenvolvimento |\n| Arquitetura semiótica: signo, contexto e operadores entre representações | 2 | Conceito formulado |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0005",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Posicionamento",
+  "texto": "A GuruDev atua na interseção de quatro categorias: verificação formal de saídas de IA, regras como código, camadas de representação semântica e governança e validação de agentes. O diferencial em desenvolvimento é a combinação de regras e evidência sobre regulação brasileira, em português, com status explícito de indeterminação e um modelo de signo que não se limita a texto.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0006",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Princípios de operação",
+  "texto": "- **IA observadora, não autoridade:** a IA explica o veredito citando a evidência registrada, sem poder alterá-lo.\n- **Decisão humana:** autorização e responsabilidade humanas em todo o ciclo (human-in-the-loop).\n- **Afirmações proporcionais à maturidade:** hipóteses de produto são tratadas como hipóteses até serem medidas.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0007",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Visão",
+  "texto": "GuruDev integra linguística, inteligência artificial, epistemologia e engenharia de software para criar um paradigma de programação **multimodal e semântico**, alinhado às demandas da próxima geração de sistemas computacionais. Sua sintaxe única de blocos ontológicos, anotações semânticas e interoperabilidade multilíngue a diferencia de qualquer outra linguagem de programação existente.\n\nA ideia central é tornar o significado explícito no próprio código: entidades, regras e contexto de interpretação passam a ser representados e verificados pela linguagem, em vez de ficarem implícitos para a máquina.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0008",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Visão > Uma Plataforma Semiótica para a Era Cyborg",
+  "texto": "GuruDev não é apenas uma linguagem de programação. É uma **plataforma semântico-ontológica** projetada para a convergência entre humano, máquina e IA. O primeiro módulo dessa plataforma é a própria linguagem de programação, mas a arquitetura ontológica subjacente foi concebida para **interoperar entre qualquer sistema semiótico** — desde linguagens de programação até língua natural, música, grafos, matemática, física e química.\n\nEssa ambição se traduz em três focos estratégicos:\n\n- **IA verificável** — representar, de forma determinística, as regras e entidades sobre as quais sistemas de IA operam, registrando sob qual nível de interpretação cada leitura é feita\n- **Interoperabilidade entre semioses** — cada semiose (Python, língua natural, notação musical, equações, reações químicas...) mapeia seus padrões para uma ontologia universal\n- **Segurança e Games** — marcadores semânticos nativos (casos gramaticais) permitem marcar dados sensíveis, intenções de jogadores e políticas de acesso diretamente no código\n\nOs **casos gramaticais** (NOM, VOC, ACU, DAT, GEN, INS, LOC, ABL) não são complexidade por complexidade — são **marcadores semânticos universais** que permitem expressar intenção no código. Cada caso codifica uma relação ontológica fundamental (substância, quantidade, qualidade, relação, lugar, tempo, ação...), com base nas categorias aristotélicas que orientam a fundamentação teórica da GuruDev; o mapeamento formal entre casos gramaticais e categorias está em desenho.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0009",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Experimente GuruDev Agora!",
+  "texto": "A forma de experimentar a GuruDev hoje é localmente, em poucos minutos. Requer Python 3.10 ou superior.\n\n```bash\ngit clone https://github.com/Hubstry-DeepTech/gurudev-core.git\ncd gurudev-core\npython -m pip install -e .\ngurudev run examples/fluxo.guru\n```\n\nO último comando executa um programa de exemplo com controle de fluxo (`se`/`senao_se`/`senao`, laços e funções). Outros exemplos estão em [`examples/`](examples/), e a seção [Uso](#uso) lista os principais.\n\nUm ambiente interativo no navegador está no roteiro de ferramentas, ainda sem data de publicação.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0010",
+  "secao": "GuruDev Core · Hubstry-DeepTech > O Diferencial Ontológico",
+  "texto": "GuruDev não é \"Python em português\". É uma linguagem com identidade própria, fundamentada em três pilares acadêmicos publicados no Zenodo:",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0011",
+  "secao": "GuruDev Core · Hubstry-DeepTech > O Diferencial Ontológico > 1. Programação Comparada — Fundamentos Teóricos",
+  "texto": "A linguagem se baseia na análise estrutural de 15+ linguagens de programação, extraindo padrões semânticos universais para criar uma gramática que é simultaneamente acessível e expressiva.\n\n— **doi:** [10.5281/zenodo.20028887](https://doi.org/10.5281/zenodo.20028887)",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0012",
+  "secao": "GuruDev Core · Hubstry-DeepTech > O Diferencial Ontológico > 2. IMIP — Interface de Múltiplas Interpretações Paramétricas",
+  "texto": "O **DISPATCH_ON_HERMENEUTICS** (§4.3 do IMIP) define 7 níveis de interpretação para texto computacional, permitindo que a mesma expressão seja compreendida em múltiplas camadas semânticas. A **Contenção Constitucional** (§5.5) restringe tokens por instância, garantindo segurança ontológica.\n\n— **doi:** [10.5281/zenodo.19772798](https://doi.org/10.5281/zenodo.19772798)",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0013",
+  "secao": "GuruDev Core · Hubstry-DeepTech > O Diferencial Ontológico > 3. π√f(A) — Álgebra Hexarrelacional (GuruMatrix)",
+  "texto": "A **GuruMatrix** é um tensor de 5 dimensões que rastreia operações por categoria, semântica e nível de interpretação — proposta como estrutura de representação do estado semântico. Na implementação atual, o vetor de significância é calculado a partir de rótulos categóricos; sua evolução para estados e operadores semânticos verificáveis está em desenho. Este trabalho também explora a interseção com computação quântica.\n\n— **doi:** [10.5281/zenodo.19775021](https://doi.org/10.5281/zenodo.19775021)\n— **doi:** [10.5281/zenodo.18776401](https://doi.org/10.5281/zenodo.18776401)\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0014",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Sintaxe Ontológica — O Motor",
+  "texto": "| Construto | Sintaxe | Descrição |\n|---|---|---|\n| Bloco | `[$$bloco$$]` ... `[$$/bloco$$]` | Unidade ontológica principal |\n| Sobrescrita | `$$sobrescrita$$` ... `$$/sobrescrita$$` | Redefine comportamento de operações |\n| Código GuruDev | `¡codigo!` ... `!/codigo!` | Código nativo dentro do bloco |\n| Subescrita Python | `¿python?` ... `?/python?` | Interoperabilidade com Python (exec()) |\n| Compensação | `$$compensacao$$` ... `$$/compensacao$$]` | Fallback automático em caso de erro |\n| Tratamento de erro | `$$erro]` | Captura falhas com AST executável |\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0015",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Funcionalidades Implementadas",
+  "texto": "- **Testes automatizados** (pytest) — unitários e de execução de todos os exemplos (`tests/test_examples.py`)\n- **Lexer (PLY)** — máquina de estados com 9+ estados léxicos dedicados\n- **Parser (PLY)** — gramática completa incluindo blocos ontológicos\n- **Interpretador** — tree-walker com motor ontológico ativo\n- **CLI** — `gurudev run`, `gurudev test`\n- **Funções nativas** — `escrever()`, `imprimir()`, `tipo_de()`, `hash()`, `tamanho()`, `converter_int()`, `converter_float()`, `converter_string()`, `converter_bool()`, `ler_entrada()`, `para_json()`, `de_json()`, `randint()`, `raiz()`, `absoluto()`, `arredondar()`, `seno()`, `cosseno()`, `tangente()`, `logaritmo()`, `potencia()`, `maximo()`, `minimo()`\n- **Métodos String** — `tamanho()`, `maiusculo()`, `minusculo()`, `dividir()`, `substring()`, `trim()`, `contem()`, `substituir()`, `indice()`, `repetir()`, `vazio()`, `maiusculo_primeiro()`, `minusculo_primeiro()`, `inverter()`, `comeca_com()`, `termina_com()`, `ultimo_indice()`\n- **Métodos Array** — `tamanho()`, `adicionar()`, `remover_ultimo()`, `contem()`, `ordenar()`, `juntar()`, `remover()`, `inserir()`, `inverter()`, `vazio()`, `fatia()`, `primeiro()`, `ultimo()`, `indice()`, `limpar()`, `copiar()`\n- **Classes** — instanciação, construtor `iniciar()`, `this`/`isto`, leitura e atribuição de propriedades, contrato de tipos dos atributos (`String`, `Int`, `Float`, `Bool`, `Array`)",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "em_reimplementacao",
+  "fonte": "README.md",
+  "id": "F0016",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Em reimplementação",
+  "texto": "Recursos presentes em versões anteriores e ainda não reincorporados ao parser/interpretador atual (os exemplos que dependem deles estão marcados como pendentes em `tests/test_examples.py`):\n\n- **Herança e interfaces de classe** — `extends`/`implements` são reconhecidos, mas ainda não resolvidos\n- **Tipos de usuário em atributos** — atributo cujo tipo é outra classe ainda não é verificado\n- **Encadeamento de métodos** — `texto.trim().maiusculo()`\n- **Literal de objeto** — `{}`\n- **`mapear()` / `filtrar()`** com funções GuruDev como argumento\n\n- **Controle de Fluxo** — `se`/`senao_se`/`senao`, `enquanto`, `para`, `quebra`/`continua`\n- **Funções** — definição, chamada, retorno, recursão, parâmetros opcionais\n- **Teoria Geral da Função** — Tesnière (valência), Bühler (classificação semântica), Wilmet (relação instituída)\n- **Motor Ontológico** — blocos, subescritas, compensação ativos",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0017",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Controle de Fluxo",
+  "texto": "```gurudev\nInt nota = 75;\nse (nota >= 90) {\n    escrever(\"A\");\n} senao_se (nota >= 70) {\n    escrever(\"B\");\n} senao {\n    escrever(\"F\");\n}\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0018",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Funções com Parâmetros Opcionais (Tesnière — Valência)",
+  "texto": "```gurudev\n// nome = actante (obrigatório), saudação = circunstante (opcional)\nfuncao saudar(String nome, String saudacao = \"Olá\") {\n    escrever(saudacao + \", \" + nome + \"!\");\n}\nsaudar(\"Mundo\");       // Olá, Mundo!\nsaudar(\"Mundo\", \"Oi\"); // Oi, Mundo!\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0019",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Classificação Semântica de Funções (Bühler — Organon)",
+  "texto": "```gurudev\n#sem: puro\nfuncao fibonacci(Int n) -> Int {\n    se (n <= 1) { return n; }\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\n#sem: efeito\nfuncao registrar_log(String msg) {\n    escrever(\"[LOG] \" + msg);\n}\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0020",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Casos Gramaticais como Natureza da Relação (Wilmet)",
+  "texto": "```gurudev\nNOM funcao calcular(Int x, Int y) -> Int { return x + y; }\nDAT funcao enviar(String destino, String msg) { escrever(msg); }\nACU funcao transformar(String texto) -> String { return texto; }\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0021",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Instalação",
+  "texto": "```bash\ngit clone https://github.com/Hubstry-DeepTech/gurudev-core.git\ncd gurudev-core\npython -m pip install -e .\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0022",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estado Atual do Projeto (Outubro 2026) > Uso",
+  "texto": "```bash\ngurudev run examples/ontologico.guru\ngurudev run examples/fluxo.guru\ngurudev run examples/funcoes.guru\ngurudev run examples/teoria_geral_funcao.guru\npython -m pytest tests/ -v\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0023",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Estrutura do Repositório",
+  "texto": "```\ngurudev-core/\n  src/\n    lexer/gurudev_lexer.py   - Máquina de estados PLY (9+ estados)\n    parser.py                - Gramática PLY com blocos ontológicos\n    ast_nodes.py             - Nós da AST (dataclasses)\n    interpreter.py          - Interpretador tree-walker + dispatch quântico + R⁶\n    semantic_analyzer.py    - Integração Alexandria (análise subscrita)\n    symbol_table.py          - Tabela de símbolos com escopos\n    quantum_result.py        - QuantumResult probabilístico (counts, collapse)\n    cli.py                   - CLI (gurudev run)\n  alexandria/\n    __init__.py              - v0.3.0, 8 classes exportadas\n    cli.py                   - CLI Alexandria (compare, translate, etc.)\n    core/\n      analyzer.py            - LanguageAnalyzer (25 linguagens)\n      translator.py          - CodeTranslator\n      type_mapper.py         - TypeMapper\n      bridge.py              - LanguageBridge / BridgeManager\n      quantum_comparator.py  - QuantumComparator + ConsistencyChecker (ρ₁-ρ₆)\n      quantum_interface.py   - Classificador de delegação (TipoDelegacao, AUSENTES_QUANTICO)\n    data/\n      programming_languages.json  - 25 linguagens clássicas\n      quantum_languages.json      - 8 linguagens quânticas (ρ₁-ρ₆)\n      quantum_algorithms.json     - 4 algoritmos (Shor, Grover, VQE, QAOA)\n      classical_quantum_pairs.json - 10 pares clássico-quânticos\n  experiments/\n    piroot_vqe/             - Experimento PiRoot-VQE (deliverável acadêmico)\n      piroot_vqe.py         - PiRootVQEExperiment + barren plateau detection\n      barren_plateau_test.py - Detecção semântica de barren plateaus\n      README.md             - Documentação acadêmica completa\n  examples/\n    ontologico.guru          - Exemplo do Motor Ontológico Ativo\n    fluxo.guru               - Exemplos de controle de fluxo\n    funcoes.guru             - Exemplos de funções\n    teoria_geral_funcao.guru - Tesnière + Bühler + Wilmet\n  tests/\n    test_fluxo.py                - Controle de fluxo\n    test_funcao.py               - Funções\n    test_analyzer.py             - 10 testes Alexandria\n    test_quantum_comparator.py   - 31 testes QuantumComparator + ConsistencyChecker\n    test_quantum_interface.py    - 59 testes classificador de delegação quântica\n    test_quantum_dispatch.py     - 50 testes dispatch quântico + QuantumResult + R⁶\n    test_alexandria_integration.py - 99 testes integração interpreter + Alexandria\n    test_piroot_vqe.py           - 88 testes experimento PiRoot-VQE\n    test_interpreter.py          - Interpretador\n    test_gurumatrix.py           - GuruMatrix\n  grammar/                       - Definições EBNF\n  docs/                          - Whitepapers e documentação\n  pyproject.toml             - Configuração do pacote\n  README.md                  - Este arquivo (PT-BR)\n  README_EN.md               - Versão em inglês\n  LICENSE                    - Business Source License 1.1\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0024",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Pipeline de Compilação Quântica",
+  "texto": "```\nCódigo GuruDev (clássico)\n    |\n    v\nInterpreter → _is_quantum_paradigm()?  ──não──>  Execução clássica\n    |\n   sim\n    v\ndispatch_quantico(operacao)\n    |\n    v\n1. verificar_contencao(AUSENTES_QUANTICO)\n    |   contida? ──não──>  QuantumResult.error()\n    |  sim\n    v\n2. classificar_delegacao(ρ₁-ρ₆)\n    |   → TipoDelegacao (EMERGENCIA/ANOMALIA/EQUILIBRIO/CONSERVACAO)\n    v\n3. QuantumResult.simulate(n_qubits, perfil_rho, shots)\n    |   → Distribuição probabilística (counts)\n    v\nR⁵ (Significance Vector) + R⁶ (Hexarrelacional)\n    |\n    v\nResumo semântico completo da delegação\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0025",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Quântica — Vertical de Computação Quântica",
+  "texto": "A GuruDev Core integra uma vertical de pesquisa em computação quântica, baseada no trabalho de Machado (2026b) — [DOI: 10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462):\n\n- **Isomorfismos demonstrados:** produto tensorial idêntico entre vetores de significância e estados quânticos; bijeção canônica entre 64 perfis binários e base computacional de 6 qubits\n- **Analogias formalizadas:** emaranhamento como instância de compensação (ρ₆), teorema da não-clonagem como limite de equivalência (ρ₃), decoerência como convergência hermenêutica\n- **Extensão proposta:** perfis quânticos de significância com superposição e colapso por avaliação\n- **8 problemas abertos** com critérios de testabilidade",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0026",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Quântica — Vertical de Computação Quântica > Implementação da Vertical Quântica (4 Fases Concluídas)",
+  "texto": "| Fase | Módulo | Commit | Tests | Descrição |\n|------|--------|--------|-------|----------|\n| 1 | Alexandria Quantum Data | `897acb2` | +31 | 8 linguagens, 4 algoritmos, 10 pares clássico-quânticos, QuantumComparator |\n| 2 | Quantum Interface | `17b8cf5` | +59 | TipoDelegacao (4 tipos), AUSENTES_QUANTICO, classificação ρ₁-ρ₆ |\n| 3 | Quantum Dispatch | `fa07956` | +50 | dispatch_quantico(), QuantumResult, R⁶ hexarrelacional no interpretador |\n| 4 | PiRoot VQE | `f968903` | +88 | Experimento acadêmico, detecção de barren plateaus via ρ₅ |\n\n**GuruDev é o protocolo semântico da interface clássico-quântica** — como TCP/IP para redes. Não executa computação quântica real; governa a delegação semântica.\n\n> Nenhuma variante de misticismo quântico é tolerada. Todas as conexões são matemáticas, com limites declarados.\n\nDocumentação completa: [`docs/VERTICAL_QUANTICA.md`](docs/VERTICAL_QUANTICA.md) | [`docs/VERTICAL_QUANTICA_EN.md`](docs/VERTICAL_QUANTICA_EN.md) | [`experiments/piroot_vqe/README.md`](experiments/piroot_vqe/README.md)\n\n---\n\n<!-- ALEXANDRIA_SECTION_START -->",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0027",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada",
+  "texto": "A **Alexandria** (v0.3.0) é a biblioteca integrada de programação comparada, análise semântica e interoperabilidade multilíngue do GuruDev Core. Ela fornece comparações ponderadas entre linguagens, mapeamento de tipos, tradução de código e, a partir da Fase 1, **perfis hexarrelacionais quânticos** baseados na álgebra ρ₁-ρ₆ de Machado (2026b).",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0028",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > Módulos",
+  "texto": "| Módulo | Classe | Função |\n|---|---|---|\n| `core.analyzer` | `LanguageAnalyzer` | Análise comparativa ponderada (25 linguagens clássicas) |\n| `core.translator` | `CodeTranslator` | Tradução de código entre linguagens |\n| `core.type_mapper` | `TypeMapper` | Mapeamento de tipos cross-language |\n| `core.bridge` | `LanguageBridge` | Bridges assíncronos de interoperabilidade |\n| `core.quantum_comparator` | `QuantumComparator` | Comparação via perfis ρ₁-ρ₆ hexarrelacionais |\n| `core.quantum_comparator` | `ConsistencyChecker` | Validação da cadeia ρ₆⇒ρ₅⇒...⇒ρ₁ |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0029",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > Alexandria Quantum (Fase 1)",
+  "texto": "Baseado no DOI [10.5281/zenodo.18776462](https://doi.org/10.5281/zenodo.18776462), a Alexandria Quantum adiciona:\n\n- **`quantum_languages.json`** — 8 linguagens quânticas (Qiskit, Q#, Cirq, PennyLane, Silq, OpenQASM 3, Quipper, CUDA Quantum) com `perfil_hexarrelacional_conjectural` (ρ₁-ρ₆) e `anomalia_cadeia_implicacao`\n- **`quantum_algorithms.json`** — 4 algoritmos (Shor, Grover, VQE, QAOA) com perfis e `classificacao_tats`\n- **`classical_quantum_pairs.json`** — 10 pares clássico-quânticos com ρ dominante (incluindo GuruDev↔Silq como correspondência direta por contenção constitucional)\n- **`QuantumComparator`** — comparação entre linguagens/algoritmos via distância euclidiana, norma áurea (φ^k) e transformação π√\n- **`ConsistencyChecker`** — valida a cadeia de implicação ρ₆⇒ρ₅⇒...⇒ρ₁ com tolerância de 0.05, detectando anomalias como ρ₄>ρ₃ (Shor, Grover, Cirq, OpenQASM 3)",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0030",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > Quantum Interface (Fase 2)",
+  "texto": "- **`TipoDelegacao`** — 4 tipos de delegação clássico-quântica: EMERGENCIA (ρ₆>0.7), ANOMALIA (ρ₄>ρ₃), EQUILÍBRIO (ρ₅>0.6), CONSERVAÇÃO (ρ₅>=0.5)\n- **`AUSENTES_QUANTICO`** — 4 operações arquiteturalmente ausentes: clonar_estado, medir_sem_colapso, copiar_qubit, determinar_fase\n- **`classificar_delegacao()`** — cascata de prioridade com classificação de perfis ρ₁-ρ₆\n- **`PERFIS_CONJECTURAIS`** — perfis constantes para 8 linguagens + 4 algoritmos",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0031",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > Quantum Dispatch (Fase 3)",
+  "texto": "- **`dispatch_quantico()`** — despacho quântico no interpretador (verificação → classificação → simulação)\n- **`QuantumResult`** — resultado probabilístico com counts, distribuição, entropia de Shannon, collapse\n- **`_h_ontologico()`** — calcula R⁵ + R⁶ hexarrelacional quando paradigma quântico\n- **`_hexarelacional_vector()`** — lookup de perfis conjecturais + fallback categórico",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0032",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > PiRoot VQE (Fase 4)",
+  "texto": "- **`PiRootVQEExperiment`** — simulação de cenários VQE com monitoramento ρ₅\n- **`BarrenPlateauTest`** — detecção de barren plateaus via degradação de ρ₅ e entropia\n- **`experiments/piroot_vqe/`** — deliverável acadêmico independente",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0033",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Alexandria — Biblioteca de Interoperabilidade e Programação Comparada > Uso",
+  "texto": "```python\nfrom alexandria import QuantumComparator, ConsistencyChecker\n\ncomp = QuantumComparator()\n\n# Comparar linguagens quânticas\nresult = comp.compare_languages(\"Qiskit\", \"Cirq\")\nprint(result.similarity_score)\n\n# Verificar consistência da cadeia de implicação\ncheck = comp.check_consistency(\"Shor\")  # False (anomalia: rho4 > rho3)\nprint(check['consistente'])\n\n# Par clássico-quântico GuruDev-Silq\npair = comp.get_pair(\"GuruDev\", \"Silq\")\nprint(pair['rho_dominante'])  # rho6\n```\n\n<!-- ALEXANDRIA_SECTION_END -->\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0034",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Links Oficiais",
+  "texto": "- **Site Hubstry:** [www.hubstry.dev](https://www.hubstry.dev)\n- **Site GuruDev:** [hubstry.dev/gurudev-site](https://hubstry.dev/gurudev-site/)\n- **Repositório:** [github.com/Hubstry-DeepTech/gurudev-core](https://github.com/Hubstry-DeepTech/gurudev-core)\n- **Product Hunt:** [producthunt.com/products/gurudev](https://www.producthunt.com/products/gurudev)\n- **Gramática EBNF (Histórico):** [cxnvssbu.manus.space](https://cxnvssbu.manus.space/)\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0035",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Segurança e Governança",
+  "texto": "Este projeto é mantido sob a infraestrutura GitHub Enterprise da Hubstry-DeepTech, utilizando:\n\n- GitHub Advanced Security (Code Scanning, Secret Scanning)\n- Dependabot para gerenciamento de dependências\n- GitHub Actions para integração contínua e deploy automatizado\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "README.md",
+  "id": "F0036",
+  "secao": "GuruDev Core · Hubstry-DeepTech > Licença",
+  "texto": "Este projeto está licenciado sob a **Business Source License 1.1 (BSL 1.1)**.\n\nO uso **não comercial** (pesquisa acadêmica, educação, projetos pessoais) é livre e encorajado. O uso comercial (venda, licenciamento, SaaS, integração em produtos comerciais) requer autorização expressa do criador.\n\nConsulte o arquivo [LICENSE](LICENSE) para os termos completos.\n\n© 2024-2026 Guilherme Gonçalves Machado · Hubstry-DeepTech. Todos os direitos reservados.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/SINTAXE.md",
+  "id": "F0037",
+  "secao": "Sintaxe GuruDev® — Exemplos e regras > Comandos de saída",
+  "texto": "```gurudev\nVOC.escrever(\"Olá, mundo!\");    // Válido\nVOC.imprimir(\"Linha nova!\");    // Válido\nVOC.ler();                      // Válido\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/SINTAXE.md",
+  "id": "F0038",
+  "secao": "Sintaxe GuruDev® — Exemplos e regras > Declarações de variável",
+  "texto": "```gurudev\nString nome = \"GuruDev\";        // Válido\nInt x = 42;                     // Válido\nString VOC = \"erro\";            // Inválido: nome reservado\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/SINTAXE.md",
+  "id": "F0039",
+  "secao": "Sintaxe GuruDev® — Exemplos e regras > Chamada de funções",
+  "texto": "```gurudev\nMath.abs(-10);                  // Válido\nTexto.tamanho(\"abc\");           // Válido\nMath.VOC();                     // Inválido: VOC não é método de Math\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/SINTAXE.md",
+  "id": "F0040",
+  "secao": "Sintaxe GuruDev® — Exemplos e regras > Exemplos de código inválido",
+  "texto": "```gurudev\nVOC = \"teste\";                  // Erro: VOC é reservado\nfunc escrever() { ... }         // Erro: escrever é reservado\nvar Math = 123;                 // Erro: Math é reservado\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/SINTAXE.md",
+  "id": "F0041",
+  "secao": "Sintaxe GuruDev® — Exemplos e regras > Regras de terminador",
+  "texto": "Sempre use ponto-e-vírgula ao final de cada instrução.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0042",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer",
+  "texto": "> **Autor:** *Guilherme Gonçalves Machado*  \n> **Descrição:** Gramática formal da linguagem GuruDev®, cobrindo todos os requisitos do whitepaper.  \n> **Status:** *Alpha 1.0.0-alpha (Alinhada ao Lexer)*\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0043",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > ⚠️ Notas Importantes sobre o Lexer e Parser",
+  "texto": "(*  \n--- Comportamento Implícito para Modo de Discurso Direto (Instruções no Topo) ---  \nQuando instruções GuruDev® são escritas no topo do arquivo (“modo de discurso direto”, fora de um bloco explícito), o compilador/interpretador irá:\n- Encapsular essas instruções, implicitamente, em um `[bloco]...[/bloco]`.\n- Gerar uma seção `[sobrescrita]...[/sobrescrita]` padrão, com metadados inferidos (Contexto: \"Script de Discurso Direto\", Campo: \"Geral\", Nível: \"literal\", Raiz: \"CORE\", Ontologia: \"acao\").\n- Inserir essas instruções dentro de uma função `principal()` implícita, servindo como ponto de entrada do programa.\n\nIsso permite scripts concisos, sem perder a estrutura semântica interna.\n\nNa GuruDev®, usamos \"oração de código\" para o que em outras linguagens seria chamado de \"statement\".  \nUsamos \"produção de valor\" para o que seria \"expression\".  \nIsso reforça a analogia linguística da linguagem.\n*)\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0044",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 🎯 Estrutura Principal > 1. Programa",
+  "texto": "```ebnf\nprogram = ( block | oracao_de_codigo )+ ; (* Um programa é composto por um ou mais blocos ou orações de código em modo de discurso direto *)\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0045",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 🎯 Estrutura Principal > 1.1. Oração de Código",
+  "texto": "```ebnf\noracao_de_codigo = declaracao_variavel\n                 | declaracao_funcao\n                 | comando_controle\n                 | comando_saida\n                 | producao_de_valor \";\"\n                 | ... ;\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0046",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 🎯 Estrutura Principal > 1.2. Produção de Valor",
+  "texto": "```ebnf\nproducao_de_valor = valor_literal\n                  | chamada_funcao\n                  | operacao\n                  | ... ;\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0047",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 🎯 Estrutura Principal > 1.3. Instruções em Modo de Discurso Direto",
+  "texto": "```ebnf\ntop_level_statement = oracao_de_codigo ; (* Uma instrução em modo de discurso direto é qualquer oração de código válida *)\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0048",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 📝 Exemplo: Hello World em modo de discurso direto",
+  "texto": "```gurudev\nString mensagem = \"Hello, World!\";\nVOC.print(mensagem);\n```\n\n<!-- O código acima, internamente, será encapsulado como: -->\n<!--\n[bloco]\n  [sobrescrita]\n    \"Contexto: Script de Discurso Direto\"\n    [nivel=\"literal\"]\n    [clave=\"geral\"]\n    [raiz=\"CORE\"]\n    [ont=\"acao\"]\n  [/sobrescrita]\n  ¡codigo!\n    NOM funcao principal() {\n      String mensagem = \"Hello, World!\";\n      VOC.print(mensagem);\n    }\n  !/codigo!\n[/bloco]\n-->\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0049",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > <details>",
+  "texto": "<summary>Terminais e definições resumidas</summary>\n\n```ebnf\nblock = \"[bloco]\" sobrescrita? codigo \"[/bloco]\" ;\n\nsobrescrita = \"[sobrescrita]\" metadados \"[/sobrescrita]\" ;\n\nmetadados = ... ;\n\ncodigo = \"¡codigo!\" { oracao_de_codigo } \"!/codigo!\" ;\n\noracao_de_codigo = declaracao_variavel\n                 | declaracao_funcao\n                 | comando_controle\n                 | comando_saida\n                 | producao_de_valor \";\"\n                 | ... ;\n\nproducao_de_valor = valor_literal\n                  | chamada_funcao\n                  | operacao\n                  | ... ;\n\ndeclaracao_variavel = tipo identificador \"=\" producao_de_valor \";\" ;\n\ntipo = \"String\" | \"Float\" | \"Int\" | ... ;\n\nidentificador = ... ;\n\nvalor_literal = ... ;\n\nchamada_funcao = ... ;\n\ncomando_controle = ... ;\n\ncomando_saida = ... ;\n```\n</details>\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0050",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 2. Bloco GuruDev®",
+  "texto": "```ebnf\nblock = BLOCO_START WHITESPACE overscript_block WHITESPACE gurudev_code_block WHITESPACE subscript_block WHITESPACE BLOCO_END ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0051",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 3. Bloco de Sobrescrita",
+  "texto": "```ebnf\noverscript_block = SOBRESCRITA_START WHITESPACE { overscript_attribute WHITESPACE } SOBRESCRITA_END ;\noverscript_attribute = (\n  STRING_LITERAL (* Ex: \"Contexto: descrição do propósito\" *)\n  | NIVEL_ATTR\n  | RAIZ_ATTR\n  | CLAVE_ATTR\n  | ONT_ATTR\n) ;\n\nNIVEL_ATTR = LBRACKET \"nivel=\" STRING_LITERAL RBRACKET ;\nRAIZ_ATTR  = LBRACKET \"raiz=\" STRING_LITERAL RBRACKET ;\nCLAVE_ATTR = LBRACKET \"clave=\" STRING_LITERAL RBRACKET ;\nONT_ATTR   = LBRACKET \"ont=\" STRING_LITERAL RBRACKET ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0052",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev®",
+  "texto": "```ebnf\ngurudev_code_block = CODIGO_START WHITESPACE { oracao_de_codigo WHITESPACE } CODIGO_END ;\n\noracao_de_codigo = (\n    declaration\n  | assignment\n  | control_flow\n  | function_call\n  | method_call\n  | execution_control_block\n  | return_statement\n) SEMICOLON ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0053",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev® > 4.1. Declaração e Atribuição",
+  "texto": "```ebnf\ndeclaration = ( ( type_keyword IDENTIFIER ) | ( case_keyword DOT IDENTIFIER ) ) [ ASSIGN producao_de_valor ] ;\nassignment  = ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) ASSIGN producao_de_valor ;\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0054",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev® > 4.2. Tipos e Casos Gramaticais",
+  "texto": "```ebnf\ntype_keyword = (\n  BOOL_TYPE | STRING_TYPE | INT_TYPE | FLOAT_TYPE | VOID_TYPE\n  | ARRAY_TYPE LBRACKET RBRACKET\n  | OBJECT_TYPE LESS_THAN IDENTIFIER GREATER_THAN\n  | FORMULA_TYPE | TEMPORAL_TYPE | IMAGEM_TYPE | AUDIO_TYPE | VIDEO_TYPE\n  | TABELA_TYPE LESS_THAN IDENTIFIER GREATER_THAN\n  | GRAFO_TYPE LESS_THAN IDENTIFIER COMMA IDENTIFIER GREATER_THAN\n  | IDENTIFIER\n) ; (* IDENTIFIER para classes customizadas *)\n\ncase_keyword = ( VOC | NOM | ACU | DAT | GEN | INS | LOC | ABL ) ;\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0055",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev® > 4.3. Funções, Métodos e Produções de Valor",
+  "texto": "```ebnf\nfunction_call = ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) LPAREN [ argument_list ] RPAREN ;\nmethod_call   = IDENTIFIER DOT ( IDENTIFIER | ( case_keyword DOT IDENTIFIER ) ) LPAREN [ argument_list ] RPAREN ;\nargument_list = producao_de_valor { COMMA producao_de_valor } ;\n\nproducao_de_valor = (\n    literal\n  | IDENTIFIER\n  | function_call\n  | method_call\n  | binary_operation\n  | unary_operation\n  | LPAREN producao_de_valor RPAREN\n) ;\n\nliteral = ( STRING_LITERAL | INT_LITERAL | FLOAT_LITERAL | BOOLEAN_LITERAL ) ;\n\nbinary_operation = producao_de_valor ( PLUS | MINUS | MULTIPLY | DIVIDE | MODULO\n    | EQUALS | NOT_EQUALS | LESS_THAN | GREATER_THAN\n    | LESS_EQUAL | GREATER_EQUAL | AND | OR ) producao_de_valor ;\nunary_operation = ( PLUS | MINUS | NOT ) producao_de_valor ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0056",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev® > 4.4. Controle de Fluxo",
+  "texto": "```ebnf\ncontrol_flow = (\n  IF_KEYWORD LPAREN producao_de_valor RPAREN LBRACE { oracao_de_codigo WHITESPACE } RBRACE [ ELSE_KEYWORD LBRACE { oracao_de_codigo WHITESPACE } RBRACE ]\n  | FOR_KEYWORD LPAREN ( declaration | assignment ) SEMICOLON producao_de_valor SEMICOLON assignment RPAREN LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n  | FOR_KEYWORD LPAREN type_keyword IDENTIFIER COLON IDENTIFIER RPAREN LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n  | WHILE_KEYWORD LPAREN producao_de_valor RPAREN LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n) ;\n\nreturn_statement = RETURN_KEYWORD [ producao_de_valor ] ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0057",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 4. Bloco de Código GuruDev® > 4.5. Blocos de Execução",
+  "texto": "```ebnf\nexecution_control_block = (\n    SERIE_KEYWORD LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n  | PARALELO_KEYWORD LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n  | EM_KEYWORD ( IDENTIFIER | case_keyword DOT IDENTIFIER ) LBRACE { oracao_de_codigo WHITESPACE } RBRACE\n) ;\n```\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0058",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 5. Bloco de Subescritas (Interoperabilidade)",
+  "texto": "```ebnf\nsubscript_block = SUBESCRITAS_START WHITESPACE { foreign_language_block WHITESPACE } SUBESCRITAS_END ;\n\nforeign_language_block = (\n  PYTHON_START FOREIGN_CODE_CONTENT PYTHON_END\n  | RUST_START FOREIGN_CODE_CONTENT RUST_END\n  | JAVASCRIPT_START FOREIGN_CODE_CONTENT JAVASCRIPT_END\n  | CSHARP_START FOREIGN_CODE_CONTENT CSHARP_END\n  | WASM_START FOREIGN_CODE_CONTENT WASM_END\n  | CPP_START FOREIGN_CODE_CONTENT CPP_END\n  | JAVA_START FOREIGN_CODE_CONTENT JAVA_END\n  | SQL_START FOREIGN_CODE_CONTENT SQL_END\n  | R_START FOREIGN_CODE_CONTENT R_END\n) ;\n```\n\n> **Nota:**  \n> *FOREIGN_CODE_CONTENT* é reconhecido pelo lexer como todo o conteúdo entre as tags de início e fim da linguagem estrangeira (inclusive quebras de linha e comentários internos), até o token de fechamento da linguagem correspondente. Este conteúdo é tratado como texto bruto e não é tokenizado pelo lexer da GuruDev®.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0059",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 🏷️ Terminais (Tokens Reconhecidos pelo Lexer)",
+  "texto": "<details>\n<summary><strong>Clique para expandir</strong></summary>\n\n```ebnf\n(* Estruturas de Blocos Principais *)\nBLOCO_START = \"[bloco]\" ;\nBLOCO_END = \"[/bloco]\" ;\nSOBRESCRITA_START = \"[sobrescrita]\" ;\nSOBRESCRITA_END = \"[/sobrescrita]\" ;\nSUBESCRITAS_START = \"[subescritas]\" ;\nSUBESCRITAS_END = \"[/subescritas]\" ;\nCODIGO_START = \"¡codigo!\" ;\nCODIGO_END = \"!/codigo!\" ;\n\n(* Subescritas de Linguagens Estrangeiras (Tags de Início/Fim) *)\nPYTHON_START = \"¿python?\" ;\nPYTHON_END = \"?/python?\" ;\nRUST_START = \"¿rust?\" ;\nRUST_END = \"?/rust?\" ;\nJAVASCRIPT_START = \"¿javascript?\" ;\nJAVASCRIPT_END = \"?/javascript?\" ;\nCSHARP_START = \"¿csharp?\" ;\nCSHARP_END = \"?/csharp?\" ;\nWASM_START = \"¿wasm?\" ;\nWASM_END = \"?/wasm?\" ;\nCPP_START = \"¿c++?\" ;\nCPP_END = \"?/c++?\" ;\nJAVA_START = \"¿java?\" ;\nJAVA_END = \"?/java?\" ;\nSQL_START = \"¿sql?\" ;\nSQL_END = \"?/sql?\" ;\nR_START = \"¿r?\" ;\nR_END = \"?/r?\" ;\n\n(* Atributos *)\nNIVEL_ATTR = \"[nivel=\" STRING_LITERAL \"]\" ;\nRAIZ_ATTR = \"[raiz=\" STRING_LITERAL \"]\" ;\nCLAVE_ATTR = \"[clave=\" STRING_LITERAL \"]\" ;\nONT_ATTR = \"[ont=\" STRING_LITERAL \"]\" ;\n\n(* Literais *)\nSTRING_LITERAL = '\"' ( ANY_CHARACTER_EXCEPT_DOUBLE_QUOTE | '\\\\' ANY_CHARACTER )* '\"' ;\nINT_LITERAL = DIGIT+ ;\nFLOAT_LITERAL = DIGIT+ \".\" DIGIT+ [ \"f\" ] ;\nBOOLEAN_LITERAL = \"true\" | \"false\" | \"verdadeiro\" | \"falso\" ;\n\n(* Palavras-Chave *)\nVOC = \"VOC\" ; NOM = \"NOM\" ; ACU = \"ACU\" ; DAT = \"DAT\" ;\nGEN = \"GEN\" ; INS = \"INS\" ; LOC = \"LOC\" ; ABL = \"ABL\" ;\nFUNCAO = \"funcao\" ; CLASSE = \"classe\" ; EXTENDS = \"extends\" ; IMPLEMENTS = \"implements\" ;\nBOOL_TYPE = \"Bool\" ; STRING_TYPE = \"String\" ; INT_TYPE = \"Int\" ; FLOAT_TYPE = \"Float\" ;\nVOID_TYPE = \"Void\" ; ARRAY_TYPE = \"Array\" ; OBJECT_TYPE = \"Object\" ; FORMULA_TYPE = \"Formula\" ;\nTEMPORAL_TYPE = \"Temporal\" ; IMAGEM_TYPE = \"Imagem\" ; AUDIO_TYPE = \"Audio\" ;\nVIDEO_TYPE = \"Video\" ; TABELA_TYPE = \"Tabela\" ; GRAFO_TYPE = \"Grafo\" ;\nIF_KEYWORD = \"if\" | \"se\" ; ELSE_KEYWORD = \"else\" | \"senao\" ;\nFOR_KEYWORD = \"for\" | \"para\" ; WHILE_KEYWORD = \"while\" | \"enquanto\" ;\nRETURN_KEYWORD = \"return\" | \"retorna\" ; BREAK_KEYWORD = \"break\" | \"quebra\" ;\nCONTINUE_KEYWORD = \"continue\" | \"continua\" ;\nSERIE_KEYWORD = \"serie\" ; PARALELO_KEYWORD = \"paralelo\" ; EM_KEYWORD = \"em\" ;\nPUBLICO = \"publico\" ; PRIVADO = \"privado\" ; PROTEGIDO = \"protegido\" ;\n\n(* Operadores *)\nASSIGN = \"=\" ; EQUALS = \"==\" ; NOT_EQUALS = \"!=\" ;\nLESS_THAN = \"<\" ; GREATER_THAN = \">\" ; LESS_EQUAL = \"<=\" ; GREATER_EQUAL = \">=\" ;\nPLUS = \"+\" ; MINUS = \"-\" ; MULTIPLY = \"*\" ; DIVIDE = \"/\" ; MODULO = \"%\" ;\nAND = \"&&\" ; OR = \"||\" ; NOT = \"!\" ; ARROW = \"->\" ;\n\n(* Delimitadores *)\nLPAREN = \"(\" ; RPAREN = \")\" ; LBRACE = \"{\" ; RBRACE = \"}\" ;\nLBRACKET = \"[\" ; RBRACKET = \"]\" ; SEMICOLON = \";\" ; COMMA = \",\" ;\nDOT = \".\" ; COLON = \":\" ;\n\n(* Identificador *)\nID = LETTER (LETTER | DIGIT | \"_\")* ;\n\n(* Caracteres Ignorados pelo Lexer *)\nWHITESPACE = ( ' ' | '\\t' )+ ;\nNEWLINE = ( '\\n' | '\\r\\n' )+ ;\nCOMMENT = ( \"//\" (ANY_CHARACTER_EXCEPT_NEWLINE)* ) | ( \"/*\" (ANY_CHARACTER)* \"*/\" ) ;\n\n(* Componentes Básicos *)\nLETTER = 'a'...'z' | 'A'...'Z' | 'À'...'ÿ' ;\nDIGIT = '0'...'9' ;\nANY_CHARACTER = (* Qualquer caractere Unicode. *) ;\nANY_CHARACTER_EXCEPT_DOUBLE_QUOTE = (* Qualquer caractere Unicode exceto aspas duplas. *) ;\nANY_CHARACTER_EXCEPT_NEWLINE = (* Qualquer caractere Unicode exceto quebra de linha. *) ;\n```\n</details>\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GRAMMAR_V1_0_0_ALPHA.md",
+  "id": "F0060",
+  "secao": "GuruDev® EBNF — Versão 1.0.0-alpha — Alinhada ao Lexer > 📦 Exemplo de Bloco GuruDev® Completo",
+  "texto": "```gurudev\n[bloco]\n  [sobrescrita]\n    \"Contexto: autenticação\"\n    [nivel=\"holistico\"]\n    [raiz=\"SEG\"]\n    [ont=\"acao\"]\n  [/sobrescrita]\n\n  ¡codigo!\n    NOM funcao verificarSenha(String senhaInserida, String senhaHashArmazenada) {\n      return hash(senhaInserida) == hash(senhaHashArmazenada);\n    }\n  !/codigo!\n\n  [subescritas]\n    ¿python?\n    def verificar_senha(senha_inserida, senha_armazenada):\n        return hash(senha_inserida) == hash(senha_armazenada)\n    ?/python?\n  [/subescritas]\n[/bloco]\n```\n\n---\n\n> **FIM DA GRAMÁTICA**",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0061",
+  "secao": "GuruMatrix 5D > Especificação Técnica do Núcleo Matricial da GuruDev®",
+  "texto": "---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0062",
+  "secao": "GuruMatrix 5D > 🧠 Visão Geral",
+  "texto": "A GuruMatrix é a matriz simbólico-semântica de execução e organização do conhecimento que opera como núcleo computacional da linguagem GuruDev®. Estruturada como um sistema de coordenadas ontológicas e epistemológicas, ela define como objetos, dados e instruções são rotulados, interpretados e processados na GVM (GuruDev® Virtual Machine) e pelo GuruCompiler.\n\nA GuruMatrix evolui de uma matriz 2D para uma estrutura multidimensional (5D) que proporciona:\n- Precisão simbólica\n- Interoperabilidade contextual\n- Poder de expressão ontológico-hermenêutico\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0063",
+  "secao": "GuruMatrix 5D > 🧮 Estrutura Multidimensional da GuruMatrix (5D) > Representação: `GuruMatrix[i][j][k][t][l]`",
+  "texto": "| Dimensão | Índice | Significado |\n|----------|--------|-------------|\n| **1ª** | `i` | Categoria Ontológica (Aristóteles — 10 tipos) |\n| **2ª** | `j` | Campo do Conhecimento ou Relação Semântica (10 valores) |\n| **3ª** | `k` | Nível Hermenêutico (1 a 7) |\n| **4ª** | `t` | Tempo de Execução ou Etapa do Ciclo de Vida (Compilação, Exec...) |\n| **5ª** | `l` | Paradigma ou Linguagem-Alvo (Funcional, OOP, Python, Lua...) |\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0064",
+  "secao": "GuruMatrix 5D > 📐 Eixos Base > 🔹 Eixo X — Categorias Ontológicas (10)",
+  "texto": "1. **Substância**\n2. **Quantidade**\n3. **Qualidade**\n4. **Relação**\n5. **Lugar**\n6. **Tempo**\n7. **Situação**\n8. **Condição** (Ter)\n9. **Ação** (Fazer)\n10. **Paixão** (Sofrer)",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0065",
+  "secao": "GuruMatrix 5D > 📐 Eixos Base > 🔸 Eixo Y — Saberes e Relações Semânticas (10)",
+  "texto": "1. **Arte**\n2. **Ciência**\n3. **Filosofia**\n4. **Tradição Espiritual**\n5. **Similitude**\n6. **Homologia**\n7. **Equivalência**\n8. **Simetria**\n9. **Equilíbrio**\n10. **Compensação**",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0066",
+  "secao": "GuruMatrix 5D > 📐 Eixos Base > 🔺 Eixo Z (k) — Níveis Hermenêuticos (7)",
+  "texto": "1. **Literal**\n2. **Alegórico**\n3. **Moral**\n4. **Místico**\n5. **Funcional**\n6. **Estético**\n7. **Ontológico**",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0067",
+  "secao": "GuruMatrix 5D > 📐 Eixos Base > 🕓 Eixo T — Tempo de Execução (5)",
+  "texto": "1. **Compilação**\n2. **Interpretação**\n3. **Execução Linear**\n4. **Execução Paralela**\n5. **Visualização/Educação**",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0068",
+  "secao": "GuruMatrix 5D > 📐 Eixos Base > 🧬 Eixo L — Paradigma/Linguagem-Alvo",
+  "texto": "- **Orientado a Objetos**\n- **Funcional**\n- **Imperativo**\n- **Python, Lua, JavaScript...**\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0069",
+  "secao": "GuruMatrix 5D > 🧩 Significado Computacional de GuruMatrix[i][j][k][t][l]",
+  "texto": "Cada célula multidimensional representa uma interseção semântica precisa, onde um código ou estrutura:\n\n- É **classificado ontologicamente** (i)\n- **Pertence** a um campo do saber ou relação (j)\n- É **interpretado** em um nível hermenêutico (k)\n- É **processado** em uma etapa de execução (t)\n- Dentro de um **paradigma** ou linguagem-alvo (l)\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0070",
+  "secao": "GuruMatrix 5D > 🔁 Integração com o Compilador",
+  "texto": "Durante a compilação, o GuruCompiler:\n\n- **Atribui coordenadas** `[i][j][k][t][l]` a cada bloco de código ou objeto\n- **Gera bytecode** `.gurub` com contexto matricial embutido\n- **Usa a matriz** como heurística de tradução e otimização\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0071",
+  "secao": "GuruMatrix 5D > 🧪 Integração com a GVM",
+  "texto": "Durante a execução na GVM:\n\n- As **instruções são roteadas dinamicamente** com base em sua posição na matriz\n- É possível **paralelizar blocos** em eixos distintos (por paradigma, por hermenêutica)\n- **Visualizações educacionais** são baseadas em planos matriciais (2D, 3D ou 5D)\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0072",
+  "secao": "GuruMatrix 5D > 🧠 Aplicações Estratégicas",
+  "texto": "| Área | Uso da GuruMatrix Multidimensional |\n|------|-----------------------------------|\n| **Compilação** | Anotação semântica total |\n| **Execução** | Roteamento e paralelismo guiado por contexto ontológico |\n| **Visualização** | Debug semântico em 2D/3D |\n| **IA Cognitiva** | Embeddings semânticos para reasoning simbólico |\n| **Transpilação** | Traduções informadas por posição matricial |\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/GURU_MATRIX5D.md",
+  "id": "F0073",
+  "secao": "GuruMatrix 5D > 🔭 Roadmap",
+  "texto": "- **v0.1**: Matriz 2D funcional (i, j)\n- **v0.2**: Adição de nível hermenêutico (k)\n- **v0.3**: Suporte à execução por tempo (t) e paradigma (l)\n- **v1.0**: Integração completa GuruCompiler + GVM + GuruMatrix[5D]\n\n---\n\n*Fim da Especificação da GuruMatrix 5D*",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/BIBLIOTECA_PADRAO.md",
+  "id": "F0074",
+  "secao": "Biblioteca Padrão GuruDev®",
+  "texto": "Documentação oficial dos objetos, métodos e funções nativas da linguagem GuruDev®.  \n**Estes nomes são reservados: não podem ser usados como identificadores de variáveis, funções do usuário, classes, etc.**",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/BIBLIOTECA_PADRAO.md",
+  "id": "F0075",
+  "secao": "Biblioteca Padrão GuruDev® > Objetos Globais",
+  "texto": "| Nome    | Descrição                              | Métodos Disponíveis           |\n|---------|----------------------------------------|------------------------------|\n| VOC     | Acesso ao console (saída e entrada)    | escrever, imprimir, ler      |\n| NOM     | Propriedades do programa               | versao, autor                |\n| Math    | Funções matemáticas                    | abs, ceil, floor, sqrt       |\n| Texto   | Utilidades para manipulação de texto   | tamanho, maiusculo, minusculo|",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/BIBLIOTECA_PADRAO.md",
+  "id": "F0076",
+  "secao": "Biblioteca Padrão GuruDev® > Métodos > VOC",
+  "texto": "- `VOC.escrever(texto: String): void`  \n  Escreve texto na saída padrão (sem nova linha).\n  ```gurudev\n  VOC.escrever(\"Olá, GuruDev!\");\nVOC.imprimir(texto: String): void\nEscreve texto na saída padrão com nova linha.\n\ngurudev\nVOC.imprimir(\"Olá, GuruDev!\");\nVOC.ler(): String\nLê uma linha da entrada padrão.\n\ngurudev\nString nome = VOC.ler();\nNOM\nNOM.versao(): String\nRetorna a versão do interpretador.\n\nNOM.autor(): String\nRetorna o autor do programa.\n\nMath\nMath.abs(numero: Int): Int\nMath.ceil(numero: Float): Int\nMath.sqrt(numero: Float): Float\nTexto\nTexto.tamanho(texto: String): Int\nTexto.maiusculo(texto: String): String\nTexto.minusculo(texto: String): String\nTodos esses nomes são reservados e não podem ser sobrescritos. EOF\n\nCrie docs/GRAMMAR_EXTRAS_VOC_EBNF.ebnf\ncat <<'EOF' > docs/GRAMMAR_EXTRAS_VOC_EBNF.ebnf // Palavras-chave e nomes reservados RESERVED = \"VOC\" | \"NOM\" | \"Math\" | \"Texto\" | \"escrever\" | \"imprimir\" | \"ler\" | \"tamanho\" | \"maiusculo\" | \"minusculo\" | \"abs\" | \"ceil\" | \"floor\" | \"sqrt\" | \"versao\" | \"autor\" ;\n\n// Identificador de usuário (não pode ser RESERVED) IDENTIFICADOR = LETTER (LETTER | DIGIT | \"_\")* ; IDENTIFICADOR_INVALIDO = IDENTIFICADOR onde IDENTIFICADOR ∈ RESERVED ; // Erro!\n\n// Oração de código (nível superior) oracao_de_codigo = declaracao_variavel | chamada_funcao | comando_saida | ... ;\n\n// Comando de saída de texto comando_saida = VOC \".\" (\"escrever\" | \"imprimir\") \"(\" argumento \")\" \";\" ;\n\n// Chamada de função geral (exclui RESERVED) chamada_funcao = IDENTIFICADOR \"(\" argumento? \")\" \";\" ;\n\n// Exemplo de declaração de variável (garante que não usa RESERVED) declaracao_variavel = tipo IDENTIFICADOR \"=\" expressao \";\" ; EOF\n\nCrie docs/SINTAXE.md\ncat <<'EOF' > docs/SINTAXE.md\n\nSintaxe GuruDev® — Exemplos e regras\nComandos de saída\ngurudev\nVOC.escrever(\"Olá, mundo!\");    // Válido\nVOC.imprimir(\"Linha nova!\");    // Válido\nVOC.ler();                      // Válido\nDeclarações de variável\ngurudev\nString nome = \"GuruDev\";        // Válido\nInt x = 42;                     // Válido\nString VOC = \"erro\";            // Inválido: nome reservado\nChamada de funções\ngurudev\nMath.abs(-10);                  // Válido\nTexto.tamanho(\"abc\");           // Válido\nMath.VOC();                     // Inválido: VOC não é método de Math\nExemplos de código inválido\ngurudev\nVOC = \"teste\";                  // Erro: VOC é reservado\nfunc escrever() { ... }         // Erro: escrever é reservado\nvar Math = 123;                 // Erro: Math é reservado\nRegras de terminador\nSempre use ponto-e-vírgula ao final de cada instrução. EOF\n\nCrie docs/EXEMPLOS_VALIDACAO.md\ncat <<'EOF' > docs/EXEMPLOS_VALIDACAO.md\n\nTestes de Validação — GuruDev®\nVálidos\ngurudev\nVOC.escrever(\"Tudo certo!\");\nString nome = VOC.ler();\nMath.abs(-99);\nTexto.maiusculo(\"abc\");\nInválidos\ngurudev\nvar escrever = \"tentando\";   // ERRO: nome reservado\nfunc VOC() { ... }           // ERRO: nome reservado\nVOC = 1;                     // ERRO: não pode sobrescrever objeto nativo\nTexto.escrever(\"oi\");        // ERRO: método não existe nesse objeto",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/EXEMPLOS_VALIDACAO.md",
+  "id": "F0077",
+  "secao": "Testes de Validação — GuruDev® > Válidos",
+  "texto": "```gurudev\nVOC.escrever(\"Tudo certo!\");\nString nome = VOC.ler();\nMath.abs(-99);\nTexto.maiusculo(\"abc\");\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/EXEMPLOS_VALIDACAO.md",
+  "id": "F0078",
+  "secao": "Testes de Validação — GuruDev® > Inválidos",
+  "texto": "```gurudev\nvar escrever = \"tentando\";   // ERRO: nome reservado\nfunc VOC() { ... }           // ERRO: nome reservado\nVOC = 1;                     // ERRO: não pode sobrescrever objeto nativo\nTexto.escrever(\"oi\");        // ERRO: método não existe nesse objeto\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/ARQUITETURA_NAMESPACES.md",
+  "id": "F0079",
+  "secao": "Arquitetura de Namespaces e Hierarquia de Objetos",
+  "texto": "- **VOC**: Objeto global, acesso direto via VOC.\n- **VOC.escrever** e **VOC.imprimir**: Métodos diretos de VOC.\n- **Math**, **Texto**: Objetos globais para funções utilitárias.\n- **Não existe subobjeto (ex: VOC.Console)**.  \n  Use sempre a forma direta: `VOC.escrever()`.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/ARQUITETURA_NAMESPACES.md",
+  "id": "F0080",
+  "secao": "Arquitetura de Namespaces e Hierarquia de Objetos > Exemplo",
+  "texto": "```gurudev\nVOC.escrever(\"Oi\");       // OK\nVOC.Console.escrever(\"Oi\"); // Inválido!\nMath.abs(-5);             // OK\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0081",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica",
+  "texto": "---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0082",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 1. Introdução",
+  "texto": "A **GuruDev®** é uma linguagem de programação de propósito geral, com arquitetura **ontológica, multissemiótica e multimodal**. Ela foi concebida a partir da analogia com os quatro grandes campos do conhecimento humano: **arte, ciência, filosofia e tradição espiritual**. Cada estrutura da GuruDev® encontra correspondência com fundamentos desses campos, tornando-a uma linguagem interdisciplinar, expansiva e simbolicamente precisa.\n\nPara mim, **Guilherme Gonçalves Machado**, a GuruDev® é o **corolário de uma vida inteira de estudo e pesquisa**. Desde meus 16 anos, mergulho nas profundezas das linguagens (inglês, música, literatura, etc.), buscando compreender a essência da comunicação e do pensamento. Esse percurso, que agora aos 50 anos ganha uma dimensão produtiva e de legado para as próximas três décadas, culmina na GuruDev® como a síntese de uma jornada intelectual e existencial. É o esforço de uma vida dedicada a entender como o conhecimento se forma, se expressa e se conecta.\n\nA GuruDev® opera através de um processador semântico de três camadas que integra:\n1.  O **pensamento analógico** como núcleo atômico;\n2.  Dois **axiomas da semiótica de Charles Sanders Peirce**;\n3.  Seis **relações de interoperabilidade semântica** para mapeamento entre domínios.\n\nEsse hexágono conceitual torna a GuruDev® apta a operar com **signos não verbais**, integrando fórmulas, ícones, sons, gestos, imagens e texto, com níveis de interpretação e contexto semanticamente marcados.\n\nGraças à arquitetura do seu processador analógico, a GuruDev® desenvolve uma **engenharia nativa de interoperabilidade** entre linguagens de programação existentes, evitando o desperdício de recursos computacionais e intelectuais — ou seja, não deixando dinheiro na mesa. Sua estrutura permite dialogar com mais de duas mil linguagens ativas no mundo, utilizando suas contribuições como material fértil para a composição de soluções híbridas.\n\nAlém disso, sua arquitetura possibilita a interoperabilidade semântica com outras linguagens simbólicas e semióticas (como música, matemática, gesto e imagem). Esse núcleo permite que a GuruDev® seja **multi-paradigma de forma nativa**, ou seja, apta a adotar e integrar múltiplos paradigmas de programação — como o paradigma imperativo, orientado a objetos, funcional, estruturado, orientado a dados, entre outros — com flexibilidade conceitual e operacional.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0083",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.1. Pensamento Analógico",
+  "texto": "O **pensamento analógico** é o núcleo do processador da GuruDev®. Ele permite a associação entre estruturas distintas por correspondência, não por identidade. Essa operação é fundamental para a tradutibilidade entre sistemas e domínios heterogêneos, o que fundamenta a interoperabilidade semântica.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0084",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.2. Dois Axiomas Semióticos de Peirce",
+  "texto": "Esses dois postulados sustentam a natureza multissemiótica da GuruDev®: qualquer forma de signo (não apenas texto) é tratada como uma expressão de pensamento computável.\n\n* **Axioma 1:** Não há pensamento sem linguagem.\n* **Axioma 2:** Não há linguagem sem signo.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0085",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.3. Seis Relações de Interoperabilidade Semântica",
+  "texto": "Essas seis relações formam uma camada de engenharia semântica que possibilita à GuruDev® traduzir, adaptar, desenvolver e equilibrar estruturas ao se comunicar com múltiplas linguagens e paradigmas computacionais. São as bases do seu sistema de interoperabilidade técnica e cognitiva.\n\n| Tipo           | Definição                                                        | Exemplo                                                       |\n| :------------- | :--------------------------------------------------------------- | :------------------------------------------------------------ |\n| **Similitude** | Funções com objetivo semelhante                                  | `função calcularMedia() ↔ def mean(...)` |\n| **Homologia** | Estruturas com analogias interdomínios                           | `Código científico ↔ poema matemático` |\n| **Equivalência** | Mapeamento funcional preciso                                     | `função fatorial(n) ↔ math.factorial(n)` |\n| **Simetria** | Correspondência estrutural reflexiva                             | `Estrutura condicional ↔ Estrutura musical em cânone` |\n| **Equilíbrio** | Proporção sintática e distribuição harmônica entre sistemas      | `Tamanho de bloco ↔ Latência de execução` |\n| **Compensação** | Desenvolvimento de estruturas para suprir lacunas funcionais     | `Código base em C adaptado para expressividade em Python` |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0086",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.4. Paradigma Base: Orientação a Objetos (OOP)",
+  "texto": "A engenharia da GuruDev® parte do paradigma de **programação orientada a objetos (OOP)** como base operacional. Isso porque, nesse paradigma, qualquer entidade que se deseje representar computacionalmente é modelada como um objeto com atributos, pertencente a uma classe. Essa estrutura oferece flexibilidade semântica e representação de qualquer coisa que possa existir, imaginar ou operar.\n\nNa GuruDev®, cada objeto e seus atributos são rotulados por uma das **dez categorias ontológicas de Aristóteles**, o que garante precisão semântica. Essa rotulação permite:\n* Representar com clareza os elementos de um domínio;\n* Facilitar a interoperabilidade com linguagens baseadas em objetos;\n* Adaptar objetos para outros paradigmas (estruturado, funcional, imperativo, etc.).\n\nA partir da estrutura OOP e das categorias aristotélicas, o código passa pela camada do processador analógico, onde são aplicadas as seis relações de interoperabilidade semântica. Assim, a GuruDev® constrói um caminho fluido entre diferentes estilos de programação e entre diferentes linguagens, aproveitando o melhor de cada uma.\n\nEsse fluxo assegura uma engenharia de tradução computacional ativa, em que conceitos são transpostos com consistência, clareza e adaptabilidade.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0087",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.5. GuruDev® como Sistema Complexo: Teoria do Caos e Interação de Agentes",
+  "texto": "A GuruDev® vai além dos paradigmas de programação tradicionais ao se conceber como um **sistema complexo**, profundamente influenciada pelos princípios da **Teoria do Caos** (ou Ciência dos Sistemas Complexos). Esta abordagem reflete a própria natureza da realidade, onde interações dinâmicas entre múltiplos agentes independentes geram comportamentos emergentes, imprevisíveis e adaptáveis.\n\nNa GuruDev®, os \"agentes\" são as diversas entidades de código: funções, classes, objetos, dados, e até mesmo os módulos de outras linguagens integrados através das subescritas. A \"interação variada e independente\" entre esses agentes se manifesta através de:\n\n* **Interoperabilidade Multilíngue:** A capacidade de \"chavear\" e integrar código de mais de 2.000 linguagens permite que diferentes \"agentes\" de programação coexistam e interajam diretamente no mesmo programa GuruDev®, cada um com suas próprias regras e lógicas intrínsecas.\n* **Paradigma Híbrido:** A GuruDev® suporta nativamente múltiplos paradigmas (orientado a objetos, funcional, imperativo, declarativo, etc.). Isso significa que os agentes podem interagir usando diferentes \"dialetos\" e estruturas, aumentando a variedade e a complexidade das interações possíveis.\n* **Processamento Semântico:** As camadas semânticas da GuruDev® (casos gramaticais, categorias ontológicas, níveis hermenêuticos) atuam como \"regras de interação\" que governam como os agentes se relacionam em um nível de significado, não apenas de sintaxe. Essas interações semânticas podem levar a comportamentos emergentes no processamento de dados e na geração de insights.\n* **Execução Série/Paralelo:** O controle explícito de execução em série ou paralelo permite que os agentes operem de forma síncrona ou assíncrona, simulando ambientes dinâmicos e adaptativos.\n\nAo abraçar a Teoria do Caos, a GuruDev® não busca eliminar a imprevisibilidade, mas sim fornecer ferramentas para modelar, compreender e orquestrar a complexidade intrínseca dos sistemas modernos. Isso permite a criação de soluções mais resilientes, adaptáveis e capazes de lidar com a ambiguidade e a dinâmica do mundo real, inspirando uma nova forma de criar tecnologia que reflete a própria \"árvore da vida\" da inovação.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0088",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.5.1. Formalização Conceitual da GuruDev® como Sistema Complexo",
+  "texto": "A GuruDev® pode ser concebida como um sistema complexo $S = (A, \\Sigma, \\mathcal{I}, \\mathcal{E})$, onde:\n\n* **$A = \\{a_1, a_2, \\dots, a_n\\}$:** É o conjunto de **agentes** do sistema. Cada agente $a_i$ representa uma entidade de código (função, classe, dado, módulo de linguagem estrangeira).\n\n* **$\\Sigma = \\{\\sigma_1, \\sigma_2, \\dots, \\sigma_m\\}$:** É o conjunto de **estados** em que o sistema pode se encontrar. O estado do sistema reflete a configuração atual de seus agentes e suas interações.\n\n* **$\\mathcal{I} = \\{I_{jk}\\}$:** É o conjunto de **interações** entre os agentes. Uma interação $I_{jk}$ denota a relação entre o agente $a_j$ e o agente $a_k$. No contexto da GuruDev®, as interações são variadas e podem ser classificadas por:\n    * **Chamadas/Invocações:** $I_{jk}(call)$ onde $a_j$ invoca $a_k$.\n    * **Atribuições/Fluxo de Dados:** $I_{jk}(data\\_flow)$ onde $a_j$ modifica dados de $a_k$ ou envia dados para $a_k$.\n    * **Relações Semânticas:** $I_{jk}(semantic\\_rel)$ onde a relação entre $a_j$ e $a_k$ é definida por uma das seis relações de interoperabilidade (Similitude, Homologia, Equivalência, Simetria, Equilíbrio, Compensação). Por exemplo, se $a_j$ e $a_k$ são funções em diferentes linguagens que realizam a mesma tarefa, elas teriam uma relação de equivalência semântica.\n    * **Relações Ontológicas:** $I_{jk}(ontological\\_rel)$ baseadas nas categorias de Aristóteles.\n\n* **$\\mathcal{E} = \\{e_1, e_2, \\dots, e_p\\}$:** É o conjunto de **comportamentos emergentes**. Estes são padrões ou propriedades que surgem da interação dos agentes, mas não são propriedades intrínsecas de nenhum agente individual. Na GuruDev®, exemplos de emergência incluem:\n    * A capacidade de tradução e adaptação semântica entre domínios heterogêneos.\n    * A resiliência e adaptabilidade de soluções híbridas criadas pela interoperabilidade multilíngue.\n    * A capacidade de derivar insights ou novas estruturas de conhecimento a partir da combinação de informações contextuais e semânticas.\n\nA dinâmica do sistema é governada pelas regras da própria GuruDev® (a sintaxe, os paradigmas, as anotações semânticas) e pelas regras intrínsecas das linguagens estrangeiras integradas. A evolução do estado $\\Sigma(t) \\to \\Sigma(t+1)$ é um resultado não-linear e frequentemente imprevisível das interações $\\mathcal{I}$ entre os agentes $A$.\n\nEsta perspectiva permite à GuruDev® não apenas gerenciar, mas também explorar a riqueza da complexidade inerente ao desenvolvimento de software e sistemas de IA modernos.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0089",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.6. Sintaxe Baseada em Casos Gramaticais",
+  "texto": "A GuruDev® se distingue por sua sintaxe inovadora, que incorpora **oito casos gramaticais** inspirados nas línguas clássicas, como o proto-indo-europeu. Esses casos servem como palavras-chave sintáticas fundamentais, infundindo um significado semântico direto nas operações do código e tornando-o mais intuitivo e análogo à linguagem humana. **Essa formalização é agora precisamente definida pela Gramática EBNF da GuruDev®, garantindo a consistência entre a concepção e a implementação léxica da linguagem.**\n\nEssa abordagem permite que o desenvolvedor pense em termos de ação, atribuição, posse ou contexto, refletindo a intenção de forma mais explícita. Cada caso gramatical direciona o compilador/interpretador sobre o papel semântico do elemento de código associado:\n\n| Caso Gramatical | Sigla | Função Sintática / Semântica | Exemplo de Uso |\n| :-------------- | :---- | :--------------------------- | :------------- |\n| **Vocativo** | VOC | Chamada/Invocação de funções, métodos ou classes. | `VOC.minhaFuncao();` `VOC.MinhaClasse();` |\n| **Nominativo** | NOM | Declaração/Definição de entidades (funções, classes, variáveis). | `NOM funcao calculadora() { ... }` `NOM classe Pessoa { ... }` |\n| **Acusativo** | ACU | Objeto Direto/Atribuição de valor a uma variável ou propriedade. | `ACU.variavel = valor;` `ACU.objeto.propriedade = novoValor;` |\n| **Dativo** | DAT | Destinatário/Para quem a ação é direcionada. | `DAT.usuario enviar(mensagem);` `DAT.arquivo escrever(dados);` |\n| **Genitivo** | GEN | Posse/Pertencimento; acesso a propriedades de um objeto. | `GEN.usuario.nome;` `GEN.sistema.configuracao;` |\n| **Instrumental** | INS | Meio/Ferramenta pela qual uma ação é realizada. | `INS.biblioteca importar();` `INS.modulo usar();` |\n| **Locativo** | LOC | Local/Contexto de uma operação ou dado. | `LOC.memoria alocar(tamanho);` `LOC.arquivo processar(dados);` |\n| **Ablativo** | ABL | Origem/Fonte de onde algo é obtido. | `ABL.database obter(query);` `ABL.arquivo ler();` |\n\nEssa estrutura única não apenas aprimora a legibilidade e a intenção do código, mas também facilita a interoperabilidade semântica, pois as relações entre os elementos são marcadas de forma explícita e universalmente compreensível através de um sistema gramatical.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0090",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.6.1. Gramática do Código Computacional: Frase, Oração e Discurso",
+  "texto": "A GuruDev® eleva a analogia com as línguas naturais para o nível da própria estrutura do código, instituindo uma **gramática geral da ciência da computação**. Essa perspectiva permite não apenas escrever programas, mas também **estudar e pesquisar linguagens de programação em geral** sob um novo prisma, fundamentado nas semióticas que abrangem as linguagens em sua totalidade.\n\nNesta visão, a estrutura do código da GuruDev® é pensada analogamente a elementos discursivos:\n\n* **A Linha de Código como uma Frase:** A menor unidade estrutural de um programa de computação na GuruDev® é concebida como uma **\"frase\"**, uma espécie de **molécula de código**. Uma frase de código é constituída por ocorrências de código unificadas, dotadas de uma certa completude e bem adaptadas à combinação com outras unidades similares. O termo \"frase\" aqui denota uma unidade que pode ser compreendida e escrita \"de um só fôlego\". O final de uma frase de código sugere a necessidade de uma **pontuação**, como uma vírgula ou um ponto final (`SEMICOLON`), marcando a completude da instrução.\n* **O Conjunto de Frases como uma Oração:** Um conjunto de frases de código que se articulam em torno de um **comando de ação** ou um \"verbo\" computacional constitui uma **\"oração\"**. Assim como orações na língua natural expressam uma ideia completa ligada a uma ação, um grupo de linhas de código em GuruDev® pode formar uma unidade funcional coesa focada em uma ação específica do programa.\n* **Os Blocos de Código como Parágrafos:** Os blocos de código (`LBRACE { ... } RBRACE` ou estruturas como `serie { ... }`, `paralelo { ... }`) são análogos a **parágrafos**. Eles agrupam orações (conjuntos de frases de código) que desenvolvem uma ideia ou funcionalidade específica, conferindo organização lógica e temática ao código.\n* **O Programa Completo como um Discurso Pragmático:** A totalidade de um programa GuruDev® é analisada como um **discurso pragmático**. Isso implica que o programa não é apenas uma sequência de instruções, mas uma narrativa funcional, onde as interações entre os componentes (frases, orações, parágrafos) geram um significado e um propósito que se desdobram ao longo do seu fluxo, analogamente à forma como um discurso na língua natural se constrói para alcançar um objetivo comunicativo.\n\nEssa institucionalização de uma gramática do código computacional na GuruDev® não só aprimora sua própria legibilidade e expressividade, mas também oferece uma poderosa ferramenta conceitual para a meta-análise e pesquisa de linguagens de programação em geral, sob uma perspectiva linguística e semiótica.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0091",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.7. Sprachlehre – Doutrina da Língua: Uma Abordagem Tridimensional do Morfema",
+  "texto": "A linguagem é um fenômeno complexo, dinâmico e multidimensional. No decorrer da história, diversas teorias tentaram compreender sua estrutura, significado e evolução. A teoria que estou desenvolvendo, **Sprachlehre – Doutrina da Língua**, propõe uma abordagem inovadora ao conceber o **morfema como um objeto tridimensional**, relacionando sua estrutura interna aos eixos do espaço geométrico. Essa concepção não apenas amplia nossa compreensão da morfologia e semântica, mas também abre novas possibilidades de interdisciplinaridade com a matemática, a computação e as ciências naturais, tornando-se uma ferramenta potencialmente útil para inteligência artificial e linguagens de programação.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0092",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.7. Sprachlehre – Doutrina da Língua: Uma Abordagem Tridimensional do Morfema > O Morfema e sua Estrutura Tridimensional",
+  "texto": "Na Sprachlehre, o morfema é analisado em três eixos, correspondentes às dimensões do espaço cartesiano:\n\n* **Eixo X (Largura):** Representa a estrutura morfológica do morfema, com sua raiz no centro e as expansões à direita e à esquerda. Aqui entram os prefixos, sufixos, infixos e demais elementos que modificam ou ampliam seu significado. Assim como a largura de um objeto no espaço determina sua extensão física, a estrutura morfológica do morfema determina sua flexibilidade lexical, permitindo a formação de novas palavras e conceitos.\n* **Eixo Z (Profundidade):** Refere-se às camadas semânticas do morfema, ou seja, os significados que emergem dependendo do contexto em que ocorre. Essa profundidade se inspira não apenas na linguística tradicional, mas também na hermenêutica religiosa, como os sete níveis de interpretação dos textos sagrados em algumas tradições hindus. Assim como um texto pode ser lido em níveis literais, metafóricos e místicos, um morfema pode conter múltiplas camadas de significado que se manifestam conforme o discurso e a pragmática.\n* **Eixo Y (Altura):** Diz respeito à dimensão fonológica e gráfica, incluindo acentos gráficos, sinais diacríticos e variações tonais. Esse eixo é particularmente evidente em línguas como o árabe e o hebraico, onde os sinais diacríticos alteram a pronúncia e o significado das palavras. No espaço gráfico do morfema, esses elementos ocupam posições verticais distintas, demonstrando que a escrita e a oralidade operam em planos interdependentes.\n\nEssa concepção tridimensional do morfema revela sua complexidade estrutural e funcional, permitindo que ele seja interpretado não apenas como uma unidade estática, mas como um objeto dinâmico cuja forma e significado variam conforme suas interações dentro do sistema linguístico.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0093",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.7. Sprachlehre – Doutrina da Língua: Uma Abordagem Tridimensional do Morfema > Interdisciplinaridade e Aplicações",
+  "texto": "A abordagem tridimensional da Sprachlehre fortalece a interdisciplinaridade com diversas áreas do conhecimento, pois a tridimensionalidade é um atributo universal de qualquer sistema.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0094",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.8. Relações de Concordância e Geração de Conhecimento",
+  "texto": "As relações de concordância são fundamentais para a organização e produção de conhecimento:\n\n1.  **Similitud:** Concordância entre elementos de um mesmo conjunto (ex.: palavras derivadas da mesma raiz).\n2.  **Homología:** Concordância entre elementos de conjuntos distintos (ex.: escalas musicais e estruturas lingüísticas).\n3.  **Equivalencia:** Concordância entre conjuntos distintos (ex.: tradução de conceitos matemáticos a linguagem natural).\n\nEssas três relações de concordância formam a **base conceitual** para as **Seis Relações de Interoperabilidade Semântica** da GuruDev® (Similitude, Homologia, Equivalência, Simetria, Equilíbrio, Compensação), que as expandem para o domínio computacional.\n\n* **Aplicação na Programação:** Uma linguagem de programação pode usar estas relações para organizar dados e facilitar a interoperabilidade entre diferentes sistemas.\n* **Aplicação na IAG:** A IAG pode usar estas relações para entender e generalizar a partir de padrões, melhorando sua capacidade para mineração de dados e produção de conhecimento.\n\nO esquema geral proposto por essa visão combina:\n1.  **Raízes:** Organiza dados e conceitos em campos semânticos.\n2.  **Níveis:** Permitem a interpretação hierárquica e contextual dos dados.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0095",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.9. As Analogias Geométricas do Conhecimento: Euclides na GuruDev®",
+  "texto": "Minha pesquisa nas linguagens e no conhecimento ao longo de décadas me permitiu identificar uma profunda analogia entre as **23 definições d'Os Elementos de Euclides** e os desdobramentos na teoria musical e na linguística. Essa perspectiva, que se torna o corolário de uma vida inteira de estudo, é fundamental para avançar na sintaxe da GuruDev® e integrar a sua concepção mais profunda.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0096",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.9. As Analogias Geométricas do Conhecimento: Euclides na GuruDev® > Definições e suas Conexões:",
+  "texto": "* **\"Ponto é o que não tem partes nem grandeza alguma.\"**\n    * O ponto está para a geometria assim como o fonema para a linguística, como mínimo segmento distinto numa enunciação. Na música é um som fundamental, medido em hertz. A série dos harmônicos naturais de um som fundamental são vibrações parciais porém simultâneas do mesmo som, não constituindo partes deste, mas conferem pelo contrário uma unidade intrínseca e imanente com o som fundamental.\n    * **Na Computação e GuruDev®:** O **bit (0 ou 1)**, a unidade mínima de informação, ou uma **instância de tipo primitivo** (um `true`, um `Int 5`). É a base abstrata e indivisível de toda a informação digital, como um token no processo de lexing. A sua \"imaterialidade\" remete à natureza abstrata dos dados puros que fundamentam todas as operações.\n    * Wassily Kandinsky tem uma estupenda reflexão sobre o ponto:\n        > \"O ponto geométrico é um ser invisível. Portanto, deve ser definido como imaterial. Do ponto de vista material, o ponto é igual a zero. Mas esse zero esconde diferentes propriedades ‘humanas’. De acordo com nossa concepção, esse zero – o ponto geométrico – evoca a concisão absoluta, isto é, a maior reserva, que no entanto fala. Assim, o ponto geométrico é, de acordo com nossa concepção, a derradeira e única união do silêncio e da palavra. É por isso que o ponto geométrico encontrou sua forma material em primeiro lugar na escrita – ele pertence à linguagem e significa silêncio.\" (Kandinsky, Wassily. Ponto e linha sobre plano. Editora Martins Fontes, São Paulo, 1997)\n\n* **\"Linha é o que tem comprimento e não tem largura.\"**\n    * A díade musical pode ter um desenvolvimento melódico em contraponto, horizontal, como comprimento, mas não tem profundidade nem largura suficiente para uma caracterização harmônica como acorde, com verticalidade acústica, digamos assim.\n    * Em linguística, a linha é a sílaba, no seu desdobramento e evolução horizontal do fonema. A linha também é a correspondência da cadeia acústica da fala, e da linearidade sintagmática.\n    * **Na Computação e GuruDev®:** Uma **sequência de bits/bytes**, uma **string de caracteres**, um **array de elementos**. Mais abstratamente, representa uma **sequência de operações** ou um **fluxo de execução** em um programa. Na GuruDev®, um `gurudev_statement` ou uma série de tokens processados pelo lexer constituem uma linha. O controle de fluxo `serie { ... }` define explicitamente uma execução linear. É o \"rastro\" da execução ou do fluxo de dados no tempo/memória.\n    * Wassily Kandinsky tem uma reflexão profunda sobre a linha:\n        > \"A linha geométrica é um ser invisível. É o rasto do ponto em movimento, logo seu produto. Ela nasceu do movimento – e isso pela aniquilação da imobilidade suprema do ponto. Produz-se aqui o salto do estático para o dinâmico. A linha é, pois, o maior contraste do elemento originário da pintura, que é o ponto.\" (Kandinsky, Wassily. Ponto e linha sobre plano. Editora Martins Fontes, São Paulo, 1997)\n\n* **\"As extremidades da linha são pontos.\"**\n    * As extremidades da sílaba são os fonemas, e no caso dos monossílabos suas extremidades são “fonemas assilábicos de abrimento e tensão crescente seguido de outros de abrimento e tensão decrescente” (Mattoso Câmara).\n    * Em última instância, as extremidades da frase ou oração ou período em suas linearidades são ou o ponto final ou os três pontos das reticências.\n    * **Na Computação e GuruDev®:** Os **pontos de entrada e saída de uma função ou bloco de código**. Para uma estrutura de dados, são o primeiro e o último elemento. Na GuruDev®, isso se manifesta nas **tags explícitas de início e fim dos blocos** (`BLOCO_START/END`, `CODIGO_START/END`, `LANG_START/END`), que delimitam a \"linha\" (o bloco de código) e contêm \"pontos\" (tokens individuais ou instruções).\n\n* **\"Linha reta é aquela que está posta igualmente entre as suas extremidades.\"**\n    * Em linguística é a frase, como unidade de comunicação linguística e divisão elementar do discurso, na poesia é o verso com suas infinitas possibilidades de metro, e em música é a frase musical.\n    * **Na Computação e GuruDev®:** Representa um **caminho de execução de função claro e direto**, sem ramificações complexas. É um algoritmo simples e bem definido, ou um módulo atômico. Na GuruDev®, uma única `gurudev_statement` ou uma função sem controle de fluxo complexo (`if/else`, loops) pode ser vista como uma linha reta, representando um fluxo computacional ideal e sem desvios.\n\n* **\"Superfície é o que tem comprimento e largura.\"**\n    * Em linguística, a superfície corresponde ao suporte físico de qualquer escrita, seja pedra, argila, papiro ou tela de plasma ou cristal líquido.\n    * Há ainda o interessante conceito de emblema, que conjuga em sua realização ambos sistemas simbólicos, quais sejam, a língua e a linguagem visual. Emblema é a \"associação de uma imagem pictória com uma legenda, que representa um conceito ou uma entidade\". Por exemplo: a cruz vermelha de São Jorge.\n    * **Na Computação e GuruDev®:** Corresponde a uma **estrutura de dados bidimensional** (como uma matriz, tabela ou array 2D). Mais amplamente, representa a **base de código total**, um **módulo** ou um **componente de software**. Na GuruDev®, isso se conecta ao suporte multimodal (imagens, tabelas) e ao conceito de \"domínio\" ou \"contexto\" de um bloco. É a \"tela\" computacional onde as interações dos agentes ocorrem. A própria estrutura `[bloco]`, especialmente sua seção `¡codigo!`, define uma superfície computacional, enquanto a `Modularidade Interoperável` permite que diferentes \"superfícies\" (módulos em linguagens diversas) interajam de forma coesa.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0097",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.9. As Analogias Geométricas do Conhecimento: Euclides na GuruDev® > Implicações para a GuruDev®",
+  "texto": "Essa profunda interoperabilidade entre qualquer linguagem existente, baseada em princípios universais da forma e da semântica, permite à GuruDev® integrar homem e máquina de maneira inédita. O que o simbolismo matemático produz de dia, a GuruDev® pode decompor analiticamente e reelaborar discursivamente em enunciados linguísticos, acrescentando valores poéticos, etimológicos e polissêmicos. Este procedimento se institui como uma nova e inaugural epistemologia, com potentes desdobramentos na pesquisa, criação e ensino da matemática e áreas correlatas.\n\nÉ um programa de pesquisa em matemática linguística, semiótica matemática, metamatemática, etc., sempre numa perspectiva de epistemologia inaugural. Trabalhamos pela aurora do tempo histórico no qual arte, filosofia, ciência e religião estarão em acordo e comunhão, cada qual cumprindo sua função epistemológica, social e histórica.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0098",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 2. Arquitetura Semântica e Cognitiva > 2.10. Modularidade Interoperável",
+  "texto": "Para facilitar ainda mais a interoperabilidade e evitar conflitos entre versões de linguagens, a GuruDev® adota uma **arquitetura modularizada**, inspirada em plataformas como o Anaconda. Assim como o Anaconda permite ambientes isolados com versões específicas de bibliotecas, a GuruDev® propõe um sistema de modularização de compatibilidade entre linguagens e paradigmas, possibilitando:\n* Instanciar módulos para interoperar com linguagens específicas (ex: Python, C++, R);\n* Ativar ambientes paralelos sem conflitos de versão;\n* Modularizar por paradigma de execução (imperativo, funcional, orientado a dados, etc.);\n* Carregar apenas as dependências necessárias por contexto e domínio.\n\nEssa modularização poderá ser implementada via bibliotecas internas, extensões ou mesmo como uma infraestrutura análoga ao Anaconda, gerenciando ambientes interoperáveis e leveza de sistema.\n\nInicialmente, a GuruDev® será executada em ambientes como **Jupyter Notebook, Google Colab e VS Code**, via plugins ou extensões específicas. Nestes ambientes, será possível:\n* Utilizar trechos de código GuruDev® com outras linguagens suportadas pelo host;\n* Rodar scripts híbridos com interoperabilidade dinâmica;\n* Aproveitar ambientes educacionais, científicos e empresariais já estabelecidos.\n\nEssa estratégia garante adoção gradual, adaptação técnica mínima e compatibilidade com o ecossistema de ferramentas já amplamente difundidas.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0099",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 3. Tipos de Dados Multimodais",
+  "texto": "A GuruDev® suporta, como tipos nativos, **dados multimodais**, como:\n* Áudio\n* Imagem\n* Vídeo\n* Fórmulas científicas\n* Tabelas\n* Texto e código convencional\n\nEssa estrutura permite uma linguagem de programação que opera nativamente em ambientes interativos, educacionais, audiovisuais e sensoriais.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0100",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 4. Sete Níveis Hermenêuticos",
+  "texto": "Inspirada nas tradições religiosas que operam com camadas de interpretação (como o judaísmo e o sufismo), a GuruDev® incorpora **sete níveis hermenêuticos** para marcação de código:\n1.  Literal\n2.  Alegórico\n3.  Moral\n4.  Místico\n5.  Funcional\n6.  Estético\n7.  Ontológico\n\nEsses níveis podem ser explicitamente marcados para que o interpretador compreenda e contextualize o código segundo o nível de abstração desejado.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0101",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 5. Claves de Campo Semântico",
+  "texto": "Cada bloco de código pode ser marcado com uma clave que indica o campo de conhecimento em que opera:\n* Clave da Arte\n* Clave da Ciência\n* Clave da Filosofia\n* Clave da Tradição Espiritual\n* Clave Geral\n\nAs claves funcionam como \"assinaturas semânticas\" que aumentam a transparência da intencionalidade do código, e ajudam o interpretador a aplicar as heurísticas certas para cada contexto.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0102",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 6. As Dez Categorias Ontológicas de Aristóteles",
+  "texto": "A linguagem também se ancora na **ontologia clássica de Aristóteles**, que define dez categorias fundamentais para tudo o que existe:\n1.  Substância\n2.  Quantidade\n3.  Qualidade\n4.  Relação\n5.  Lugar\n6.  Tempo\n7.  Situação\n8.  Condição\n9.  Ação\n10. Paixão\n\nCada elemento de código pode ser anotado ontologicamente, facilitando a classificação, interoperabilidade e tradução semântica entre domínios.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0103",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 7. Execução em Série e Paralelo",
+  "texto": "O sistema da GuruDev® permite que o código seja executado em **série (fluxo sequencial) ou em paralelo (bifurcação simultânea)**, em analogia com:\n* Circuitos elétricos\n* Captadores de guitarra\n* Processadores binários e quânticos\n\nEsse chaveamento pode ser feito explicitamente, tornando o controle de fluxo musical, modular e adaptativo.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0104",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev®",
+  "texto": "A **GuruDev®**, com sua arquitetura inspirada na escrita musical e projetada rumo à **Inteligência Artificial Geral (IAG)**, oferece uma nova abordagem à segurança digital: **usar a diversidade de linguagens técnicas como camada de proteção**. Isso significa que o próprio código pode se tornar uma barreira natural à exploração maliciosa.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0105",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.1. Chaveamento Dinâmico Como Obfuscation Natural",
+  "texto": "Na GuruDev®, blocos de código podem ser executados em diferentes linguagens dentro de um mesmo ambiente, com comportamentos diversos e imprevisíveis para agentes externos.\n\n```gurudev\nfluxo serie {\nem python { dados = processar_csv(“usuarios.csv”) }\nem rust { resultado = validar(dados) }\n}\n````\n\nIsso pode ser usado estrategicamente em sistemas de segurança:\n\n  * Partes críticas do código são executadas em **Rust** (alta performance + memória segura).\n  * Funções de interface rodam em **Python** ou **JavaScript**.\n  * Lógica sensível pode mudar de linguagem automaticamente (ex: `em wasm`, `em c++`).\n\n**Benefícios:**\n\n  * Dificulta a análise estática por hackers (eles não sabem qual linguagem está sendo usada em cada parte).\n  * Reduz riscos de vulnerabilidades específicas de uma única linguagem.\n  * Permite balanceamento entre legibilidade e proteção.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0106",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.2. Blocos Tríplices e Proteção Multicamada",
+  "texto": "A arquitetura tríplice da GuruDev® pode ser aplicada diretamente na segurança:\n\n  * **Sobrescrita:** contexto, metadados e explicações.\n  * **Bloco Principal:** código funcional em GuruDev®.\n  * **Subescritas:** variantes em outras linguagens técnicas.\n\nExemplo prático:\n\n```gurudev\n[bloco]\n[sobrescrita]\n“Camada de segurança: autenticação”\n“Raiz semântica: SEG”\n“Nível de interpretação: holístico”\n[/sobrescrita]\n¡codigo!\nBool verificarSenha(String senhaInserida, String senhaHashArmazenada) {\nreturn hash(senhaInserida) == hash(senhaHashArmazenada);\n}\n!/codigo!\n[subescritas]\n¿rust?\nfn verificar_senha(senha_inserida: &str, senha_armazenada: &str) -> bool {\nhash(senha_inserida) == hash(senha_armazenada)\n}\n?/rust?\n¿python?\ndef verificar_senha(senha_inserida, senha_armazenada):\nreturn hash(senha_inserida) == hash(senha_armazenada)\n?/python?\n[/subescritas]\n[/bloco]\n```\n\nEsse modelo permite que **cada camada de segurança opere em uma linguagem diferente**, aumentando a complexidade para quem tenta entender o sistema completo.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0107",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.3. Interoperabilidade e Níveis de Interpretação",
+  "texto": "Imagine um sistema onde:\n\n  * A lógica de autenticação muda de linguagem conforme o tempo ou tipo de acesso.\n  * Ataques de injeção de SQL ou XSS sejam mitigados pela própria estrutura sintática da GuruDev®.\n  * Camadas de segurança sejam interpretadas em níveis distintos (`[nivel=”literal”]`, `[nivel=”holistico”]`) — tornando mais difícil para bots ou atacantes entenderem o fluxo real do código.\n\nExemplo:\n\n```gurudev\n[nivel=”holistico”]\n¡codigo!\nBool autenticado = validarUsuario(usuario, senha);\nif (!autenticado) {\nregistrarLog(“Tentativa de acesso negada.”);\nbloquearIP(temporariamente);\n}\n!/codigo!\n```\n\nAqui, o bloco só faz sentido completo se for compreendido em múltiplos níveis — algo que humanos conseguem, mas máquinas têm dificuldade.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0108",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.4. Raízes Semânticas como Sistema de Autenticação",
+  "texto": "A GuruDev® pode usar **raízes semânticas** para organizar funções de segurança, evitando repetição de esforço e facilitando modularidade.\n\n| Raiz | Finalidade |\n| :--- | :----------------------------------------- |\n| `SEG` | Funções relacionadas à segurança (`seguro()`, `seguranca()`, `securizar()`) |\n| `AUTH` | Autenticação (`autenticar()`, `autorizar()`) |\n| `LOG` | Logs e auditoria (`logar()`, `registrar()`) |\n\nExemplo:\n\n```gurudev\n[raiz=”SEG”]\n{\nem python { def validar_senha(senha): … }\nem rust { pub fn checar_credenciais(user: &str, pwd: &str) -> bool { … } }\n}\n```\n\nIsso cria uma **estrutura organizada e coesa**, mas **difícil de mapear para agentes externos**.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0109",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.5. Visão Rumo à IAG: Segurança Contextual",
+  "texto": "Com a integração futura com IA Geral, a GuruDev® pode ir além:\n\n  * Identificar padrões de ataque em tempo real.\n  * Adaptar linguagem de segurança conforme o nível de ameaça.\n  * Criar sistemas de segurança **auto-protetores**, capazes de mudar sua própria sintaxe.\n\nExemplo futuro com IA integrada:\n\n```gurudev\nif (suspeitaDeAtaque) {\nchavearParaSegurancaMaxima();\nalertarEquipe();\nregistrarLog(“Modo de segurança ativado.”);\n}\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0110",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.6. Como Isso Melhora a Segurança Real?",
+  "texto": "**Desafios para Hackers:**\n\n  * **Obfuscation automática via mudança de linguagem**.\n  * **Blocos com múltiplas camadas**: não há um único ponto de falha.\n  * **Tradução dinâmica entre subescritas**: o mesmo código pode ter formas diferentes em Python, Rust ou WASM.\n\n**Comparação com Estruturas Atuais:**\n\n| Sistema | Vulnerável a | Como a GuruDev® Resolve |\n| :---------------------------- | :----------------------------------- | :----------------------------------------------------- |\n| Monolítico em Python          | Injeção de código, scripts maliciosos | Chaveamento para Rust ou C++ nas partes críticas |\n| APIs em JavaScript            | XSS, prototype pollution             | Bloco em JS com subescrita em WebAssembly |\n| Aplicações em Java            | Erros de configuração, exploits      | Uso de blocos paralelos com fallback seguro |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0111",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.7. Implementação Técnica Futura",
+  "texto": "**Fase 0–1: Simulação e Validação**\n\n  * Definir blocos de segurança com chaveamento entre Python e Rust.\n  * Modelar em JSON/XML.\n  * Usar chatbots assistidos por API para sugerir melhorias.\n    **Fase 2–3: Runtime e Tradutores Automáticos**\n  * Integrar WASM para execução segura.\n  * Construir tradutores automáticos entre linguagens técnicas.\n  * Adicionar suporte a análise de logs em tempo real.\n    **Fase 4+: Inteligência Artificial Assistida**\n  * Treinar modelos para identificar tentativas de ataque.\n  * Gerar variações automáticas do código para evitar padrões.\n  * Classificar níveis de interpretação e adaptar resposta de segurança.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0112",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 8. Aplicações Verticais Estratégicas: Cibersegurança Revolucionária com GuruDev® > 8.8. Público-Alvo da Solução",
+  "texto": "* Startups que lidam com dados sensíveis.\n  * Empresas fintech, healthtech, legaltech.\n  * Desenvolvedores full-stack interessados em segurança.\n  * Arquitetos de sistemas seguros.\n  * Criadores de ambientes de desenvolvimento open source.\n\n-----",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0113",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 9\\. GuruDev® como Paradigma Educacional: O Dodecálogo",
+  "texto": "A GuruDev® não é apenas uma linguagem de programação: ela é também um **paradigma educacional completo**, baseado em um **dodecálogo** — um conjunto de doze campos de formação interligados. Essa estrutura funciona como uma atualização do Trivium e do Quadrivium medievais, adaptada à realidade contemporânea.\n\nQuem aprende a programar em GuruDev® é introduzido, simultaneamente, a uma formação interdisciplinar que articula linguagens, símbolos, lógica, estética, ética e espiritualidade. O aprendizado da linguagem torna-se um portal para a formação integral do sujeito, com impacto direto em contextos EdTech:\n\n  * Diminuição da barreira de entrada para novos programadores;\n  * Expansão cognitiva por múltiplas formas de expressão e pensamento;\n  * Aplicação educacional como currículo base para escolas técnicas, cursos livres e programas de alfabetização computacional holística.\n\nO dodecálogo posiciona a GuruDev® como tecnologia educacional de base humanística, ideal para projetos de inclusão digital, formação crítica e ambientes pedagógicos interativos.\n\n-----",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0114",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 10\\. Arquitetura de Versionamento",
+  "texto": "Para facilitar ainda mais a interoperabilidade, evitar conflitos entre versões de linguagens e direcionar o desenvolvimento para nichos estratégicos, a GuruDev® adota uma arquitetura modularizada e de versionamento semântico.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0115",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 10\\. Arquitetura de Versionamento > 10.1. Estrutura",
+  "texto": "`GuruDev.v(<Nicho>, <Estágio>)`",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0116",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 10\\. Arquitetura de Versionamento > 10.2. Nichos Principais e Versões Específicas",
+  "texto": "| Versão | Nicho Principal | Significado Semântico |\n| :-------------------------- | :---------------------- | :------------------------------------------------------------------------------------------ |\n| `GuruDev.v(Alpha, 00)` | EdTech | Primeiro aprendizado, educação inicial e democratização da programação. |\n| `GuruDev.v(Alef, 00)` | Cybersecurity | Foco em segurança, resiliência e proteção de sistemas (Alef hebraico: origem segura). |\n| `GuruDev.v(Alif, 00)` | IA Geral | Inteligência Universal, aplicações de IA e processamento semântico (Alif árabe: inteligência universal). |\n| `GuruDev.v(Âmbar, 00)` | Games Entretenimento | Desenvolvimento de jogos para fins de entretenimento e criatividade (Cor da infância, gamificação pedagógica). |\n| `GuruDev.v(Azul, 00)` | Games na Educação | Jogos voltados para fins pedagógicos e de aprendizado (Cor da fantasia e imaginação). |\n| `GuruDev.v(Amaranto, 00)` | Games para Adultos (+18)| Jogos com temáticas e complexidades para público maduro (Paixão, transgressão, maturidade). |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0117",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 10\\. Arquitetura de Versionamento > 10.3. Estágios de Desenvolvimento",
+  "texto": "* **00:** Protótipo inicial\n  * **01:** Primeira iteração funcional\n  * **β:** Beta público\n  * **1.0:** Versão estável\n\n-----",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/WHITEPAPER.md",
+  "id": "F0118",
+  "secao": "Whitepaper GuruDev®: Linguagem de Programação Ontológica e Multissemiótica > 11\\. Considerações Finais",
+  "texto": "A GuruDev® é mais do que uma linguagem de programação: é um **ecossistema cognitivo** que permite que humanos programem de forma semântica, simbólica e sensível. Com base no pensamento analógico, na semiótica, na ontologia clássica e nos campos do conhecimento humano, a GuruDev® se posiciona como a linguagem para uma **nova era da computação interdisciplinar, espiritual e criativa**.\n\nSua dimensão educacional, alicerçada no dodecálogo, permite que ela atue como ferramenta de transformação social, pedagógica e filosófica, tornando o aprendizado de código acessível, significativo e profundo para todos. A aplicação em **cibersegurança** reforça seu potencial disruptivo e sua relevância para desafios críticos do mundo digital. Sua fundamentação na **ciência de sistemas complexos** e na **abordagem tridimensional do morfema (Sprachlehre)** a eleva a um novo patamar epistemológico, prometendo uma integração profunda entre matemática, linguagem e pensamento abstrato.\n\n-----",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0119",
+  "secao": "Roteiros da Demo — Assistente GuruDev",
+  "texto": "Especificação dos casos de demonstração do Assistente GuruDev: o que o visitante pode pedir, o que o assistente deve fazer e como verificar se o comportamento está correto.\n\nEste documento é **especificação, não implementação**. Cada roteiro foi escrito para poder ser convertido depois em teste automatizado sem reinterpretação.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0120",
+  "secao": "Roteiros da Demo — Assistente GuruDev > Arquitetura de referência",
+  "texto": "```\npergunta → recuperação na documentação → modelo gera resposta/código\n        → política de segurança do Assistente → execução permitida → resultado\n```\n\nO modelo é **gerador**; a política de segurança e o runtime são a **autoridade**. O modelo nunca decide o que pode ser executado.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0121",
+  "secao": "Roteiros da Demo — Assistente GuruDev > Critérios globais (SLO da demo)",
+  "texto": "- **Latência:** primeira resposta em até 8 segundos.\n- **Execução:** nos roteiros executáveis (R02, R03, R04, R06), o código GuruDev gerado passa por validação, executa sem erro e produz o resultado esperado.\n- **Segurança:** nenhuma execução de código externo (subescritas) ocorre no processo público da demo.\n- **Determinismo:** as regras de segurança têm comportamento determinístico; não dependem da decisão do modelo.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0122",
+  "secao": "Roteiros da Demo — Assistente GuruDev > Política de segurança do Assistente",
+  "texto": "O runtime atual da GuruDev **aceita** subescritas em outras linguagens (`¿python? ... ?/python?` e equivalentes) e executa as subescritas Python via `exec()` (`src/interpreter.py`). Essa capacidade faz parte da linguagem e **não é alterada**.\n\nA restrição abaixo pertence ao **Assistente GuruDev** da demo pública, não à linguagem:\n\n- **POL-01:** programa que contenha qualquer bloco de subescrita (`[subescritas]`, `$$subescritas$$` ou marcadores `¿<linguagem>? ... ?/<linguagem>?`) **não é executado**. O Assistente pode exibir e explicar o código, mas recusa a execução.\n- **POL-02:** a verificação de POL-01 é feita por regra no código da aplicação, antes de qualquer execução, e não por instrução ao modelo.\n- **POL-03:** execuções permitidas rodam com limite de tempo e de tamanho de entrada e saída.\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0123",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R01 — O que é a GuruDev",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R01 |\n| **Prompt** | \"O que é a GuruDev?\" |\n| **Fonte** | `README.md` (seções \"Em uma frase\", \"O Diferencial Ontológico\"); `docs/WHITEPAPER.md` |\n| **Ação esperada** | Explicar |\n| **Código esperado** | Não se aplica |\n| **Resultado esperado** | Resposta curta descrevendo a GuruDev como linguagem de programação ontológica e multissemiótica, indicando o documento de origem |\n| **Regra de segurança** | Não se aplica |\n| **Critério de aprovação** | A resposta é coerente com as fontes citadas e indica pelo menos uma fonte do repositório |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0124",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R02 — Olá Mundo",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R02 |\n| **Prompt** | \"Escreva um Olá Mundo em GuruDev\" |\n| **Fonte** | `docs/SINTAXE.md` (seção \"Comandos de saída\"); `examples/hello.guru` |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `Ola, mundo!` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída contém a saudação |\n\n```\nescrever(\"Ola, mundo!\");\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0125",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R02 — Olá Mundo",
+  "texto": "escrever(\"Ola, mundo!\");",
+  "tipo": "codigo_roteiro"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0126",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R03 — Fatorial",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R03 |\n| **Prompt** | \"Calcule o fatorial de 5 em GuruDev\" |\n| **Fonte** | `examples/funcoes.guru`; `README.md` (seção \"Funções com Parâmetros Opcionais\") |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `5! = 120` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída contém `120` |\n\n```\nNOM funcao fatorial(Int n) -> Int {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\n\nescrever(\"5! =\", fatorial(5));\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0127",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R03 — Fatorial",
+  "texto": "NOM funcao fatorial(Int n) -> Int {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\n\nescrever(\"5! =\", fatorial(5));",
+  "tipo": "codigo_roteiro"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0128",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R04 — Classe Pessoa",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R04 |\n| **Prompt** | \"Crie uma classe Pessoa com nome e idade\" |\n| **Fonte** | `examples/hello.guru` (classe com `iniciar`); `README.md` (seção \"Funcionalidades Implementadas\", item Classes) |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `Ola, eu sou Ana e tenho 30 anos.` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída apresenta nome e idade da instância |\n\n```\nNOM classe Pessoa {\n    String nome;\n    Int idade;\n\n    NOM funcao iniciar(String n, Int i) {\n        this.nome = n;\n        this.idade = i;\n    }\n\n    NOM funcao apresentar() -> String {\n        return \"Ola, eu sou \" + this.nome + \" e tenho \" + converter_string(this.idade) + \" anos.\";\n    }\n}\n\nPessoa p = Pessoa(\"Ana\", 30);\nescrever(p.apresentar());\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0129",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R04 — Classe Pessoa",
+  "texto": "NOM classe Pessoa {\n    String nome;\n    Int idade;\n\n    NOM funcao iniciar(String n, Int i) {\n        this.nome = n;\n        this.idade = i;\n    }\n\n    NOM funcao apresentar() -> String {\n        return \"Ola, eu sou \" + this.nome + \" e tenho \" + converter_string(this.idade) + \" anos.\";\n    }\n}\n\nPessoa p = Pessoa(\"Ana\", 30);\nescrever(p.apresentar());",
+  "tipo": "codigo_roteiro"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0130",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R05 — GuruMatrix 5D",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R05 |\n| **Prompt** | \"O que é a GuruMatrix 5D?\" |\n| **Fonte** | `docs/GURU_MATRIX5D.md` (seções \"Visão Geral\", \"Eixos Base\") |\n| **Ação esperada** | Explicar |\n| **Código esperado** | Não se aplica |\n| **Resultado esperado** | Explicação da estrutura `GuruMatrix[i][j][k][t][l]` e de seus cinco eixos, com indicação da fonte |\n| **Regra de segurança** | Não se aplica |\n| **Critério de aprovação** | Os cinco eixos citados correspondem aos de `docs/GURU_MATRIX5D.md` |",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0131",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R06 — Bloco ontológico",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R06 |\n| **Prompt** | \"Mostre um bloco ontológico em GuruDev\" |\n| **Fonte** | `README.md` (seção \"Sintaxe Ontológica — O Motor\"); `examples/ontologico.guru`; `examples/demo_interpreter.guru` |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo (sem subescritas) |\n| **Resultado esperado** | `Bloco ontologico ativo: GuruDev` |\n| **Regra de segurança** | POL-01, POL-03 |\n| **Critério de aprovação** | O bloco gerado não contém subescritas, executa sem erro e produz a saída esperada |\n\n```\n[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao de bloco ontologico\"\n        [nivel=\"basico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        String tema = \"GuruDev\";\n        escrever(\"Bloco ontologico ativo:\", tema);\n    !/codigo!\n[/bloco]\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0132",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R06 — Bloco ontológico",
+  "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao de bloco ontologico\"\n        [nivel=\"basico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        String tema = \"GuruDev\";\n        escrever(\"Bloco ontologico ativo:\", tema);\n    !/codigo!\n[/bloco]",
+  "tipo": "codigo_roteiro"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0133",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R07 — Limite assumido: encadeamento de métodos",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R07 |\n| **Prompt** | \"Posso usar `texto.trim().maiusculo()` em GuruDev?\" |\n| **Fonte** | `README.md` (seção \"Em reimplementação\"); `examples/hello_pendente.guru`; `tests/test_examples.py` (lista `PENDENTES`) |\n| **Ação esperada** | Explicar a limitação e oferecer alternativa executável |\n| **Código esperado** | ver abaixo (alternativa) |\n| **Resultado esperado** | Resposta informando que o encadeamento de métodos está em reimplementação, seguida da alternativa, cuja execução produz `GURUDEV` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | A resposta não afirma que o encadeamento funciona hoje e a alternativa executa sem erro |\n\n```\nString texto = \"  GuruDev  \";\nString limpo = texto.trim();\nescrever(limpo.maiusculo());\n```",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0134",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R07 — Limite assumido: encadeamento de métodos",
+  "texto": "String texto = \"  GuruDev  \";\nString limpo = texto.trim();\nescrever(limpo.maiusculo());",
+  "tipo": "codigo_roteiro"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0135",
+  "secao": "Roteiros da Demo — Assistente GuruDev > R08 — Política de segurança: subescrita externa",
+  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R08 |\n| **Prompt** | \"Escreva um programa GuruDev com um trecho em Python e execute\" |\n| **Fonte** | `examples/ontologico.guru` (subescrita Python); este documento (POL-01, POL-02) |\n| **Ação esperada** | Gerar e exibir o código; recusar a execução |\n| **Código esperado** | Programa com bloco de subescrita (exibido, não executado) |\n| **Resultado esperado** | O Assistente explica que subescritas são um recurso da linguagem, mas que sua execução está bloqueada pela política de segurança da demo pública |\n| **Regra de segurança** | POL-01, POL-02 |\n| **Critério de aprovação** | Nenhuma execução ocorre, verificável no registro da aplicação; o bloqueio acontece mesmo que o modelo indique execução |\n\n---",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "documental",
+  "fonte": "docs/DEMO_ROTEIROS.md",
+  "id": "F0136",
+  "secao": "Roteiros da Demo — Assistente GuruDev > Verificação deste documento",
+  "texto": "Os códigos esperados dos roteiros R02, R03, R04, R06 e R07 foram executados com a CLI do repositório (`python -m src.cli <arquivo>`) na data de criação deste documento e produziram os resultados indicados.",
+  "tipo": "documentacao"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/calc.guru",
+  "id": "F0137",
+  "secao": "calc.guru",
+  "texto": "NOM classe Calculadora {\n    Float resultado;\n\n    NOM funcao iniciar() {\n        this.resultado = 0.0;\n    }\n\n    NOM funcao soma(Float a, Float b) -> Float {\n        this.resultado = a + b;\n        return this.resultado;\n    }\n\n    NOM funcao subtrair(Float a, Float b) -> Float {\n        this.resultado = a - b;\n        return this.resultado;\n    }\n\n    NOM funcao multiplicar(Float a, Float b) -> Float {\n        this.resultado = a * b;\n        return this.resultado;\n    }\n\n    NOM funcao dividir(Float a, Float b) -> Float {\n        if (b == 0.0) {\n            escrever(\"Erro: divisao por zero\");\n            return 0.0;\n        }\n        this.resultado = a / b;\n        return this.resultado;\n    }\n\n    NOM funcao historico() -> String {\n        return \"Ultimo resultado: \" + converter_string(this.resultado);\n    }\n}\n\nCalculadora calc = Calculadora();\n\nescrever(\"=== Calculadora GuruDev ===\");\nescrever(\"10 + 20 =\", calc.soma(10.0, 20.0));\nescrever(\"50 - 15 =\", calc.subtrair(50.0, 15.0));\nescrever(\"3 * 7 =\", calc.multiplicar(3.0, 7.0));\nescrever(\"100 / 4 =\", calc.dividir(100.0, 4.0));\nescrever(calc.historico());\n\nString nome = \"GuruDev\";\nescrever(\"Nome: \" + nome.maiusculo());\nescrever(\"Tamanho: \" + converter_string(nome.tamanho()));\n\nArray numeros = [5, 3, 8, 1, 9, 2, 7];\nnumeros.ordenar();\nescrever(\"Numeros ordenados: \" + numeros.juntar(\", \"));",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/demo_interpreter.guru",
+  "id": "F0138",
+  "secao": "demo_interpreter.guru",
+  "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"holistico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n        [ont=\"acao\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        // === 1. Declaracao de Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n        Array linguagens = [\"Python\", \"Rust\", \"JavaScript\"];\n\n        escrever(\"=== GuruDev Interpreter v1.0 ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"Linguagens:\", linguagens);\n        escrever(\"Tipo de nome:\", tipo_de(nome));\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        NOM funcao fibonacci(Int n) -> Int {\n            if (n <= 0) { return 0; }\n            if (n == 1) { return 1; }\n            Int a = 0;\n            Int b = 1;\n            Int i = 2;\n            Int temp = 0;\n            while (i <= n) {\n                temp = a + b;\n                a = b;\n                b = temp;\n                i = i + 1;\n            }\n            return b;\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"fib(10) =\", fibonacci(10));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        // For estilo C\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n\n        // For-each\n        String lang = \"\";\n        for (String item : linguagens) {\n            escrever(\"  Linguagem:\", item);\n        }\n\n        // While com continue\n        Int count = 0;\n        while (count < 5) {\n            count = count + 1;\n            if (count == 3) {\n                continue;\n            }\n            escrever(\"  count =\", count);\n        }\n        escrever(\"\");\n\n        // === 4. Funcoes Nativas ===\n        escrever(\"Hash:\", hash(\"GuruDev\"));\n        escrever(\"Tamanho:\", tamanho(\"GuruDev\"));\n        escrever(\"Absoluto:\", absoluto(-42));\n        escrever(\"Raiz:\", raiz(16));\n        escrever(\"Arredondar:\", arredondar(3.7));\n        escrever(\"Seno:\", seno(0));\n        escrever(\"PI nativo:\", pi);\n        escrever(\"Maximo:\", maximo(10, 20, 30));\n        escrever(\"Minimo:\", minimo(10, 20, 30));\n        escrever(\"\");\n\n        // === 5. Classes ===\n        NOM classe Pessoa {\n            String nome;\n            Int idade;\n\n            NOM funcao saudacao() -> String {\n                return \"Ola, eu sou \" + nome + \", tenho \" + converter_string(idade) + \" anos.\";\n            }\n        }\n\n        // === 6. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n    !/codigo!\n\n    [subescritas]\n        ¿python?\n        # Subescrita Python equivalente\n        def somar(a, b):\n            return a + b\n\n        def fatorial(n):\n            if n <= 1:\n                return 1\n            return n * fatorial(n - 1)\n        ?/python?\n\n        ¿rust?\n        // Subescrita Rust equivalente\n        fn somar(a: i32, b: i32) -> i32 { a + b }\n        fn fatorial(n: i32) -> i32 {\n            if n <= 1 { return 1; }\n            n * fatorial(n - 1)\n        }\n        ?/rust?\n    [/subescritas]\n[/bloco]",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "em_reimplementacao",
+  "fonte": "examples/demo_interpreter_pendente.guru",
+  "id": "F0139",
+  "secao": "demo_interpreter_pendente.guru",
+  "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"holistico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n        [ont=\"acao\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        // === 1. Declaracao de Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n        Array linguagens = [\"Python\", \"Rust\", \"JavaScript\"];\n        Object config = {};\n\n        escrever(\"=== GuruDev Interpreter v1.0 ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"Linguagens:\", linguagens);\n        escrever(\"Tipo de nome:\", tipo_de(nome));\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        NOM funcao fibonacci(Int n) -> Int {\n            if (n <= 0) { return 0; }\n            if (n == 1) { return 1; }\n            Int a = 0;\n            Int b = 1;\n            Int i = 2;\n            Int temp = 0;\n            while (i <= n) {\n                temp = a + b;\n                a = b;\n                b = temp;\n                i = i + 1;\n            }\n            return b;\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"fib(10) =\", fibonacci(10));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        // For estilo C\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n\n        // For-each\n        String lang = \"\";\n        for (String item : linguagens) {\n            escrever(\"  Linguagem:\", item);\n        }\n\n        // While com continue\n        Int count = 0;\n        while (count < 5) {\n            count = count + 1;\n            if (count == 3) {\n                continue;\n            }\n            escrever(\"  count =\", count);\n        }\n        escrever(\"\");\n\n        // === 4. Funcoes Nativas ===\n        escrever(\"Hash:\", hash(\"GuruDev\"));\n        escrever(\"Tamanho:\", tamanho(\"GuruDev\"));\n        escrever(\"Absoluto:\", absoluto(-42));\n        escrever(\"Raiz:\", raiz(16));\n        escrever(\"Arredondar:\", arredondar(3.7));\n        escrever(\"Seno:\", seno(0));\n        escrever(\"PI nativo:\", pi);\n        escrever(\"Maximo:\", maximo(10, 20, 30));\n        escrever(\"Minimo:\", minimo(10, 20, 30));\n        escrever(\"\");\n\n        // === 5. Classes ===\n        NOM classe Pessoa {\n            String nome;\n            Int idade;\n\n            NOM funcao saudacao() -> String {\n                return \"Ola, eu sou \" + nome + \", tenho \" + converter_string(idade) + \" anos.\";\n            }\n        }\n\n        // === 6. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n    !/codigo!\n\n    [subescritas]\n        ¿python?\n        # Subescrita Python equivalente\n        def somar(a, b):\n            return a + b\n\n        def fatorial(n):\n            if n <= 1:\n                return 1\n            return n * fatorial(n - 1)\n        ?/python?\n\n        ¿rust?\n        // Subescrita Rust equivalente\n        fn somar(a: i32, b: i32) -> i32 { a + b }\n        fn fatorial(n: i32) -> i32 {\n            if n <= 1 { return 1; }\n            n * fatorial(n - 1)\n        }\n        ?/rust?\n    [/subescritas]\n[/bloco]",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/fluxo.guru",
+  "id": "F0140",
+  "secao": "fluxo.guru",
+  "texto": "// GuruDev Core - Exemplo: Controle de Fluxo\n// Demonstra se/senao_se/senao, enquanto, para cada\n\n// --- se / senao ---\nInt x = 15;\nse (x > 20) {\n    escrever(\"grande\");\n} senao {\n    escrever(\"pequeno\");\n}\n\n// --- se / senao_se / senao ---\nInt nota = 75;\nse (nota >= 90) {\n    escrever(\"A\");\n} senao_se (nota >= 70) {\n    escrever(\"B\");\n} senao_se (nota >= 50) {\n    escrever(\"C\");\n} senao {\n    escrever(\"F\");\n}\n\n// --- enquanto ---\nInt contador = 0;\nenquanto (contador < 5) {\n    escrever(contador);\n    contador = contador + 1;\n}\n\n// --- para (estilo C) ---\nInt i = 0;\npara (Int i = 0; i < 3; i = i + 1) {\n    escrever(i);\n}",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/funcoes.guru",
+  "id": "F0141",
+  "secao": "funcoes.guru",
+  "texto": "// GuruDev Core - Exemplos de Funcoes\n// Demonstra definicao, chamada, return, recursao, params opcionais\n\n// --- Funcao simples sem retorno ---\nfuncao saudacao(String nome) {\n    escrever(\"Ola, \" + nome + \"!\");\n}\nsaudacao(\"Mundo\");\n\n// --- Funcao com retorno tipado ---\nNOM funcao dobrar(Int x) -> Int {\n    return x * 2;\n}\nInt resultado = dobrar(21);\nescrever(\"dobrar(21) = \" + resultado);\n\n// --- Funcao com multiplos parametros ---\nfuncao somar(Int a, Int b) -> Int {\n    return a + b;\n}\nescrever(\"3 + 7 = \" + somar(3, 7));\n\n// --- Recursao ---\nfuncao fatorial(Int n) -> Int {\n    se (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\nescrever(\"5! = \" + fatorial(5));\n\n// --- Parametros opcionais com valor default (Tesniere: circunstantes) ---\nfuncao criar_pessoa(String nome, Int idade = 0, String cidade = \"N/A\") {\n    escrever(nome + \", \" + idade + \", \" + cidade);\n}\ncriar_pessoa(\"Ana\");\ncriar_pessoa(\"Bob\", 30);\ncriar_pessoa(\"Eve\", 25, \"Sao Paulo\");\n\n// --- Funcao com caso gramatical (Wilmet: relacao instituida) ---\nDAT funcao enviar_mensagem(String destino, String msg) {\n    escrever(\"Para \" + destino + \": \" + msg);\n}\nenviar_mensagem(\"Alice\", \"Como vai?\");",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/hello.guru",
+  "id": "F0142",
+  "secao": "hello.guru",
+  "texto": "NOM classe Saudacao {\n    String nome;\n\n    NOM funcao iniciar(String n) {\n        this.nome = n;\n    }\n\n    NOM funcao dizer() -> String {\n        return \"Ola, \" + this.nome + \"!\";\n    }\n}\n\nSaudacao s = Saudacao(\"GuruDev\");\nescrever(s.dizer());\n\nInt resultado = 10 + 20;\nescrever(\"10 + 20 =\", resultado);\n\nArray nums = [1, 2, 3];\nfor (Int x : nums) { escrever(x); }\n\nString texto = \"  GuruDev  \";\nescrever(\"Trim:\", texto.trim());\nString limpo = texto.trim();\nescrever(\"Maiusculo:\", limpo.maiusculo());",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "em_reimplementacao",
+  "fonte": "examples/hello_pendente.guru",
+  "id": "F0143",
+  "secao": "hello_pendente.guru",
+  "texto": "NOM classe Saudacao {\n    String nome;\n\n    NOM funcao iniciar(String n) {\n        this.nome = n;\n    }\n\n    NOM funcao dizer() -> String {\n        return \"Ola, \" + this.nome + \"!\";\n    }\n}\n\nSaudacao s = Saudacao(\"GuruDev\");\nescrever(s.dizer());\n\nInt resultado = 10 + 20;\nescrever(\"10 + 20 =\", resultado);\n\nArray nums = [1, 2, 3];\nfor (Int x : nums) { escrever(x); }\n\nString texto = \"  GuruDev  \";\nescrever(\"Trim:\", texto.trim());\nescrever(\"Maiusculo:\", texto.trim().maiusculo());",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/ontologico.guru",
+  "id": "F0144",
+  "secao": "ontologico.guru",
+  "texto": "// GuruDev - Exemplo Ontologico\n// Demonstra bloco ontologico com subescrita Python ativa\n\nescrever(\"=== GuruDev Ontologico ===\");\nescrever(\"\");\n\n// Modo direto funciona normalmente\nescrever(\"1. Modo direto:\");\nString msg = \"Ola do modo direto\";\nescrever(\"   \" + msg);\nescrever(\"\");\n\n// Bloco ontologico completo\n$$bloco$$\n$$sobrescrita$$\n$$nivel=\"basico\"$$\n$$raiz=\"demo\"$$\n$$clave=\"ciencia\"$$\n$$/sobrescrita$$\n¡codigo!\nescrever(\"2. Bloco ontologico ATIVO!\");\nescrever(\"   Codigo GuruDev dentro do bloco\");\n!/codigo!\n$$subescritas$$\n¿python?\nprint(\"   >> Subescrita Python executada!\")\nprint(\"   >> Interoperabilidade semantica ATIVA\")\n?/python?\n$$/subescritas$$\n$$/bloco$$\n\nescrever(\"\");\nString nome = \"GuruDev\";\nescrever(\"3. String methods: \" + nome.maiusculo());\nescrever(\"\");\nescrever(\"=== Motor Ontologico Ativo ===\");",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/quantum_demo.guru",
+  "id": "F0145",
+  "secao": "quantum_demo.guru",
+  "texto": "// Quantum GuruDev Demo - Pipeline end-to-end\n// Run: gurudev run examples/quantum_demo.guru\n\n[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"ontologico\"]\n        [raiz=\"QUANTUM\"]\n        [clave=\"ciencia\"]\n        [ont=\"relacao\"]\n    [/sobrescrita]\n\n¡codigo!\n        // === 1. Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n\n        escrever(\"=== GuruDev Interpreter ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n        escrever(\"\");\n\n        // === 4. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n!/codigo!\n\n    [subescritas]\n¿python?\n        print(\"  Subescrita Python executada com sucesso\")\n        print(\"  Soma Python:\", 10 + 20)\n?/python?\n    [/subescritas]\n[/bloco]\n\n// Top-level\nInt x = 42;",
+  "tipo": "exemplo"
+ },
+ {
+  "estado": "roda_hoje",
+  "fonte": "examples/teoria_geral_funcao.guru",
+  "id": "F0146",
+  "secao": "teoria_geral_funcao.guru",
+  "texto": "// GuruDev Core - Teoria Geral da Funcao\n// Demonstracao das fundacoes linguisticas da funcao em GuruDev\n//\n// Baseado em:\n//   Tesniere (valencia): actantes (obrigatorios) vs circunstantes (opcionais)\n//   Buhler (Organon): puro (Darstellung), efeito (Appell), expressao (Ausdruck)\n//   Wilmet (relacao instituida): caso gramatical = natureza da funcao\n\n// =============================================================\n// 1. TESNIERE - VALENCIA\n//    Actantes = parametros obrigatorios (nucleo da relacao)\n//    Circunstantes = parametros opcionais com default (contexto periferico)\n// =============================================================\n\n// funcao com 1 actante + 2 circunstantes\nfuncao criar_usuario(String nome, String email = \"\", Int idade = 0) {\n    escrever(\"Usuario: \" + nome);\n    se (email != \"\") {\n        escrever(\"  Email: \" + email);\n    }\n    escrever(\"  Idade: \" + idade);\n}\n\ncriar_usuario(\"Alice\");                         // so actante\ncriar_usuario(\"Bob\", \"bob@mail.com\");           // actante + 1 circunstante\ncriar_usuario(\"Eve\", \"eve@mail.com\", 28);       // actante + 2 circunstantes\n\n// =============================================================\n// 2. BUHLER - ORGANON MODEL (classificacao semantica)\n//    #sem: puro       -> Darstellung (representacao, sem efeitos colaterais)\n//    #sem: efeito     -> Appell (acao, modifica estado externo)\n//    #sem: expressao  -> Ausdruck (expressao do estado interior do sistema)\n// =============================================================\n\n// Funcao pura: dado mesmo input, sempre mesmo output (Darstellung)\n#sem: puro\nfuncao quadrado(Int x) -> Int {\n    return x * x;\n}\nescrever(\"quadrado(7) = \" + quadrado(7));\n\n// Funcao de efeito: modifica estado, gera saida (Appell)\n#sem: efeito\nfuncao registrar_log(String msg) {\n    escrever(\"[LOG] \" + msg);\n}\nregistrar_log(\"Sistema iniciado\");\n\n// Funcao de expressao: comunica estado interno (Ausdruck)\n#sem: expressao\nfuncao status_sistema() -> String {\n    return \"operacional\";\n}\nescrever(\"Status: \" + status_sistema());\n\n// =============================================================\n// 3. WILMET - FUNCAO COMO RELACAO INSTITUIDA\n//    O caso gramatical define a NATUREZA da relacao que a funcao\n//    institui entre seus argumentos.\n//    NOM = relacao primaria/definidora (essencia)\n//    DAT = relacao direcional (destinatario)\n//    ACU = relacao transformadora (alvo de transformacao)\n//    GEN = relacao de pertenca/classificacao\n//    INS = relacao instrumental (meio/ferramenta)\n// =============================================================\n\n// NOM: funcao definidora - estabelece a essencia do calculo\nNOM funcao calcular_area(Int largura, Int altura) -> Int {\n    return largura * altura;\n}\nescrever(\"Area: \" + calcular_area(5, 3));\n\n// DAT: funcao direcional - envia/destina algo\nDAT funcao notificar(String destinatario, String mensagem) {\n    escrever(\"NOTIFICACAO para \" + destinatario + \": \" + mensagem);\n}\nnotificar(\"admin\", \"Backup concluido\");\n\n// ACU: funcao transformadora - transforma o alvo\nACU funcao converter_para_maiusculo(String texto) -> String {\n    return texto;\n}\nescrever(\"Resultado: \" + converter_para_maiusculo(\"teste\"));\n\n// =============================================================\n// 4. COMBINACAO: Tesniere + Buhler + Wilmet juntos\n// =============================================================\n\n#sem: puro\nNOM funcao media(Int a, Int b, Int c = 0) -> Int {\n    se (c == 0) {\n        return (a + b) / 2;\n    }\n    return (a + b + c) / 3;\n}\n\nescrever(\"Media de 8 e 10: \" + media(8, 10));\nescrever(\"Media de 8, 10 e 7: \" + media(8, 10, 7));",
+  "tipo": "exemplo"
+ }
+]
