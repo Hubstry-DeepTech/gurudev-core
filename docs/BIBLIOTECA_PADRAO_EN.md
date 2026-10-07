@@ -5,6 +5,22 @@
 Official documentation of native objects, methods, and functions of the GuruDev® language.  
 **These names are reserved: they cannot be used as identifiers for variables, user functions, classes, etc.**
 
+## Implementation status (current runtime)
+
+> Verified on 2026-10-07 against the interpreter in this repository. The rest of this document describes the planned API; this section records what runs today. Contracts marked as working are verified by `tests/test_contratos_biblioteca.py`.
+
+| Documented | Status today | Use today |
+|---|---|---|
+| `VOC.escrever(text)` | Works, with a difference: adds a line break at the end | — |
+| `VOC.imprimir(text)` | Works | — |
+| `VOC.ler()` | Not implemented | `ler_entrada()` |
+| `NOM.versao()`, `NOM.autor()` | Not implemented | No equivalent |
+| `Math.abs(n)` | Not implemented | `absoluto(n)` |
+| `Math.sqrt(n)` | Not implemented | `raiz(n)` |
+| `Math.ceil(n)`, `Math.floor(n)` | Not implemented | No equivalent. `arredondar(n)` is not a substitute: it rounds instead of always rounding up or down |
+| `Texto.tamanho(t)` | Not implemented | `tamanho(t)` |
+| `Texto.maiusculo(t)`, `Texto.minusculo(t)` | Not implemented | `t.maiusculo()`, `t.minusculo()` (method of the string itself) |
+
 ## Global Objects
 
 | Name    | Description                            | Available Methods             |

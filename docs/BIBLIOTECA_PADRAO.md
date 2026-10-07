@@ -3,6 +3,22 @@
 Documentação oficial dos objetos, métodos e funções nativas da linguagem GuruDev®.  
 **Estes nomes são reservados: não podem ser usados como identificadores de variáveis, funções do usuário, classes, etc.**
 
+## Estado de implementação (runtime atual)
+
+> Verificado em 07/10/2026 contra o interpretador deste repositório. O restante deste documento descreve a API planejada; esta seção registra o que executa hoje. Os contratos marcados como funcionando são verificados por `tests/test_contratos_biblioteca.py`.
+
+| Documentado | Estado hoje | Use hoje |
+|---|---|---|
+| `VOC.escrever(texto)` | Funciona, com diferença: quebra a linha ao final | — |
+| `VOC.imprimir(texto)` | Funciona | — |
+| `VOC.ler()` | Não implementado | `ler_entrada()` |
+| `NOM.versao()`, `NOM.autor()` | Não implementado | Sem equivalente |
+| `Math.abs(n)` | Não implementado | `absoluto(n)` |
+| `Math.sqrt(n)` | Não implementado | `raiz(n)` |
+| `Math.ceil(n)`, `Math.floor(n)` | Não implementado | Sem equivalente. `arredondar(n)` não substitui: arredonda, em vez de sempre para cima ou para baixo |
+| `Texto.tamanho(t)` | Não implementado | `tamanho(t)` |
+| `Texto.maiusculo(t)`, `Texto.minusculo(t)` | Não implementado | `t.maiusculo()`, `t.minusculo()` (método do próprio texto) |
+
 ## Objetos Globais
 
 | Nome    | Descrição                              | Métodos Disponíveis           |
