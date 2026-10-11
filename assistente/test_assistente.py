@@ -7,12 +7,13 @@ O modelo e simulado: os testes verificam a engrenagem deterministica
 import json
 import re
 import threading
+from pathlib import Path
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from assistente import executor, gerar_base, politica
+from assistente import executor, politica
 from assistente.modelo import ErroModelo, ModeloHTTP, ModeloSimulado
 from assistente.nucleo import Assistente, extrair_codigo
 from assistente.recuperacao import Buscador, carregar_base
@@ -21,14 +22,33 @@ from assistente.servidor import Limitador, criar_handler
 BASE = carregar_base()
 BUSCADOR = Buscador(BASE)
 # O codigo dos roteiros vem do gabarito do benchmark V1, que fica FORA da
-# base de conhecimento: os testes nao dependem do que o Assistente consulta.
-ROTEIROS_V1 = gerar_base.RAIZ / "benchmarks" / "v1" / "DEMO_ROTEIROS.md"
-CODIGO_ROTEIRO = {
-    caminho[-1][:3]: codigo.strip()
-    for caminho, conteudo in gerar_base.secoes(ROTEIROS_V1.read_text("utf-8"))
-    if caminho and re.match(r"R\d\d ", caminho[-1])
-    for codigo in gerar_base.BLOCO_CODIGO.findall(conteudo)
-}
+# base de conhecimento. Leitor proprio, independente do gerador da base,
+# para que os testes nao dependam do que o Assistente consulta.
+ROTEIROS_V1 = (
+    Path(__file__).resolve().parent.parent / "benchmarks" / "v1" / "DEMO_ROTEIROS.md"
+)
+
+
+def codigo_dos_roteiros(caminho):
+    """Ultimo bloco de codigo diretamente sob cada secao 'Rnn ...'."""
+    codigos, roteiro, em_bloco, linhas = {}, None, False, []
+    for linha in caminho.read_text("utf-8").splitlines():
+        if linha.lstrip().startswith("```"):
+            if em_bloco and roteiro:
+                codigos[roteiro] = "\n".join(linhas).strip()
+            em_bloco, linhas = not em_bloco, []
+            continue
+        if em_bloco:
+            linhas.append(linha)
+            continue
+        titulo = re.match(r"#{1,4}\s+(.*\S)\s*$", linha)
+        if titulo:
+            m = re.match(r"(R\d\d) ", titulo.group(1))
+            roteiro = m.group(1) if m else None
+    return codigos
+
+
+CODIGO_ROTEIRO = codigo_dos_roteiros(ROTEIROS_V1)
 
 
 def resposta_com_codigo(codigo, texto="Segue o codigo."):

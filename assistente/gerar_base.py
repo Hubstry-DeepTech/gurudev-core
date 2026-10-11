@@ -62,7 +62,6 @@ ARQUIVOS_PROIBIDOS = [
 ]
 
 TITULO = re.compile(r"^(#{1,4})\s+(.*\S)\s*$")
-BLOCO_CODIGO = re.compile(r"```[^\n]*\n(.*?)```", re.S)
 
 
 def pendentes():
