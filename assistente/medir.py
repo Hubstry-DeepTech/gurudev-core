@@ -20,7 +20,8 @@ from assistente.recuperacao import normalizar
 SLO_SEGUNDOS = 8
 
 
-FICHA_CITADA = re.compile(r"\[F\d{4}\]")
+FICHA_CITADA = re.compile(r"\[([^\]]*)\]")  # [F0012] ou [F0002, F0010]
+ID_FICHA = re.compile(r"F\d{4}")
 
 
 def executou(texto_esperado=None):
@@ -41,8 +42,11 @@ def explica_com_fonte(fonte):
         if not any(f["fonte"] == fonte for f in fontes):
             return False
         ids = {f["id"] for f in fontes}
-        citadas = set(m.strip("[]") for m in FICHA_CITADA.findall(
-            d.get("texto", "")))
+        citadas = {
+            i
+            for grupo in FICHA_CITADA.findall(d.get("texto", ""))
+            for i in ID_FICHA.findall(grupo)
+        }
         return bool(citadas & ids)
 
     return criterio
