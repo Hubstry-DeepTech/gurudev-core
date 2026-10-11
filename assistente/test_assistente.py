@@ -240,7 +240,8 @@ def servidor_local():
         s.shutdown()
 
 
-def test_modelo_http_compativel_openai(servidor_local):
+def test_modelo_http_compativel_openai(servidor_local, monkeypatch):
+    monkeypatch.delenv("GURU_SEM_RACIOCINIO", raising=False)
     url = servidor_local(_ModeloFalso)
     modelo = ModeloHTTP(url=url + "/v1", nome="qwen3:1.7b")
     assert modelo.gerar([{"role": "user", "content": "oi"}]) == (
