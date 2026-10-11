@@ -1,11 +1,13 @@
-"""Testes do Assistente V0 contra os roteiros de docs/DEMO_ROTEIROS.md.
+"""Testes do Assistente V0 contra os roteiros de benchmarks/v1/DEMO_ROTEIROS.md.
 
 O modelo e simulado: os testes verificam a engrenagem deterministica
 (recuperacao, politica, execucao, fontes, servidor e cliente HTTP).
 """
 
 import json
+import re
 import threading
+from pathlib import Path
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -19,11 +21,34 @@ from assistente.servidor import Limitador, criar_handler
 
 BASE = carregar_base()
 BUSCADOR = Buscador(BASE)
-CODIGO_ROTEIRO = {
-    f["secao"].split(" > ")[-1][:3]: f["texto"]
-    for f in BASE
-    if f["tipo"] == "codigo_roteiro"
-}
+# O codigo dos roteiros vem do gabarito do benchmark V1, que fica FORA da
+# base de conhecimento. Leitor proprio, independente do gerador da base,
+# para que os testes nao dependam do que o Assistente consulta.
+ROTEIROS_V1 = (
+    Path(__file__).resolve().parent.parent / "benchmarks" / "v1" / "DEMO_ROTEIROS.md"
+)
+
+
+def codigo_dos_roteiros(caminho):
+    """Ultimo bloco de codigo diretamente sob cada secao 'Rnn ...'."""
+    codigos, roteiro, em_bloco, linhas = {}, None, False, []
+    for linha in caminho.read_text("utf-8").splitlines():
+        if linha.lstrip().startswith("```"):
+            if em_bloco and roteiro:
+                codigos[roteiro] = "\n".join(linhas).strip()
+            em_bloco, linhas = not em_bloco, []
+            continue
+        if em_bloco:
+            linhas.append(linha)
+            continue
+        titulo = re.match(r"#{1,4}\s+(.*\S)\s*$", linha)
+        if titulo:
+            m = re.match(r"(R\d\d) ", titulo.group(1))
+            roteiro = m.group(1) if m else None
+    return codigos
+
+
+CODIGO_ROTEIRO = codigo_dos_roteiros(ROTEIROS_V1)
 
 
 def resposta_com_codigo(codigo, texto="Segue o codigo."):

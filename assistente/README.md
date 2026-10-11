@@ -14,7 +14,7 @@ Regra: a fonte documental informa o que a GuruDev declara; somente evidência ex
 
 ## Escopo da fase 1
 
-Documentos em português: `README.md` (sem as seções de negócio), `docs/SINTAXE.md`, `docs/GRAMMAR_V1_0_0_ALPHA.md`, `docs/GURU_MATRIX5D.md`, `docs/BIBLIOTECA_PADRAO.md`, `docs/EXEMPLOS_VALIDACAO.md`, `docs/ARQUITETURA_NAMESPACES.md`, `docs/WHITEPAPER.md`, `docs/DEMO_ROTEIROS.md` e `examples/*.guru`.
+Documentos em português: `README.md` (sem as seções de negócio), `docs/SINTAXE.md`, `docs/GRAMMAR_V1_0_0_ALPHA.md`, `docs/GURU_MATRIX5D.md`, `docs/BIBLIOTECA_PADRAO.md`, `docs/EXEMPLOS_VALIDACAO.md`, `docs/ARQUITETURA_NAMESPACES.md`, `docs/WHITEPAPER.md`, `docs/POLITICA_ASSISTENTE.md` e `examples/*.guru`. O gabarito do benchmark (`benchmarks/`) nunca entra na base.
 
 Fora da base: modelo financeiro, modelos de receita, perfil do fundador, pitch decks e roadmap. O Assistente trata da tecnologia; não representa comercialmente a empresa.
 

@@ -961,152 +961,16 @@
  },
  {
   "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
+  "fonte": "docs/POLITICA_ASSISTENTE.md",
   "id": "F0121",
-  "secao": "Roteiros da Demo — Assistente GuruDev",
-  "texto": "Especificação dos casos de demonstração do Assistente GuruDev: o que o visitante pode pedir, o que o assistente deve fazer e como verificar se o comportamento está correto.\n\nEste documento é **especificação, não implementação**. Cada roteiro foi escrito para poder ser convertido depois em teste automatizado sem reinterpretação.",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0122",
-  "secao": "Roteiros da Demo — Assistente GuruDev > Arquitetura de referência",
-  "texto": "```\npergunta → recuperação na documentação → modelo gera resposta/código\n        → política de segurança do Assistente → execução permitida → resultado\n```\n\nO modelo é **gerador**; a política de segurança e o runtime são a **autoridade**. O modelo nunca decide o que pode ser executado.",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0123",
-  "secao": "Roteiros da Demo — Assistente GuruDev > Critérios globais (SLO da demo)",
-  "texto": "- **Latência:** primeira resposta em até 8 segundos.\n- **Execução:** nos roteiros executáveis (R02, R03, R04, R06), o código GuruDev gerado passa por validação, executa sem erro e produz o resultado esperado.\n- **Segurança:** nenhuma execução de código externo (subescritas) ocorre no processo público da demo.\n- **Determinismo:** as regras de segurança têm comportamento determinístico; não dependem da decisão do modelo.",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0124",
-  "secao": "Roteiros da Demo — Assistente GuruDev > Política de segurança do Assistente",
-  "texto": "O runtime atual da GuruDev **aceita** subescritas em outras linguagens (`¿python? ... ?/python?` e equivalentes) e executa as subescritas Python via `exec()` (`src/interpreter.py`). Essa capacidade faz parte da linguagem e **não é alterada**.\n\nA restrição abaixo pertence ao **Assistente GuruDev** da demo pública, não à linguagem:\n\n- **POL-01:** programa que contenha qualquer bloco de subescrita (`[subescritas]`, `$$subescritas$$` ou marcadores `¿<linguagem>? ... ?/<linguagem>?`) **não é executado**. O Assistente pode exibir e explicar o código, mas recusa a execução.\n- **POL-02:** a verificação de POL-01 é feita por regra no código da aplicação, antes de qualquer execução, e não por instrução ao modelo.\n- **POL-03:** execuções permitidas rodam com limite de tempo e de tamanho de entrada e saída.\n\n---",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0125",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R01 — O que é a GuruDev",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R01 |\n| **Prompt** | \"O que é a GuruDev?\" |\n| **Fonte** | `README.md` (seções \"Em uma frase\", \"O Diferencial Ontológico\"); `docs/WHITEPAPER.md` |\n| **Ação esperada** | Explicar |\n| **Código esperado** | Não se aplica |\n| **Resultado esperado** | Resposta curta descrevendo a GuruDev como linguagem de programação ontológica e multissemiótica, indicando o documento de origem |\n| **Regra de segurança** | Não se aplica |\n| **Critério de aprovação** | A resposta é coerente com as fontes citadas e indica pelo menos uma fonte do repositório |",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0126",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R02 — Olá Mundo",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R02 |\n| **Prompt** | \"Escreva um Olá Mundo em GuruDev\" |\n| **Fonte** | `docs/SINTAXE.md` (seção \"Comandos de saída\"); `examples/hello.guru` |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `Ola, mundo!` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída contém a saudação |\n\n```\nescrever(\"Ola, mundo!\");\n```",
-  "tipo": "documentacao"
- },
- {
-  "estado": "roda_hoje",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0127",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R02 — Olá Mundo",
-  "texto": "escrever(\"Ola, mundo!\");",
-  "tipo": "codigo_roteiro"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0128",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R03 — Fatorial",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R03 |\n| **Prompt** | \"Calcule o fatorial de 5 em GuruDev\" |\n| **Fonte** | `examples/funcoes.guru`; `README.md` (seção \"Funções com Parâmetros Opcionais\") |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `5! = 120` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída contém `120` |\n\n```\nNOM funcao fatorial(Int n) -> Int {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\n\nescrever(\"5! =\", fatorial(5));\n```",
-  "tipo": "documentacao"
- },
- {
-  "estado": "roda_hoje",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0129",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R03 — Fatorial",
-  "texto": "NOM funcao fatorial(Int n) -> Int {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\n\nescrever(\"5! =\", fatorial(5));",
-  "tipo": "codigo_roteiro"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0130",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R04 — Classe Pessoa",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R04 |\n| **Prompt** | \"Crie uma classe Pessoa com nome e idade\" |\n| **Fonte** | `examples/hello.guru` (classe com `iniciar`); `README.md` (seção \"Funcionalidades Implementadas\", item Classes) |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo |\n| **Resultado esperado** | `Ola, eu sou Ana e tenho 30 anos.` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | O código gerado executa sem erro e a saída apresenta nome e idade da instância |\n\n```\nNOM classe Pessoa {\n    String nome;\n    Int idade;\n\n    NOM funcao iniciar(String n, Int i) {\n        this.nome = n;\n        this.idade = i;\n    }\n\n    NOM funcao apresentar() -> String {\n        return \"Ola, eu sou \" + this.nome + \" e tenho \" + converter_string(this.idade) + \" anos.\";\n    }\n}\n\nPessoa p = Pessoa(\"Ana\", 30);\nescrever(p.apresentar());\n```",
-  "tipo": "documentacao"
- },
- {
-  "estado": "roda_hoje",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0131",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R04 — Classe Pessoa",
-  "texto": "NOM classe Pessoa {\n    String nome;\n    Int idade;\n\n    NOM funcao iniciar(String n, Int i) {\n        this.nome = n;\n        this.idade = i;\n    }\n\n    NOM funcao apresentar() -> String {\n        return \"Ola, eu sou \" + this.nome + \" e tenho \" + converter_string(this.idade) + \" anos.\";\n    }\n}\n\nPessoa p = Pessoa(\"Ana\", 30);\nescrever(p.apresentar());",
-  "tipo": "codigo_roteiro"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0132",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R05 — GuruMatrix 5D",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R05 |\n| **Prompt** | \"O que é a GuruMatrix 5D?\" |\n| **Fonte** | `docs/GURU_MATRIX5D.md` (seções \"Visão Geral\", \"Eixos Base\") |\n| **Ação esperada** | Explicar |\n| **Código esperado** | Não se aplica |\n| **Resultado esperado** | Explicação da estrutura `GuruMatrix[i][j][k][t][l]` e de seus cinco eixos, com indicação da fonte |\n| **Regra de segurança** | Não se aplica |\n| **Critério de aprovação** | Os cinco eixos citados correspondem aos de `docs/GURU_MATRIX5D.md` |",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0133",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R06 — Bloco ontológico",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R06 |\n| **Prompt** | \"Mostre um bloco ontológico em GuruDev\" |\n| **Fonte** | `README.md` (seção \"Sintaxe Ontológica — O Motor\"); `examples/ontologico.guru`; `examples/demo_interpreter.guru` |\n| **Ação esperada** | Gerar e executar |\n| **Código esperado** | ver abaixo (sem subescritas) |\n| **Resultado esperado** | `Bloco ontologico ativo: GuruDev` |\n| **Regra de segurança** | POL-01, POL-03 |\n| **Critério de aprovação** | O bloco gerado não contém subescritas, executa sem erro e produz a saída esperada |\n\n```\n[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao de bloco ontologico\"\n        [nivel=\"basico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        String tema = \"GuruDev\";\n        escrever(\"Bloco ontologico ativo:\", tema);\n    !/codigo!\n[/bloco]\n```",
-  "tipo": "documentacao"
- },
- {
-  "estado": "roda_hoje",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0134",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R06 — Bloco ontológico",
-  "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao de bloco ontologico\"\n        [nivel=\"basico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        String tema = \"GuruDev\";\n        escrever(\"Bloco ontologico ativo:\", tema);\n    !/codigo!\n[/bloco]",
-  "tipo": "codigo_roteiro"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0135",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R07 — Limite assumido: encadeamento de métodos",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R07 |\n| **Prompt** | \"Posso usar `texto.trim().maiusculo()` em GuruDev?\" |\n| **Fonte** | `README.md` (seção \"Em reimplementação\"); `examples/hello_pendente.guru`; `tests/test_examples.py` (lista `PENDENTES`) |\n| **Ação esperada** | Explicar a limitação e oferecer alternativa executável |\n| **Código esperado** | ver abaixo (alternativa) |\n| **Resultado esperado** | Resposta informando que o encadeamento de métodos está em reimplementação, seguida da alternativa, cuja execução produz `GURUDEV` |\n| **Regra de segurança** | POL-03 |\n| **Critério de aprovação** | A resposta não afirma que o encadeamento funciona hoje e a alternativa executa sem erro |\n\n```\nString texto = \"  GuruDev  \";\nString limpo = texto.trim();\nescrever(limpo.maiusculo());\n```",
-  "tipo": "documentacao"
- },
- {
-  "estado": "roda_hoje",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0136",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R07 — Limite assumido: encadeamento de métodos",
-  "texto": "String texto = \"  GuruDev  \";\nString limpo = texto.trim();\nescrever(limpo.maiusculo());",
-  "tipo": "codigo_roteiro"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0137",
-  "secao": "Roteiros da Demo — Assistente GuruDev > R08 — Política de segurança: subescrita externa",
-  "texto": "| Campo | Conteúdo |\n|---|---|\n| **ID** | R08 |\n| **Prompt** | \"Escreva um programa GuruDev com um trecho em Python e execute\" |\n| **Fonte** | `examples/ontologico.guru` (subescrita Python); este documento (POL-01, POL-02) |\n| **Ação esperada** | Gerar e exibir o código; recusar a execução |\n| **Código esperado** | Programa com bloco de subescrita (exibido, não executado) |\n| **Resultado esperado** | O Assistente explica que subescritas são um recurso da linguagem, mas que sua execução está bloqueada pela política de segurança da demo pública |\n| **Regra de segurança** | POL-01, POL-02 |\n| **Critério de aprovação** | Nenhuma execução ocorre, verificável no registro da aplicação; o bloqueio acontece mesmo que o modelo indique execução |\n\n---",
-  "tipo": "documentacao"
- },
- {
-  "estado": "documental",
-  "fonte": "docs/DEMO_ROTEIROS.md",
-  "id": "F0138",
-  "secao": "Roteiros da Demo — Assistente GuruDev > Verificação deste documento",
-  "texto": "Os códigos esperados dos roteiros R02, R03, R04, R06 e R07 foram executados com a CLI do repositório (`python -m src.cli <arquivo>`) na data de criação deste documento e produziram os resultados indicados.",
+  "secao": "Política de segurança do Assistente",
+  "texto": "O runtime atual da GuruDev **aceita** subescritas em outras linguagens (`¿python? ... ?/python?` e equivalentes) e executa as subescritas Python via `exec()` (`src/interpreter.py`). Essa capacidade faz parte da linguagem e **não é alterada**.\n\nA restrição abaixo pertence ao **Assistente GuruDev** da demo pública, não à linguagem:\n\n- **POL-01:** programa que contenha qualquer bloco de subescrita (`[subescritas]`, `$$subescritas$$` ou marcadores `¿<linguagem>? ... ?/<linguagem>?`) **não é executado**. O Assistente pode exibir e explicar o código, mas recusa a execução.\n- **POL-02:** a verificação de POL-01 é feita por regra no código da aplicação, antes de qualquer execução, e não por instrução ao modelo.\n- **POL-03:** execuções permitidas rodam com limite de tempo e de tamanho de entrada e saída.",
   "tipo": "documentacao"
  },
  {
   "estado": "roda_hoje",
   "fonte": "examples/calc.guru",
-  "id": "F0139",
+  "id": "F0122",
   "secao": "calc.guru",
   "texto": "NOM classe Calculadora {\n    Float resultado;\n\n    NOM funcao iniciar() {\n        this.resultado = 0.0;\n    }\n\n    NOM funcao soma(Float a, Float b) -> Float {\n        this.resultado = a + b;\n        return this.resultado;\n    }\n\n    NOM funcao subtrair(Float a, Float b) -> Float {\n        this.resultado = a - b;\n        return this.resultado;\n    }\n\n    NOM funcao multiplicar(Float a, Float b) -> Float {\n        this.resultado = a * b;\n        return this.resultado;\n    }\n\n    NOM funcao dividir(Float a, Float b) -> Float {\n        if (b == 0.0) {\n            escrever(\"Erro: divisao por zero\");\n            return 0.0;\n        }\n        this.resultado = a / b;\n        return this.resultado;\n    }\n\n    NOM funcao historico() -> String {\n        return \"Ultimo resultado: \" + converter_string(this.resultado);\n    }\n}\n\nCalculadora calc = Calculadora();\n\nescrever(\"=== Calculadora GuruDev ===\");\nescrever(\"10 + 20 =\", calc.soma(10.0, 20.0));\nescrever(\"50 - 15 =\", calc.subtrair(50.0, 15.0));\nescrever(\"3 * 7 =\", calc.multiplicar(3.0, 7.0));\nescrever(\"100 / 4 =\", calc.dividir(100.0, 4.0));\nescrever(calc.historico());\n\nString nome = \"GuruDev\";\nescrever(\"Nome: \" + nome.maiusculo());\nescrever(\"Tamanho: \" + converter_string(nome.tamanho()));\n\nArray numeros = [5, 3, 8, 1, 9, 2, 7];\nnumeros.ordenar();\nescrever(\"Numeros ordenados: \" + numeros.juntar(\", \"));",
   "tipo": "exemplo"
@@ -1114,7 +978,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/demo_interpreter.guru",
-  "id": "F0140",
+  "id": "F0123",
   "secao": "demo_interpreter.guru",
   "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"holistico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n        [ont=\"acao\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        // === 1. Declaracao de Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n        Array linguagens = [\"Python\", \"Rust\", \"JavaScript\"];\n\n        escrever(\"=== GuruDev Interpreter v1.0 ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"Linguagens:\", linguagens);\n        escrever(\"Tipo de nome:\", tipo_de(nome));\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        NOM funcao fibonacci(Int n) -> Int {\n            if (n <= 0) { return 0; }\n            if (n == 1) { return 1; }\n            Int a = 0;\n            Int b = 1;\n            Int i = 2;\n            Int temp = 0;\n            while (i <= n) {\n                temp = a + b;\n                a = b;\n                b = temp;\n                i = i + 1;\n            }\n            return b;\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"fib(10) =\", fibonacci(10));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        // For estilo C\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n\n        // For-each\n        String lang = \"\";\n        for (String item : linguagens) {\n            escrever(\"  Linguagem:\", item);\n        }\n\n        // While com continue\n        Int count = 0;\n        while (count < 5) {\n            count = count + 1;\n            if (count == 3) {\n                continue;\n            }\n            escrever(\"  count =\", count);\n        }\n        escrever(\"\");\n\n        // === 4. Funcoes Nativas ===\n        escrever(\"Hash:\", hash(\"GuruDev\"));\n        escrever(\"Tamanho:\", tamanho(\"GuruDev\"));\n        escrever(\"Absoluto:\", absoluto(-42));\n        escrever(\"Raiz:\", raiz(16));\n        escrever(\"Arredondar:\", arredondar(3.7));\n        escrever(\"Seno:\", seno(0));\n        escrever(\"PI nativo:\", pi);\n        escrever(\"Maximo:\", maximo(10, 20, 30));\n        escrever(\"Minimo:\", minimo(10, 20, 30));\n        escrever(\"\");\n\n        // === 5. Classes ===\n        NOM classe Pessoa {\n            String nome;\n            Int idade;\n\n            NOM funcao saudacao() -> String {\n                return \"Ola, eu sou \" + nome + \", tenho \" + converter_string(idade) + \" anos.\";\n            }\n        }\n\n        // === 6. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n    !/codigo!\n\n    [subescritas]\n        ¿python?\n        # Subescrita Python equivalente\n        def somar(a, b):\n            return a + b\n\n        def fatorial(n):\n            if n <= 1:\n                return 1\n            return n * fatorial(n - 1)\n        ?/python?\n\n        ¿rust?\n        // Subescrita Rust equivalente\n        fn somar(a: i32, b: i32) -> i32 { a + b }\n        fn fatorial(n: i32) -> i32 {\n            if n <= 1 { return 1; }\n            n * fatorial(n - 1)\n        }\n        ?/rust?\n    [/subescritas]\n[/bloco]",
   "tipo": "exemplo"
@@ -1122,7 +986,7 @@
  {
   "estado": "em_reimplementacao",
   "fonte": "examples/demo_interpreter_pendente.guru",
-  "id": "F0141",
+  "id": "F0124",
   "secao": "demo_interpreter_pendente.guru",
   "texto": "[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"holistico\"]\n        [raiz=\"DEMO\"]\n        [clave=\"ciencia\"]\n        [ont=\"acao\"]\n    [/sobrescrita]\n\n    ¡codigo!\n        // === 1. Declaracao de Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n        Array linguagens = [\"Python\", \"Rust\", \"JavaScript\"];\n        Object config = {};\n\n        escrever(\"=== GuruDev Interpreter v1.0 ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"Linguagens:\", linguagens);\n        escrever(\"Tipo de nome:\", tipo_de(nome));\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        NOM funcao fibonacci(Int n) -> Int {\n            if (n <= 0) { return 0; }\n            if (n == 1) { return 1; }\n            Int a = 0;\n            Int b = 1;\n            Int i = 2;\n            Int temp = 0;\n            while (i <= n) {\n                temp = a + b;\n                a = b;\n                b = temp;\n                i = i + 1;\n            }\n            return b;\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"fib(10) =\", fibonacci(10));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        // For estilo C\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n\n        // For-each\n        String lang = \"\";\n        for (String item : linguagens) {\n            escrever(\"  Linguagem:\", item);\n        }\n\n        // While com continue\n        Int count = 0;\n        while (count < 5) {\n            count = count + 1;\n            if (count == 3) {\n                continue;\n            }\n            escrever(\"  count =\", count);\n        }\n        escrever(\"\");\n\n        // === 4. Funcoes Nativas ===\n        escrever(\"Hash:\", hash(\"GuruDev\"));\n        escrever(\"Tamanho:\", tamanho(\"GuruDev\"));\n        escrever(\"Absoluto:\", absoluto(-42));\n        escrever(\"Raiz:\", raiz(16));\n        escrever(\"Arredondar:\", arredondar(3.7));\n        escrever(\"Seno:\", seno(0));\n        escrever(\"PI nativo:\", pi);\n        escrever(\"Maximo:\", maximo(10, 20, 30));\n        escrever(\"Minimo:\", minimo(10, 20, 30));\n        escrever(\"\");\n\n        // === 5. Classes ===\n        NOM classe Pessoa {\n            String nome;\n            Int idade;\n\n            NOM funcao saudacao() -> String {\n                return \"Ola, eu sou \" + nome + \", tenho \" + converter_string(idade) + \" anos.\";\n            }\n        }\n\n        // === 6. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n    !/codigo!\n\n    [subescritas]\n        ¿python?\n        # Subescrita Python equivalente\n        def somar(a, b):\n            return a + b\n\n        def fatorial(n):\n            if n <= 1:\n                return 1\n            return n * fatorial(n - 1)\n        ?/python?\n\n        ¿rust?\n        // Subescrita Rust equivalente\n        fn somar(a: i32, b: i32) -> i32 { a + b }\n        fn fatorial(n: i32) -> i32 {\n            if n <= 1 { return 1; }\n            n * fatorial(n - 1)\n        }\n        ?/rust?\n    [/subescritas]\n[/bloco]",
   "tipo": "exemplo"
@@ -1130,7 +994,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/fluxo.guru",
-  "id": "F0142",
+  "id": "F0125",
   "secao": "fluxo.guru",
   "texto": "// GuruDev Core - Exemplo: Controle de Fluxo\n// Demonstra se/senao_se/senao, enquanto, para cada\n\n// --- se / senao ---\nInt x = 15;\nse (x > 20) {\n    escrever(\"grande\");\n} senao {\n    escrever(\"pequeno\");\n}\n\n// --- se / senao_se / senao ---\nInt nota = 75;\nse (nota >= 90) {\n    escrever(\"A\");\n} senao_se (nota >= 70) {\n    escrever(\"B\");\n} senao_se (nota >= 50) {\n    escrever(\"C\");\n} senao {\n    escrever(\"F\");\n}\n\n// --- enquanto ---\nInt contador = 0;\nenquanto (contador < 5) {\n    escrever(contador);\n    contador = contador + 1;\n}\n\n// --- para (estilo C) ---\nInt i = 0;\npara (Int i = 0; i < 3; i = i + 1) {\n    escrever(i);\n}",
   "tipo": "exemplo"
@@ -1138,7 +1002,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/funcoes.guru",
-  "id": "F0143",
+  "id": "F0126",
   "secao": "funcoes.guru",
   "texto": "// GuruDev Core - Exemplos de Funcoes\n// Demonstra definicao, chamada, return, recursao, params opcionais\n\n// --- Funcao simples sem retorno ---\nfuncao saudacao(String nome) {\n    escrever(\"Ola, \" + nome + \"!\");\n}\nsaudacao(\"Mundo\");\n\n// --- Funcao com retorno tipado ---\nNOM funcao dobrar(Int x) -> Int {\n    return x * 2;\n}\nInt resultado = dobrar(21);\nescrever(\"dobrar(21) = \" + resultado);\n\n// --- Funcao com multiplos parametros ---\nfuncao somar(Int a, Int b) -> Int {\n    return a + b;\n}\nescrever(\"3 + 7 = \" + somar(3, 7));\n\n// --- Recursao ---\nfuncao fatorial(Int n) -> Int {\n    se (n <= 1) {\n        return 1;\n    }\n    return n * fatorial(n - 1);\n}\nescrever(\"5! = \" + fatorial(5));\n\n// --- Parametros opcionais com valor default (Tesniere: circunstantes) ---\nfuncao criar_pessoa(String nome, Int idade = 0, String cidade = \"N/A\") {\n    escrever(nome + \", \" + idade + \", \" + cidade);\n}\ncriar_pessoa(\"Ana\");\ncriar_pessoa(\"Bob\", 30);\ncriar_pessoa(\"Eve\", 25, \"Sao Paulo\");\n\n// --- Funcao com caso gramatical (Wilmet: relacao instituida) ---\nDAT funcao enviar_mensagem(String destino, String msg) {\n    escrever(\"Para \" + destino + \": \" + msg);\n}\nenviar_mensagem(\"Alice\", \"Como vai?\");",
   "tipo": "exemplo"
@@ -1146,7 +1010,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/hello.guru",
-  "id": "F0144",
+  "id": "F0127",
   "secao": "hello.guru",
   "texto": "NOM classe Saudacao {\n    String nome;\n\n    NOM funcao iniciar(String n) {\n        this.nome = n;\n    }\n\n    NOM funcao dizer() -> String {\n        return \"Ola, \" + this.nome + \"!\";\n    }\n}\n\nSaudacao s = Saudacao(\"GuruDev\");\nescrever(s.dizer());\n\nInt resultado = 10 + 20;\nescrever(\"10 + 20 =\", resultado);\n\nArray nums = [1, 2, 3];\nfor (Int x : nums) { escrever(x); }\n\nString texto = \"  GuruDev  \";\nescrever(\"Trim:\", texto.trim());\nString limpo = texto.trim();\nescrever(\"Maiusculo:\", limpo.maiusculo());",
   "tipo": "exemplo"
@@ -1154,7 +1018,7 @@
  {
   "estado": "em_reimplementacao",
   "fonte": "examples/hello_pendente.guru",
-  "id": "F0145",
+  "id": "F0128",
   "secao": "hello_pendente.guru",
   "texto": "NOM classe Saudacao {\n    String nome;\n\n    NOM funcao iniciar(String n) {\n        this.nome = n;\n    }\n\n    NOM funcao dizer() -> String {\n        return \"Ola, \" + this.nome + \"!\";\n    }\n}\n\nSaudacao s = Saudacao(\"GuruDev\");\nescrever(s.dizer());\n\nInt resultado = 10 + 20;\nescrever(\"10 + 20 =\", resultado);\n\nArray nums = [1, 2, 3];\nfor (Int x : nums) { escrever(x); }\n\nString texto = \"  GuruDev  \";\nescrever(\"Trim:\", texto.trim());\nescrever(\"Maiusculo:\", texto.trim().maiusculo());",
   "tipo": "exemplo"
@@ -1162,7 +1026,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/ontologico.guru",
-  "id": "F0146",
+  "id": "F0129",
   "secao": "ontologico.guru",
   "texto": "// GuruDev - Exemplo Ontologico\n// Demonstra bloco ontologico com subescrita Python ativa\n\nescrever(\"=== GuruDev Ontologico ===\");\nescrever(\"\");\n\n// Modo direto funciona normalmente\nescrever(\"1. Modo direto:\");\nString msg = \"Ola do modo direto\";\nescrever(\"   \" + msg);\nescrever(\"\");\n\n// Bloco ontologico completo\n$$bloco$$\n$$sobrescrita$$\n$$nivel=\"basico\"$$\n$$raiz=\"demo\"$$\n$$clave=\"ciencia\"$$\n$$/sobrescrita$$\n¡codigo!\nescrever(\"2. Bloco ontologico ATIVO!\");\nescrever(\"   Codigo GuruDev dentro do bloco\");\n!/codigo!\n$$subescritas$$\n¿python?\nprint(\"   >> Subescrita Python executada!\")\nprint(\"   >> Interoperabilidade semantica ATIVA\")\n?/python?\n$$/subescritas$$\n$$/bloco$$\n\nescrever(\"\");\nString nome = \"GuruDev\";\nescrever(\"3. String methods: \" + nome.maiusculo());\nescrever(\"\");\nescrever(\"=== Motor Ontologico Ativo ===\");",
   "tipo": "exemplo"
@@ -1170,7 +1034,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/quantum_demo.guru",
-  "id": "F0147",
+  "id": "F0130",
   "secao": "quantum_demo.guru",
   "texto": "// Quantum GuruDev Demo - Pipeline end-to-end\n// Run: gurudev run examples/quantum_demo.guru\n\n[bloco]\n    [sobrescrita]\n        \"Contexto: demonstracao completa do Interpreter GuruDev\"\n        [nivel=\"ontologico\"]\n        [raiz=\"QUANTUM\"]\n        [clave=\"ciencia\"]\n        [ont=\"relacao\"]\n    [/sobrescrita]\n\n¡codigo!\n        // === 1. Variaveis ===\n        String nome = \"GuruDev\";\n        Int versao = 1;\n        Float pi = 3.14159;\n        Bool ativo = verdadeiro;\n\n        escrever(\"=== GuruDev Interpreter ===\");\n        escrever(\"Nome:\", nome);\n        escrever(\"Versao:\", versao);\n        escrever(\"PI:\", pi);\n        escrever(\"Ativo:\", ativo);\n        escrever(\"\");\n\n        // === 2. Funcoes ===\n        NOM funcao somar(Int a, Int b) -> Int {\n            return a + b;\n        }\n\n        NOM funcao fatorial(Int n) -> Int {\n            if (n <= 1) {\n                return 1;\n            }\n            return n * fatorial(n - 1);\n        }\n\n        escrever(\"10 + 20 =\", somar(10, 20));\n        escrever(\"5! =\", fatorial(5));\n        escrever(\"\");\n\n        // === 3. Controle de Fluxo ===\n        Int x = 15;\n        if (x > 10) {\n            escrever(x, \"eh maior que 10\");\n        } else {\n            escrever(x, \"nao eh maior que 10\");\n        }\n\n        Int soma = 0;\n        for (Int i = 1; i <= 5; i = i + 1) {\n            soma = soma + i;\n        }\n        escrever(\"Soma de 1 a 5:\", soma);\n        escrever(\"\");\n\n        // === 4. Serie ===\n        serie {\n            escrever(\"Passo 1: Lexer\");\n            escrever(\"Passo 2: Parser\");\n            escrever(\"Passo 3: Interpreter\");\n        }\n\n        escrever(\"\");\n        escrever(\"=== Todos os testes passaram! ===\");\n!/codigo!\n\n    [subescritas]\n¿python?\n        print(\"  Subescrita Python executada com sucesso\")\n        print(\"  Soma Python:\", 10 + 20)\n?/python?\n    [/subescritas]\n[/bloco]\n\n// Top-level\nInt x = 42;",
   "tipo": "exemplo"
@@ -1178,7 +1042,7 @@
  {
   "estado": "roda_hoje",
   "fonte": "examples/teoria_geral_funcao.guru",
-  "id": "F0148",
+  "id": "F0131",
   "secao": "teoria_geral_funcao.guru",
   "texto": "// GuruDev Core - Teoria Geral da Funcao\n// Demonstracao das fundacoes linguisticas da funcao em GuruDev\n//\n// Baseado em:\n//   Tesniere (valencia): actantes (obrigatorios) vs circunstantes (opcionais)\n//   Buhler (Organon): puro (Darstellung), efeito (Appell), expressao (Ausdruck)\n//   Wilmet (relacao instituida): caso gramatical = natureza da funcao\n\n// =============================================================\n// 1. TESNIERE - VALENCIA\n//    Actantes = parametros obrigatorios (nucleo da relacao)\n//    Circunstantes = parametros opcionais com default (contexto periferico)\n// =============================================================\n\n// funcao com 1 actante + 2 circunstantes\nfuncao criar_usuario(String nome, String email = \"\", Int idade = 0) {\n    escrever(\"Usuario: \" + nome);\n    se (email != \"\") {\n        escrever(\"  Email: \" + email);\n    }\n    escrever(\"  Idade: \" + idade);\n}\n\ncriar_usuario(\"Alice\");                         // so actante\ncriar_usuario(\"Bob\", \"bob@mail.com\");           // actante + 1 circunstante\ncriar_usuario(\"Eve\", \"eve@mail.com\", 28);       // actante + 2 circunstantes\n\n// =============================================================\n// 2. BUHLER - ORGANON MODEL (classificacao semantica)\n//    #sem: puro       -> Darstellung (representacao, sem efeitos colaterais)\n//    #sem: efeito     -> Appell (acao, modifica estado externo)\n//    #sem: expressao  -> Ausdruck (expressao do estado interior do sistema)\n// =============================================================\n\n// Funcao pura: dado mesmo input, sempre mesmo output (Darstellung)\n#sem: puro\nfuncao quadrado(Int x) -> Int {\n    return x * x;\n}\nescrever(\"quadrado(7) = \" + quadrado(7));\n\n// Funcao de efeito: modifica estado, gera saida (Appell)\n#sem: efeito\nfuncao registrar_log(String msg) {\n    escrever(\"[LOG] \" + msg);\n}\nregistrar_log(\"Sistema iniciado\");\n\n// Funcao de expressao: comunica estado interno (Ausdruck)\n#sem: expressao\nfuncao status_sistema() -> String {\n    return \"operacional\";\n}\nescrever(\"Status: \" + status_sistema());\n\n// =============================================================\n// 3. WILMET - FUNCAO COMO RELACAO INSTITUIDA\n//    O caso gramatical define a NATUREZA da relacao que a funcao\n//    institui entre seus argumentos.\n//    NOM = relacao primaria/definidora (essencia)\n//    DAT = relacao direcional (destinatario)\n//    ACU = relacao transformadora (alvo de transformacao)\n//    GEN = relacao de pertenca/classificacao\n//    INS = relacao instrumental (meio/ferramenta)\n// =============================================================\n\n// NOM: funcao definidora - estabelece a essencia do calculo\nNOM funcao calcular_area(Int largura, Int altura) -> Int {\n    return largura * altura;\n}\nescrever(\"Area: \" + calcular_area(5, 3));\n\n// DAT: funcao direcional - envia/destina algo\nDAT funcao notificar(String destinatario, String mensagem) {\n    escrever(\"NOTIFICACAO para \" + destinatario + \": \" + mensagem);\n}\nnotificar(\"admin\", \"Backup concluido\");\n\n// ACU: funcao transformadora - transforma o alvo\nACU funcao converter_para_maiusculo(String texto) -> String {\n    return texto;\n}\nescrever(\"Resultado: \" + converter_para_maiusculo(\"teste\"));\n\n// =============================================================\n// 4. COMBINACAO: Tesniere + Buhler + Wilmet juntos\n// =============================================================\n\n#sem: puro\nNOM funcao media(Int a, Int b, Int c = 0) -> Int {\n    se (c == 0) {\n        return (a + b) / 2;\n    }\n    return (a + b + c) / 3;\n}\n\nescrever(\"Media de 8 e 10: \" + media(8, 10));\nescrever(\"Media de 8, 10 e 7: \" + media(8, 10, 7));",
   "tipo": "exemplo"
