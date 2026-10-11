@@ -102,3 +102,37 @@ def test_em_reimplementacao_ainda_falha(ficha, tmp_path):
     r = executa(ficha["texto"], tmp_path)
     msg = f"{ficha['fonte']} ja executa: revisar estado"
     assert r.returncode != 0, msg
+
+
+# ------------------------------------------- base sem gabarito de benchmark
+
+def test_nenhuma_ficha_do_gabarito_de_benchmark():
+    """O gabarito (benchmarks/) nunca entra na base: o V1 mostrou o modelo
+    copiando 'Codigo esperado' em vez de gerar a resposta."""
+    for ficha in BASE:
+        assert not ficha["fonte"].startswith("benchmarks/"), ficha["fonte"]
+        assert "DEMO_ROTEIROS" not in ficha["fonte"], ficha["fonte"]
+
+
+ROTULOS_DO_GABARITO = [
+    "Código esperado",
+    "Resultado esperado",
+    "Critério de aprovação",
+    "Ação esperada",
+]
+
+
+def test_nenhuma_ficha_contem_rotulos_do_gabarito():
+    from assistente.recuperacao import normalizar
+
+    rotulos = [normalizar(r) for r in ROTULOS_DO_GABARITO]
+    for ficha in BASE:
+        texto = normalizar(ficha["texto"])
+        for rotulo in rotulos:
+            assert rotulo not in texto, (ficha["fonte"], ficha["secao"], rotulo)
+
+
+def test_politica_do_assistente_esta_na_base():
+    fichas = [f for f in BASE if f["fonte"] == "docs/POLITICA_ASSISTENTE.md"]
+    assert fichas, "docs/POLITICA_ASSISTENTE.md nao foi indexado"
+    assert any("POL-01" in f["texto"] for f in fichas)

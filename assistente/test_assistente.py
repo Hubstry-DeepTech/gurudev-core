@@ -1,17 +1,18 @@
-"""Testes do Assistente V0 contra os roteiros de docs/DEMO_ROTEIROS.md.
+"""Testes do Assistente V0 contra os roteiros de benchmarks/v1/DEMO_ROTEIROS.md.
 
 O modelo e simulado: os testes verificam a engrenagem deterministica
 (recuperacao, politica, execucao, fontes, servidor e cliente HTTP).
 """
 
 import json
+import re
 import threading
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
-from assistente import executor, politica
+from assistente import executor, gerar_base, politica
 from assistente.modelo import ErroModelo, ModeloHTTP, ModeloSimulado
 from assistente.nucleo import Assistente, extrair_codigo
 from assistente.recuperacao import Buscador, carregar_base
@@ -19,10 +20,14 @@ from assistente.servidor import Limitador, criar_handler
 
 BASE = carregar_base()
 BUSCADOR = Buscador(BASE)
+# O codigo dos roteiros vem do gabarito do benchmark V1, que fica FORA da
+# base de conhecimento: os testes nao dependem do que o Assistente consulta.
+ROTEIROS_V1 = gerar_base.RAIZ / "benchmarks" / "v1" / "DEMO_ROTEIROS.md"
 CODIGO_ROTEIRO = {
-    f["secao"].split(" > ")[-1][:3]: f["texto"]
-    for f in BASE
-    if f["tipo"] == "codigo_roteiro"
+    caminho[-1][:3]: codigo.strip()
+    for caminho, conteudo in gerar_base.secoes(ROTEIROS_V1.read_text("utf-8"))
+    if caminho and re.match(r"R\d\d ", caminho[-1])
+    for codigo in gerar_base.BLOCO_CODIGO.findall(conteudo)
 }
 
 

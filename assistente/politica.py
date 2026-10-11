@@ -1,4 +1,4 @@
-"""Politica de seguranca do Assistente (docs/DEMO_ROTEIROS.md).
+"""Politica de seguranca do Assistente (docs/POLITICA_ASSISTENTE.md).
 
 POL-01: programa com subescrita nao e executado.
 POL-02: a decisao e tomada por regra deterministica neste modulo,

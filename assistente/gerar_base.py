@@ -34,7 +34,7 @@ DOCUMENTOS = [
     "docs/EXEMPLOS_VALIDACAO.md",
     "docs/ARQUITETURA_NAMESPACES.md",
     "docs/WHITEPAPER.md",
-    "docs/DEMO_ROTEIROS.md",
+    "docs/POLITICA_ASSISTENTE.md",
 ]
 
 # Secoes de negocio do README ficam fora: o Assistente trata da
@@ -57,6 +57,8 @@ ARQUIVOS_PROIBIDOS = [
     "FOUNDER_PROFILE",
     "pitch_decks",
     "roadmap",
+    "benchmarks/",  # gabaritos de benchmark nunca entram na base
+    "DEMO_ROTEIROS",
 ]
 
 TITULO = re.compile(r"^(#{1,4})\s+(.*\S)\s*$")
@@ -119,21 +121,6 @@ def fichas_de_documento(fonte):
                 "texto": conteudo,
             }
         )
-        # Codigo dos roteiros executaveis (R02, R03...) e evidencia
-        # verificada: ganha ficha propria com estado "roda_hoje".
-        roteiro = caminho[-1] if caminho else ""
-        eh_roteiro = re.match(r"R\d\d ", roteiro)
-        if fonte == "docs/DEMO_ROTEIROS.md" and eh_roteiro:
-            for codigo in BLOCO_CODIGO.findall(conteudo):
-                fichas.append(
-                    {
-                        "fonte": fonte,
-                        "secao": secao,
-                        "tipo": "codigo_roteiro",
-                        "estado": "roda_hoje",
-                        "texto": codigo.strip(),
-                    }
-                )
     return fichas
 
 
