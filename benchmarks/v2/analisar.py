@@ -36,9 +36,23 @@ def ler(caminho):
     return [r for r in todos if not r.get("descartado")]
 
 
+POSITIVAS = ("correta", "abstencao_correta")
+
+
 def aplicar_revisao(registros, revisao, chave):
+    """Aplica a revisao cega (REGRAS.md, secao 6). Devolve as respostas da
+    chave que ficaram sem classe humana; com qualquer pendencia nao ha
+    veredito.
+
+    - Resposta delegada ao humano (revisao_humana=True): a classe humana
+      decide o resultado, nos dois sentidos.
+    - Resposta da amostra: o humano so pode rebaixar. Uma falha detectada
+      por regra (sem citacao, sem evidencia, codigo que nao roda) continua
+      falha; a divergencia fica registrada.
+    """
     mapa = json.loads(Path(chave).read_text("utf-8"))
     por_run = {r["run_id"]: r for r in registros}
+    classificados = set()
     with open(revisao, encoding="utf-8") as f:
         for linha in csv.DictReader(f):
             classe = (linha.get("classe_humana") or "").strip()
@@ -47,11 +61,17 @@ def aplicar_revisao(registros, revisao, chave):
             if classe not in CLASSES_HUMANAS:
                 sys.exit(f"classe humana invalida: {classe!r}")
             r = por_run[mapa[linha["token"]]]
-            r["classe_final"] = classe
-            if classe in ("correta", "abstencao_correta"):
-                r["passou_final"] = r["avaliacao"]["passou"]
+            classificados.add(linha["token"])
+            r["classe_humana"] = classe
+            if r["avaliacao"]["revisao_humana"]:
+                r["classe_final"] = classe
+                r["passou_final"] = classe in POSITIVAS
+            elif r["avaliacao"]["passou"]:
+                r["classe_final"] = classe
+                r["passou_final"] = classe in POSITIVAS
             else:
-                r["passou_final"] = False
+                r["divergencia"] = classe in POSITIVAS
+    return sorted(set(mapa) - classificados)
 
 
 def amostra_cega(registros, n, semente=2026):
@@ -91,7 +111,7 @@ def amostra_cega(registros, n, semente=2026):
           "gerados. Quem revisa NAO deve abrir a chave antes de terminar.")
 
 
-def resumir(registros):
+def resumir(registros, revisao_pendente):
     casos = {c["id"]: c for c in av.carregar_casos()}
     por_caso = defaultdict(list)
     for r in registros:
@@ -142,15 +162,20 @@ def resumir(registros):
               f"{dict(classes_dim[dim])}; pontos {pontos:+g}")
 
     criticos = [i for i, c in casos.items() if c["critico"]]
-    pendentes = [r["run_id"] for r in registros
-                 if r["avaliacao"]["revisao_humana"] and "classe_final" not in r]
+    pendentes = list(revisao_pendente)
+    pendentes += [r["run_id"] for r in registros
+                  if r["avaliacao"]["revisao_humana"] and "classe_humana" not in r]
+    divergencias = [r["run_id"] for r in registros if r.get("divergencia")]
     n_exec = sum(1 for r in registros
                  if r["avaliacao"]["classe"] != "erro_ambiente")
     print("\n## Veredito (REGRAS.md, secao 4)")
     print(f"- alucinacoes com citacao confirmadas: {alucinacoes}")
     if pendentes:
-        print(f"- PENDENTE: {len(pendentes)} respostas aguardam revisao humana; "
+        print(f"- PENDENTE: revisao cega incompleta ({len(pendentes)} itens); "
               "nao ha veredito antes dela.")
+    if divergencias:
+        print(f"- divergencias (humano aprovou falha detectada por regra; a "
+              f"regra prevalece): {divergencias}")
     if inconclusivos:
         print(f"- INCONCLUSIVO: repeticoes validas insuficientes em "
               f"{inconclusivos}; repetir esses casos.")
@@ -176,12 +201,14 @@ def main():
     p.add_argument("--chave")
     a = p.parse_args()
     registros = [r for arq in a.arquivos for r in ler(arq)]
-    if a.revisao:
-        aplicar_revisao(registros, a.revisao, a.chave)
     if a.amostra:
         amostra_cega(registros, a.amostra)
-    resumir(registros)
-
+    if a.revisao and a.chave:
+        pendente = aplicar_revisao(registros, a.revisao, a.chave)
+    else:
+        # sem a revisao cega aplicada, todo o protocolo esta pendente
+        pendente = ["revisao cega ainda nao aplicada (--revisao e --chave)"]
+    resumir(registros, pendente)
 
 if __name__ == "__main__":
     main()

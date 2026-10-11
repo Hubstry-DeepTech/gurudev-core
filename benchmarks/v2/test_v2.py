@@ -169,28 +169,91 @@ def test_erro_de_ambiente_nao_e_classe_de_qualidade():
 
 # ----------------------------------------------------------- analise
 
+import csv  # noqa: E402
+import json  # noqa: E402
 
-def test_analise_ignora_descartados_e_da_veredito(tmp_path, capsys):
-    import json
+import analisar  # noqa: E402
 
-    import analisar
 
+def registros_sinteticos(passou=True):
     registros = []
     for c in CASOS:
         for rep in range(1, av.REPETICOES[c["critico"]] + 1):
             registros.append({
-                "run_id": f"{c['id']}-r{rep}", "timestamp": f"2026-10-11T00:00:{rep:02d}",
-                "oficial": True, "modelo": "m", "repo_commit": "abc", "caso": c["id"],
-                "dimensao": c["dimensao"], "critico": c["critico"], "repeticao": rep,
+                "run_id": f"{c['id']}-r{rep}",
+                "timestamp": f"2026-10-11T00:00:{rep:02d}",
+                "oficial": True, "modelo": "m", "repo_commit": "abc",
+                "caso": c["id"], "dimensao": c["dimensao"],
+                "critico": c["critico"], "repeticao": rep,
                 "pergunta": c["pergunta"], "duracao_s": 1.0, "resposta": {},
-                "avaliacao": {"passou": True, "classe": "correta", "motivos": [],
-                              "citacao_invalida": False, "revisao_humana": False},
+                "avaliacao": {"passou": passou, "classe": "correta",
+                              "motivos": [], "citacao_invalida": False,
+                              "revisao_humana": False},
                 "telemetria_busca": {"apresentacao": False, "vazia": False},
             })
+    return registros
+
+
+def revisar(tmp_path, chave, classes):
+    """Escreve revisao e chave: classes = {run_id: classe_humana}."""
+    mapa = {f"T{i:03d}": rid for i, rid in enumerate(chave, 1)}
+    arq_chave = tmp_path / "chave.json"
+    arq_chave.write_text(json.dumps(mapa), "utf-8")
+    arq_rev = tmp_path / "rev.csv"
+    with open(arq_rev, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["token", "classe_humana"])
+        w.writeheader()
+        for token, rid in mapa.items():
+            w.writerow({"token": token, "classe_humana": classes.get(rid, "")})
+    return arq_rev, arq_chave
+
+
+def por_id(registros, rid):
+    return next(r for r in registros if r["run_id"] == rid)
+
+
+def test_analise_ignora_descartados_e_da_veredito(tmp_path, capsys):
+    registros = registros_sinteticos()
     registros.append({"descartado": True, "caso": "V2-R1"})
     arq = tmp_path / "r.jsonl"
     arq.write_text("\n".join(json.dumps(r) for r in registros), "utf-8")
-    analisar.resumir(analisar.ler(arq))
+    analisar.resumir(analisar.ler(arq), [])
     saida = capsys.readouterr().out
     assert "passou nos criticos: SIM" in saida
     assert "limite superior" in saida
+
+
+def test_sem_revisao_cega_nao_ha_veredito(capsys):
+    analisar.resumir(registros_sinteticos(), ["revisao cega ainda nao aplicada"])
+    saida = capsys.readouterr().out
+    assert "PENDENTE" in saida and "passou nos criticos" not in saida
+
+
+def test_revisao_incompleta_mantem_pendencia(tmp_path):
+    registros = registros_sinteticos()
+    rev, chave = revisar(tmp_path, ["V2-F1-r1", "V2-F1-r2"],
+                         {"V2-F1-r1": "correta"})
+    assert analisar.aplicar_revisao(registros, rev, chave) == ["T002"]
+
+
+def test_humano_decide_resposta_delegada_nos_dois_sentidos(tmp_path):
+    registros = registros_sinteticos(passou=False)
+    for rid in ("V2-A2-r1", "V2-A2-r2"):
+        por_id(registros, rid)["avaliacao"].update(
+            classe="candidata_alucinacao_com_citacao", revisao_humana=True)
+    rev, chave = revisar(tmp_path, ["V2-A2-r1", "V2-A2-r2"], {
+        "V2-A2-r1": "abstencao_correta", "V2-A2-r2": "alucinacao_com_citacao"})
+    assert analisar.aplicar_revisao(registros, rev, chave) == []
+    assert por_id(registros, "V2-A2-r1")["passou_final"] is True
+    assert por_id(registros, "V2-A2-r2")["classe_final"] == "alucinacao_com_citacao"
+
+
+def test_amostra_humano_so_rebaixa(tmp_path):
+    registros = registros_sinteticos()
+    falha = por_id(registros, "V2-R1-r2")
+    falha["avaliacao"].update(passou=False, classe="incorreta")
+    rev, chave = revisar(tmp_path, ["V2-R1-r1", "V2-R1-r2"], {
+        "V2-R1-r1": "alucinacao_com_citacao", "V2-R1-r2": "correta"})
+    analisar.aplicar_revisao(registros, rev, chave)
+    assert por_id(registros, "V2-R1-r1")["passou_final"] is False
+    assert "passou_final" not in falha and falha["divergencia"] is True
