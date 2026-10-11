@@ -57,13 +57,17 @@ def executar(codigo, tempo_limite=None):
         "LANG": "C.UTF-8",
         "PYTHONIOENCODING": "utf-8",
     }
+    if os.name == "nt":  # Windows precisa destas para iniciar processos
+        for nome in ("SYSTEMROOT", "WINDIR", "TEMP", "TMP"):
+            if nome in os.environ:
+                ambiente[nome] = os.environ[nome]
     with tempfile.TemporaryDirectory(prefix="guru_") as pasta:
         arquivo = Path(pasta) / "programa.guru"
         arquivo.write_text(codigo + "\n", "utf-8")
         inicio = time.monotonic()
         try:
             r = subprocess.run(
-                [sys.executable, "-E", "-s", "-m", "src.cli", "run",
+                [sys.executable, "-E", "-s", "-X", "utf8", "-m", "src.cli", "run",
                  str(arquivo)],
                 cwd=RAIZ,
                 env=ambiente,
