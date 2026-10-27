@@ -180,6 +180,10 @@ class Interpreter:
             raise GuruDevError("AST vazia")
         try:
             self._x(ast)
+        except RecursionError:
+            # o limite continua o do Python; so o erro passa a ser da
+            # linguagem (antes vazava RecursionError)
+            raise GuruDevError("profundidade maxima de recursao excedida")
         except ReturnSignal:
             raise GuruDevError("return fora de funcao")
         except (BreakSignal, ContinueSignal) as sinal:

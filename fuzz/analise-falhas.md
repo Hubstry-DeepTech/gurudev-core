@@ -145,15 +145,36 @@ determinístico e com triagem, esclarece os três:
 - Correção: a mesma de S1. **Corrigida pelo PR #25** (merge em 27/10/2026): o caso
   mínimo agora termina em `GuruDevError` e o teste deixou de ser xfail.
 
-### F9 — recursão sem limite da linguagem e aridade não checada (P3)
+### F9 — recursão sem limite da linguagem e aridade não checada (P3) — PARTE 1 CORRIGIDA
 
 - Família: `RECURSAO|RecursionError|get_func`. Ocorrências: 15.
 - Caso mínimo: `fatorial` chamando `fatorial()` sem argumento, sem caso base.
 - Causa: duas lacunas. (1) A chamada de função do usuário não confere o número
   de argumentos: `fatorial()` com 0 argumentos é aceita. (2) Recursão infinita
   vira `RecursionError` do Python.
-- Correção sugerida: checar aridade em `_x_ChamadaFuncao`; limitar profundidade
-  e levantar `GuruDevError("profundidade máxima de recursão")`.
+
+**Parte 1, recursão — corrigida no PR do F9.** `interpretar` converte
+`RecursionError` em `GuruDevError("profundidade maxima de recursao excedida")`.
+O limite **não mudou**: continua o do Python. Medido na `main` de 27/10/2026,
+uma função recursiva simples funciona até 109 níveis com o limite padrão de 1000
+frames. Aumentar esse limite é outra decisão. Testes:
+`tests/test_correcao_recursao.py`.
+
+**Parte 2, aridade — DECISÃO pendente, fora do PR.** Hoje, argumento faltante
+sem valor padrão vira `None` em silêncio, e argumento a mais é ignorado.
+Medição na `main` (suíte, exemplos, conformidade, casos e corpora):
+
+- nenhum teste e nenhum exemplo chama função com argumentos a menos ou a mais;
+- 109 chamadas a menos, todas do caso mínimo de F9 (recursão sem fim);
+- 6 chamadas a menos em programas mutados pelo fuzzing (uma variante de
+  `examples/funcoes.guru` com parâmetro duplicado: `enviar_mensagem(String
+  destino, String destino, String msg)` chamada com 2 argumentos). Uma delas é
+  um programa de conformidade que hoje termina em `OK`.
+
+Opções: (a) manter como está; (b) erro para argumento faltante sem padrão e
+para argumento a mais, regerando explicitamente aquele teste de conformidade;
+(c) só aviso. Achado relacionado: parâmetros com nome repetido são aceitos sem
+erro.
 
 ### F10 — repetição de texto sem limite de memória (P3)
 
@@ -225,6 +246,5 @@ CRASH_INTERP|TypeError|_x_OperacaoBinaria: F5 (P2) operadores delegam ao Python 
 CRASH_INTERP|ZeroDivisionError|_x_OperacaoBinaria: F5 (P2) divisão e módulo por zero sem tratamento; ver fuzz/analise-falhas.md
 CRASH_INTERP|TypeError|_x_OperacaoUnaria: F6 (P2) operador unário sem checagem de tipo; ver fuzz/analise-falhas.md
 CRASH_INTERP|Nativas: F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md
-RECURSAO|RecursionError|get_func: F9 (P3) recursão sem limite da linguagem e aridade não checada; ver fuzz/analise-falhas.md
 MEMORIA||?: F10 (P3) repetição de texto sem limite de tamanho; ver fuzz/analise-falhas.md
 ```
