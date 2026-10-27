@@ -82,7 +82,9 @@ def _propagar_gm(bloco):
             child = getattr(no, fld, None)
             if isinstance(child, list):
                 for item in child:
-                    visitar(item)
+                    # listas podem conter texto (ex.: interfaces de classe)
+                    if isinstance(item, Node):
+                        visitar(item)
 
     for no in bloco.codigo:
         visitar(no)
@@ -810,7 +812,8 @@ def p_if_elif_statement(p):
     '''if_statement : IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo elif_chain'''
     first = Se(condicao=p[3], corpo_verdadeiro=p[5], lineno=p.lineno(1))
     current = first
-    for cond, body in p[7]:
+    # a producao tem 6 simbolos: p[6] e o elif_chain
+    for cond, body in p[6]:
         node = Se(condicao=cond, corpo_verdadeiro=body, lineno=p.lineno(1))
         current.corpo_falso = [node]
         current = node

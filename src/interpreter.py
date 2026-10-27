@@ -67,6 +67,12 @@ HERMENEUTIC_ORDINAL = {
 TIPOS_INTEROP_PADRAO = ()
 
 
+def _fora_de_laco(sinal):
+    """Mensagem para break/continue que escapou de um laco."""
+    nome = "break" if isinstance(sinal, BreakSignal) else "continue"
+    return f"{nome} fora de laco"
+
+
 def _nome_interno(nome):
     return not isinstance(nome, str) or nome.startswith("_")
 
@@ -172,7 +178,12 @@ class Interpreter:
     def interpretar(self, ast):
         if ast is None:
             raise GuruDevError("AST vazia")
-        self._x(ast)
+        try:
+            self._x(ast)
+        except ReturnSignal:
+            raise GuruDevError("return fora de funcao")
+        except (BreakSignal, ContinueSignal) as sinal:
+            raise GuruDevError(_fora_de_laco(sinal))
         return self
 
     def _x(self, node):
@@ -442,6 +453,9 @@ class Interpreter:
             if caso == "ABL":
                 return copy.deepcopy(r.value)
             return r.value
+        except (BreakSignal, ContinueSignal) as sinal:
+            # break/continue nao atravessam a fronteira da funcao
+            raise GuruDevError(_fora_de_laco(sinal))
         finally:
             self.env = old
         return None
@@ -510,6 +524,8 @@ class Interpreter:
                 self._x(stmt)
         except ReturnSignal as r:
             return r.value
+        except (BreakSignal, ContinueSignal) as sinal:
+            raise GuruDevError(_fora_de_laco(sinal))
         finally:
             self.env = old
         return None
@@ -551,6 +567,8 @@ class Interpreter:
                         self._x(stmt)
                 except ReturnSignal as r:
                     return r.value
+                except (BreakSignal, ContinueSignal) as sinal:
+                    raise GuruDevError(_fora_de_laco(sinal))
                 finally:
                     self.env = old
                 return None

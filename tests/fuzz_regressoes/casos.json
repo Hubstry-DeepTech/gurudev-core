@@ -255,19 +255,19 @@
     "arquivo": "casos/CRASH_INTERP_SinalDeControle__1.guru",
     "familia": "CRASH_INTERP|SinalDeControle",
     "assinatura": "CRASH_INTERP|BreakSignal|src/interpreter.py:584 _x_Break",
-    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_INTERP_SinalDeControle__2.guru",
     "familia": "CRASH_INTERP|SinalDeControle",
     "assinatura": "CRASH_INTERP|ReturnSignal|src/interpreter.py:536 _x_Retorno",
-    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_INTERP_SinalDeControle__3.guru",
     "familia": "CRASH_INTERP|SinalDeControle",
     "assinatura": "CRASH_INTERP|ContinueSignal|src/interpreter.py:587 _x_Continue",
-    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_INTERP_TypeError__x_ChamadaMetodo__1.guru",
@@ -351,19 +351,19 @@
     "arquivo": "casos/CRASH_PARSER_AttributeError_visitar__1.guru",
     "familia": "CRASH_PARSER|AttributeError|visitar",
     "assinatura": "CRASH_PARSER|AttributeError|src/parser.py:80 visitar",
-    "xfail": "F3 (P1) visitar faz setattr em str de DefinicaoClasse.interfaces; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_PARSER_IndexError_p_if_elif_statement__1.guru",
     "familia": "CRASH_PARSER|IndexError|p_if_elif_statement",
     "assinatura": "CRASH_PARSER|IndexError|src/parser.py:813 p_if_elif_statement",
-    "xfail": "F1 (P1) parser lê p[7] numa produção de 6 símbolos; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_PARSER_TypeError_p_prop_atribuicao_caso__1.guru",
     "familia": "CRASH_PARSER|TypeError|p_prop_atribuicao_caso",
     "assinatura": "CRASH_PARSER|TypeError|src/parser.py:922 p_prop_atribuicao_caso",
-    "xfail": "F2 (P1) PropAtribuicao não tem o campo caso_gramatical; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/MEMORIA__1.guru",
