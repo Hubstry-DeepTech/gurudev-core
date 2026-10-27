@@ -1,0 +1,2 @@
+funcao fatorial(Int n)->Int{se(n){}return n*fatorial();}escrever("5! = " + fatorial(5)); funcao enviar_mensagem(String msg) {
+}

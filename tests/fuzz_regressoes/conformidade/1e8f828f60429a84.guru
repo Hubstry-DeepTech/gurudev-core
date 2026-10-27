@@ -1,0 +1,2 @@
+Object v = "Texto, de exemplo";
+escrever(v.inverter());

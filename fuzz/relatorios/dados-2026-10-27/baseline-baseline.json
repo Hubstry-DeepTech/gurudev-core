@@ -1,0 +1,42 @@
+{
+  "commit": "2d1bb1d5a5a5c8104e770a91a32931dd7d57c40a",
+  "suite": "458 passed, 2 xfailed in 17.76s",
+  "suite_codigo_saida": 0,
+  "cobertura_total_pct": 64.2,
+  "cobertura_linhas": "1525/2270",
+  "cobertura_ramos": "260/510",
+  "cobertura_por_arquivo_pct": {
+    "src/__init__.py": 66.7,
+    "src/ast_nodes.py": 100.0,
+    "src/cli.py": 0.0,
+    "src/instancia.py": 80.0,
+    "src/interpreter.py": 76.6,
+    "src/lexer/__init__.py": 100.0,
+    "src/lexer/gurudev_lexer.py": 61.7,
+    "src/nativas.py": 60.2,
+    "src/parser.py": 74.8,
+    "src/quantum_result.py": 96.5,
+    "src/repl.py": 0.0,
+    "src/semantic_analyzer.py": 88.2,
+    "src/symbol_table.py": 0.0
+  },
+  "exemplos": {
+    "examples/calc.guru": "OK",
+    "examples/demo_interpreter.guru": "OK",
+    "examples/demo_interpreter_pendente.guru": "SINTAXE",
+    "examples/fluxo.guru": "OK",
+    "examples/funcoes.guru": "OK",
+    "examples/hello.guru": "OK",
+    "examples/hello_pendente.guru": "SINTAXE",
+    "examples/ontologico.guru": "OK",
+    "examples/quantum_demo.guru": "OK",
+    "examples/teoria_geral_funcao.guru": "OK"
+  },
+  "nos_ast_sem_execucao": [
+    "AnotacaoSemantica",
+    "BlocoCompensacao",
+    "Node",
+    "Parametro",
+    "Sobrescrita"
+  ]
+}

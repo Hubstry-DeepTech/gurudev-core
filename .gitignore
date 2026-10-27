@@ -71,3 +71,7 @@ _backup/
 # === Copias de trabalho ===
 *.bak
 *.bak[0-9]*
+
+# Fuzzing (fuzz/): resultados locais e ambiente virtual
+resultados/
+.venv-fuzz/

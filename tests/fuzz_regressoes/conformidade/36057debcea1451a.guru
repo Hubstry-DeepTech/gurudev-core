@@ -1,0 +1,3 @@
+classe Pessoa implements email , absoluto {
+return converter_para_maiusculo ;
+}

@@ -1,0 +1,9 @@
+if ( [ ] . cidade ( ACU . descricao . calc , [ ] < [ ] . dividir ( ) )Int resultado = 10 + 20;
+escrever("10 + 20 =", resultado);
+
+Array nums = [1, 2, 3];
+for (Int x : nums) { escrever(x); }
+
+String texto = "  GuruDev  ";
+escrever("Trim:", texto.trim());
+String limpo =VOC.imprimir("ok");

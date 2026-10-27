@@ -1,0 +1,1 @@
+Array a = [3, 1, 2]; a.ordenar(); escrever(a.juntar); escrever(a.juntar("-"));

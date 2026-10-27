@@ -1,0 +1,1 @@
+classe Calc { funcao dobro(Int x) -> Int { return x * 2; } }

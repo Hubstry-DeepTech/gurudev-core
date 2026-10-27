@@ -1,0 +1,12 @@
+$$bloco$$
+[sobrescrita] $$paradigma="vqe"$$ [/sobrescrita]
+¡codigo!
+!/codigo!
+[subescritas]
+¿c++? 
+        print("  Subescrita Python executada com sucesso")
+        print("  Soma Python:", 10 + 20)
+ ?/c++? $$/subescritas$$
+[compensacao] $$desempenho] $$/desempenho$$ [/compensacao] [/bloco]
+serie {
+}

@@ -1,0 +1,1 @@
+Int s = 0; para (Int i = 0; i < 0.000001; i = i + 1) { s = s + 1; if (s == 7) { break; } }

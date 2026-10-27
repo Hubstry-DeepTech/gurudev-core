@@ -1,0 +1,2 @@
+Object v = ["b", "a", "c"];
+escrever(v.ultimo());

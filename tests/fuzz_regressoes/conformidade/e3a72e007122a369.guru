@@ -1,0 +1,21 @@
+$$bloco$$
+¡codigo!
+!/codigo!
+[/bloco]
+ABL . e = 70 ;
+[bloco]
+$$sobrescrita$$ $$nivel="matematico"$$ $$/sobrescrita$$
+¡codigo!
+!/codigo!
+[subescritas]
+¿sql? 
+        # Subescrita Python equivalente
+        def somar(a, b):
+            return a + b
+
+        def fatorial(n):
+            if n <= 1:
+                return 1
+            return n * fatorial(n - 1)
+         ?/sql? $$/subescritas$$
+[compensacao] $$alternativa] $$/alternativa$$ [/compensacao] $$/bloco$$

@@ -1,0 +1,25 @@
+NOM classe Saudacao {
+    String nome;
+
+    NOM funcao iniciar(String n) {
+        this.nome = n;
+    }
+
+    NOM funcao dizer() -> String {
+        return "Ola, " + this.nome + "!";
+    }
+}
+
+Saudacao s = Saudacao("GuruDev");
+escrever(s.dizer());
+
+Int resultado = 1 + 20;
+escrever(1, resultado);
+
+Array nums = [1, 2, 3];
+for (Int x : nums) { escrever(x); }
+
+String texto = "  GuruDev  ";
+escrever(false, texto.trim());
+String limpo = texto.trim();
+escrever("Maiusculo:", limpo.maiusculo());

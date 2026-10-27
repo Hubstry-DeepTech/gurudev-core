@@ -1,0 +1,416 @@
+{
+  "tempo_s": 900.9,
+  "execucoes": 44589,
+  "exec_por_s": 49.5,
+  "corpus": 209,
+  "cobertura_pontos": 1325,
+  "assinaturas": 61,
+  "assinaturas_bug": 61,
+  "minutos_sem_novidade": 0.0,
+  "status": {
+    "OK": 8135,
+    "ERRO_GURU": 10045,
+    "SINTAXE": 17488,
+    "CRASH_PARSER": 1554,
+    "CRASH_INTERP": 7233,
+    "TIMEOUT": 132,
+    "RECURSAO": 2
+  },
+  "novidade_por_origem": {
+    "semente": 30,
+    "mutacao": 30,
+    "gramatica": 62,
+    "cruzamento": 12,
+    "api": 58,
+    "valores": 17
+  },
+  "motivo_parada": "max-minutos",
+  "parametros": {
+    "saida": "resultados/piloto2",
+    "processos": 2,
+    "semente": 7,
+    "timeout": 3.0,
+    "memoria_mb": 1024,
+    "max_minutos": 15.0,
+    "max_execucoes": 0,
+    "parar_sem_novidade_min": 0,
+    "intervalo": 60.0,
+    "max_bytes_corpus": 20000,
+    "registrar_lacos": false,
+    "pesos": [
+      0.22,
+      0.4,
+      0.13,
+      0.13,
+      0.12
+    ]
+  },
+  "falhas": {
+    "CRASH_INTERP|BreakSignal|src/interpreter.py:584 _x_Break": {
+      "ocorrencias": 888,
+      "tamanho": 8,
+      "primeira_vez_s": 3.4,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|ContinueSignal|src/interpreter.py:587 _x_Continue": {
+      "ocorrencias": 920,
+      "tamanho": 11,
+      "primeira_vez_s": 3.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|JSONDecodeError|src/nativas.py:109 de_json": {
+      "ocorrencias": 17,
+      "tamanho": 23,
+      "primeira_vez_s": 72.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|OverflowError|src/interpreter.py:390 _x_ChamadaFuncao": {
+      "ocorrencias": 3,
+      "tamanho": 44,
+      "primeira_vez_s": 87.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|OverflowError|src/nativas.py:267 _str_repetir": {
+      "ocorrencias": 1,
+      "tamanho": 57,
+      "primeira_vez_s": 272.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|OverflowError|src/nativas.py:399 _arr_inserir": {
+      "ocorrencias": 1,
+      "tamanho": 76,
+      "primeira_vez_s": 649.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ReturnSignal|src/interpreter.py:536 _x_Retorno": {
+      "ocorrencias": 1446,
+      "tamanho": 9,
+      "primeira_vez_s": 3.3,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|RuntimeError|src/nativas.py:363 _arr_remover_ultimo": {
+      "ocorrencias": 8,
+      "tamanho": 44,
+      "primeira_vez_s": 108.0,
+      "origem": "api"
+    },
+    "CRASH_INTERP|RuntimeError|src/nativas.py:370 _arr_pop": {
+      "ocorrencias": 9,
+      "tamanho": 29,
+      "primeira_vez_s": 251.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|RuntimeError|src/nativas.py:424 _arr_primeiro": {
+      "ocorrencias": 11,
+      "tamanho": 39,
+      "primeira_vez_s": 196.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|RuntimeError|src/nativas.py:431 _arr_ultimo": {
+      "ocorrencias": 11,
+      "tamanho": 36,
+      "primeira_vez_s": 101.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:390 _x_ChamadaFuncao": {
+      "ocorrencias": 1693,
+      "tamanho": 11,
+      "primeira_vez_s": 3.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:684 _x_OperacaoBinaria": {
+      "ocorrencias": 31,
+      "tamanho": 49,
+      "primeira_vez_s": 22.0,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:685 _x_OperacaoBinaria": {
+      "ocorrencias": 20,
+      "tamanho": 52,
+      "primeira_vez_s": 70.6,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:686 _x_OperacaoBinaria": {
+      "ocorrencias": 127,
+      "tamanho": 66,
+      "primeira_vez_s": 11.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:687 _x_OperacaoBinaria": {
+      "ocorrencias": 97,
+      "tamanho": 18,
+      "primeira_vez_s": 6.3,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:688 _x_OperacaoBinaria": {
+      "ocorrencias": 26,
+      "tamanho": 55,
+      "primeira_vez_s": 21.8,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:691 _x_OperacaoBinaria": {
+      "ocorrencias": 60,
+      "tamanho": 32,
+      "primeira_vez_s": 17.5,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:692 _x_OperacaoBinaria": {
+      "ocorrencias": 32,
+      "tamanho": 35,
+      "primeira_vez_s": 18.1,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:693 _x_OperacaoBinaria": {
+      "ocorrencias": 35,
+      "tamanho": 51,
+      "primeira_vez_s": 140.5,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:694 _x_OperacaoBinaria": {
+      "ocorrencias": 19,
+      "tamanho": 32,
+      "primeira_vez_s": 60.6,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:702 _x_OperacaoUnaria": {
+      "ocorrencias": 76,
+      "tamanho": 15,
+      "primeira_vez_s": 3.0,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:109 de_json": {
+      "ocorrencias": 52,
+      "tamanho": 22,
+      "primeira_vez_s": 11.1,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:115 randint": {
+      "ocorrencias": 49,
+      "tamanho": 26,
+      "primeira_vez_s": 46.0,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:119 raiz": {
+      "ocorrencias": 40,
+      "tamanho": 19,
+      "primeira_vez_s": 10.6,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:123 absoluto": {
+      "ocorrencias": 13,
+      "tamanho": 24,
+      "primeira_vez_s": 26.7,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:127 arredondar": {
+      "ocorrencias": 34,
+      "tamanho": 26,
+      "primeira_vez_s": 26.8,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:198 dispatch": {
+      "ocorrencias": 307,
+      "tamanho": 37,
+      "primeira_vez_s": 8.2,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:235 _str_dividir": {
+      "ocorrencias": 2,
+      "tamanho": 39,
+      "primeira_vez_s": 747.1,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:241 _str_substring": {
+      "ocorrencias": 15,
+      "tamanho": 43,
+      "primeira_vez_s": 298.1,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:242 _str_substring": {
+      "ocorrencias": 5,
+      "tamanho": 57,
+      "primeira_vez_s": 122.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:252 _str_contem": {
+      "ocorrencias": 17,
+      "tamanho": 40,
+      "primeira_vez_s": 118.8,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:257 _str_substituir": {
+      "ocorrencias": 28,
+      "tamanho": 46,
+      "primeira_vez_s": 67.2,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:262 _str_indice": {
+      "ocorrencias": 15,
+      "tamanho": 38,
+      "primeira_vez_s": 219.0,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:267 _str_repetir": {
+      "ocorrencias": 3,
+      "tamanho": 40,
+      "primeira_vez_s": 87.9,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:296 _str_startswith": {
+      "ocorrencias": 29,
+      "tamanho": 42,
+      "primeira_vez_s": 35.3,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:301 _str_endswith": {
+      "ocorrencias": 12,
+      "tamanho": 44,
+      "primeira_vez_s": 189.4,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:306 _str_rfind": {
+      "ocorrencias": 21,
+      "tamanho": 46,
+      "primeira_vez_s": 36.1,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:323 dispatch": {
+      "ocorrencias": 732,
+      "tamanho": 35,
+      "primeira_vez_s": 5.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:381 _arr_ordenar": {
+      "ocorrencias": 35,
+      "tamanho": 49,
+      "primeira_vez_s": 29.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:399 _arr_inserir": {
+      "ocorrencias": 5,
+      "tamanho": 49,
+      "primeira_vez_s": 180.5,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:417 _arr_fatia": {
+      "ocorrencias": 33,
+      "tamanho": 44,
+      "primeira_vez_s": 13.8,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:418 _arr_fatia": {
+      "ocorrencias": 33,
+      "tamanho": 48,
+      "primeira_vez_s": 35.5,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:453 _arr_map": {
+      "ocorrencias": 50,
+      "tamanho": 43,
+      "primeira_vez_s": 10.7,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:458 _arr_filtrar": {
+      "ocorrencias": 9,
+      "tamanho": 46,
+      "primeira_vez_s": 58.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:79 tamanho": {
+      "ocorrencias": 27,
+      "tamanho": 21,
+      "primeira_vez_s": 312.0,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:83 converter_int": {
+      "ocorrencias": 7,
+      "tamanho": 29,
+      "primeira_vez_s": 28.9,
+      "origem": "api"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:87 converter_float": {
+      "ocorrencias": 10,
+      "tamanho": 31,
+      "primeira_vez_s": 104.7,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|ValueError|src/interpreter.py:390 _x_ChamadaFuncao": {
+      "ocorrencias": 20,
+      "tamanho": 22,
+      "primeira_vez_s": 10.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ValueError|src/nativas.py:115 randint": {
+      "ocorrencias": 6,
+      "tamanho": 25,
+      "primeira_vez_s": 197.7,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ValueError|src/nativas.py:437 _arr_indice": {
+      "ocorrencias": 37,
+      "tamanho": 38,
+      "primeira_vez_s": 13.3,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ValueError|src/nativas.py:83 converter_int": {
+      "ocorrencias": 22,
+      "tamanho": 29,
+      "primeira_vez_s": 142.6,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ValueError|src/nativas.py:87 converter_float": {
+      "ocorrencias": 17,
+      "tamanho": 31,
+      "primeira_vez_s": 75.4,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:390 _x_ChamadaFuncao": {
+      "ocorrencias": 3,
+      "tamanho": 27,
+      "primeira_vez_s": 449.7,
+      "origem": "api"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:687 _x_OperacaoBinaria": {
+      "ocorrencias": 6,
+      "tamanho": 322,
+      "primeira_vez_s": 135.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:688 _x_OperacaoBinaria": {
+      "ocorrencias": 4,
+      "tamanho": 27,
+      "primeira_vez_s": 25.8,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/nativas.py:119 raiz": {
+      "ocorrencias": 4,
+      "tamanho": 23,
+      "primeira_vez_s": 210.9,
+      "origem": "api"
+    },
+    "CRASH_PARSER|AttributeError|src/parser.py:80 visitar": {
+      "ocorrencias": 141,
+      "tamanho": 101,
+      "primeira_vez_s": 11.1,
+      "origem": "gramatica"
+    },
+    "CRASH_PARSER|IndexError|src/parser.py:813 p_if_elif_statement": {
+      "ocorrencias": 424,
+      "tamanho": 39,
+      "primeira_vez_s": 6.0,
+      "origem": "gramatica"
+    },
+    "CRASH_PARSER|TypeError|src/parser.py:922 p_prop_atribuicao_caso": {
+      "ocorrencias": 989,
+      "tamanho": 29,
+      "primeira_vez_s": 2.8,
+      "origem": "gramatica"
+    },
+    "RECURSAO|RecursionError|src/interpreter.py:81 get_func": {
+      "ocorrencias": 2,
+      "tamanho": 1193,
+      "primeira_vez_s": 456.7,
+      "origem": "valores"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[bloco]
+$$sobrescrita$$ $$paradigma="imperativo"$$ [ont="relacao"] $$paradigma="quantico"$$ [/sobrescrita]
+¡codigo!
+!/codigo!
+$$subescritas$$
+));
+
+String nome = "GuruDev";
+escrever("Nome: " + nome.maiusculo());
+escrever("Tamanho: " + converter_string(nome.tamanho()));
+
+Array numeros = [5, 3, 8, 1, 9, 2, 7];
+numeros.ordenar();
+escrever("Numeros ordenados: " + numeros.juntar(", "));

@@ -1,0 +1,1 @@
+NOM classe E { Int n = -1; } E e = E();

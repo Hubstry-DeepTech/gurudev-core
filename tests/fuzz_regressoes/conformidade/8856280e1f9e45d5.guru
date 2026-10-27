@@ -1,0 +1,1 @@
+funcao f() -> Int { Int x = 0; serie { x = 42; } return x; } Int r = f();

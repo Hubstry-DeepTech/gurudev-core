@@ -1,0 +1,12 @@
+$$bloco$$
+$$sobrescrita$$ $$paradigma="qaoa"$$ $$/sobrescrita$$
+¡codigo!
+paralelo {
+#sem: expressao }
+!/codigo!
+$$/bloco$$
+[bloco]
+¡codigo!
+inverter = ! - 75 || "100 / 4 =" . dividir ;
+!/codigo!
+[/bloco]

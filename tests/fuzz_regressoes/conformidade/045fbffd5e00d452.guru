@@ -1,0 +1,23 @@
+$$bloco$$
+$$sobrescrita$$ $$nivel="linguistico"$$ $$paradigma="quantico"$$ $$/sobrescrita$$
+¡codigo!
+!/codigo!
+[subescritas]
+¿sql? 
+        print("  Subescrita Python executada com sucesso")
+        print("  Soma Python:", 10 + 20)
+ ?/sql? ¿wasm? 
+print("   >> Subescrita Python executada!")
+print("   >> Interoperabilidade semantica ATIVA")
+ ?/wasm? ¿python? 
+        # Subescrita Python equivalente
+        def somar(a, b):
+            return a + b
+
+        def fatorial(n):
+            if n <= 1:
+                return 1
+            return n * fatorial(n - 1)
+         ?/python? $$/subescritas$$
+[compensacao] $$desempenho] quebra ;
+$$/desempenho$$ [/compensacao] $$/bloco$$

@@ -1,0 +1,6 @@
+$$bloco$$
+$$sobrescrita$$ "Arredondar:" [nivel="ontologico"] $$paradigma="quantico"$$ $$/sobrescrita$$
+¡codigo!
+Object descricao = "Arredondar:" . c || 10.0 && 9 <= 21 ;
+!/codigo!
+[/bloco]

@@ -1,0 +1,11 @@
+escrever("antes");
+$$bloco$$
+¡codigo!
+escrever("dentro");
+!/codigo!
+$$subescritas$$
+¿python?
+print("python executado")
+?/python?
+$$/subescritas$$
+$$/bloco$$

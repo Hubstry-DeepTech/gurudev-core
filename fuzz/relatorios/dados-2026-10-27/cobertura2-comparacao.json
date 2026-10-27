@@ -1,0 +1,64 @@
+{
+  "programas_no_corpus": 209,
+  "lotes_estourados": [],
+  "suite": {
+    "pct": 64.2,
+    "linhas": "1525/2270",
+    "ramos": "260/510",
+    "por_arquivo": {
+      "src/__init__.py": 66.7,
+      "src/ast_nodes.py": 100.0,
+      "src/cli.py": 0.0,
+      "src/instancia.py": 80.0,
+      "src/interpreter.py": 76.6,
+      "src/lexer/__init__.py": 100.0,
+      "src/lexer/gurudev_lexer.py": 61.7,
+      "src/nativas.py": 60.2,
+      "src/parser.py": 74.8,
+      "src/quantum_result.py": 96.5,
+      "src/repl.py": 0.0,
+      "src/semantic_analyzer.py": 88.2,
+      "src/symbol_table.py": 0.0
+    }
+  },
+  "corpus": {
+    "pct": 70.8,
+    "linhas": "1681/2270",
+    "ramos": "287/510",
+    "por_arquivo": {
+      "src/__init__.py": 66.7,
+      "src/ast_nodes.py": 100.0,
+      "src/cli.py": 0.0,
+      "src/instancia.py": 80.0,
+      "src/interpreter.py": 78.3,
+      "src/lexer/__init__.py": 100.0,
+      "src/lexer/gurudev_lexer.py": 93.7,
+      "src/nativas.py": 92.9,
+      "src/parser.py": 94.5,
+      "src/quantum_result.py": 0.0,
+      "src/repl.py": 0.0,
+      "src/semantic_analyzer.py": 22.4,
+      "src/symbol_table.py": 0.0
+    }
+  },
+  "uniao": {
+    "pct": 80.0,
+    "linhas": "1874/2270",
+    "ramos": "350/510",
+    "por_arquivo": {
+      "src/__init__.py": 66.7,
+      "src/ast_nodes.py": 100.0,
+      "src/cli.py": 0.0,
+      "src/instancia.py": 80.0,
+      "src/interpreter.py": 87.4,
+      "src/lexer/__init__.py": 100.0,
+      "src/lexer/gurudev_lexer.py": 96.5,
+      "src/nativas.py": 94.1,
+      "src/parser.py": 95.1,
+      "src/quantum_result.py": 96.5,
+      "src/repl.py": 0.0,
+      "src/semantic_analyzer.py": 88.2,
+      "src/symbol_table.py": 0.0
+    }
+  }
+}

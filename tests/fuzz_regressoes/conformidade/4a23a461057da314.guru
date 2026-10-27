@@ -1,0 +1,36 @@
+// GuruDev - Exemplo Ontologico
+// Demonstra bloco ontologico com subescrita Python ativa
+
+escrever("=== GuruDev Ontologico ===");
+escrever("");
+
+// Modo direto funciona normalmente
+escrever("1. Modo direto:");
+String msg = "Ola do modo direto";
+escrever("   " + msg);
+escrever("");
+
+// Bloco ontologico completo
+$$bloco$$
+$$sobrescrita$$
+$$nivel="basico"$$
+$$raiz="demo"$$
+$$clave="ciencia"$$
+$$/sobrescrita$$
+¡codigo!
+escrever("2. Bloco ontologico ATIVO!");
+escrever("   Codigo GuruDev dentro do bloco");
+!/codigo!
+$$subescritas$$
+¿python?
+print("   >> Subescrita Python executada!")
+print("   >> Interoperabilidade semantica ATIVA")
+?/python?
+$$/subescritas$$
+$$/bloco$$
+
+escrever("");
+String nome = "GuruDev";
+escrever("3. String methods: " + nome.maiusculo());
+escrever("");
+escrever("=== Motor Ontologico Ativo ===");

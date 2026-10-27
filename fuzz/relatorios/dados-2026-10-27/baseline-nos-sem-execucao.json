@@ -1,0 +1,10 @@
+{
+  "classes_ast": 37,
+  "sem_execucao": [
+    "AnotacaoSemantica",
+    "BlocoCompensacao",
+    "Node",
+    "Parametro",
+    "Sobrescrita"
+  ]
+}

@@ -1,0 +1,2 @@
+String n = ler_entrada();
+escrever(n);

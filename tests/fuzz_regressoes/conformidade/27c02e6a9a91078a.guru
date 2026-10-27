@@ -1,0 +1,14 @@
+// GuruDev Core - Exemplos de Funcoes
+// Demonstra definicao,  , return, recursao, params opcionais
+
+// --- Funcao simples sem retorno ---
+funcao saudacao(String nome) {
+    escrever("Ola, " + nome + "!");
+}
+saudacao("Mundo");
+
+// --- Funcao com retorno tipado ---
+NOM funcao dobrarInt x) -> Int {
+    return x * 2;
+}
+NOM classe E {chamadaInt n = -1; } E e = E();

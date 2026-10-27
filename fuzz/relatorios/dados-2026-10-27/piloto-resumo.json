@@ -1,0 +1,241 @@
+{
+  "tempo_s": 1800.2,
+  "execucoes": 78365,
+  "exec_por_s": 43.5,
+  "corpus": 160,
+  "cobertura_pontos": 1258,
+  "assinaturas": 32,
+  "assinaturas_bug": 32,
+  "minutos_sem_novidade": 1.4,
+  "status": {
+    "OK": 15263,
+    "ERRO_GURU": 18413,
+    "SINTAXE": 32370,
+    "CRASH_INTERP": 8917,
+    "CRASH_PARSER": 3134,
+    "TIMEOUT": 253,
+    "RECURSAO": 13,
+    "MEMORIA": 2
+  },
+  "novidade_por_origem": {
+    "semente": 31,
+    "mutacao": 28,
+    "gramatica": 64,
+    "valores": 21,
+    "cruzamento": 16
+  },
+  "motivo_parada": "max-minutos",
+  "parametros": {
+    "saida": "resultados/piloto",
+    "processos": 2,
+    "semente": 7,
+    "timeout": 3.0,
+    "memoria_mb": 1024,
+    "max_minutos": 30.0,
+    "max_execucoes": 0,
+    "parar_sem_novidade_min": 0,
+    "intervalo": 60.0,
+    "max_bytes_corpus": 20000,
+    "registrar_lacos": false,
+    "pesos": [
+      0.25,
+      0.45,
+      0.15,
+      0.15
+    ]
+  },
+  "falhas": {
+    "CRASH_INTERP|BreakSignal|src/interpreter.py:584 _x_Break": {
+      "ocorrencias": 1754,
+      "tamanho": 8,
+      "primeira_vez_s": 3.0,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|ContinueSignal|src/interpreter.py:587 _x_Continue": {
+      "ocorrencias": 2945,
+      "tamanho": 11,
+      "primeira_vez_s": 3.8,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|ReturnSignal|src/interpreter.py:536 _x_Retorno": {
+      "ocorrencias": 2852,
+      "tamanho": 9,
+      "primeira_vez_s": 4.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:390 _x_ChamadaFuncao": {
+      "ocorrencias": 56,
+      "tamanho": 15,
+      "primeira_vez_s": 10.5,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:528 _x_ChamadaMetodo": {
+      "ocorrencias": 54,
+      "tamanho": 29,
+      "primeira_vez_s": 149.6,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:684 _x_OperacaoBinaria": {
+      "ocorrencias": 68,
+      "tamanho": 44,
+      "primeira_vez_s": 29.2,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:685 _x_OperacaoBinaria": {
+      "ocorrencias": 58,
+      "tamanho": 30,
+      "primeira_vez_s": 17.6,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:686 _x_OperacaoBinaria": {
+      "ocorrencias": 50,
+      "tamanho": 75,
+      "primeira_vez_s": 7.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:687 _x_OperacaoBinaria": {
+      "ocorrencias": 112,
+      "tamanho": 21,
+      "primeira_vez_s": 29.1,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:688 _x_OperacaoBinaria": {
+      "ocorrencias": 187,
+      "tamanho": 41,
+      "primeira_vez_s": 13.8,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:691 _x_OperacaoBinaria": {
+      "ocorrencias": 174,
+      "tamanho": 21,
+      "primeira_vez_s": 5.2,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:692 _x_OperacaoBinaria": {
+      "ocorrencias": 65,
+      "tamanho": 31,
+      "primeira_vez_s": 127.9,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:693 _x_OperacaoBinaria": {
+      "ocorrencias": 133,
+      "tamanho": 33,
+      "primeira_vez_s": 51.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:694 _x_OperacaoBinaria": {
+      "ocorrencias": 47,
+      "tamanho": 28,
+      "primeira_vez_s": 33.0,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/interpreter.py:702 _x_OperacaoUnaria": {
+      "ocorrencias": 167,
+      "tamanho": 17,
+      "primeira_vez_s": 11.1,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:119 raiz": {
+      "ocorrencias": 22,
+      "tamanho": 19,
+      "primeira_vez_s": 336.0,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:123 absoluto": {
+      "ocorrencias": 3,
+      "tamanho": 38,
+      "primeira_vez_s": 513.2,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:127 arredondar": {
+      "ocorrencias": 17,
+      "tamanho": 31,
+      "primeira_vez_s": 178.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:235 _str_dividir": {
+      "ocorrencias": 2,
+      "tamanho": 81,
+      "primeira_vez_s": 1037.5,
+      "origem": "mutacao"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:323 dispatch": {
+      "ocorrencias": 1,
+      "tamanho": 82,
+      "primeira_vez_s": 835.6,
+      "origem": "mutacao"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:381 _arr_ordenar": {
+      "ocorrencias": 132,
+      "tamanho": 58,
+      "primeira_vez_s": 34.3,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|TypeError|src/nativas.py:79 tamanho": {
+      "ocorrencias": 15,
+      "tamanho": 3894,
+      "primeira_vez_s": 1504.1,
+      "origem": "valores"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:687 _x_OperacaoBinaria": {
+      "ocorrencias": 1,
+      "tamanho": 133,
+      "primeira_vez_s": 487.9,
+      "origem": "gramatica"
+    },
+    "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:688 _x_OperacaoBinaria": {
+      "ocorrencias": 2,
+      "tamanho": 478,
+      "primeira_vez_s": 367.8,
+      "origem": "gramatica"
+    },
+    "CRASH_PARSER|AttributeError|src/parser.py:80 visitar": {
+      "ocorrencias": 95,
+      "tamanho": 79,
+      "primeira_vez_s": 36.5,
+      "origem": "gramatica"
+    },
+    "CRASH_PARSER|IndexError|src/parser.py:813 p_if_elif_statement": {
+      "ocorrencias": 1149,
+      "tamanho": 36,
+      "primeira_vez_s": 4.0,
+      "origem": "gramatica"
+    },
+    "CRASH_PARSER|TypeError|src/parser.py:922 p_prop_atribuicao_caso": {
+      "ocorrencias": 1890,
+      "tamanho": 25,
+      "primeira_vez_s": 4.6,
+      "origem": "gramatica"
+    },
+    "MEMORIA|": {
+      "ocorrencias": 2,
+      "tamanho": 97,
+      "primeira_vez_s": 661.2,
+      "origem": "valores"
+    },
+    "RECURSAO|RecursionError|src/interpreter.py:81 get_func": {
+      "ocorrencias": 13,
+      "tamanho": 1182,
+      "primeira_vez_s": 152.1,
+      "origem": "valores"
+    },
+    "TIMEOUT|src/interpreter.py:149 _e": {
+      "ocorrencias": 2,
+      "tamanho": 521,
+      "primeira_vez_s": 1665.1,
+      "origem": "valores"
+    },
+    "TIMEOUT|src/interpreter.py:58 get": {
+      "ocorrencias": 1,
+      "tamanho": 1889,
+      "primeira_vez_s": 969.4,
+      "origem": "valores"
+    },
+    "TIMEOUT|src/interpreter.py:677 _x_OperacaoBinaria": {
+      "ocorrencias": 1,
+      "tamanho": 184,
+      "primeira_vez_s": 104.7,
+      "origem": "gramatica"
+    }
+  }
+}
