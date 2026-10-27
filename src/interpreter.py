@@ -51,16 +51,20 @@ HERMENEUTIC_ORDINAL = {
 # O interpretador manipula objetos Python. Um programa GuruDev nao deve
 # alcancar atributos internos desses objetos, como __class__ ou __dict__.
 # Regras, aplicadas a acesso de propriedade e a chamada de metodo:
-#   1. nomes iniciados por "_" sao recusados em qualquer valor;
-#   2. valores de tipos basicos (texto, numeros, listas...) so expoem os
-#      metodos da propria linguagem (StringMethods/ArrayMethods); nenhum
-#      atributo ou metodo Python deles e resolvido.
+#   1. nomes iniciados por "_" sao recusados em qualquer valor
+#      (GuruDevError);
+#   2. o Python so e consultado (getattr) para objetos cujo tipo esteja
+#      numa allowlist explicita de interoperabilidade, vazia por padrao
+#      (Interpreter.tipos_interop). Nenhum outro objeto tem atributo ou
+#      metodo Python resolvido;
+#   3. valores basicos expoem apenas os metodos da linguagem
+#      (StringMethods/ArrayMethods).
+# Compatibilidade: propriedade que a linguagem nao conhece continua
+# valendo None, como antes; a diferenca e que o Python nao e mais
+# consultado para descobri-la.
 # Isto restringe a superficie, mas NAO e um sandbox: codigo de terceiros
 # deve rodar tambem com isolamento do sistema operacional.
-TIPOS_VALOR_BASICO = (
-    str, int, float, bool, complex, list, tuple, set, frozenset,
-    bytes, bytearray, type(None),
-)
+TIPOS_INTEROP_PADRAO = ()
 
 
 def _nome_interno(nome):
@@ -124,6 +128,9 @@ class Interpreter:
 
     def __init__(self):
         self.env = Ambiente()
+        # allowlist de tipos Python cujos atributos/metodos publicos podem
+        # ser usados pelo programa (ver "FRONTEIRA COM O PYTHON")
+        self.tipos_interop = tuple(TIPOS_INTEROP_PADRAO)
         self.call_log = []
         self.recipients = {}
         self.subscrita_analyses = []
@@ -553,9 +560,7 @@ class Interpreter:
             return StringMethods.dispatch(obj, n.metodo, args)
         elif isinstance(obj, list) and n.metodo in ArrayMethods._METHODS:
             return ArrayMethods.dispatch(obj, n.metodo, args)
-        elif not isinstance(obj, TIPOS_VALOR_BASICO):
-            # Objetos de interoperabilidade (ex.: criados por subescrita)
-            # mantem os metodos publicos; valores basicos nao chegam aqui.
+        elif self.tipos_interop and isinstance(obj, self.tipos_interop):
             method = getattr(obj, n.metodo, None)
             if callable(method):
                 return method(*args)
@@ -751,12 +756,11 @@ class Interpreter:
             return obj.atributos[n.propriedade]
         if isinstance(obj, dict):
             return obj.get(n.propriedade)
-        if isinstance(obj, TIPOS_VALOR_BASICO):
-            raise GuruDevError(
-                f"propriedade '{n.propriedade}' nao existe em valor do tipo "
-                f"{type(obj).__name__}"
-            )
-        return getattr(obj, n.propriedade, None)
+        if self.tipos_interop and isinstance(obj, self.tipos_interop):
+            return getattr(obj, n.propriedade, None)
+        # Fora da linguagem e da allowlist: None, como antes, sem consultar
+        # o Python.
+        return None
 
     # ================================================================
     # QUANTUM DISPATCH — Protocolo Semantico Classico-Quantico
