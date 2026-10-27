@@ -122,14 +122,15 @@ determinístico e com triagem, esclarece os três:
   tipos e faixas) que levante `GuruDevError`, e trocar `TypeError`/`RuntimeError`
   deliberados por `GuruDevError`.
 
-### F8 — métodos Python dos valores acessíveis e sem validação (P2, ligado a S1)
+### F8 — métodos Python dos valores acessíveis e sem validação (P2, ligado a S1) — CORRIGIDA no PR #25
 
 - Família: `CRASH_INTERP|TypeError|_x_ChamadaMetodo`. Ocorrências: 54.
 - Caso mínimo: `return"".count();`.
 - Causa: quando o método não é da GuruDev, `_x_ChamadaMetodo` usa
   `getattr(obj, n.metodo)` e chama o método Python do valor. `count` não é um
   método GuruDev; é de `str` do Python.
-- Correção: a mesma de S1.
+- Correção: a mesma de S1. **Corrigida pelo PR #25** (merge em 27/10/2026): o caso
+  mínimo agora termina em `GuruDevError` e o teste deixou de ser xfail.
 
 ### F9 — recursão sem limite da linguagem e aridade não checada (P3)
 
@@ -152,7 +153,7 @@ determinístico e com triagem, esclarece os três:
 
 ## Segurança
 
-### S1 — código GuruDev puro alcança atributos internos do Python (P1 para a demo pública)
+### S1 — código GuruDev puro alcança atributos internos do Python (P1 para a demo pública) — MITIGADA no PR #25
 
 Fora do fuzzing, ao analisar F8, verifiquei manualmente um caminho mais sério.
 `_x_AcessoPropriedade` termina em `getattr(obj, n.propriedade, None)` e
@@ -176,6 +177,12 @@ Correção sugerida: em `_x_AcessoPropriedade` e `_x_ChamadaMetodo`, recusar nom
 que começam com `_` e, para valores que não são `Instancia`, permitir apenas os
 métodos registrados em `StringMethods`/`ArrayMethods`, levantando `GuruDevError`
 para o resto.
+
+**Situação:** mitigada pelo PR #25 (merge em 27/10/2026). Nomes iniciados por `_`
+são recusados; o Python só é consultado para tipos de uma allowlist explícita,
+vazia por padrão (`Interpreter.tipos_interop`). Detalhes e regressão combinada:
+`docs/seguranca/S1-regressao-combinada.md`. Continua valendo: não é um sandbox;
+código de terceiros precisa de isolamento do sistema operacional.
 
 ### S2 — subescrita Python executa com builtins completos (informativo)
 
@@ -209,7 +216,6 @@ CRASH_INTERP|TypeError|_x_OperacaoBinaria: F5 (P2) operadores delegam ao Python 
 CRASH_INTERP|ZeroDivisionError|_x_OperacaoBinaria: F5 (P2) divisão e módulo por zero sem tratamento; ver fuzz/analise-falhas.md
 CRASH_INTERP|TypeError|_x_OperacaoUnaria: F6 (P2) operador unário sem checagem de tipo; ver fuzz/analise-falhas.md
 CRASH_INTERP|Nativas: F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md
-CRASH_INTERP|TypeError|_x_ChamadaMetodo: F8 (P2) método Python do valor chamado sem validação; ver fuzz/analise-falhas.md
 RECURSAO|RecursionError|get_func: F9 (P3) recursão sem limite da linguagem e aridade não checada; ver fuzz/analise-falhas.md
 MEMORIA||?: F10 (P3) repetição de texto sem limite de tamanho; ver fuzz/analise-falhas.md
 ```

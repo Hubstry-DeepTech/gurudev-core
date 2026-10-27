@@ -273,7 +273,7 @@
     "arquivo": "casos/CRASH_INTERP_TypeError__x_ChamadaMetodo__1.guru",
     "familia": "CRASH_INTERP|TypeError|_x_ChamadaMetodo",
     "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:528 _x_ChamadaMetodo",
-    "xfail": "F8 (P2) método Python do valor chamado sem validação; ver fuzz/analise-falhas.md"
+    "xfail": null
   },
   {
     "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__1.guru",
