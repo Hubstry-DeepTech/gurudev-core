@@ -37,29 +37,34 @@ determinístico e com triagem, esclarece os três:
 
 ## Famílias
 
-### F1 — `if` com `elif` e sem `else` derruba o parser (P1)
+### F1 — `if` com um único `elif` e sem `else` derruba o parser (P1) — CORRIGIDA
 
 - Família: `CRASH_PARSER|IndexError|p_if_elif_statement`. Ocorrências: 1.573.
 - Caso mínimo: `if(7.0){}senao_se(abs){}`.
 - Causa: `src/parser.py`, `p_if_elif_statement`. A produção tem 6 símbolos
   (`IF_KEYWORD LPAREN producao_de_valor RPAREN bloco_corpo elif_chain`), mas o
   código lê `p[7]`. O certo é `p[6]`.
-- Efeito: todo `if ... elif ...` sem `else` final é inválido na prática. Com
-  `else` funciona, porque outra produção (`else_opt`) é usada. A suíte só testa
-  a forma com `else` (`tests/test_fluxo.py`), por isso passou.
-- Correção sugerida: `for cond, body in p[6]:`.
+- Efeito: `if` com **exatamente um** `elif` e sem `else` quebra, em qualquer
+  posição do programa. Com dois ou mais `elif`, ou com `else`, a gramática usa
+  outra produção (`else_opt`) e funciona. A suíte só testava essas formas
+  (`tests/test_fluxo.py`), por isso passou. (Mapeamento refinado durante a
+  correção; a primeira versão desta análise dizia "todo `if ... elif ...`".)
+- Correção: `for cond, body in p[6]:`. **Corrigida no PR de correções F1–F4.**
+  Testes: `tests/test_correcoes_parser_controle.py` (1 e 2 `elif`, no fim e no
+  meio do programa).
 
-### F2 — atribuição a propriedade com caso gramatical derruba o parser (P1)
+### F2 — atribuição a propriedade com caso gramatical derruba o parser (P1) — CORRIGIDA
 
 - Família: `CRASH_PARSER|TypeError|p_prop_atribuicao_caso`. Ocorrências: 2.879.
 - Caso mínimo: `ACU.x.x=20;`.
 - Causa: `p_prop_atribuicao_caso` cria `PropAtribuicao(..., caso_gramatical=p[1])`,
   mas a dataclass `PropAtribuicao` (`src/ast_nodes.py`) não tem esse campo.
 - Efeito: a forma `CASO.objeto.prop = valor` nunca funciona.
-- Correção sugerida: acrescentar `caso_gramatical: Optional[str] = None` em
-  `PropAtribuicao` e decidir a semântica no interpretador.
+- Correção: campo `caso_gramatical: Optional[str] = None` em `PropAtribuicao`.
+  Semântica adotada: o caso fica registrado no nó e a execução é a mesma de
+  `objeto.prop = valor`. **Corrigida no PR de correções F1–F4.**
 
-### F3 — classe com `implements` dentro de um bloco derruba o parser (P1)
+### F3 — classe com `implements` dentro de um bloco derruba o parser (P1) — CORRIGIDA
 
 - Família: `CRASH_PARSER|AttributeError|visitar`. Ocorrências: 236.
 - Caso mínimo: `$$bloco$$¡codigo!classe criar_pessoa implements a{}!/codigo![/bloco]`.
@@ -67,17 +72,25 @@ determinístico e com triagem, esclarece os três:
   gm_* para os nós filhos. Ele percorre toda lista da dataclass e chama
   `setattr` em cada item. `DefinicaoClasse.interfaces` é uma lista de `str`, e
   `setattr` em `str` falha.
-- Correção sugerida: em `visitar`, visitar apenas itens que sejam `Node`.
+- Correção: em `visitar`, visitar apenas itens que sejam `Node`.
+  **Corrigida no PR de correções F1–F4.**
 
-### F4 — `break`, `continue` e `return` fora de contexto vazam sinais internos (P2)
+### F4 — `break`, `continue` e `return` fora de contexto vazam sinais internos (P2) — CORRIGIDA
 
 - Família: `CRASH_INTERP|SinalDeControle` (3 assinaturas). Ocorrências: 10.805.
 - Casos mínimos: `break;`, `continua;`, `return;`.
 - Causa: `_x_Break`, `_x_Continue` e `_x_Retorno` levantam `BreakSignal`,
   `ContinueSignal` e `ReturnSignal`, que só são capturados dentro de laços e
   funções. No nível de programa, eles escapam como exceções Python.
-- Correção sugerida: capturar os três em `interpretar` e converter em
-  `GuruDevError("break fora de laço")` etc., ou rejeitar na análise semântica.
+- Agravante encontrado durante a correção (não aparecia no fuzzing): `break` ou
+  `continue` dentro de uma função escapavam pela chamada e encerravam, em
+  silêncio, o laço de quem chamou a função. Ex.: um laço de 3 voltas que chama
+  `f()` com `break` dentro parava na primeira volta, sem erro.
+- Correção: (1) `interpretar` converte os três sinais em `GuruDevError`
+  ("break fora de laco", "continue fora de laco", "return fora de funcao");
+  (2) as três fronteiras de chamada (função, método de instância e método de
+  dicionário) convertem `break`/`continue` em `GuruDevError`.
+  **Corrigida no PR de correções F1–F4.**
 
 ### F5 — operadores sem checagem de tipo (P2)
 
@@ -208,10 +221,6 @@ bug: cada uma aparece no relatório do pytest como XFAIL com o motivo, e qualque
 correção faz o teste falhar como XPASS até o marcador ser removido.
 
 ```xfail
-CRASH_PARSER|IndexError|p_if_elif_statement: F1 (P1) parser lê p[7] numa produção de 6 símbolos; ver fuzz/analise-falhas.md
-CRASH_PARSER|TypeError|p_prop_atribuicao_caso: F2 (P1) PropAtribuicao não tem o campo caso_gramatical; ver fuzz/analise-falhas.md
-CRASH_PARSER|AttributeError|visitar: F3 (P1) visitar faz setattr em str de DefinicaoClasse.interfaces; ver fuzz/analise-falhas.md
-CRASH_INTERP|SinalDeControle: F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md
 CRASH_INTERP|TypeError|_x_OperacaoBinaria: F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md
 CRASH_INTERP|ZeroDivisionError|_x_OperacaoBinaria: F5 (P2) divisão e módulo por zero sem tratamento; ver fuzz/analise-falhas.md
 CRASH_INTERP|TypeError|_x_OperacaoUnaria: F6 (P2) operador unário sem checagem de tipo; ver fuzz/analise-falhas.md

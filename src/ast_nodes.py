@@ -178,10 +178,15 @@ class Atribuicao(Node):
 
 @dataclass
 class PropAtribuicao(Node):
-    """Ex: this.x = valor; ou obj.prop = valor;"""
+    """Ex: this.x = valor; obj.prop = valor; ou ACU.obj.prop = valor;
+
+    caso_gramatical registra o caso declarado (ACU, NOM...); a execucao e a
+    mesma de obj.prop = valor.
+    """
     objeto: str = ""
     propriedade: str = ""
     valor: Optional[Node] = None
+    caso_gramatical: Optional[str] = None
 
 
 @dataclass
