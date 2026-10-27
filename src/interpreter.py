@@ -45,6 +45,40 @@ HERMENEUTIC_ORDINAL = {
 }
 
 
+# ================================================================
+# FRONTEIRA COM O PYTHON (seguranca)
+# ================================================================
+# O interpretador manipula objetos Python. Um programa GuruDev nao deve
+# alcancar atributos internos desses objetos, como __class__ ou __dict__.
+# Regras, aplicadas a acesso de propriedade e a chamada de metodo:
+#   1. nomes iniciados por "_" sao recusados em qualquer valor
+#      (GuruDevError);
+#   2. o Python so e consultado (getattr) para objetos cujo tipo esteja
+#      numa allowlist explicita de interoperabilidade, vazia por padrao
+#      (Interpreter.tipos_interop). Nenhum outro objeto tem atributo ou
+#      metodo Python resolvido;
+#   3. valores basicos expoem apenas os metodos da linguagem
+#      (StringMethods/ArrayMethods).
+# Compatibilidade: propriedade que a linguagem nao conhece continua
+# valendo None, como antes; a diferenca e que o Python nao e mais
+# consultado para descobri-la.
+# Isto restringe a superficie, mas NAO e um sandbox: codigo de terceiros
+# deve rodar tambem com isolamento do sistema operacional.
+TIPOS_INTEROP_PADRAO = ()
+
+
+def _nome_interno(nome):
+    return not isinstance(nome, str) or nome.startswith("_")
+
+
+def _recusar_nome_interno(nome):
+    if _nome_interno(nome):
+        raise GuruDevError(
+            f"acesso a '{nome}' nao permitido: nomes iniciados por '_' "
+            "sao internos"
+        )
+
+
 class Ambiente:
     """Ambiente de execucao com suporte a escopos, congelamento e classes."""
 
@@ -94,6 +128,9 @@ class Interpreter:
 
     def __init__(self):
         self.env = Ambiente()
+        # allowlist de tipos Python cujos atributos/metodos publicos podem
+        # ser usados pelo programa (ver "FRONTEIRA COM O PYTHON")
+        self.tipos_interop = tuple(TIPOS_INTEROP_PADRAO)
         self.call_log = []
         self.recipients = {}
         self.subscrita_analyses = []
@@ -488,6 +525,7 @@ class Interpreter:
                 call_env.decl(p.nome, None)
 
     def _x_ChamadaMetodo(self, n):
+        _recusar_nome_interno(n.metodo)
         if isinstance(n.objeto, Node):
             obj = self._e(n.objeto)
         else:
@@ -522,7 +560,7 @@ class Interpreter:
             return StringMethods.dispatch(obj, n.metodo, args)
         elif isinstance(obj, list) and n.metodo in ArrayMethods._METHODS:
             return ArrayMethods.dispatch(obj, n.metodo, args)
-        else:
+        elif self.tipos_interop and isinstance(obj, self.tipos_interop):
             method = getattr(obj, n.metodo, None)
             if callable(method):
                 return method(*args)
@@ -705,6 +743,7 @@ class Interpreter:
         raise GuruDevError(f"operador unario desconhecido: {n.operador}")
 
     def _x_AcessoPropriedade(self, n):
+        _recusar_nome_interno(n.propriedade)
         if isinstance(n.objeto, Node):
             obj = self._e(n.objeto)
         else:
@@ -717,7 +756,11 @@ class Interpreter:
             return obj.atributos[n.propriedade]
         if isinstance(obj, dict):
             return obj.get(n.propriedade)
-        return getattr(obj, n.propriedade, None)
+        if self.tipos_interop and isinstance(obj, self.tipos_interop):
+            return getattr(obj, n.propriedade, None)
+        # Fora da linguagem e da allowlist: None, como antes, sem consultar
+        # o Python.
+        return None
 
     # ================================================================
     # QUANTUM DISPATCH — Protocolo Semantico Classico-Quantico
