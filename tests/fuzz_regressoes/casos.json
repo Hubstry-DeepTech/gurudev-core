@@ -375,6 +375,6 @@
     "arquivo": "casos/RECURSAO_RecursionError_get_func__1.guru",
     "familia": "RECURSAO|RecursionError|get_func",
     "assinatura": "RECURSAO|RecursionError|src/interpreter.py:81 get_func",
-    "xfail": "F9 (P3) recursão sem limite da linguagem e aridade não checada; ver fuzz/analise-falhas.md"
+    "xfail": null
   }
 ]
