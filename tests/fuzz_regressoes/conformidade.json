@@ -1,0 +1,242 @@
+[
+  {
+    "arquivo": "conformidade/0013ff26635e76af.guru",
+    "saida": "Ola, Ola, nulo!\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nok\n"
+  },
+  {
+    "arquivo": "conformidade/03f529fd0526ef3d.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/045fbffd5e00d452.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/0aa098c518206f10.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/11658bedda4964cc.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/1209cf0eb48d00d7.guru",
+    "saida": "1-2-3\n"
+  },
+  {
+    "arquivo": "conformidade/157c4fd9fe3fe96e.guru",
+    "saida": "=== Calculadora GuruDev ===\n10 + 20 = 30\n50 - 15 = 35\n3 * 7 = 21\n100 / 4 = 25\nUltimo resultado: 25.0\nNome: GURUDEV\nTamanho: 7\nNumeros ordenados: 1, 2, 3, 5, 7, 8, 9\n"
+  },
+  {
+    "arquivo": "conformidade/16e2b180f48cd1ae.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/18a96f730ba31a2f.guru",
+    "saida": "5\n"
+  },
+  {
+    "arquivo": "conformidade/18d6649194658bd0.guru",
+    "saida": "ok\nok\n"
+  },
+  {
+    "arquivo": "conformidade/1dde50cd9e861130.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/214379669518be35.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/262d4d74b85a5d1e.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/27c02e6a9a91078a.guru",
+    "saida": "Erro sintático: token inesperado 'x' (tipo: ID) na linha 11\nErro sintático: token inesperado '}' (tipo: RBRACE) na linha 13\n"
+  },
+  {
+    "arquivo": "conformidade/307b4a763b51b9a8.guru",
+    "saida": "abc\n"
+  },
+  {
+    "arquivo": "conformidade/3383688c5897ac28.guru",
+    "saida": "4\n"
+  },
+  {
+    "arquivo": "conformidade/36057debcea1451a.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/3dbe73b916fdb4a8.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/4a23a461057da314.guru",
+    "saida": "=== GuruDev Ontologico ===\n\n1. Modo direto:\n   Ola do modo direto\n\n2. Bloco ontologico ATIVO!\n   Codigo GuruDev dentro do bloco\n\n3. String methods: GURUDEV\n\n=== Motor Ontologico Ativo ===\n"
+  },
+  {
+    "arquivo": "conformidade/4a53be1f1ef9ccfa.guru",
+    "saida": "antes\ndentro\n"
+  },
+  {
+    "arquivo": "conformidade/56dd0808f7efd31a.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/5c71523bc11440d5.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/5f39bc17de48c0af.guru",
+    "saida": "entrada\n"
+  },
+  {
+    "arquivo": "conformidade/6fabb8bad27dfe22.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/70831541d980b02a.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/861c468875656e0d.guru",
+    "saida": "Ola, Mundo!\ndobrar(21) = 42\n3 + 7 = 10\n5! = 120\nAna, 0, N/A\nBob, 30, N/A\nEve, 25, Sao Paulo\nPara Alice: Como vai?\n"
+  },
+  {
+    "arquivo": "conformidade/8856280e1f9e45d5.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/8f29ae82345f511b.guru",
+    "saida": "Ola, Mundo!\n"
+  },
+  {
+    "arquivo": "conformidade/933023eb923b5a19.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/979c37f6beda6ed3.guru",
+    "saida": "pequeno\nB\n0\n1\n2\n3\n4\n0\n1\n2\n"
+  },
+  {
+    "arquivo": "conformidade/98362a7bd626bcc5.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/9b6ff79e904dabb5.guru",
+    "saida": "nulo\n1-2-3\n"
+  },
+  {
+    "arquivo": "conformidade/9f15226b58a3b44f.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/9f175ee6bb72931f.guru",
+    "saida": "Ola, GuruDev!\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nMaiusculo: GURUDEV\n"
+  },
+  {
+    "arquivo": "conformidade/9fea26f59038c763.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/a3d51e91f2c84614.guru",
+    "saida": "ok\nok\n"
+  },
+  {
+    "arquivo": "conformidade/a964bc34c42bf2fc.guru",
+    "saida": "Ola, GuruDev!\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nok\n"
+  },
+  {
+    "arquivo": "conformidade/bbcfbffd15dfcef5.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/bcc719bf91d0a4d3.guru",
+    "saida": "Erro sintático: token inesperado ')' (tipo: RPAREN) na linha 6\nNome: GURUDEV\nTamanho: 7\nNumeros ordenados: 1, 2, 3, 5, 7, 8, 9\n"
+  },
+  {
+    "arquivo": "conformidade/be52dd906c5f2d71.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/bfba3a9679228035.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/d13709f03db1f0b5.guru",
+    "saida": "falso\n[]\n"
+  },
+  {
+    "arquivo": "conformidade/d20f7bdcf8374339.guru",
+    "saida": "Ola, GuruDev!\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nok\n"
+  },
+  {
+    "arquivo": "conformidade/d36f61729ae0a453.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/d79b537eeedf578d.guru",
+    "saida": "Erro sintático: token inesperado 'Int' (tipo: INT_TYPE) na linha 1\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nok\n"
+  },
+  {
+    "arquivo": "conformidade/e0b6ed0ee0474965.guru",
+    "saida": "Ola, GuruDev!\n1 21\n1\n2\n3\nfalso GuruDev\nMaiusculo: GURUDEV\n"
+  },
+  {
+    "arquivo": "conformidade/e3a72e007122a369.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/e4de25001b01d04f.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/fc3a9f607a15a815.guru",
+    "saida": "Ola, Mundo!\ndobrar(21) = 42\n3 + 7 = 10\n5! = 120\nAna, 0, N/A\nBob, 30, N/A\nEve, 25, Sao Paulo\n[]Alice: []\n"
+  },
+  {
+    "arquivo": "conformidade/00ee300d67f2d780.guru",
+    "saida": "nulo\n"
+  },
+  {
+    "arquivo": "conformidade/0259426749ced6b6.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/0c45de3075d44559.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/150510f010e7c338.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/16da9b0d908c356d.guru",
+    "saida": "[COMPENSACAO] Caractere ilegal '#' na linha 22\nErro sintático: token inesperado ':' (tipo: COLON) na linha 22\nErro sintático: token inesperado '$$/alternativa$$' (tipo: ALTERNATIVA_END) na linha 25\nErro sintático: token inesperado '+' (tipo: PLUS) na linha 25\nErro sintático: token inesperado '>=' (tipo: GREATER_EQUAL) na linha 25\nErro sintático: token inesperado '==' (tipo: EQUALS) na linha 25\n"
+  },
+  {
+    "arquivo": "conformidade/194f38eca97fa82b.guru",
+    "saida": "Ola, nulo!\n10 + 20 = 30\n1\n2\n3\nTrim: GuruDev\nMaiusculo: GURUDEV\n"
+  },
+  {
+    "arquivo": "conformidade/1cafe16f4202ccc1.guru",
+    "saida": ""
+  },
+  {
+    "arquivo": "conformidade/1e8f828f60429a84.guru",
+    "saida": "olpmexe ed ,otxeT\n"
+  },
+  {
+    "arquivo": "conformidade/23d930304e26baf7.guru",
+    "saida": "Erro sintático: token inesperado '-' (tipo: MINUS) na linha 7\nErro sintático: token inesperado 'efeito' (tipo: SEMANTIC_ANNOTATION) na linha 10\nErro sintático: token inesperado '}' (tipo: RBRACE) na linha 12\nErro sintático: token inesperado '-' (tipo: MINUS) na linha 23\n5! = 120\nAna, 0, N/A\nBob, 30, N/A\nEve, 25, Sao Paulo\nPara Como vai?: nulo\n"
+  },
+  {
+    "arquivo": "conformidade/278d1274d677328a.guru",
+    "saida": "c\n"
+  },
+  {
+    "arquivo": "conformidade/2864365abeb5fdd6.guru",
+    "saida": "['b', 'a'] ção🙂 falso\nnulo\n"
+  }
+]

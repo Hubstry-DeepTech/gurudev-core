@@ -1,0 +1,9 @@
+$$bloco$$
+¡codigo!
+!/codigo!
+[compensacao] $$desempenho] $$/desempenho$$ $$erro] $$/erro$$ [/compensacao] $$/bloco$$
+$$bloco$$
+[sobrescrita] $$nivel="parabolico"$$ $$paradigma="qaoa"$$ $$nivel="simbolico"$$ $$/sobrescrita$$
+¡codigo!
+!/codigo!
+[/bloco]

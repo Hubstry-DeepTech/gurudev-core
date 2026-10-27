@@ -1,0 +1,1 @@
+Int x = 75; se (x > 90) { Int r = 1; } senao_se (x > 70) { Int r = 2; } senao { Int r = 3; }

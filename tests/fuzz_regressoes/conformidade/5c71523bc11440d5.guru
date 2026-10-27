@@ -1,0 +1,18 @@
+[bloco]
+¡codigo!
+!/codigo!
+[/bloco]
+[bloco]
+$$sobrescrita$$ $$paradigma="vqe"$$ $$/sobrescrita$$
+¡codigo!
+!/codigo!
+[subescritas]
+¿javascript? 
+        // Subescrita Rust equivalente
+        fn somar(a: i32, b: i32) -> i32 { a + b }
+        fn fatorial(n: i32) -> i32 {
+            if n <= 1 { return 1; }
+            n * fatorial(n - 1)
+        }
+         ?/javascript? [/subescritas]
+[/bloco]

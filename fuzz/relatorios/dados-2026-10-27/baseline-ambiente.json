@@ -1,0 +1,27 @@
+{
+  "registrado_em": "2026-10-27T13:19:15+00:00",
+  "commit": "2d1bb1d5a5a5c8104e770a91a32931dd7d57c40a",
+  "branch": "testes/fuzzing-piloto",
+  "arvore_limpa_em_src": true,
+  "python": "3.13.17",
+  "ply": "3.11",
+  "pytest": "9.1.1",
+  "coverage": "7.10.7",
+  "sistema": "Linux-6.18.44-fc-v165-x86_64-with-glibc2.39",
+  "nucleos": 2,
+  "sha256_src": {
+    "src/__init__.py": "4a4e5e84f6031d8254f84a2fffad4cd57b1103b6d38ff4320dd5895b1b012a59",
+    "src/ast_nodes.py": "564aade91a83258740c426ce8c55b301cf5bc09ae9a60cef5748a383d118fc19",
+    "src/cli.py": "9f005ab8529d5a56cc9c9eccb5ee0a7781bcc91c47ea753eab2e2d84a62fd01d",
+    "src/instancia.py": "10537b1afdaf7559462778824346ab73ba936c744b1a5596a2634715c92ce2ea",
+    "src/interpreter.py": "24393c4a9dc91acd50ba481f20339b2b3cb9bafd3021979e7e8cdd9888f58de2",
+    "src/lexer/__init__.py": "08cbb090e2eeefe42976b7135e0e3aa1b0045d5c108664dc797e4cba941ff825",
+    "src/lexer/gurudev_lexer.py": "12c99dcb9590d0dd235839ae453145a017c25fa0b3983a5039b9cd4d6fea1ddc",
+    "src/nativas.py": "cefd7f704d91aa204a8d58a2fa502d481abd3e705195ab7b16091638aeaa6a0b",
+    "src/parser.py": "fb57400e165550647729ea168546c953fc48c36a986f366cb6a32f38e4e0ee3b",
+    "src/quantum_result.py": "0a5bd743abd3016929d81454a3c45ffca3b726005e3dff97fba5a0c63f0d1f4b",
+    "src/repl.py": "8d62632f5ed0e048bb693b334a4e61502e58e7f6ce0b1bfc86327192731cdac2",
+    "src/semantic_analyzer.py": "72597465972f5fa45f424afdf671d2937f33266712bfed759c8692bd5e3b2abf",
+    "src/symbol_table.py": "7bd3259b291d9953c516b800821cc893f3536e1ed6ae9c5b724ddcea21ce5b92"
+  }
+}

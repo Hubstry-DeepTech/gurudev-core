@@ -1,0 +1,380 @@
+[
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__1.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:390 _x_ChamadaFuncao",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__10.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ValueError|src/nativas.py:115 randint",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__11.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:115 randint",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__12.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:323 dispatch",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__13.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:127 arredondar",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__14.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:390 _x_ChamadaFuncao",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__15.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|RuntimeError|src/nativas.py:431 _arr_ultimo",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__16.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:198 dispatch",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__17.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:262 _str_indice",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__18.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ValueError|src/nativas.py:437 _arr_indice",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__19.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|RuntimeError|src/nativas.py:424 _arr_primeiro",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__2.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:119 raiz",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__20.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:235 _str_dividir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__21.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:83 converter_int",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__22.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ValueError|src/nativas.py:83 converter_int",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__23.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:252 _str_contem",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__24.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:267 _str_repetir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__25.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:418 _arr_fatia",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__26.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:458 _arr_filtrar",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__27.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:453 _arr_map",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__28.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:87 converter_float",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__29.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ValueError|src/nativas.py:87 converter_float",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__3.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ZeroDivisionError|src/nativas.py:119 raiz",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__30.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:296 _str_startswith",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__31.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:241 _str_substring",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__32.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:301 _str_endswith",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__33.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:381 _arr_ordenar",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__34.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:417 _arr_fatia",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__35.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|RuntimeError|src/nativas.py:363 _arr_remover_ultimo",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__36.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:257 _str_substituir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__37.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:306 _str_rfind",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__38.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:399 _arr_inserir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__39.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|OverflowError|src/interpreter.py:390 _x_ChamadaFuncao",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__4.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:109 de_json",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__40.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:242 _str_substring",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__41.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|OverflowError|src/nativas.py:267 _str_repetir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__42.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|OverflowError|src/nativas.py:399 _arr_inserir",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__5.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:79 tamanho",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__6.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|ValueError|src/interpreter.py:390 _x_ChamadaFuncao",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__7.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|JSONDecodeError|src/nativas.py:109 de_json",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__8.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|RuntimeError|src/nativas.py:370 _arr_pop",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_Nativas__9.guru",
+    "familia": "CRASH_INTERP|Nativas",
+    "assinatura": "CRASH_INTERP|TypeError|src/nativas.py:123 absoluto",
+    "xfail": "F7 (P2) biblioteca padrão sem validação de argumentos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_SinalDeControle__1.guru",
+    "familia": "CRASH_INTERP|SinalDeControle",
+    "assinatura": "CRASH_INTERP|BreakSignal|src/interpreter.py:584 _x_Break",
+    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_SinalDeControle__2.guru",
+    "familia": "CRASH_INTERP|SinalDeControle",
+    "assinatura": "CRASH_INTERP|ReturnSignal|src/interpreter.py:536 _x_Retorno",
+    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_SinalDeControle__3.guru",
+    "familia": "CRASH_INTERP|SinalDeControle",
+    "assinatura": "CRASH_INTERP|ContinueSignal|src/interpreter.py:587 _x_Continue",
+    "xfail": "F4 (P2) Break/Continue/ReturnSignal escapam fora de laço ou função; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_ChamadaMetodo__1.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_ChamadaMetodo",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:528 _x_ChamadaMetodo",
+    "xfail": null
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__1.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:687 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__2.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:691 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__3.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:692 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__4.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:685 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__5.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:694 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__6.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:693 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__7.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:684 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__8.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:688 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoBinaria__9.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:686 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) operadores delegam ao Python sem checar tipos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_TypeError__x_OperacaoUnaria__1.guru",
+    "familia": "CRASH_INTERP|TypeError|_x_OperacaoUnaria",
+    "assinatura": "CRASH_INTERP|TypeError|src/interpreter.py:702 _x_OperacaoUnaria",
+    "xfail": "F6 (P2) operador unário sem checagem de tipo; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_ZeroDivisionError__x_OperacaoBinaria__1.guru",
+    "familia": "CRASH_INTERP|ZeroDivisionError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:688 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) divisão e módulo por zero sem tratamento; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_INTERP_ZeroDivisionError__x_OperacaoBinaria__2.guru",
+    "familia": "CRASH_INTERP|ZeroDivisionError|_x_OperacaoBinaria",
+    "assinatura": "CRASH_INTERP|ZeroDivisionError|src/interpreter.py:687 _x_OperacaoBinaria",
+    "xfail": "F5 (P2) divisão e módulo por zero sem tratamento; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_PARSER_AttributeError_visitar__1.guru",
+    "familia": "CRASH_PARSER|AttributeError|visitar",
+    "assinatura": "CRASH_PARSER|AttributeError|src/parser.py:80 visitar",
+    "xfail": "F3 (P1) visitar faz setattr em str de DefinicaoClasse.interfaces; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_PARSER_IndexError_p_if_elif_statement__1.guru",
+    "familia": "CRASH_PARSER|IndexError|p_if_elif_statement",
+    "assinatura": "CRASH_PARSER|IndexError|src/parser.py:813 p_if_elif_statement",
+    "xfail": "F1 (P1) parser lê p[7] numa produção de 6 símbolos; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/CRASH_PARSER_TypeError_p_prop_atribuicao_caso__1.guru",
+    "familia": "CRASH_PARSER|TypeError|p_prop_atribuicao_caso",
+    "assinatura": "CRASH_PARSER|TypeError|src/parser.py:922 p_prop_atribuicao_caso",
+    "xfail": "F2 (P1) PropAtribuicao não tem o campo caso_gramatical; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/MEMORIA__1.guru",
+    "familia": "MEMORIA||?",
+    "assinatura": "MEMORIA|",
+    "xfail": "F10 (P3) repetição de texto sem limite de tamanho; ver fuzz/analise-falhas.md"
+  },
+  {
+    "arquivo": "casos/RECURSAO_RecursionError_get_func__1.guru",
+    "familia": "RECURSAO|RecursionError|get_func",
+    "assinatura": "RECURSAO|RecursionError|src/interpreter.py:81 get_func",
+    "xfail": "F9 (P3) recursão sem limite da linguagem e aridade não checada; ver fuzz/analise-falhas.md"
+  }
+]

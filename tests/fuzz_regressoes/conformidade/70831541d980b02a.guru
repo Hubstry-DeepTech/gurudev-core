@@ -1,0 +1,9 @@
+paralelo {
+#sem: expressao }
+$$bloco$$
+$$sobrescrita$$ $$paradigma="orientado_a_objetos"$$ $$paradigma="vqe"$$ $$/sobrescrita$$
+¡codigo!
+paralelo {
+}
+!/codigo!
+[/bloco]

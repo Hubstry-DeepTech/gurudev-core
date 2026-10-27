@@ -1,0 +1,72 @@
+{
+  "examples/calc.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0187
+  },
+  "examples/demo_interpreter.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0203
+  },
+  "examples/demo_interpreter_pendente.guru": {
+    "status": "SINTAXE",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0183
+  },
+  "examples/fluxo.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0175
+  },
+  "examples/funcoes.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0178
+  },
+  "examples/hello.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0177
+  },
+  "examples/hello_pendente.guru": {
+    "status": "SINTAXE",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0162
+  },
+  "examples/ontologico.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0171
+  },
+  "examples/quantum_demo.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.0184
+  },
+  "examples/teoria_geral_funcao.guru": {
+    "status": "OK",
+    "exc": null,
+    "msg": null,
+    "local": null,
+    "tempo": 0.019
+  }
+}

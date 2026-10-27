@@ -1,0 +1,11 @@
+escrever(false);
+$$bloco$$
+¡codigo!
+escrever([]);
+!/codigo!
+$$subescritas$$
+¿python?
+print(1)
+?/python?
+$$/subescritas$$
+$$/bloco$$

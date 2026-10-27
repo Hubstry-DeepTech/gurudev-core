@@ -1,0 +1,35 @@
+// GuruDev Core - Exemplo: Controle de Fluxo
+// Demonstra se/senao_se/senao, enquanto, para cada
+
+// --- se / senao ---
+Int x = 15;
+se (x > 20) {
+    escrever("grande");
+} senao {
+    escrever("pequeno");
+}
+
+// --- se / senao_se / senao ---
+Int nota = 75;
+se (nota >= 90) {
+    escrever("A");
+} senao_se (nota >= 70) {
+    escrever("B");
+} senao_se (nota >= 50) {
+    escrever("C");
+} senao {
+    escrever("F");
+}
+
+// --- enquanto ---
+Int contador = 0;
+enquanto (contador < 5) {
+    escrever(contador);
+    contador = contador + 1;
+}
+
+// --- para (estilo C) ---
+Int i = 0;
+para (Int i = 0; i < 3; i = i + 1) {
+    escrever(i);
+}

@@ -1,0 +1,52 @@
+NOM classe Calculadora {
+    Float resultado;
+
+    NOM funcao iniciar() {
+        this.resultado = 0.0;
+    }
+
+    NOM funcao soma(Float a, Float b) -> Float {
+        this.resultado = a + b;
+        return this.resultado;
+    }
+
+    NOM funcao subtrair(Float a, Float b) -> Float {
+        this.resultado = a - b;
+        return this.resultado;
+    }
+
+    NOM funcao multiplicar(Float a, Float b) -> Float {
+        this.resultado = a * b;
+        return this.resultado;
+    }
+
+    NOM funcao dividir(Float a, Float b) -> Float {
+        if (b == 0.0) {
+            escrever("Erro: divisao por zero");
+            return 0.0;
+        }
+        this.resultado = a / b;
+        return this.resultado;
+    }
+
+    NOM funcao historico() -> String {
+        return "Ultimo resultado: " + converter_string(this.resultado);
+    }
+}
+
+Calculadora calc = Calculadora();
+
+escrever("=== Calculadora GuruDev ===");
+escrever("10 + 20 =", calc.soma(10.0, 20.0));
+escrever("50 - 15 =", calc.subtrair(50.0, 15.0));
+escrever("3 * 7 =", calc.multiplicar(3.0, 7.0));
+escrever("100 / 4 =", calc.dividir(100.0, 4.0));
+escrever(calc.historico());
+
+String nome = "GuruDev";
+escrever("Nome: " + nome.maiusculo());
+escrever("Tamanho: " + converter_string(nome.tamanho()));
+
+Array numeros = [5, 3, 8, 1, 9, 2, 7];
+numeros.ordenar();
+escrever("Numeros ordenados: " + numeros.juntar(", "));
