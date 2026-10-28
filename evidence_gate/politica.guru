@@ -1,0 +1,32 @@
+// Politica do Evidence Gate. Arquivo estatico, versionado no repositorio.
+// Nenhum texto do modelo ou do usuario entra aqui como codigo: o Python
+// injeta apenas indicadores do tipo bool ou int, ja verificados.
+//
+// Ordem: comeca bloqueado; so sai do bloqueio quando todas as condicoes
+// de bloqueio forem falsas.
+
+String veredito = "BLOQUEADO";
+String motivo = "";
+
+if (falha_modelo) {
+    motivo = "falha ao consultar o modelo";
+} elif (fonte_vazia) {
+    motivo = "fonte vazia";
+} elif (json_invalido) {
+    motivo = "saida do modelo nao e JSON valido";
+} elif (esquema_invalido) {
+    motivo = "campos obrigatorios ausentes ou de tipo errado";
+} elif (afirmacoes_total < 1) {
+    motivo = "nenhuma afirmacao";
+} elif (citacoes_nao_encontradas > 0) {
+    motivo = "citacao nao localizada na fonte";
+} elif (afirmacoes_nao_literais > 0) {
+    veredito = "REVISAO_SEMANTICA";
+    motivo = "ha parafrase ou inferencia nao demonstrada";
+} elif (resposta_nao_literal) {
+    veredito = "REVISAO_SEMANTICA";
+    motivo = "a resposta nao e trecho literal da fonte (sintese ou inferencia)";
+} else {
+    veredito = "VALIDADO_LITERAL";
+    motivo = "resposta e afirmacoes sao trechos literais verificados";
+}
