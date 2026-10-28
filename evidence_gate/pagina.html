@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GuruDev Evidence Gate</title>
+<style>
+  :root { --fundo:#f7f7f5; --texto:#1d1d1b; --suave:#5d5d58; --borda:#d9d8d2;
+          --ok:#1d6b3a; --rev:#8a5a00; --bloq:#a32020; --cartao:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fundo:#161615; --texto:#ecebe6; --suave:#a3a29b; --borda:#3a3a36;
+            --ok:#5cc583; --rev:#e0a93a; --bloq:#ef6b6b; --cartao:#1f1f1d; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--fundo); color:var(--texto);
+         font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .sub { color: var(--suave); margin: 0 0 20px; }
+  label { display:block; font-weight:600; margin: 16px 0 6px; }
+  textarea, input { width:100%; padding:10px; border:1px solid var(--borda);
+         border-radius:8px; background:var(--cartao); color:var(--texto); font:inherit; }
+  textarea { min-height: 220px; resize: vertical; }
+  button { margin-top:16px; padding:10px 18px; border:0; border-radius:8px;
+         background:var(--texto); color:var(--fundo); font:inherit; font-weight:600; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:wait; }
+  .aviso { border-left:4px solid var(--borda); padding:8px 12px; color:var(--suave);
+         background:var(--cartao); margin:20px 0; font-size:.92rem; }
+  #estado { margin-top:16px; color:var(--suave); min-height:1.5em; }
+  #resultado { margin-top: 8px; }
+  .veredito { font-size:1.3rem; font-weight:700; padding:12px 14px; border-radius:8px;
+         border:2px solid currentColor; background:var(--cartao); }
+  .VALIDADO_LITERAL { color:var(--ok); } .REVISAO_SEMANTICA { color:var(--rev); }
+  .BLOQUEADO { color:var(--bloq); }
+  .motivo { color:var(--texto); font-weight:400; font-size:1rem; display:block; }
+  .cartao { background:var(--cartao); border:1px solid var(--borda); border-radius:8px;
+         padding:12px; margin-top:12px; overflow-wrap:anywhere; }
+  .rotulo { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color:var(--suave); }
+  .marca { font-weight:600; }
+  details { margin-top:12px; } pre { white-space:pre-wrap; overflow-wrap:anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <h1>GuruDev Evidence Gate</h1>
+  <p class="sub">Cole um texto-fonte e faça uma pergunta. O modelo responde com citações;
+  o Python confere cada citação na fonte e uma política GuruDev decide o veredito.</p>
+
+  <div class="aviso"><strong>Importante:</strong> VALIDADO_LITERAL significa apenas que
+  cada afirmação está escrita, literalmente, no texto-fonte. Não prova que a fonte é
+  verdadeira, nem que a resposta ou qualquer inferência está correta.</div>
+
+  <label for="fonte">Texto-fonte</label>
+  <textarea id="fonte" maxlength="60000" placeholder="Cole aqui o texto que servirá de evidência"></textarea>
+  <label for="pergunta">Pergunta</label>
+  <input id="pergunta" maxlength="2000" placeholder="O que você quer saber sobre o texto?">
+  <button id="enviar" type="button">Verificar</button>
+
+  <div id="estado" role="status" aria-live="polite"></div>
+  <div id="resultado"></div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
