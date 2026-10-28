@@ -3,8 +3,9 @@
     python3 -m evidence_gate.demo --simulado   # sem rede, respostas fixas
     python3 -m evidence_gate.demo              # modelo real (GURU_MODELO_*)
 
-Com o modelo real, o veredito depende do que o modelo devolver; o
-esperado abaixo vale para o modo simulado.
+Com o modelo real, o veredito depende do que o modelo devolver (ele pode,
+por exemplo, citar literalmente onde o simulado parafraseia); o modo real
+nao compara com o esperado e mostra as afirmacoes para conferencia.
 """
 
 import argparse
@@ -82,11 +83,17 @@ def main(argv=None):
     divergencias = 0
     for pergunta, esperado in CASOS:
         r = portao.avaliar(FONTE, pergunta)
-        marca = ("" if r["veredito"] == esperado
-                 else f"  (simulado esperava {esperado})")
+        marca = ("" if not args.simulado or r["veredito"] == esperado
+                 else f"  (esperado: {esperado})")
         divergencias += bool(marca)
         print(f"- {pergunta}\n  {r['veredito']}: {r['motivo']} "
               f"[{r['duracao_total']} s]{marca}")
+        if not args.simulado:
+            for a in r["afirmacoes"]:
+                print(f"    afirmacao: {a['texto']!r}\n"
+                      f"    citacao:   {a['citacao']!r} "
+                      f"(encontrada={a['citacao_encontrada']}, "
+                      f"literal={a['literal']})")
     return 1 if (args.simulado and divergencias) else 0
 
 
