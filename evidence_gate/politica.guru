@@ -23,7 +23,10 @@ if (falha_modelo) {
 } elif (afirmacoes_nao_literais > 0) {
     veredito = "REVISAO_SEMANTICA";
     motivo = "ha parafrase ou inferencia nao demonstrada";
+} elif (resposta_nao_literal) {
+    veredito = "REVISAO_SEMANTICA";
+    motivo = "a resposta nao e trecho literal da fonte (sintese ou inferencia)";
 } else {
     veredito = "VALIDADO_LITERAL";
-    motivo = "todas as afirmacoes sao trechos literais verificados";
+    motivo = "resposta e afirmacoes sao trechos literais verificados";
 }

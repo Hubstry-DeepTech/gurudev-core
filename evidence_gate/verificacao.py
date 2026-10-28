@@ -8,6 +8,12 @@ Nao ha casamento aproximado: maiusculas, acentos e pontuacao contam.
 
 Uma afirmacao e "literal" quando o texto normalizado da afirmacao e
 igual a sua citacao normalizada E a citacao ocorre na fonte normalizada.
+
+A resposta ("answer") e "literal" quando, normalizada e nao vazia, ocorre
+como trecho continuo da fonte normalizada. E uma heuristica conservadora:
+uma resposta correta montada com frases literais de pontos diferentes da
+fonte tambem vai para revisao (falso positivo aceito no MVP). Substring
+nao prova verdade, implicacao juridica nem correcao semantica.
 """
 
 import json
@@ -19,6 +25,7 @@ MAX_AFIRMACOES = 50
 
 INDICADORES_BOOL = (
     "falha_modelo", "fonte_vazia", "json_invalido", "esquema_invalido",
+    "resposta_nao_literal",
 )
 INDICADORES_INT = (
     "afirmacoes_total", "citacoes_nao_encontradas", "afirmacoes_nao_literais",
@@ -92,6 +99,7 @@ def esquema_valido(obj):
 
 def indicadores_vazios():
     d = {n: False for n in INDICADORES_BOOL}
+    d["resposta_nao_literal"] = True  # so vira False depois de verificada
     d.update({n: 0 for n in INDICADORES_INT})
     return d
 
@@ -104,7 +112,8 @@ def analisar(fonte, bruto, falha_modelo=False):
     Nada aqui executa o conteudo do modelo; ele e tratado como texto.
     """
     ind = indicadores_vazios()
-    detalhes = {"resposta": None, "afirmacoes": []}
+    detalhes = {"resposta": None, "resposta_literal": False,
+                "afirmacoes": []}
     fonte_n = normalizar(fonte) if isinstance(fonte, str) else ""
     ind["fonte_vazia"] = not fonte_n
     if falha_modelo:
@@ -120,6 +129,10 @@ def analisar(fonte, bruto, falha_modelo=False):
         return ind, detalhes
 
     detalhes["resposta"] = obj["answer"]
+    resposta_n = normalizar(obj["answer"])
+    resposta_literal = bool(resposta_n) and resposta_n in fonte_n
+    ind["resposta_nao_literal"] = not resposta_literal
+    detalhes["resposta_literal"] = resposta_literal
     for a in obj["claims"]:
         texto_n = normalizar(a["text"])
         citacao_n = normalizar(a["evidence_quote"])

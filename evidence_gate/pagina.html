@@ -46,9 +46,11 @@
   <p class="sub">Cole um texto-fonte e faça uma pergunta. O modelo responde com citações;
   o Python confere cada citação na fonte e uma política GuruDev decide o veredito.</p>
 
-  <div class="aviso"><strong>Importante:</strong> VALIDADO_LITERAL significa apenas que
-  cada afirmação está escrita, literalmente, no texto-fonte. Não prova que a fonte é
-  verdadeira, nem que a resposta ou qualquer inferência está correta.</div>
+  <div class="aviso"><strong>Importante:</strong> o veredito avalia a resposta e as
+  afirmações por um critério literal operacional. VALIDADO_LITERAL significa apenas que a
+  resposta e cada afirmação estão escritas, literalmente, no texto-fonte. Não prova que a
+  fonte é verdadeira, nem que a resposta está correta ou no contexto certo. Resposta que
+  sintetiza ou deduz vai para REVISAO_SEMANTICA, mesmo quando está certa.</div>
 
   <label for="fonte">Texto-fonte</label>
   <textarea id="fonte" maxlength="60000" placeholder="Cole aqui o texto que servirá de evidência"></textarea>

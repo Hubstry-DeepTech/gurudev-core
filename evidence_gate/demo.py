@@ -32,7 +32,7 @@ CASOS = [
 
 _RESPOSTAS = {
     CASOS[0][0]: {
-        "answer": "E a pessoa designada pela autoridade competente.",
+        "answer": "a pessoa designada pela autoridade competente",
         "claims": [{
             "text": "O agente de contratacao e a pessoa designada pela "
                     "autoridade competente para tomar decisoes e acompanhar "

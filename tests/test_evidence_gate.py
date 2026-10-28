@@ -50,10 +50,11 @@ def avaliar(resposta, fonte=FONTE, pergunta="Qual e a capital?"):
 
 
 def test_1_afirmacao_literal_e_validada():
-    r = avaliar(saida("Brasília", [claim(LITERAL)]))
+    r = avaliar(saida(LITERAL, [claim(LITERAL)]))
     assert r["veredito"] == "VALIDADO_LITERAL"
     assert r["politica_ok"] is True
     assert r["afirmacoes"][0]["literal"] is True
+    assert r["resposta_literal"] is True
 
 
 def test_2_citacao_inexistente_bloqueia():
@@ -227,7 +228,7 @@ def test_normalizacao_so_nfc_e_espacos():
 
 def test_quebra_de_linha_na_fonte_nao_impede_citacao():
     citacao = "inaugurada em 21 de abril de 1960. O projeto urbanístico"
-    r = avaliar(saida("x", [claim(citacao)]))
+    r = avaliar(saida(citacao, [claim(citacao)]))
     assert r["veredito"] == "VALIDADO_LITERAL"
 
 
@@ -237,13 +238,13 @@ def test_quebra_de_linha_na_fonte_nao_impede_citacao():
     "A capital do Brasil é Brasília",       # trecho menor: continua literal
 ])
 def test_sem_casamento_aproximado(variante):
-    r = avaliar(saida("x", [claim(variante)]))
+    r = avaliar(saida(variante, [claim(variante)]))
     esperado = ("VALIDADO_LITERAL" if variante in FONTE else "BLOQUEADO")
     assert r["veredito"] == esperado
 
 
 def test_cerca_json_e_aceita_como_envelope():
-    corpo = saida("x", [claim(LITERAL)])
+    corpo = saida(LITERAL, [claim(LITERAL)])
     assert remover_cerca("```json\n" + corpo + "\n```") == corpo
     assert remover_cerca("```\n" + corpo + "\n```") == corpo
     assert avaliar("```json\n" + corpo + "\n```")["veredito"] == (
@@ -263,6 +264,9 @@ def test_cerca_json_e_aceita_como_envelope():
     lambda d: d.update(afirmacoes_total=1.0),
     lambda d: d.update(citacoes_nao_encontradas=-1),
     lambda d: d.update(afirmacoes_total="1"),
+    lambda d: d.pop("resposta_nao_literal"),
+    lambda d: d.update(resposta_nao_literal=0),
+    lambda d: d.update(resposta_nao_literal=None),
 ])
 def test_indicador_invalido_bloqueia(ajuste):
     ind = indicadores_vazios()
@@ -275,6 +279,7 @@ def test_indicador_invalido_bloqueia(ajuste):
 def test_indicadores_validos_aprovam():
     ind = indicadores_vazios()
     ind["afirmacoes_total"] = 2
+    ind["resposta_nao_literal"] = False
     assert decidir(ind)["veredito"] == "VALIDADO_LITERAL"
 
 
@@ -296,15 +301,21 @@ def test_politica_so_produz_vereditos_conhecidos():
     import itertools
     for b in itertools.product([False, True], repeat=4):
         for total, nao_enc, nao_lit in itertools.product([0, 1, 3], repeat=3):
-            ind = dict(zip(("falha_modelo", "fonte_vazia", "json_invalido",
-                            "esquema_invalido"), b))
-            ind.update(afirmacoes_total=total,
-                       citacoes_nao_encontradas=nao_enc,
-                       afirmacoes_nao_literais=nao_lit)
-            d = decidir(ind)
-            assert d["veredito"] in VEREDITOS
-            if any(b) or total < 1 or nao_enc:
-                assert d["veredito"] == "BLOQUEADO"
+            for resp_nao_lit in (False, True):
+                ind = dict(zip(("falha_modelo", "fonte_vazia",
+                                "json_invalido", "esquema_invalido"), b))
+                ind.update(afirmacoes_total=total,
+                           citacoes_nao_encontradas=nao_enc,
+                           afirmacoes_nao_literais=nao_lit,
+                           resposta_nao_literal=resp_nao_lit)
+                d = decidir(ind)
+                assert d["veredito"] in VEREDITOS
+                if any(b) or total < 1 or nao_enc:
+                    assert d["veredito"] == "BLOQUEADO"
+                elif nao_lit or resp_nao_lit:
+                    assert d["veredito"] == "REVISAO_SEMANTICA"
+                else:
+                    assert d["veredito"] == "VALIDADO_LITERAL"
 
 
 def test_analisar_produz_so_bool_e_int():
@@ -431,7 +442,7 @@ def _esperar(url, ident, limite=10):
 def test_servidor_tarefa_assincrona(servidor_local):
     def lento(_):
         time.sleep(0.3)
-        return saida("Brasília", [claim(LITERAL)])
+        return saida(LITERAL, [claim(LITERAL)])
 
     tarefas = Tarefas(Portao(ModeloSimulado(lento)))
     url = servidor_local(criar_handler(tarefas))
@@ -475,7 +486,10 @@ def test_servidor_pagina_e_tarefa_inexistente(servidor_local):
     url = servidor_local(criar_handler(Tarefas(Portao(ModeloSimulado("{}")))))
     with urllib.request.urlopen(url + "/", timeout=10) as r:
         html = r.read().decode()
-    assert "Evidence Gate" in html and "Não prova que a fonte é" in html
+    texto = " ".join(html.split())
+    assert "Evidence Gate" in texto
+    assert "critério literal operacional" in texto
+    assert "Não prova que a fonte é verdadeira" in texto
     with urllib.request.urlopen(url + "/app.js", timeout=10) as r:
         js = r.read().decode()
     assert "innerHTML" not in js
@@ -511,3 +525,122 @@ def test_fila_cheia_recusa(monkeypatch):
     ids = [tarefas.criar(FONTE, "p") for _ in range(4)]
     bloqueio.set()
     assert None in ids
+
+
+# ------------------------------------------------------------------
+# Resposta (answer) tambem e verificada: regressao do teste real na VM
+# (28/10/2026, GLM-5.3, artigo 5o da Constituicao). Antes da correcao,
+# os dois casos abaixo recebiam VALIDADO_LITERAL.
+# ------------------------------------------------------------------
+
+ART5 = (
+    "Art. 5º Todos são iguais perante a lei, sem distinção de qualquer "
+    "natureza, garantindo-se aos brasileiros e aos estrangeiros residentes "
+    "no País a inviolabilidade do direito à vida, à liberdade, à igualdade, "
+    "à segurança e à propriedade, nos termos seguintes:\n"
+    "II - ninguém será obrigado a fazer ou deixar de fazer alguma coisa "
+    "senão em virtude de lei;\n"
+    "XI - a casa é asilo inviolável do indivíduo, ninguém nela podendo "
+    "penetrar sem consentimento do morador, salvo em caso de flagrante "
+    "delito ou desastre, ou para prestar socorro, ou, durante o dia, por "
+    "determinação judicial;"
+)
+INCISO_XI = (
+    "a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar "
+    "sem consentimento do morador, salvo em caso de flagrante delito ou "
+    "desastre, ou para prestar socorro, ou, durante o dia, por "
+    "determinação judicial"
+)
+DIREITOS = (
+    "garantindo-se aos brasileiros e aos estrangeiros residentes no País a "
+    "inviolabilidade do direito à vida, à liberdade, à igualdade, à "
+    "segurança e à propriedade"
+)
+
+# saidas brutas devolvidas pelo GLM-5.3 na interface (copiadas do teste)
+GLM_POLICIA_A_NOITE = saida(
+    "Não, segundo o texto. A entrada por determinação judicial só é "
+    "permitida durante o dia; à noite, sem consentimento do morador, só é "
+    "possível em caso de flagrante delito, desastre ou para prestar "
+    "socorro.",
+    [claim(INCISO_XI), claim("ou, durante o dia, por determinação judicial")],
+)
+GLM_DIREITOS = saida(
+    "O artigo garante como invioláveis os direitos à vida, à liberdade, à "
+    "igualdade, à segurança e à propriedade, aos brasileiros e aos "
+    "estrangeiros residentes no País. Além disso, estabelece que a casa é "
+    "asilo inviolável do indivíduo.",
+    [claim(DIREITOS), claim("a casa é asilo inviolável do indivíduo")],
+)
+
+
+def test_resposta_inferencial_constitucional_vai_para_revisao():
+    r = avaliar(GLM_POLICIA_A_NOITE, fonte=ART5,
+                pergunta="A polícia pode entrar numa casa à noite com "
+                         "ordem judicial?")
+    assert r["veredito"] == "REVISAO_SEMANTICA"
+    assert r["motivo"].startswith("a resposta nao e trecho literal")
+    assert r["indicadores"]["resposta_nao_literal"] is True
+    assert r["indicadores"]["afirmacoes_nao_literais"] == 0
+    assert all(a["literal"] for a in r["afirmacoes"])
+
+
+def test_resposta_sintese_constitucional_vai_para_revisao():
+    # sintese fiel, mas nao e trecho da fonte: falso positivo aceito no MVP
+    r = avaliar(GLM_DIREITOS, fonte=ART5)
+    assert r["veredito"] == "REVISAO_SEMANTICA"
+
+
+def test_resposta_literal_constitucional_continua_validada():
+    r = avaliar(saida(DIREITOS, [claim(DIREITOS)]), fonte=ART5)
+    assert r["veredito"] == "VALIDADO_LITERAL"
+    assert r["resposta_literal"] is True
+
+
+def test_resposta_literal_com_quebra_de_linha_e_espacos():
+    resposta = "senão em virtude de lei;\n  XI - a casa"
+    r = avaliar(saida(resposta, [claim("a casa é asilo inviolável")]),
+                fonte=ART5)
+    assert r["veredito"] == "VALIDADO_LITERAL"
+
+
+@pytest.mark.parametrize("resposta", ["", "   ", "Sim."])
+def test_resposta_vazia_ou_curta_fora_da_fonte_vai_para_revisao(resposta):
+    r = avaliar(saida(resposta, [claim(INCISO_XI)]), fonte=ART5)
+    assert r["veredito"] == "REVISAO_SEMANTICA"
+
+
+def test_resposta_em_frases_literais_espalhadas_vai_para_revisao():
+    # documentado: duas frases literais de pontos diferentes nao formam
+    # um trecho continuo; vai para revisao humana
+    resposta = ("Todos são iguais perante a lei. a casa é asilo inviolável "
+                "do indivíduo")
+    r = avaliar(saida(resposta, [claim("Todos são iguais perante a lei"),
+                                 claim("a casa é asilo inviolável do "
+                                       "indivíduo")]), fonte=ART5)
+    assert r["veredito"] == "REVISAO_SEMANTICA"
+
+
+@pytest.mark.parametrize("bruto, motivo", [
+    (saida("Não.", [claim("A polícia pode entrar à noite.")]),
+     "citacao nao localizada na fonte"),
+    ("{oops", "saida do modelo nao e JSON valido"),
+    (saida("Não.", []), "nenhuma afirmacao"),
+])
+def test_bloqueios_continuam_com_resposta_nao_literal(bruto, motivo):
+    r = avaliar(bruto, fonte=ART5)
+    assert r["veredito"] == "BLOQUEADO"
+    assert r["motivo"] == motivo
+
+
+def test_falha_do_modelo_continua_bloqueando_com_resposta_nao_literal():
+    def falhar(_):
+        raise ErroModelo("tempo esgotado")
+    r = avaliar(falhar, fonte=ART5)
+    assert r["veredito"] == "BLOQUEADO"
+    assert r["indicadores"]["resposta_nao_literal"] is True
+
+
+def test_prompt_nao_induz_afirmacao_igual_a_citacao():
+    from evidence_gate.portao import INSTRUCOES
+    assert "deve ser igual" not in INSTRUCOES

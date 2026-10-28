@@ -22,8 +22,11 @@ function mostrar(r) {
 
   if (r.resposta) {
     const c = el("div", "cartao");
-    c.appendChild(el("div", "rotulo", "Resposta do modelo (não verificada como verdade)"));
+    c.appendChild(el("div", "rotulo", "Resposta do modelo"));
     c.appendChild(el("div", null, r.resposta));
+    c.appendChild(el("div", "marca", r.resposta_literal
+      ? "✔ resposta é trecho literal da fonte"
+      : "≈ resposta não é trecho literal da fonte (síntese ou inferência do modelo)"));
     alvo.appendChild(c);
   }
   (r.afirmacoes || []).forEach((a, i) => {

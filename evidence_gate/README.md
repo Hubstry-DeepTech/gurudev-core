@@ -9,12 +9,14 @@ pelo interpretador real da linguagem, decide o veredito.
 | Veredito | Quando |
 |---|---|
 | `BLOQUEADO` | falha ou tempo esgotado do modelo, fonte vazia, JSON inválido, esquema errado, nenhuma afirmação, ou alguma citação ausente da fonte |
-| `REVISAO_SEMANTICA` | todas as citações existem na fonte, mas ao menos uma afirmação é paráfrase ou inferência |
-| `VALIDADO_LITERAL` | toda afirmação é igual à sua citação, e toda citação está na fonte |
+| `REVISAO_SEMANTICA` | todas as citações existem na fonte, mas ao menos uma afirmação é paráfrase ou inferência, **ou a resposta (`answer`) não é trecho literal da fonte** |
+| `VALIDADO_LITERAL` | toda afirmação é igual à sua citação, toda citação está na fonte **e a resposta também é trecho literal da fonte** |
 
-**Limite de produto.** `VALIDADO_LITERAL` significa que a afirmação passou na
-verificação literal definida abaixo. Não significa que a informação seja
-verdadeira, nem que sua semântica tenha sido integralmente comprovada.
+**Limite de produto.** O veredito avalia a resposta e as afirmações por um
+critério literal operacional, definido abaixo. `VALIDADO_LITERAL` não significa
+que a informação seja verdadeira, nem que sua semântica tenha sido
+integralmente comprovada. Uma resposta composta de trechos literais também pode
+estar fora de contexto ou induzir a uma conclusão errada.
 
 ## Como funciona
 
@@ -22,12 +24,17 @@ verdadeira, nem que sua semântica tenha sido integralmente comprovada.
    `{"answer": "...", "claims": [{"text": "...", "evidence_quote": "..."}]}`.
 2. `verificacao.py` interpreta o JSON. Rejeita chaves duplicadas, `NaN` e
    campos extras. Depois confere o esquema e procura cada citação na fonte.
-3. Normalização única, aplicada aos dois lados: Unicode NFC (forma de
+3. A resposta (`answer`) também é verificada: precisa ser um trecho contínuo
+   da fonte. Uma síntese ou dedução, mesmo correta, leva a `REVISAO_SEMANTICA`.
+   Esse critério foi incluído após o teste real de 28/10/2026, em que o modelo
+   respondeu "Não" a uma pergunta sobre o inciso XI do artigo 5º da
+   Constituição. Era uma inferência, sustentada por duas citações literais.
+4. Normalização única, aplicada aos dois lados: Unicode NFC (forma de
    composição canônica) e espaços em branco colapsados. Não há casamento
    aproximado: maiúsculas, acentos e pontuação contam. A única tolerância de
    envelope é uma cerca ` ``` ` ou ` ```json ` em volta do JSON inteiro.
-4. O resultado vira sete indicadores, só do tipo `bool` ou `int`.
-5. `politica.py` confere nomes e tipos dos indicadores e os injeta no
+5. O resultado vira oito indicadores, só do tipo `bool` ou `int`.
+6. `politica.py` confere nomes e tipos dos indicadores e os injeta no
    interpretador. Em seguida executa `politica.guru`.
 
 **Falha fechada.** Indicador ausente, extra ou de tipo errado, erro do
@@ -83,6 +90,12 @@ tokens de raciocínio contam neste teto), `GURU_HOST`, `GURU_PORTA`.
 ## Limites conhecidos
 
 - Literal não é verdadeiro: o portão verifica procedência textual, não fatos.
+  Substring não demonstra verdade, implicação jurídica nem correção semântica.
+- Falso positivo aceito no MVP: uma resposta correta montada com frases
+  literais de pontos diferentes da fonte não forma um trecho contínuo e vai
+  para `REVISAO_SEMANTICA`. Na prática, `VALIDADO_LITERAL` é um veredito raro
+  e forte, e `REVISAO_SEMANTICA` é o caso comum ("citações reais, conclusão do
+  modelo").
 - Afirmações curtas podem ser literais e pouco informativas. A revisão humana
   continua necessária, sobretudo em `REVISAO_SEMANTICA`.
 - Reiniciar o servidor apaga as tarefas em memória.
