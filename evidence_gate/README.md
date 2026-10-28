@@ -67,7 +67,7 @@ gcloud compute instances start hubstry-vm-001 --zone us-central1-a
 gcloud compute ssh hubstry-vm-001 --zone us-central1-a --tunnel-through-iap --command '
   test -d gurudev-core || git clone -q https://github.com/Hubstry-DeepTech/gurudev-core
   cd gurudev-core && git fetch -q origin && git checkout -q feat/evidence-gate-mvp && git pull -q
-  bash evidence_gate/iniciar_vm.sh && python3 -m evidence_gate.demo'
+  bash evidence_gate/iniciar_vm.sh --demo'
 
 # 2) No Cloud Shell: túnel (deixe rodando) e depois "Web Preview > porta 8080"
 gcloud compute ssh hubstry-vm-001 --zone us-central1-a --tunnel-through-iap -- -N -L 8080:127.0.0.1:8080
