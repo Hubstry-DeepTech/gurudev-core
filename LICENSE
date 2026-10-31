@@ -2,20 +2,20 @@ Business Source License 1.1
 
 Parameters
 
-Licensor:              Guilherme Goncalves Machado (Hubstry-DeepTech)
+Licensor:             Guilherme Goncalves Machado (Hubstry-DeepTech)
 
 Licensed Work:       GuruDev Core (gurudev-core)
                      The GuruDev programming language, including its lexer,
-                      parser, interpreter, ontological engine, GuruMatrix
-                      architecture, grammar, syntax, and all associated
-                      documentation, examples, and tooling.
+                     parser, interpreter, ontological engine, GuruMatrix
+                     architecture, grammar, syntax, and all associated
+                     documentation, examples, and tooling.
 
 Additional Use Grant: You may use the Licensed Work for academic research,
-                      education, personal projects, and non-commercial
-                      evaluation purposes without a separate commercial
-                      license.
+                     education, personal projects, and non-commercial
+                     evaluation purposes without a separate commercial
+                     license.
 
-Change Date:           2029-05-07
+Change Date:          2029-05-07
 
 Change License:       GNU General Public License v3.0 (GPL-3.0)
 
@@ -39,7 +39,7 @@ License Terms
    limited license to use, reproduce, modify, and prepare Derivative Works of
    the Licensed Work, solely for non-commercial purposes. Commercial use of
    the Licensed Work, including but not limited to selling, licensing, renting,
-   leasing, or offering the Licensed Work as a service (SaAS), is expressly
+   leasing, or offering the Licensed Work as a service (SaaS), is expressly
    prohibited without a separate written agreement with Licensor.
 
    For the avoidance of doubt, "non-commercial purposes" includes:
@@ -83,12 +83,11 @@ License Terms
 
    IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED
-   TO, PROCUREMENT OF SUBSTITUTE GOODS ORH SERVICES, LOSS OF USE, DATA,
-
+   TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
    PROFITS OR BUSINESS INTERRUPTION HOWEVER CAUSED AND ON ANY THEORY OF
    LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR IN
-  TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING OUT OF THE
-   LICENSED WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCHL DAMAGE.
+   TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING OUT OF THE
+   LICENSED WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 6. Termination
 
